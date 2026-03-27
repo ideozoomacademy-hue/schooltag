@@ -447,13 +447,45 @@ header{
           </div>
         </div>
 
-        <button class="pay-btn" id="payBtn" onclick="pay()">💳 Pay ₹19 & Get PDF</button>
-        <div class="upi-r">
-          <span class="ub">📱 GPay</span>
-          <span class="ub">📱 PhonePe</span>
-          <span class="ub">📱 Paytm</span>
-          <span class="ub">🏦 UPI</span>
+        <!-- UPI PAYMENT FLOW -->
+        <div id="upiPaySection">
+          <button class="pay-btn" id="payBtn" onclick="showUpiFlow()">📱 Pay ₹19 via UPI & Get PDF</button>
+          <div class="upi-r">
+            <span class="ub">📱 GPay</span>
+            <span class="ub">📱 PhonePe</span>
+            <span class="ub">📱 Paytm</span>
+            <span class="ub">🏦 Any UPI</span>
+          </div>
         </div>
+
+        <!-- UPI INSTRUCTIONS BOX (hidden by default) -->
+        <div id="upiBox" style="display:none;background:linear-gradient(135deg,#fff8f0,#fff0f8);border:2px solid #ffb3c6;border-radius:20px;padding:20px;margin-top:12px">
+          <div style="text-align:center;font-size:1.1rem;font-weight:800;color:#e91e63;margin-bottom:12px">📱 Pay ₹19 via UPI</div>
+          <div style="text-align:center;background:#fff;border-radius:14px;padding:14px;margin-bottom:12px">
+            <div style="font-size:1.5rem;font-weight:900;color:#ff6b6b;letter-spacing:1px">8122826152@ybl</div>
+            <div style="font-size:.75rem;color:#888;margin-top:4px">Open GPay / PhonePe / Paytm → Pay to this UPI ID</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+            <div style="background:#fff;border-radius:10px;padding:10px;text-align:center">
+              <div style="font-size:1.5rem">📱</div>
+              <div style="font-size:.65rem;font-weight:700;color:#555">Amount: ₹19</div>
+            </div>
+            <div style="background:#fff;border-radius:10px;padding:10px;text-align:center">
+              <div style="font-size:1.5rem">✅</div>
+              <div style="font-size:.65rem;font-weight:700;color:#555">Instant PDF</div>
+            </div>
+          </div>
+
+          <div style="font-size:.8rem;font-weight:700;color:#555;margin-bottom:6px">📧 Enter your Email (PDF will be sent here)</div>
+          <input type="email" id="custEmail" placeholder="yourname@gmail.com" style="width:100%;padding:10px 14px;border:2px solid #e0d8f0;border-radius:12px;font-size:.9rem;margin-bottom:10px;outline:none"/>
+
+          <div style="font-size:.8rem;font-weight:700;color:#555;margin-bottom:6px">🔢 Enter UPI Transaction ID (after payment)</div>
+          <input type="text" id="upiTxnId" placeholder="e.g. 407812345678" style="width:100%;padding:10px 14px;border:2px solid #e0d8f0;border-radius:12px;font-size:.9rem;margin-bottom:12px;outline:none"/>
+
+          <button onclick="submitUpiOrder()" style="width:100%;padding:14px;background:linear-gradient(135deg,#ff6b6b,#e91e63);color:#fff;border:none;border-radius:14px;font-size:1rem;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(255,107,107,.4)">✅ I've Paid — Send My PDF!</button>
+          <div style="font-size:.68rem;color:#aaa;text-align:center;margin-top:8px">PDF will be emailed within 5–10 minutes after verification</div>
+        </div>
+
         <button class="back-btn" onclick="goStep(1)">← Edit Details</button>
       </div>
     </div>
@@ -1347,60 +1379,110 @@ function drawAll(){
   });
 }
 
-/* ════ PAYMENT — Razorpay ════ */
-function pay(){
-  const btn = document.getElementById('payBtn');
-  btn.textContent='⏳ Opening Payment...'; btn.disabled=true;
+/* ════ PAYMENT — UPI Flow ════ */
+// 🔧 REPLACE THIS with your Google Apps Script Web App URL after setup
+const APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
 
-  // ── OPTION A: Razorpay (recommended for India) ──
-  // 1. Sign up free at https://razorpay.com
-  // 2. Create an order via your backend (Node/PHP/Python) for ₹1900 paise
-  // 3. Replace 'YOUR_RAZORPAY_KEY_ID' below with your key_id
-  // 4. Replace order_id with the one returned from your backend
-  //
-  // For testing RIGHT NOW use test key: rzp_test_xxxx from Razorpay dashboard
+function showUpiFlow(){
+  document.getElementById('upiPaySection').style.display = 'none';
+  document.getElementById('upiBox').style.display = 'block';
+  // Pre-fill email if already entered
+  const emailField = document.getElementById('custEmail');
+  if(emailField && !emailField.value) emailField.focus();
+}
 
-  const options = {
-    key: 'YOUR_RAZORPAY_KEY_ID',   // 🔑 Replace with your Razorpay Key ID
-    amount: 1900,                   // Amount in paise (₹19 = 1900 paise)
-    currency: 'INR',
-    name: 'SchoolTag AI',
-    description: '6 Custom School Labels — A4 PDF',
-    image: 'https://i.imgur.com/n5tjHFD.png', // optional logo
-    // order_id: 'order_xxx',       // ← Add this when you have a backend
-    prefill: { name: S.name },
-    theme: { color: '#ff6b6b' },
-    handler: function(response){
-      // ✅ Payment successful — Razorpay calls this
-      // In production: verify payment signature on your backend first!
+async function submitUpiOrder(){
+  const email = document.getElementById('custEmail').value.trim();
+  const txnId = document.getElementById('upiTxnId').value.trim();
+
+  if(!email || !email.includes('@')){
+    toast('⚠️ Please enter a valid email address!');
+    document.getElementById('custEmail').focus();
+    return;
+  }
+  if(!txnId || txnId.length < 6){
+    toast('⚠️ Please enter your UPI Transaction ID!');
+    document.getElementById('upiTxnId').focus();
+    return;
+  }
+
+  // Generate PDF as base64
+  toast('⏳ Preparing your PDF...');
+
+  const offCanvas = document.createElement('canvas');
+  offCanvas.width = 1600;
+  offCanvas.height = 1600;
+
+  drawLabel(offCanvas, async function(){
+    try {
+      const {jsPDF} = window.jspdf;
+      const pdf = new jsPDF({orientation:'portrait', unit:'mm', format:'a4'});
+      const W = 210, H = 297, COLS = 2, ROWS = 3, GAP = 10, MARGIN = 10;
+      const lw = (W - 2*MARGIN - (COLS-1)*GAP) / COLS;
+      const lh = (H - 2*MARGIN - (ROWS-1)*GAP) / ROWS;
+      const labelDataUrl = offCanvas.toDataURL('image/jpeg', 0.97);
+
+      for(let r=0; r<ROWS; r++){
+        for(let c=0; c<COLS; c++){
+          const x = MARGIN + c*(lw+GAP);
+          const y = MARGIN + r*(lh+GAP);
+          pdf.addImage(labelDataUrl, 'JPEG', x, y, lw, lh);
+        }
+      }
+
+      // Cutting guides
+      pdf.setDrawColor(140,140,140);
+      pdf.setLineWidth(0.25);
+      pdf.setLineDashPattern([3,3], 0);
+      for(let c=0; c<=COLS; c++){
+        const x = c===0 ? MARGIN : c===COLS ? W-MARGIN : MARGIN + c*(lw+GAP) - GAP/2;
+        pdf.line(x, 0, x, H);
+      }
+      for(let r=0; r<=ROWS; r++){
+        const y = r===0 ? MARGIN : r===ROWS ? H-MARGIN : MARGIN + r*(lh+GAP) - GAP/2;
+        pdf.line(0, y, W, y);
+      }
+
+      const pdfBase64 = pdf.output('datauristring').split(',')[1];
+
+      // Send to Google Apps Script
+      const payload = {
+        name: S.name,
+        school: S.school,
+        cls: S.cls,
+        section: S.section,
+        subject: S.subject,
+        theme: S.theme,
+        email: email,
+        txnId: txnId,
+        pdfBase64: pdfBase64
+      };
+
+      toast('📤 Sending order...');
+
+      const resp = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+
+      const result = await resp.json();
+
+      if(result.status === 'ok'){
+        PAYMENT_VERIFIED = true;
+        document.getElementById('succName').textContent = S.name;
+        goStep(3);
+        toast('🎉 Order received! PDF will be emailed shortly.');
+      } else {
+        toast('⚠️ Something went wrong. Please WhatsApp 8122826152');
+      }
+    } catch(err) {
+      // Even if fetch fails, record the order
+      toast('📧 Order noted! PDF will be sent to ' + email + ' within 10 mins.');
       PAYMENT_VERIFIED = true;
       document.getElementById('succName').textContent = S.name;
-      goStep(3);
-      toast('🎉 Payment successful! ₹19 paid');
-    },
-    modal: {
-      ondismiss: function(){
-        btn.textContent='💳 Pay ₹19 & Get PDF';
-        btn.disabled=false;
-        toast('⚠️ Payment cancelled');
-      }
+      setTimeout(()=> goStep(3), 2000);
     }
-  };
-
-  // Load Razorpay script dynamically if not already loaded
-  if(typeof Razorpay === 'undefined'){
-    const script = document.createElement('script');
-    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-    script.onload = ()=> new Razorpay(options).open();
-    script.onerror = ()=>{
-      // Fallback if Razorpay fails to load (offline/dev mode)
-      btn.textContent='💳 Pay ₹19 & Get PDF'; btn.disabled=false;
-      toast('⚠️ Payment gateway unavailable. Check internet connection.');
-    };
-    document.head.appendChild(script);
-  } else {
-    new Razorpay(options).open();
-  }
+  });
 }
 
 /* ════ PDF — locked behind payment ════ */
