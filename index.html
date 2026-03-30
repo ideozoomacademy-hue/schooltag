@@ -1847,7 +1847,7 @@ function drawLabelDirect(canvas, data, onDone){
     const saved = {...S};
     Object.assign(S, data);
     renderLabel(ctx, W, H, 1, t, cartoonImgObj, photoImgObj);
-    addWatermark(ctx, W, H);
+    // No watermark on real customer preview
     Object.assign(S, saved);
     if(onDone) onDone();
   }
@@ -1867,7 +1867,12 @@ function buildSampleGrid(){
     cv.width=400; cv.height=400;
     cell.innerHTML=''; cell.appendChild(cv);
     const data = Object.assign({}, DEMO, {theme: themeKey});
-    drawLabelDirect(cv, data, ()=> drawNext(i+1));
+    drawLabelDirect(cv, data, ()=>{
+      // Add SAMPLE watermark on demo grid only
+      const ctx2 = cv.getContext('2d');
+      addWatermark(ctx2, cv.width, cv.height);
+      drawNext(i+1);
+    });
   }
   drawNext(0);
 }
