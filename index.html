@@ -1177,6 +1177,23 @@ function getPhotoImg(src, cb){
   img.src = src;
 }
 
+function drawLabelClean(canvas, onDone){
+  // Same as drawLabel but WITHOUT watermark - for PDF generation
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const t = THEMES[S.theme], sc = 1;
+  let cartoonLoaded = false, photoLoaded = false;
+  let cartoonImgObj = null, photoImgObj = null;
+  function tryRender(){
+    if(!cartoonLoaded || !photoLoaded) return;
+    renderLabel(ctx, W, H, sc, t, cartoonImgObj, photoImgObj);
+    // NO watermark here - clean PDF
+    if(onDone) onDone();
+  }
+  getCartoonImg(S.theme, (img)=>{ cartoonImgObj=img; cartoonLoaded=true; tryRender(); });
+  getPhotoImg(S.photo, (img)=>{ photoImgObj=img; photoLoaded=true; tryRender(); });
+}
+
 function drawLabel(canvas, onDone){
   const ctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height;
@@ -1472,7 +1489,7 @@ async function submitUpiOrder(){
   offCanvas.width = 1600;
   offCanvas.height = 1600;
 
-  drawLabel(offCanvas, async function(){
+  drawLabelClean(offCanvas, async function(){
     try {
       const {jsPDF} = window.jspdf;
       const pdf = new jsPDF({orientation:'portrait', unit:'mm', format:'a4'});
@@ -1558,7 +1575,7 @@ function downloadPDF(){
   offCanvas.width  = 1600;  // 4x scale for crisp print
   offCanvas.height = 1600;
 
-  drawLabel(offCanvas, function(){
+  drawLabelClean(offCanvas, function(){
     const {jsPDF} = window.jspdf;
     const pdf = new jsPDF({orientation:'portrait', unit:'mm', format:'a4'});
 
