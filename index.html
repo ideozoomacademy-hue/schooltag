@@ -1189,6 +1189,7 @@ function drawLabel(canvas, onDone){
   function tryRender(){
     if(!cartoonLoaded || !photoLoaded) return;
     renderLabel(ctx, W, H, sc, t, cartoonImgObj, photoImgObj);
+    addWatermark(ctx, W, H);
     if(onDone) onDone();
   }
 
@@ -1795,13 +1796,26 @@ const SAMPLE_THEMES = ['t2','t3','t4','t5','t6','t8']; // 6 cartoon characters
 // Draw a label using explicit data — no global S mutation
 function addWatermark(ctx, W, H){
   ctx.save();
-  ctx.globalAlpha = 0.18;
-  ctx.fillStyle = '#ff0000';
-  ctx.font = 'bold ' + Math.round(W * 0.13) + 'px Arial';
+  // Main diagonal SAMPLE
+  ctx.globalAlpha = 0.28;
+  ctx.fillStyle = '#cc0000';
+  ctx.font = 'bold ' + Math.round(W * 0.14) + 'px Arial';
   ctx.textAlign = 'center';
   ctx.translate(W/2, H/2);
   ctx.rotate(-Math.PI/6);
   ctx.fillText('SAMPLE', 0, 0);
+  // Second SAMPLE slightly offset
+  ctx.globalAlpha = 0.15;
+  ctx.font = 'bold ' + Math.round(W * 0.1) + 'px Arial';
+  ctx.fillText('SAMPLE', 0, W * 0.35);
+  ctx.restore();
+  // Border watermark text
+  ctx.save();
+  ctx.globalAlpha = 0.25;
+  ctx.fillStyle = '#cc0000';
+  ctx.font = 'bold ' + Math.round(W * 0.055) + 'px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('schooltag.in — PAY ₹19 FOR CLEAN PDF', W/2, H - Math.round(H*0.04));
   ctx.restore();
 }
 
