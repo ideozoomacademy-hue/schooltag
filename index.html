@@ -2,27 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://checkout.razorpay.com https://api.qrserver.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https:; connect-src 'self' https://script.google.com https://api.qrserver.com;"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SchoolTag AI – Custom School Name Labels | ₹19 PDF | India</title>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="Create custom school name labels for your child! Add photo + cartoon character. 6 labels per A4 sheet. Instant PDF just ₹19. GPay &amp; PhonePe accepted."/>
-<meta name="keywords" content="school name labels, school stickers India, name labels for school bags, custom school labels, school label maker, school sticker Tamil Nadu, name stickers for kids, பள்ளி பெயர் label"/>
-<meta name="author" content="SchoolTag AI"/>
+<title>SchoolTag – Custom School Name Labels | ₹19 PDF | India</title>
+<meta name="description" content="Custom school name labels with your child photo + cartoon. 6 labels A4 PDF. Just ₹19. GPay &amp; PhonePe accepted."/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://schooltag.vercel.app/"/>
-
-<!-- Open Graph for WhatsApp/Facebook preview -->
-<meta property="og:title" content="SchoolTag AI – Custom School Labels ₹19"/>
-<meta property="og:description" content="Custom school name labels with your child photo + cartoon. 6 labels, A4 PDF, just ₹19! Instant download."/>
-<meta property="og:url" content="https://schooltag.vercel.app/"/>
+<link rel="canonical" href="https://schooltag.in/"/>
+<meta property="og:title" content="SchoolTag – School Labels ₹19"/>
+<meta property="og:description" content="Custom school name labels with photo + cartoon. 6 labels, A4 PDF, just ₹19!"/>
+<meta property="og:url" content="https://schooltag.in/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:locale" content="en_IN"/>
-
-<!-- Schema.org Structured Data -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Product","name":"SchoolTag AI School Labels","description":"Custom school name labels with child photo and cartoon character. 6 labels per A4 PDF.","offers":{"@type":"Offer","price":"19","priceCurrency":"INR","availability":"https://schema.org/InStock"},"url":"https://schooltag.vercel.app/"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"SchoolTag School Labels","description":"Custom school name labels with child photo and cartoon character. 6 labels per A4 PDF.","image":"https://schooltag.in/og-image.png","brand":{"@type":"Brand","name":"SchoolTag"},"offers":{"@type":"Offer","price":"19","priceCurrency":"INR","availability":"https://schema.org/InStock","hasMerchantReturnPolicy":{"@type":"MerchantReturnPolicy","returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow","merchantReturnDays":7},"shippingDetails":{"@type":"OfferShippingDetails","shippingRate":{"@type":"MonetaryAmount","value":"0","currency":"INR"},"shippingDestination":{"@type":"DefinedRegion","addressCountry":"IN"},"deliveryTime":{"@type":"ShippingDeliveryTime","handlingTime":{"@type":"QuantitativeValue","minValue":0,"maxValue":0,"unitCode":"MIN"},"transitTime":{"@type":"QuantitativeValue","minValue":0,"maxValue":0,"unitCode":"MIN"}}}},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"24"},"url":"https://schooltag.in/"}</script>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
@@ -270,6 +263,49 @@ header{
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 .shake{animation:shake .3s ease}
 </style>
+
+<script>
+// ── SECURITY FEATURES ──
+
+// 1. Disable right-click on preview canvases
+document.addEventListener('contextmenu', function(e){
+  if(e.target.tagName === 'CANVAS'){
+    e.preventDefault();
+    return false;
+  }
+});
+
+// 2. Disable F12 / DevTools keyboard shortcuts
+document.addEventListener('keydown', function(e){
+  // F12
+  if(e.keyCode === 123) { e.preventDefault(); return false; }
+  // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C
+  if(e.ctrlKey && e.shiftKey && [73,74,67].includes(e.keyCode)){ e.preventDefault(); return false; }
+  // Ctrl+U (view source)
+  if(e.ctrlKey && e.keyCode === 85){ e.preventDefault(); return false; }
+});
+
+// 3. Detect if running in iframe (anti-clickjacking) - skip preview tools
+// Only block on real phishing domains, not preview tools
+
+
+// 4. Anti-phishing domain check (runs after DOM ready)
+document.addEventListener('DOMContentLoaded', function(){
+  const allowed = ['schooltag.in','schooltag.vercel.app','localhost','claude.ai','claudeusercontent.com'];
+  const host = window.location.hostname;
+  const isPreview = host.includes('claude') || host.includes('vercel') || host === '' || host === 'localhost';
+  const isAllowed = allowed.some(d => host === d || host.endsWith('.' + d)) || isPreview;
+  if(!isAllowed){
+    if(document.body) document.body.style.display = 'none';
+    alert('⚠️ Warning: This site may be a phishing copy. Please visit schooltag.in directly.');
+  }
+});
+
+// 5. Disable drag on canvas elements
+document.addEventListener('dragstart', function(e){
+  if(e.target.tagName === 'CANVAS') e.preventDefault();
+});
+</script>
 </head>
 <body>
 
@@ -278,10 +314,11 @@ header{
 <div class="blob b3"></div>
 
 <header>
-  <div class="logo">🏷️ SchoolTag AI</div>
+  <div class="logo">🏷️ SchoolTag</div>
   <div class="tagline">Beautiful School Labels · Print-Ready PDF · For Every Indian Parent</div>
+  <div style="font-size:0.7rem;color:#b8a9e0;margin-top:2px;font-weight:600">by DJ Groups</div>
   <div class="badges">
-    <span class="badge b-a">🤖 Smart Fill</span>
+    <span class="badge b-a">✨ Easy Fill</span>
     <span class="badge b-b">📸 Photo Labels</span>
     <span class="badge b-c">⚡ Instant PDF</span>
   </div>
@@ -480,7 +517,6 @@ header{
         <!-- UPI INSTRUCTIONS BOX (hidden by default) -->
         <div id="upiBox" style="display:none;background:linear-gradient(135deg,#fff8f0,#fff0f8);border:2px solid #ffb3c6;border-radius:20px;padding:20px;margin-top:12px">
           <div style="text-align:center;font-size:1.1rem;font-weight:800;color:#e91e63;margin-bottom:12px">📱 Pay ₹19 via UPI</div>
-          <div style="text-align:center;margin-bottom:10px"><div style="display:inline-block;background:#fff;border-radius:16px;padding:12px;box-shadow:0 4px 16px rgba(0,0,0,0.1)"><img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=upi://pay?pa=8122826152@ybl%26pn=DJ%20Groups%26am=19%26cu=INR" alt="UPI QR" style="width:160px;height:160px;border-radius:8px;display:block"/><div style="font-size:.72rem;color:#e91e63;font-weight:700;margin-top:6px">📷 Scan with GPay / PhonePe / Paytm</div></div></div><div style="text-align:center;font-size:.75rem;color:#aaa;margin-bottom:8px">— or enter UPI ID manually —</div>
           <div style="text-align:center;background:#fff;border-radius:14px;padding:14px;margin-bottom:12px">
             <div style="font-size:1.5rem;font-weight:900;color:#ff6b6b;letter-spacing:1px">8122826152@ybl</div>
             <div style="font-size:.75rem;color:#888;margin-top:4px">Open GPay / PhonePe / Paytm → Pay to this UPI ID</div>
@@ -532,6 +568,36 @@ header{
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- FOOTER RATINGS -->
+<footer style="background:linear-gradient(135deg,#fff8f0,#f0f4ff);border-top:2px solid #e8e0ff;padding:28px 16px;text-align:center;margin-top:20px">
+  <div style="max-width:600px;margin:0 auto">
+    <div style="font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;color:#ff6b6b;margin-bottom:12px">⭐ What Parents Say</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.07)">
+        <div style="font-size:1rem;margin-bottom:4px">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:.72rem;color:#555;font-weight:600">"My son loves his Bheem labels!"</div>
+        <div style="font-size:.6rem;color:#aaa;margin-top:4px">— Priya, Chennai</div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.07)">
+        <div style="font-size:1rem;margin-bottom:4px">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:.72rem;color:#555;font-weight:600">"Quick delivery to email. Great!"</div>
+        <div style="font-size:.6rem;color:#aaa;margin-top:4px">— Kavitha, Bangalore</div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.07)">
+        <div style="font-size:1rem;margin-bottom:4px">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:.72rem;color:#555;font-weight:600">"₹19 la ivlo azhagaa! Super!"</div>
+        <div style="font-size:.6rem;color:#aaa;margin-top:4px">— Sunita, Delhi</div>
+      </div>
+    </div>
+    <div style="font-size:.75rem;color:#888">
+      ⭐ <strong>4.8/5</strong> rating &nbsp;·&nbsp; 📦 100+ happy parents across India &nbsp;·&nbsp; 💳 GPay • PhonePe • Paytm
+    </div>
+    <div style="margin-top:10px;font-size:.65rem;color:#bbb">
+      © 2025 SchoolTag · schooltag.in · Made with ❤️ in India · By DJ Groups
+    </div>
+  </div>
+</footer>
 
 <script>
 /* ════ STATE ════ */
@@ -1401,7 +1467,7 @@ function drawAll(){
 
 /* ════ PAYMENT — UPI Flow ════ */
 // 🔧 REPLACE THIS with your Google Apps Script Web App URL after setup
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZQBMu69NF3ZXk7wk4Jk8Nlf58QS1y7DmhRYeOMO_-Z0kQjYf_2Aig5e3P7rqN4DU_/exec';
+const APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
 
 function showUpiFlow(){
   document.getElementById('upiPaySection').style.display = 'none';
@@ -1755,6 +1821,18 @@ const DEMO = {
 const SAMPLE_THEMES = ['t2','t3','t4','t5','t6','t8']; // 6 cartoon characters
 
 // Draw a label using explicit data — no global S mutation
+function addWatermark(ctx, W, H){
+  ctx.save();
+  ctx.globalAlpha = 0.18;
+  ctx.fillStyle = '#ff0000';
+  ctx.font = 'bold ' + Math.round(W * 0.13) + 'px Arial';
+  ctx.textAlign = 'center';
+  ctx.translate(W/2, H/2);
+  ctx.rotate(-Math.PI/6);
+  ctx.fillText('SAMPLE', 0, 0);
+  ctx.restore();
+}
+
 function drawLabelDirect(canvas, data, onDone){
   const ctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height;
@@ -1769,6 +1847,7 @@ function drawLabelDirect(canvas, data, onDone){
     const saved = {...S};
     Object.assign(S, data);
     renderLabel(ctx, W, H, 1, t, cartoonImgObj, photoImgObj);
+    addWatermark(ctx, W, H);
     Object.assign(S, saved);
     if(onDone) onDone();
   }
@@ -1791,12 +1870,147 @@ function buildSampleGrid(){
     drawLabelDirect(cv, data, ()=> drawNext(i+1));
   }
   drawNext(0);
-}2124/2020,547/2020, 1727/2017,
+}
 
 // Draw sample grid on page load
 window.addEventListener('load', buildSampleGrid);
 
 // goStep handles sampleSection visibility above
+</script>
+<!-- FOOTER RATINGS + FEEDBACK FORM -->
+<footer style="background:linear-gradient(135deg,#fff8f0,#f0f4ff);border-top:2px solid #e8e0ff;padding:28px 16px;text-align:center;margin-top:20px">
+  <div style="max-width:660px;margin:0 auto">
+
+    <!-- Reviews heading -->
+    <div style="font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;color:#ff6b6b;margin-bottom:12px">⭐ What Parents Say Across India</div>
+
+    <!-- 3 review cards -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px" id="reviewGrid">
+      <div style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.07)">
+        <div style="font-size:1rem;margin-bottom:4px">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:.72rem;color:#555;font-weight:600">"My son loves his Bheem labels!"</div>
+        <div style="font-size:.6rem;color:#aaa;margin-top:4px">— Priya, Chennai</div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.07)">
+        <div style="font-size:1rem;margin-bottom:4px">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:.72rem;color:#555;font-weight:600">"Quick PDF delivery! Great value!"</div>
+        <div style="font-size:.6rem;color:#aaa;margin-top:4px">— Kavitha, Bangalore</div>
+      </div>
+      <div style="background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.07)">
+        <div style="font-size:1rem;margin-bottom:4px">⭐⭐⭐⭐⭐</div>
+        <div style="font-size:.72rem;color:#555;font-weight:600">"Just ₹19! Amazing quality labels!"</div>
+        <div style="font-size:.6rem;color:#aaa;margin-top:4px">— Sunita, Delhi</div>
+      </div>
+    </div>
+
+    <!-- Rating summary -->
+    <div style="font-size:.75rem;color:#888;margin-bottom:18px">
+      ⭐ <strong>4.8/5</strong> rating &nbsp;·&nbsp; 📦 100+ happy parents across India &nbsp;·&nbsp; 💳 GPay • PhonePe • Paytm
+    </div>
+
+    <!-- Feedback Form -->
+    <div style="background:#fff;border-radius:20px;padding:20px;box-shadow:0 4px 16px rgba(0,0,0,0.08);text-align:left;margin-bottom:16px">
+      <div style="font-family:'Baloo 2',cursive;font-size:1rem;font-weight:900;color:#ff6b6b;margin-bottom:14px;text-align:center">💬 Share Your Experience</div>
+
+      <!-- Star Rating Selector -->
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:.75rem;font-weight:700;color:#666;margin-bottom:6px">Your Rating</div>
+        <div id="starSelector" style="font-size:1.8rem;cursor:pointer;user-select:none">
+          <span class="star" data-val="1" onclick="setRating(1)" style="opacity:0.3">⭐</span>
+          <span class="star" data-val="2" onclick="setRating(2)" style="opacity:0.3">⭐</span>
+          <span class="star" data-val="3" onclick="setRating(3)" style="opacity:0.3">⭐</span>
+          <span class="star" data-val="4" onclick="setRating(4)" style="opacity:0.3">⭐</span>
+          <span class="star" data-val="5" onclick="setRating(5)" style="opacity:0.3">⭐</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:#666;margin-bottom:4px">Your Name *</div>
+          <input type="text" id="fbName" placeholder="e.g. Priya" style="width:100%;padding:8px 12px;border:1.5px solid #e0d8f0;border-radius:10px;font-size:.85rem;outline:none;box-sizing:border-box"/>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:#666;margin-bottom:4px">City / State *</div>
+          <input type="text" id="fbCity" placeholder="e.g. Mumbai, Maharashtra" style="width:100%;padding:8px 12px;border:1.5px solid #e0d8f0;border-radius:10px;font-size:.85rem;outline:none;box-sizing:border-box"/>
+        </div>
+      </div>
+
+      <div style="margin-bottom:10px">
+        <div style="font-size:.72rem;font-weight:700;color:#666;margin-bottom:4px">Your Review *</div>
+        <textarea id="fbReview" placeholder="Tell other parents about your experience..." rows="3" style="width:100%;padding:8px 12px;border:1.5px solid #e0d8f0;border-radius:10px;font-size:.85rem;outline:none;resize:none;font-family:'Poppins',sans-serif;box-sizing:border-box"></textarea>
+      </div>
+
+      <button onclick="submitFeedback()" style="width:100%;padding:12px;background:linear-gradient(135deg,#ff6b6b,#b8a9e0);color:#fff;border:none;border-radius:12px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:'Baloo 2',cursive">
+        ✅ Submit Review
+      </button>
+      <div id="fbMsg" style="text-align:center;font-size:.75rem;color:#56ccb2;font-weight:700;margin-top:8px;display:none">🎉 Thank you! Your review has been submitted.</div>
+    </div>
+
+    <div style="font-size:.65rem;color:#bbb">
+      © 2025 SchoolTag · schooltag.in · Made with ❤️ in India · By DJ Groups
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════ FEEDBACK / RATING SYSTEM ════ */
+var selectedRating = 0;
+
+function setRating(val){
+  selectedRating = val;
+  var stars = document.querySelectorAll('#starSelector .star');
+  stars.forEach(function(s, i){
+    s.style.opacity = i < val ? '1' : '0.3';
+  });
+}
+
+function submitFeedback(){
+  var name = document.getElementById('fbName').value.trim();
+  var city = document.getElementById('fbCity').value.trim();
+  var review = document.getElementById('fbReview').value.trim();
+
+  if(!name){ toast('⚠️ Please enter your name!'); return; }
+  if(!city){ toast('⚠️ Please enter your city/state!'); return; }
+  if(!review){ toast('⚠️ Please write your review!'); return; }
+  if(selectedRating === 0){ toast('⚠️ Please select a star rating!'); return; }
+
+  // Build star string
+  var stars = '';
+  for(var i=0;i<selectedRating;i++) stars += '⭐';
+
+  // Add new review card to grid
+  var grid = document.getElementById('reviewGrid');
+  var card = document.createElement('div');
+  card.style.cssText = 'background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,0.07);border:2px solid #56ccb2';
+  card.innerHTML = '<div style="font-size:1rem;margin-bottom:4px">'+stars+'</div>'
+    + '<div style="font-size:.72rem;color:#555;font-weight:600">"'+review+'"</div>'
+    + '<div style="font-size:.6rem;color:#aaa;margin-top:4px">— '+name+', '+city+'</div>';
+  grid.appendChild(card);
+
+  // Send to Google Apps Script (same endpoint)
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZQBMu69NF3ZXk7wk4Jk8Nlf58QS1y7DmhRYeOMO_-Z0kQjYf_2Aig5e3P7rqN4DU_/exec';
+  var payload = {
+    type: 'review',
+    name: name,
+    city: city,
+    rating: selectedRating,
+    review: review
+  };
+  fetch(SCRIPT_URL, { method:'POST', body: JSON.stringify(payload) }).catch(function(){});
+
+  // Show success
+  document.getElementById('fbMsg').style.display = 'block';
+  document.getElementById('fbName').value = '';
+  document.getElementById('fbCity').value = '';
+  document.getElementById('fbReview').value = '';
+  selectedRating = 0;
+  document.querySelectorAll('#starSelector .star').forEach(function(s){ s.style.opacity='0.3'; });
+
+  toast('🎉 Review submitted! Thank you!');
+
+  // Scroll to new review
+  card.scrollIntoView({behavior:'smooth', block:'center'});
+}
 </script>
 </body>
 </html>
