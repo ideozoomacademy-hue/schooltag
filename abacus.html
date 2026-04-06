@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Virtual Abacus – SchoolTag</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════
+   ROOT & RESET
+════════════════════════════════════════ */
+:root {
+  --wood-dark:   #4A2C0A;
+  --wood-mid:    #6B3F12;
+  --wood-light:  #8B5520;
+  --wood-grain:  #7A4718;
+  --gold:        #D4A017;
+  --gold-light:  #F0C040;
+  --gold-dark:   #A07010;
+  --bead-ivory:  #F5E6C8;
+  --bead-top:    #E8C84A;   /* heaven bead – gold */
+  --bead-bot:    #F0D080;   /* earth bead – lighter gold */
+  --bead-active-top: #FF6B35;
+  --bead-active-bot: #FF8C42;
+  --bar-color:   #C8960A;
+  --bg:          #FFF8F0;
+  --text:        #1E1B18;
+  --muted:       #6B7280;
+  --green:       #10B981;
+  --red:         #EF4444;
+  --primary:     #FF6B35;
+  --shadow:      0 4px 20px rgba(0,0,0,.15);
+  --radius:      18px;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body {
+  font-family:'Nunito',sans-serif;
+  background: radial-gradient(ellipse at top, #FFF5E6, #FFE8C8);
+  min-height:100vh;
+  overflow-x:hidden;
+  user-select:none;
+}
+
+/* ════════════════════════════════════════
+   HEADER
+════════════════════════════════════════ */
+header {
+  background: linear-gradient(135deg, #4A2C0A, #6B3F12);
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 4px 16px rgba(74,44,10,.5);
+}
+.logo-link { text-decoration:none; display:flex; align-items:center; gap:8px; }
+.logo-text { font-family:'Baloo 2',cursive; font-size:1.4rem; color:#F0C040; font-weight:800; }
+.logo-text span { color:#fff; }
+.header-badge {
+  margin-left:auto;
+  background: rgba(240,192,64,.2);
+  color: #F0C040;
+  font-weight:800; font-size:.78rem;
+  padding:5px 12px; border-radius:50px;
+  border:2px solid rgba(240,192,64,.4);
+}
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+.hero { text-align:center; padding:22px 16px 10px; }
+.hero h1 { font-family:'Baloo 2',cursive; font-size:clamp(1.5rem,5vw,2.2rem); color:var(--text); }
+.hero h1 span { color:var(--primary); }
+.hero p { color:var(--muted); font-size:.9rem; margin-top:5px; font-weight:600; }
+
+/* ════════════════════════════════════════
+   DISPLAY PANEL
+════════════════════════════════════════ */
+.display-panel {
+  max-width: 560px; margin: 0 auto 12px;
+  padding: 0 14px;
+}
+.display-card {
+  background: #1A0F04;
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.05);
+  border: 2px solid #5A3510;
+}
+.total-label {
+  font-family:'Baloo 2',cursive;
+  font-size:.85rem; font-weight:800;
+  color: #D4A017;
+  text-transform: uppercase; letter-spacing:1px;
+  white-space: nowrap;
+}
+.total-tamil { font-size:.75rem; color:#A07010; display:block; }
+.total-value {
+  font-family:'Baloo 2',cursive;
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight:900;
+  color: #F0C040;
+  text-shadow: 0 0 20px rgba(240,192,64,.5);
+  letter-spacing:2px;
+  min-width: 100px;
+  text-align:right;
+  transition: color .2s;
+}
+.total-value.changed { color: #FF6B35; animation: numPop .3s ease; }
+@keyframes numPop { 0%{transform:scale(1)} 50%{transform:scale(1.12)} 100%{transform:scale(1)} }
+
+/* ════════════════════════════════════════
+   CONTROLS ROW
+════════════════════════════════════════ */
+.controls {
+  max-width:560px; margin:0 auto 14px;
+  padding:0 14px;
+  display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+}
+.ctrl-btn {
+  font-family:'Baloo 2',cursive;
+  font-size:.88rem; font-weight:800;
+  padding:9px 18px;
+  border:none; border-radius:50px;
+  cursor:pointer;
+  transition: transform .15s, box-shadow .15s;
+  display:flex; align-items:center; gap:6px;
+}
+.ctrl-btn:hover { transform:translateY(-2px); }
+.btn-reset   { background:linear-gradient(135deg,#6B3F12,#4A2C0A); color:#F0C040; box-shadow:0 4px 12px rgba(74,44,10,.4); }
+.btn-challenge { background:linear-gradient(135deg,#FF6B35,#FF8C42); color:#fff; box-shadow:0 4px 12px rgba(255,107,53,.4); }
+.btn-guide   { background:linear-gradient(135deg,#10B981,#059669); color:#fff; box-shadow:0 4px 12px rgba(16,185,129,.4); }
+
+/* ════════════════════════════════════════
+   CHALLENGE BOX
+════════════════════════════════════════ */
+.challenge-box {
+  max-width:560px; margin:0 auto 14px; padding:0 14px;
+  display:none;
+}
+.challenge-inner {
+  background: linear-gradient(135deg,#FFF5E6,#FFF0D8);
+  border-radius:16px; padding:16px 18px;
+  border:3px solid #F0C040;
+  box-shadow:0 4px 16px rgba(212,160,23,.25);
+  position:relative;
+}
+.ch-label { font-size:.75rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.ch-problem {
+  font-family:'Baloo 2',cursive;
+  font-size:clamp(1.8rem,6vw,2.8rem);
+  font-weight:900; color:var(--wood-dark);
+  margin-bottom:8px;
+}
+.ch-hint { font-size:.85rem; font-weight:700; color:var(--muted); margin-bottom:12px; }
+.ch-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.ch-check-btn {
+  font-family:'Baloo 2',cursive; font-size:.9rem; font-weight:800;
+  padding:9px 20px; border:none; border-radius:50px;
+  background:linear-gradient(135deg,#10B981,#059669); color:#fff;
+  cursor:pointer; box-shadow:0 3px 10px rgba(16,185,129,.4);
+  transition:transform .15s;
+}
+.ch-check-btn:hover { transform:translateY(-1px); }
+.ch-skip-btn {
+  font-family:'Baloo 2',cursive; font-size:.9rem; font-weight:800;
+  padding:9px 20px; border:none; border-radius:50px;
+  background:#F3F4F6; color:var(--muted);
+  cursor:pointer; transition:transform .15s;
+}
+.ch-result {
+  margin-top:10px; padding:10px 14px; border-radius:12px;
+  font-weight:800; font-size:.95rem;
+  display:none; align-items:center; gap:8px;
+}
+.ch-result.show { display:flex; animation:slideUp .3s ease; }
+.ch-result.ok  { background:#F0FDF4; color:#166534; border:2px solid #BBF7D0; }
+.ch-result.err { background:#FEF2F2; color:#991B1B; border:2px solid #FECACA; }
+.ch-score { margin-left:auto; font-family:'Baloo 2',cursive; font-size:.85rem; color:var(--primary); font-weight:800; }
+@keyframes slideUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+/* ════════════════════════════════════════
+   ABACUS FRAME
+════════════════════════════════════════ */
+.abacus-wrap {
+  max-width:600px; margin:0 auto;
+  padding:0 10px 24px;
+  display:flex; flex-direction:column; align-items:center;
+}
+.abacus-frame {
+  width:100%;
+  background: linear-gradient(180deg, #7A4718 0%, #6B3F12 40%, #5A3010 100%);
+  border-radius:16px;
+  padding:12px 10px;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.5),
+    inset 0 2px 4px rgba(255,255,255,.1),
+    inset 0 -2px 4px rgba(0,0,0,.3);
+  border:3px solid #3A1C06;
+  position:relative;
+}
+
+/* Top & bottom rails */
+.rail-top, .rail-bottom {
+  height: 12px;
+  background: linear-gradient(180deg, #5A3010, #8B5520);
+  border-radius:6px;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.4);
+}
+.rail-top { margin-bottom:8px; }
+.rail-bottom { margin-top:8px; }
+
+/* Rods area */
+.rods-area {
+  display:flex;
+  gap:0;
+  justify-content:space-evenly;
+  align-items:stretch;
+  position:relative;
+}
+
+/* Dividing bar */
+.divider-bar {
+  position:absolute;
+  left:0; right:0;
+  height:12px;
+  background: linear-gradient(180deg, #A07010, #D4A017, #A07010);
+  border-top:2px solid #F0C040;
+  border-bottom:2px solid #8B6000;
+  box-shadow: 0 2px 8px rgba(0,0,0,.4), 0 -1px 3px rgba(255,200,0,.3);
+  z-index:5;
+  pointer-events:none;
+  border-radius:2px;
+}
+
+/* Single column (rod) */
+.rod-col {
+  display:flex; flex-direction:column;
+  align-items:center;
+  flex:1;
+  position:relative;
+  min-width:0;
+}
+
+/* The rod line */
+.rod-line {
+  position:absolute;
+  top:0; bottom:0;
+  left:50%; transform:translateX(-50%);
+  width:5px;
+  background: linear-gradient(90deg, #8B6000, #D4A017, #C8960A, #8B6000);
+  border-radius:3px;
+  z-index:1;
+  box-shadow: 1px 0 3px rgba(0,0,0,.3);
+}
+
+/* Heaven (upper) section */
+.heaven-section {
+  width:100%;
+  display:flex; flex-direction:column; align-items:center;
+  padding:4px 2px 8px;
+  gap:3px;
+}
+
+/* Earth (lower) section */
+.earth-section {
+  width:100%;
+  display:flex; flex-direction:column; align-items:center;
+  padding:8px 2px 4px;
+  gap:3px;
+}
+
+/* ════════════════════════════════════════
+   BEADS
+════════════════════════════════════════ */
+.bead {
+  width: clamp(20px, calc(100% - 4px), 38px);
+  height: clamp(14px, 3.2vw, 22px);
+  border-radius: 50%;
+  cursor: pointer;
+  position:relative;
+  z-index:3;
+  transition: transform .18s cubic-bezier(.34,1.56,.64,1), filter .18s;
+  flex-shrink:0;
+}
+
+/* Heaven bead (1 per rod) */
+.bead-heaven {
+  background: radial-gradient(circle at 35% 35%,
+    #FFE066, #D4A017 55%, #8B6000 100%);
+  box-shadow:
+    0 3px 8px rgba(0,0,0,.45),
+    inset 0 1px 2px rgba(255,255,255,.5),
+    inset 0 -1px 2px rgba(0,0,0,.3);
+  border:1px solid #A07010;
+}
+.bead-heaven.active {
+  background: radial-gradient(circle at 35% 35%,
+    #FF9A5C, #FF6B35 55%, #C94A1E 100%);
+  box-shadow:
+    0 3px 12px rgba(255,107,53,.6),
+    inset 0 1px 2px rgba(255,255,255,.4),
+    0 0 10px rgba(255,107,53,.4);
+  border-color:#FF6B35;
+}
+
+/* Earth beads (4 per rod) */
+.bead-earth {
+  background: radial-gradient(circle at 35% 35%,
+    #FFF0A0, #F0C040 50%, #A07010 100%);
+  box-shadow:
+    0 3px 8px rgba(0,0,0,.4),
+    inset 0 1px 2px rgba(255,255,255,.55),
+    inset 0 -1px 2px rgba(0,0,0,.25);
+  border:1px solid #C8960A;
+}
+.bead-earth.active {
+  background: radial-gradient(circle at 35% 35%,
+    #FFD4A0, #FF8C42 50%, #C94A1E 100%);
+  box-shadow:
+    0 3px 12px rgba(255,107,53,.5),
+    inset 0 1px 2px rgba(255,255,255,.4),
+    0 0 8px rgba(255,140,66,.4);
+  border-color:#FF8C42;
+}
+
+.bead:hover { filter:brightness(1.15); }
+.bead:active { transform:scale(.92); }
+
+/* ════════════════════════════════════════
+   COLUMN VALUE LABELS
+════════════════════════════════════════ */
+.col-labels {
+  width:100%;
+  display:flex;
+  justify-content:space-evenly;
+  padding:6px 10px 0;
+  gap:0;
+}
+.col-label {
+  flex:1;
+  text-align:center;
+  font-family:'Baloo 2',cursive;
+  font-size:clamp(.5rem,.8vw + .3rem,.72rem);
+  font-weight:800;
+  color:#D4A017;
+  opacity:.8;
+  min-width:0;
+}
+
+/* ════════════════════════════════════════
+   GUIDE PANEL
+════════════════════════════════════════ */
+.guide-panel {
+  max-width:560px; margin:0 auto 16px; padding:0 14px;
+  display:none;
+}
+.guide-inner {
+  background:var(--bg);
+  border-radius:16px; padding:18px;
+  border:3px solid #D4A017;
+  box-shadow:0 4px 16px rgba(212,160,23,.2);
+}
+.guide-inner h3 { font-family:'Baloo 2',cursive; font-size:1.1rem; color:var(--wood-dark); margin-bottom:12px; }
+.guide-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+.guide-icon { font-size:1.3rem; flex-shrink:0; margin-top:1px; }
+.guide-text { font-size:.85rem; font-weight:700; color:var(--muted); line-height:1.5; }
+.guide-text strong { color:var(--wood-dark); }
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+.footer-cta {
+  text-align:center; padding:22px 20px 36px;
+  background:linear-gradient(135deg,#FFF5E6,#FFF0D8);
+  border-top:2px dashed #D4A017;
+}
+.footer-cta p { color:var(--muted); font-weight:700; margin-bottom:10px; font-size:.9rem; }
+.cta-btn {
+  font-family:'Baloo 2',cursive; font-size:1rem; font-weight:800;
+  padding:11px 26px; border:none; border-radius:50px;
+  background:var(--primary); color:#fff;
+  cursor:pointer; text-decoration:none; display:inline-block;
+  box-shadow:0 4px 14px rgba(255,107,53,.35); transition:transform .15s;
+}
+.cta-btn:hover { transform:translateY(-2px); }
+
+/* ════════════════════════════════════════
+   CONFETTI
+════════════════════════════════════════ */
+.conf-wrap { position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden; }
+.conf-p { position:absolute;animation:confFall 1.8s ease-in forwards; }
+@keyframes confFall { 0%{transform:translateY(-20px) rotate(0);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="index.html" class="logo-link">
+    <span style="font-size:1.8rem">🏷️</span>
+    <span class="logo-text">School<span>Tag</span></span>
+  </a>
+  <div class="header-badge">🧮 Abacus</div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>🧮 Virtual <span>Abacus</span></h1>
+  <p>Japanese Soroban · 13 Columns · Touch & Click</p>
+</div>
+
+<!-- Display Panel -->
+<div class="display-panel">
+  <div class="display-card">
+    <div>
+      <div class="total-label">மொத்தம் / Total</div>
+      <div class="total-tamil">Value shown on abacus</div>
+    </div>
+    <div class="total-value" id="total-display">0</div>
+  </div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+  <button class="ctrl-btn btn-reset"     onclick="resetAbacus()">↺ Reset</button>
+  <button class="ctrl-btn btn-challenge" onclick="toggleChallenge()">🎯 Challenge Mode</button>
+  <button class="ctrl-btn btn-guide"     onclick="toggleGuide()">📖 How to Use</button>
+</div>
+
+<!-- Challenge Box -->
+<div class="challenge-box" id="challenge-box">
+  <div class="challenge-inner">
+    <div class="ch-label">🎯 Challenge Mode</div>
+    <div class="ch-problem" id="ch-problem">5 + 2 = ?</div>
+    <div class="ch-hint" id="ch-hint">Show the answer on the abacus, then check!</div>
+    <div class="ch-actions">
+      <button class="ch-check-btn" onclick="checkAnswer()">✅ Check Answer</button>
+      <button class="ch-skip-btn"  onclick="nextChallenge()">⏭ Next</button>
+      <span class="ch-score" id="ch-score">⭐ 0/0</span>
+    </div>
+    <div class="ch-result" id="ch-result"></div>
+  </div>
+</div>
+
+<!-- Abacus -->
+<div class="abacus-wrap">
+  <div class="abacus-frame">
+    <div class="rail-top"></div>
+    <div class="rods-area" id="rods-area">
+      <!-- Divider bar injected by JS -->
+    </div>
+    <div class="rail-bottom"></div>
+  </div>
+  <!-- Column labels below frame -->
+  <div class="col-labels" id="col-labels"></div>
+</div>
+
+<!-- Guide Panel -->
+<div class="guide-panel" id="guide-panel">
+  <div class="guide-inner">
+    <h3>📖 How to Use the Soroban</h3>
+    <div class="guide-row">
+      <div class="guide-icon">🟡</div>
+      <div class="guide-text"><strong>Heaven Bead (Top):</strong> Worth <strong>5</strong>. Click to move DOWN toward the bar to activate it.</div>
+    </div>
+    <div class="guide-row">
+      <div class="guide-icon">🟤</div>
+      <div class="guide-text"><strong>Earth Beads (Bottom 4):</strong> Each worth <strong>1</strong>. Click to move UP toward the bar. The 1st bead nearest the bar = 1, 2nd = 2, etc.</div>
+    </div>
+    <div class="guide-row">
+      <div class="guide-icon">📐</div>
+      <div class="guide-text"><strong>Column Values:</strong> Right column = <strong>ones</strong>, next = <strong>tens</strong>, then <strong>hundreds</strong> and so on (up to trillions!).</div>
+    </div>
+    <div class="guide-row">
+      <div class="guide-icon">💡</div>
+      <div class="guide-text"><strong>Example — Show 7:</strong> Move the heaven bead DOWN (=5) + move 2 earth beads UP (=2) → total 7.</div>
+    </div>
+    <div class="guide-row">
+      <div class="guide-icon">🔄</div>
+      <div class="guide-text"><strong>Smart Click:</strong> Clicking the 3rd earth bead automatically moves beads 1, 2, and 3 all at once!</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer-cta">
+  <p>🏷️ Want custom school labels for your child?</p>
+  <a href="index.html" class="cta-btn">Get School Labels – ₹19</a>
+</div>
+
+<!-- Confetti -->
+<div class="conf-wrap" id="conf-wrap"></div>
+
+<script>
+// ════════════════════════════════════════════════════
+//  ABACUS ENGINE
+// ════════════════════════════════════════════════════
+
+const COLS = 13;
+// Column place values: col 0 = rightmost = ones
+const PLACE_VALUES = [1, 10, 100, 1_000, 10_000, 100_000,
+  1_000_000, 10_000_000, 100_000_000, 1_000_000_000,
+  10_000_000_000, 100_000_000_000, 1_000_000_000_000];
+const COL_LABELS_STR = ['①','②','③','万','十万','百万','千万','億','十億','百億','千億','兆','十兆'];
+const COL_LABELS_ENG = ['1','10','100','1K','10K','100K','1M','10M','100M','1B','10B','100B','1T'];
+
+// State: for each column, heavenActive (bool), earthActive (0-4)
+let state = [];
+function initState() {
+  state = Array.from({length:COLS}, () => ({ heavenActive:false, earthActive:0 }));
+}
+
+// ── BUILD DOM ──
+function buildAbacus() {
+  const rodsArea = document.getElementById('rods-area');
+  rodsArea.innerHTML = '';
+
+  // Calculate divider position based on bead sizes
+  // We'll set it via JS after rendering
+  const divBar = document.createElement('div');
+  divBar.className = 'divider-bar';
+  divBar.id = 'divider-bar';
+  rodsArea.appendChild(divBar);
+
+  for (let c = COLS - 1; c >= 0; c--) {
+    // c=COLS-1 is leftmost (highest), c=0 is rightmost (ones)
+    const col = document.createElement('div');
+    col.className = 'rod-col';
+    col.id = `col-${c}`;
+
+    // Rod line
+    const rod = document.createElement('div');
+    rod.className = 'rod-line';
+    col.appendChild(rod);
+
+    // Heaven section (1 bead)
+    const heavenSec = document.createElement('div');
+    heavenSec.className = 'heaven-section';
+    heavenSec.id = `heaven-sec-${c}`;
+
+    const hBead = document.createElement('div');
+    hBead.className = 'bead bead-heaven';
+    hBead.id = `h-${c}`;
+    hBead.setAttribute('data-col', c);
+    hBead.setAttribute('data-type', 'heaven');
+    hBead.addEventListener('click', () => toggleHeaven(c));
+    hBead.addEventListener('touchend', e => { e.preventDefault(); toggleHeaven(c); });
+    heavenSec.appendChild(hBead);
+    col.appendChild(heavenSec);
+
+    // Earth section (4 beads)
+    const earthSec = document.createElement('div');
+    earthSec.className = 'earth-section';
+    earthSec.id = `earth-sec-${c}`;
+
+    // Beads 1–4 (1=closest to bar, 4=furthest)
+    for (let b = 1; b <= 4; b++) {
+      const eBead = document.createElement('div');
+      eBead.className = 'bead bead-earth';
+      eBead.id = `e-${c}-${b}`;
+      eBead.setAttribute('data-col', c);
+      eBead.setAttribute('data-bead', b);
+      eBead.setAttribute('data-type', 'earth');
+      eBead.addEventListener('click', () => toggleEarth(c, b));
+      eBead.addEventListener('touchend', e => { e.preventDefault(); toggleEarth(c, b); });
+      earthSec.appendChild(eBead);
+    }
+    col.appendChild(earthSec);
+    rodsArea.appendChild(col);
+  }
+
+  // Build column labels (left-to-right in DOM matches COLS-1 down to 0)
+  const labelsDiv = document.getElementById('col-labels');
+  labelsDiv.innerHTML = '';
+  for (let c = COLS - 1; c >= 0; c--) {
+    const lbl = document.createElement('div');
+    lbl.className = 'col-label';
+    lbl.textContent = COL_LABELS_ENG[c];
+    labelsDiv.appendChild(lbl);
+  }
+
+  positionDivider();
+  renderAll();
+}
+
+// Position the gold divider bar correctly
+function positionDivider() {
+  requestAnimationFrame(() => {
+    const rodsArea = document.getElementById('rods-area');
+    const anyHeavenSec = document.querySelector('.heaven-section');
+    if (!anyHeavenSec) return;
+    const raRect = rodsArea.getBoundingClientRect();
+    const hRect = anyHeavenSec.getBoundingClientRect();
+    const topOffset = hRect.bottom - raRect.top - 6;
+    const bar = document.getElementById('divider-bar');
+    if (bar) bar.style.top = topOffset + 'px';
+  });
+}
+
+// ── RENDER COLUMN ──
+function renderCol(c) {
+  const s = state[c];
+
+  // Heaven bead: if active → move down (toward bar)
+  const hBead = document.getElementById(`h-${c}`);
+  if (hBead) {
+    hBead.classList.toggle('active', s.heavenActive);
+    // Move down = translateY positive
+    hBead.style.transform = s.heavenActive ? 'translateY(6px)' : 'translateY(0)';
+  }
+
+  // Earth beads: beads 1..earthActive are active (moved up toward bar)
+  for (let b = 1; b <= 4; b++) {
+    const eBead = document.getElementById(`e-${c}-${b}`);
+    if (!eBead) continue;
+    const isActive = b <= s.earthActive;
+    eBead.classList.toggle('active', isActive);
+    // Active = move up
+    eBead.style.transform = isActive ? 'translateY(-6px)' : 'translateY(0)';
+  }
+}
+
+function renderAll() {
+  for (let c = 0; c < COLS; c++) renderCol(c);
+  updateDisplay();
+}
+
+// ── TOGGLE HEAVEN ──
+function toggleHeaven(c) {
+  state[c].heavenActive = !state[c].heavenActive;
+  renderCol(c);
+  updateDisplay();
+  beadSound();
+}
+
+// ── TOGGLE EARTH ──
+// Smart logic: clicking bead b sets earthActive = b if currently < b,
+// or sets to b-1 if currently >= b (deactivates b and above)
+function toggleEarth(c, b) {
+  const cur = state[c].earthActive;
+  if (cur >= b) {
+    // clicked an active bead or one at/below active — deactivate down to b-1
+    state[c].earthActive = b - 1;
+  } else {
+    // activate all up to b
+    state[c].earthActive = b;
+  }
+  renderCol(c);
+  updateDisplay();
+  beadSound();
+}
+
+// ── CALCULATE VALUE ──
+function calcTotal() {
+  let total = 0;
+  for (let c = 0; c < COLS; c++) {
+    const s = state[c];
+    const colVal = PLACE_VALUES[c];
+    const cv = (s.heavenActive ? 5 : 0) + s.earthActive;
+    total += cv * colVal;
+  }
+  return total;
+}
+
+// ── UPDATE DISPLAY ──
+let lastTotal = 0;
+function updateDisplay() {
+  const total = calcTotal();
+  const el = document.getElementById('total-display');
+  if (total !== lastTotal) {
+    el.textContent = total.toLocaleString('en-IN');
+    el.classList.remove('changed');
+    void el.offsetWidth; // reflow
+    el.classList.add('changed');
+    lastTotal = total;
+  }
+  // If challenge active, live feedback
+  if (challengeActive && challengeTarget !== null) {
+    updateLiveFeedback(total);
+  }
+}
+
+// ── RESET ──
+function resetAbacus() {
+  initState();
+  renderAll();
+  const res = document.getElementById('ch-result');
+  if (res) { res.className = 'ch-result'; res.innerHTML = ''; }
+}
+
+// ── BEAD CLICK SOUND (Web Audio API) ──
+let audioCtx = null;
+function beadSound() {
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.frequency.value = 800 + Math.random() * 200;
+    osc.type = 'sine';
+    gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+    osc.start(audioCtx.currentTime);
+    osc.stop(audioCtx.currentTime + 0.08);
+  } catch(e) {}
+}
+
+// ════════════════════════════════════════════════════
+//  CHALLENGE MODE
+// ════════════════════════════════════════════════════
+let challengeActive = false;
+let challengeTarget = null;
+let challengeExpression = '';
+let chScore = 0, chTotal = 0;
+
+const CHALLENGES = [
+  {expr:'3 + 2',    ans:5},   {expr:'7 − 3',    ans:4},
+  {expr:'5 + 4',    ans:9},   {expr:'10 + 5',   ans:15},
+  {expr:'8 − 3',    ans:5},   {expr:'6 + 7',    ans:13},
+  {expr:'20 + 15',  ans:35},  {expr:'50 − 20',  ans:30},
+  {expr:'12 + 23',  ans:35},  {expr:'45 − 12',  ans:33},
+  {expr:'100 + 50', ans:150}, {expr:'75 − 25',  ans:50},
+  {expr:'99 + 1',   ans:100}, {expr:'200 + 300',ans:500},
+  {expr:'500 − 250',ans:250}, {expr:'1000 + 1', ans:1001},
+  {expr:'7 × 3',    ans:21},  {expr:'4 × 5',    ans:20},
+  {expr:'6 × 6',    ans:36},  {expr:'8 × 9',    ans:72},
+  {expr:'What is 0?',ans:0},  {expr:'Show 9',   ans:9},
+  {expr:'Show 55',  ans:55},  {expr:'Show 123', ans:123},
+];
+let usedChallenges = [];
+
+function toggleChallenge() {
+  challengeActive = !challengeActive;
+  const box = document.getElementById('challenge-box');
+  const btn = document.querySelector('.btn-challenge');
+  if (challengeActive) {
+    box.style.display = 'block';
+    btn.style.background = 'linear-gradient(135deg,#EF4444,#DC2626)';
+    btn.textContent = '✕ Close Challenge';
+    usedChallenges = [];
+    chScore = 0; chTotal = 0;
+    nextChallenge();
+  } else {
+    box.style.display = 'none';
+    btn.style.background = 'linear-gradient(135deg,#FF6B35,#FF8C42)';
+    btn.textContent = '🎯 Challenge Mode';
+    challengeTarget = null;
+  }
+}
+
+function nextChallenge() {
+  const res = document.getElementById('ch-result');
+  res.className = 'ch-result'; res.innerHTML = '';
+
+  // Pick unused
+  let pool = CHALLENGES.filter((_,i) => !usedChallenges.includes(i));
+  if (pool.length === 0) { usedChallenges = []; pool = CHALLENGES; }
+  const pickIdx = CHALLENGES.indexOf(pool[Math.floor(Math.random() * pool.length)]);
+  usedChallenges.push(pickIdx);
+
+  const ch = CHALLENGES[pickIdx];
+  challengeTarget = ch.ans;
+  challengeExpression = ch.expr;
+
+  document.getElementById('ch-problem').textContent = ch.expr + ' = ?';
+  document.getElementById('ch-hint').textContent =
+    `Show the answer (${ch.ans}) on the abacus, then tap Check!`;
+  updateScoreDisplay();
+  resetAbacus();
+}
+
+function checkAnswer() {
+  const total = calcTotal();
+  const res = document.getElementById('ch-result');
+  chTotal++;
+
+  if (total === challengeTarget) {
+    chScore++;
+    res.className = 'ch-result ok show';
+    res.innerHTML = `✅ Correct! <strong>${challengeExpression} = ${challengeTarget}</strong> 🎉`;
+    launchConfetti(20);
+    updateScoreDisplay();
+    setTimeout(nextChallenge, 2200);
+  } else {
+    res.className = 'ch-result err show';
+    res.innerHTML = `❌ Got <strong>${total.toLocaleString('en-IN')}</strong>, need <strong>${challengeTarget.toLocaleString('en-IN')}</strong>. Try again!`;
+    updateScoreDisplay();
+    // Shake abacus gently
+    const frame = document.querySelector('.abacus-frame');
+    frame.style.animation = 'none';
+    frame.style.transform = 'translateX(-4px)';
+    setTimeout(()=>{ frame.style.transform='translateX(4px)'; }, 80);
+    setTimeout(()=>{ frame.style.transform=''; }, 160);
+  }
+}
+
+function updateLiveFeedback(total) {
+  // Optional: green glow when matching
+  const display = document.getElementById('total-display');
+  if (challengeTarget !== null && total === challengeTarget) {
+    display.style.color = '#10B981';
+    display.style.textShadow = '0 0 20px rgba(16,185,129,.6)';
+  } else {
+    display.style.color = '';
+    display.style.textShadow = '';
+  }
+}
+
+function updateScoreDisplay() {
+  document.getElementById('ch-score').textContent = `⭐ ${chScore}/${chTotal}`;
+}
+
+// ════════════════════════════════════════════════════
+//  GUIDE PANEL
+// ════════════════════════════════════════════════════
+function toggleGuide() {
+  const panel = document.getElementById('guide-panel');
+  const open = panel.style.display === 'block';
+  panel.style.display = open ? 'none' : 'block';
+  const btn = document.querySelector('.btn-guide');
+  btn.textContent = open ? '📖 How to Use' : '✕ Close Guide';
+}
+
+// ════════════════════════════════════════════════════
+//  CONFETTI
+// ════════════════════════════════════════════════════
+const CONF_COLORS=['#FF6B35','#D4A017','#10B981','#3B82F6','#A855F7','#EF4444','#F0C040'];
+function launchConfetti(n) {
+  const wrap = document.getElementById('conf-wrap');
+  for (let i=0; i<n; i++) {
+    const p = document.createElement('div');
+    p.className = 'conf-p';
+    const size = 6 + Math.random()*8;
+    p.style.cssText = `
+      left:${Math.random()*100}%;
+      background:${CONF_COLORS[Math.floor(Math.random()*CONF_COLORS.length)]};
+      width:${size}px; height:${size}px;
+      border-radius:${Math.random()>.5?'50%':'2px'};
+      animation-duration:${1.4+Math.random()*.8}s;
+      animation-delay:${Math.random()*.3}s;
+    `;
+    wrap.appendChild(p);
+    setTimeout(()=>p.remove(), 2500);
+  }
+}
+
+// ════════════════════════════════════════════════════
+//  RESIZE HANDLER
+// ════════════════════════════════════════════════════
+window.addEventListener('resize', positionDivider);
+
+// ════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════
+initState();
+buildAbacus();
+</script>
+</body>
+</html>

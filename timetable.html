@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Timetable – SchoolTag</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --bg:#F0F9FF;--card:#fff;--primary:#3B82F6;--secondary:#8B5CF6;
+  --accent:#F59E0B;--green:#10B981;--red:#EF4444;--orange:#F97316;
+  --text:#1E293B;--muted:#64748B;--shadow:0 4px 20px rgba(0,0,0,.10);--radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);min-height:100vh;overflow-x:hidden;}
+
+/* ── HEADER ── */
+header{background:linear-gradient(135deg,#3B82F6,#8B5CF6);padding:16px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(59,130,246,.4);}
+.logo-link{text-decoration:none;display:flex;align-items:center;gap:8px;}
+.logo-text{font-family:'Baloo 2',cursive;font-size:1.45rem;color:#fff;font-weight:800;}
+.logo-text span{color:#FDE68A;}
+.header-tag{margin-left:auto;background:rgba(255,255,255,.2);color:#fff;font-weight:800;font-size:.8rem;padding:5px 14px;border-radius:50px;border:2px solid rgba(255,255,255,.4);}
+
+/* ── HERO ── */
+.hero{text-align:center;padding:30px 20px 16px;}
+.hero h1{font-family:'Baloo 2',cursive;font-size:clamp(1.6rem,5vw,2.4rem);color:var(--text);}
+.hero h1 span{color:var(--primary);}
+.hero p{color:var(--muted);font-size:.95rem;margin-top:6px;font-weight:600;}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:900px;margin:0 auto;padding:0 14px 48px;display:flex;flex-direction:column;gap:16px;}
+
+/* ── CARD ── */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 20px;}
+.card-title{font-family:'Baloo 2',cursive;font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.card-title span{font-size:1.3rem;}
+
+/* ── FORM GRID ── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:520px){.form-grid{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group.full{grid-column:1/-1;}
+.form-label{font-size:.82rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
+.form-input{padding:11px 14px;border:2px solid #E2E8F0;border-radius:12px;font-family:'Nunito',sans-serif;font-size:.95rem;color:var(--text);transition:border-color .2s,box-shadow .2s;background:#FAFAFA;}
+.form-input:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(59,130,246,.15);background:#fff;}
+select.form-input{cursor:pointer;}
+
+/* ── PHOTO UPLOAD ── */
+.photo-upload-area{border:3px dashed #CBD5E1;border-radius:16px;padding:22px 16px;text-align:center;cursor:pointer;transition:all .2s;background:#F8FAFC;position:relative;min-height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;}
+.photo-upload-area:hover{border-color:var(--primary);background:#EFF6FF;}
+.photo-upload-area.has-photo{border-color:var(--green);border-style:solid;background:#F0FDF4;}
+.photo-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:2;}
+.photo-preview{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:0 auto 10px;display:none;border:4px solid var(--green);box-shadow:0 6px 20px rgba(0,0,0,.2);}
+.photo-preview.show{display:block;}
+.upload-icon{font-size:3rem;margin-bottom:8px;}
+.upload-text{font-weight:800;color:var(--muted);font-size:.95rem;}
+.upload-hint{font-size:.78rem;color:#94A3B8;margin-top:5px;}
+
+/* ── THEME PICKER ── */
+.theme-grid{display:flex;gap:10px;flex-wrap:wrap;}
+.theme-chip{padding:8px 16px;border-radius:50px;border:3px solid transparent;cursor:pointer;font-weight:800;font-size:.82rem;transition:all .2s;white-space:nowrap;}
+.theme-chip.selected{transform:scale(1.06);box-shadow:0 4px 12px rgba(0,0,0,.2);}
+
+/* ── PERIOD EDITOR ── */
+.periods-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px;}
+.add-period-btn{font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:800;padding:7px 16px;border:none;border-radius:50px;background:linear-gradient(135deg,var(--green),#059669);color:#fff;cursor:pointer;box-shadow:0 3px 10px rgba(16,185,129,.35);transition:transform .15s;}
+.add-period-btn:hover{transform:translateY(-1px);}
+.days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:10px;}
+.day-toggle{padding:6px 4px;text-align:center;border:2px solid #E2E8F0;border-radius:8px;font-size:.75rem;font-weight:800;cursor:pointer;transition:all .2s;color:var(--muted);background:#F8FAFC;}
+.day-toggle.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+.periods-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.periods-table th{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:9px 8px;font-weight:800;font-size:.78rem;text-align:left;font-family:'Baloo 2',cursive;}
+.periods-table th:first-child{border-radius:10px 0 0 0;}
+.periods-table th:last-child{border-radius:0 10px 0 0;}
+.periods-table td{padding:7px 6px;border-bottom:1px solid #F1F5F9;vertical-align:middle;}
+.periods-table tr:last-child td{border-bottom:none;}
+.periods-table tr:hover td{background:#F8FAFC;}
+.period-input{width:100%;padding:6px 8px;border:2px solid #E2E8F0;border-radius:8px;font-family:'Nunito',sans-serif;font-size:.82rem;transition:border-color .2s;}
+.period-input:focus{outline:none;border-color:var(--primary);}
+.period-num{font-family:'Baloo 2',cursive;font-weight:800;color:var(--primary);font-size:.9rem;text-align:center;}
+.del-period-btn{background:none;border:none;color:#CBD5E1;cursor:pointer;font-size:1.1rem;transition:color .2s;padding:4px;}
+.del-period-btn:hover{color:var(--red);}
+.subject-cell select{width:100%;padding:5px 6px;border:2px solid #E2E8F0;border-radius:8px;font-family:'Nunito',sans-serif;font-size:.78rem;background:#fff;cursor:pointer;}
+.subject-cell select:focus{outline:none;border-color:var(--primary);}
+
+/* ── SUBJECT COLOURS ── */
+.subjects-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.subj-tag{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:50px;font-size:.78rem;font-weight:800;color:#fff;}
+
+/* ── PREVIEW ── */
+.preview-wrap{background:#F1F5F9;border-radius:16px;padding:12px;overflow:auto;position:relative;}
+#tt-preview{transform-origin:top left;}
+.preview-scroll-hint{text-align:center;font-size:.8rem;color:var(--muted);margin-top:8px;font-weight:600;}
+
+/* ── ACTION BUTTONS ── */
+.action-row{display:flex;gap:12px;flex-wrap:wrap;}
+.action-btn{flex:1;min-width:140px;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;padding:14px;border:none;border-radius:14px;color:#fff;cursor:pointer;transition:transform .15s,box-shadow .15s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.action-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.2);}
+.btn-preview{background:linear-gradient(135deg,#8B5CF6,#6D28D9);box-shadow:0 4px 14px rgba(139,92,246,.4);}
+.btn-download{background:linear-gradient(135deg,#10B981,#059669);box-shadow:0 4px 14px rgba(16,185,129,.4);}
+.btn-reset{background:linear-gradient(135deg,#F97316,#EA580C);box-shadow:0 4px 14px rgba(249,115,22,.4);}
+
+/* ── FOOTER ── */
+.footer-cta{text-align:center;padding:22px 20px 36px;background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-top:2px dashed #BFDBFE;margin-top:20px;}
+.footer-cta p{color:var(--muted);font-weight:700;margin-bottom:10px;}
+.cta-btn{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;padding:11px 26px;border:none;border-radius:50px;background:var(--primary);color:#fff;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:0 4px 14px rgba(59,130,246,.35);transition:transform .15s;}
+.cta-btn:hover{transform:translateY(-2px);}
+
+/* ── LOADING SPINNER ── */
+.spinner{display:none;text-align:center;padding:20px;font-weight:700;color:var(--muted);}
+.spinner.show{display:block;}
+
+/* ── TIMETABLE STYLES (inside PDF canvas) ── */
+.tt-header{padding:18px 22px 14px;display:flex;align-items:center;gap:16px;}
+.tt-school-name{font-size:18px;font-weight:900;letter-spacing:.5px;line-height:1.2;}
+.tt-sub-info{font-size:11px;margin-top:3px;opacity:.85;font-weight:600;}
+.tt-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.6);flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+.tt-photo-placeholder{width:72px;height:72px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:2rem;border:3px solid rgba(255,255,255,.5);}
+.tt-header-info{flex:1;}
+.tt-table{width:calc(100% - 32px);margin:0 16px 14px;border-collapse:collapse;font-size:10px;}
+.tt-table th{padding:8px 6px;font-size:9px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.5px;}
+.tt-table td{padding:7px 5px;text-align:center;border:1px solid #E2E8F0;font-weight:600;font-size:9.5px;min-height:32px;}
+.tt-table .period-col{font-weight:900;font-size:10px;width:26px;}
+.tt-table .time-col{font-size:8.5px;color:#64748B;width:68px;}
+.tt-footer{text-align:center;padding:8px;font-size:8px;color:#94A3B8;border-top:1px solid #E2E8F0;margin:0 16px;}
+
+/* ── TOP NAV ── */
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:2px solid rgba(59,130,246,.15);box-shadow:0 2px 16px rgba(59,130,246,.1);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:8px;}
+.nav-brand{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;background:linear-gradient(135deg,#3B82F6,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;text-decoration:none;flex-shrink:0;}
+.nav-links{display:flex;gap:6px;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{font-family:'Baloo 2',cursive;font-size:.76rem;font-weight:800;padding:6px 12px;border-radius:50px;text-decoration:none;white-space:nowrap;border:2px solid transparent;transition:all .2s;color:#6B7280;background:#F9FAFB;border-color:#E5E7EB;display:flex;align-items:center;gap:4px;}
+.nav-link:hover{border-color:#3B82F6;color:#3B82F6;background:#EFF6FF;transform:translateY(-1px);}
+.nav-link.active-nav{background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:#fff;border-color:transparent;box-shadow:0 3px 12px rgba(59,130,246,.4);}
+.nav-link.nav-home{border-color:#FF6B35;color:#FF6B35;background:#FFF5F0;}
+.nav-link.nav-home:hover{background:#FF6B35;color:#fff;}
+.nav-link.nav-games{border-color:#A855F7;color:#A855F7;background:#FAF5FF;}
+.nav-link.nav-games:hover{background:#A855F7;color:#fff;}
+.nav-link.nav-ab{border-color:#F59E0B;color:#D97706;background:#FFFBEB;}
+.nav-link.nav-ab:hover{background:#F59E0B;color:#fff;}
+@media(max-width:380px){.nav-link span.nl{display:none;}}
+
+</style>
+</head>
+<body>
+
+<!-- ══ STICKY TOP NAVIGATION ══ -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">🏷️ SchoolTag</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link nav-home">🏠 <span class="nl">Labels</span> ₹19</a>
+    <a href="games.html" class="nav-link nav-games">🎮 <span class="nl">Game Zone</span></a>
+    <a href="timetable.html" class="nav-link active-nav">📅 <span class="nl">Timetable</span> ₹9</a>
+    <a href="abacus.html" class="nav-link nav-ab">🧮 <span class="nl">Abacus</span></a>
+  </div>
+</nav>
+
+<header>
+  <a href="index.html" class="logo-link">
+    <span style="font-size:1.8rem">🏷️</span>
+    <span class="logo-text">School<span>Tag</span></span>
+  </a>
+  <div class="header-tag">📅 Timetable Maker</div>
+</header>
+
+<div class="hero">
+  <h1>📅 <span>School Timetable</span> Maker</h1>
+  <p>Create a beautiful personalised timetable & download as A4 PDF!</p>
+</div>
+
+<div class="main">
+
+  <!-- ── STEP 1: STUDENT INFO ── -->
+  <div class="card">
+    <div class="card-title"><span>👤</span> Student & School Details</div>
+    <div class="form-grid">
+      <!-- Photo upload - full width, large -->
+      <div class="form-group" style="grid-column:1/-1;">
+        <div class="form-label">Student Photo</div>
+        <div class="photo-upload-area" id="photo-drop">
+          <input type="file" id="photo-file" accept="image/*" onchange="handlePhoto(this)">
+          <img id="photo-preview" class="photo-preview" src="" alt="Preview"/>
+          <div id="upload-placeholder">
+            <div class="upload-icon">📷</div>
+            <div class="upload-text">Tap to upload student photo</div>
+            <div class="upload-hint">JPG or PNG • Photo appears in PDF header</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-label">Student Name</div>
+        <input class="form-input" id="f-student" type="text" placeholder="e.g. Dhiya" maxlength="40"/>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Academic Year</div>
+        <input class="form-input" id="f-year" type="text" placeholder="e.g. 2025 – 2026" maxlength="20" value="2025 – 2026"/>
+      </div>
+
+      <div class="form-group">
+        <div class="form-label">School Name</div>
+        <input class="form-input" id="f-school" type="text" placeholder="e.g. Vivekananda Academy" maxlength="60"/>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Class</div>
+        <select class="form-input" id="f-class">
+          <option value="">Select Class</option>
+          <option>Class 1</option><option>Class 2</option><option>Class 3</option>
+          <option>Class 4</option><option selected>Class 5</option><option>Class 6</option>
+          <option>Class 7</option><option>Class 8</option><option>Class 9</option>
+          <option>Class 10</option><option>Class 11</option><option>Class 12</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Section</div>
+        <input class="form-input" id="f-section" type="text" placeholder="e.g. A or Rose" maxlength="20"/>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Roll Number</div>
+        <input class="form-input" id="f-roll" type="text" placeholder="e.g. 15" maxlength="10"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 2: THEME ── -->
+  <div class="card">
+    <div class="card-title"><span>🎨</span> Choose Theme</div>
+    <div class="theme-grid" id="theme-grid"></div>
+  </div>
+
+  <!-- ── STEP 3: SCHEDULE ── -->
+  <div class="card">
+    <div class="card-title"><span>📋</span> Build Your Schedule</div>
+
+    <!-- School days -->
+    <div class="form-label" style="margin-bottom:8px;">School Days</div>
+    <div class="days-grid" id="days-grid"></div>
+
+    <!-- Period settings -->
+    <div class="form-grid" style="margin-bottom:14px;">
+      <div class="form-group">
+        <div class="form-label">School Start Time</div>
+        <input class="form-input" id="f-start" type="time" value="09:00"/>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Period Duration (mins)</div>
+        <select class="form-input" id="f-duration">
+          <option value="40">40 minutes</option>
+          <option value="45" selected>45 minutes</option>
+          <option value="50">50 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Break After Period #</div>
+        <select class="form-input" id="f-break-after">
+          <option value="2">After 2nd period</option>
+          <option value="3">After 3rd period</option>
+          <option value="4" selected>After 4th period</option>
+          <option value="5">After 5th period</option>
+          <option value="0">No break</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Break Duration (mins)</div>
+        <select class="form-input" id="f-break-dur">
+          <option value="15">15 minutes</option>
+          <option value="20">20 minutes</option>
+          <option value="30" selected>30 minutes</option>
+          <option value="45">45 minutes</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Period / Subject table -->
+    <div class="periods-header">
+      <div class="form-label" style="margin:0;">Periods & Subjects per Day</div>
+      <button class="add-period-btn" onclick="addPeriodRow()">+ Add Period</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="periods-table" id="periods-table">
+        <thead id="periods-thead"></thead>
+        <tbody id="periods-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── ACTION BUTTONS ── -->
+  <div class="card" style="padding:16px 20px;">
+    <div class="action-row">
+      <button class="action-btn btn-preview" onclick="generatePreview()">👁️ Preview</button>
+      <button class="action-btn btn-download" onclick="downloadPDF()">📄 Download PDF</button>
+      <button class="action-btn btn-reset" onclick="resetAll()">🔄 Reset</button>
+    </div>
+    <div class="spinner" id="spinner">⏳ Generating PDF, please wait...</div>
+  </div>
+
+  <!-- ── PREVIEW ── -->
+  <div class="card" id="preview-section" style="display:none;">
+    <div class="card-title"><span>👁️</span> Preview (A4)</div>
+    <div class="preview-wrap">
+      <div id="tt-preview"></div>
+    </div>
+    <div class="preview-scroll-hint">↔️ Scroll horizontally to see full preview</div>
+  </div>
+
+</div><!-- /main -->
+
+<div class="footer-cta">
+  <p>🏷️ Need custom school labels too?</p>
+  <a href="index.html" class="cta-btn">Get Labels – ₹9 only!</a>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  THEMES
+// ══════════════════════════════════════════════════════
+const THEMES = [
+  {id:'blue',   name:'Ocean Blue',   emoji:'🌊', header:'#1D4ED8', row1:'#EFF6FF', row2:'#DBEAFE', accent:'#3B82F6', text:'#fff', border:'#93C5FD'},
+  {id:'purple', name:'Royal Purple', emoji:'💜', header:'#6D28D9', row1:'#FAF5FF', row2:'#EDE9FE', accent:'#8B5CF6', text:'#fff', border:'#C4B5FD'},
+  {id:'green',  name:'Fresh Green',  emoji:'🌿', header:'#065F46', row1:'#F0FDF4', row2:'#DCFCE7', accent:'#10B981', text:'#fff', border:'#6EE7B7'},
+  {id:'orange', name:'Sunny Orange', emoji:'🌅', header:'#C2410C', row1:'#FFF7ED', row2:'#FED7AA', accent:'#F97316', text:'#fff', border:'#FDBA74'},
+  {id:'pink',   name:'Blossom Pink', emoji:'🌸', header:'#9D174D', row1:'#FDF2F8', row2:'#FCE7F3', accent:'#EC4899', text:'#fff', border:'#F9A8D4'},
+  {id:'teal',   name:'Cool Teal',    emoji:'🏄', header:'#0E7490', row1:'#F0FDFA', row2:'#CCFBF1', accent:'#14B8A6', text:'#fff', border:'#5EEAD4'},
+];
+
+let selectedTheme = THEMES[0];
+let photoDataURL = null;
+
+function renderThemes() {
+  const grid = document.getElementById('theme-grid');
+  grid.innerHTML = '';
+  THEMES.forEach(t => {
+    const chip = document.createElement('div');
+    chip.className = 'theme-chip' + (t.id === selectedTheme.id ? ' selected' : '');
+    chip.style.cssText = `background:${t.header};color:${t.text};border-color:${t.id===selectedTheme.id?'#1E293B':t.border};`;
+    chip.textContent = t.emoji + ' ' + t.name;
+    chip.onclick = () => { selectedTheme = t; renderThemes(); };
+    grid.appendChild(chip);
+  });
+}
+
+// ══════════════════════════════════════════════════════
+//  DAYS
+// ══════════════════════════════════════════════════════
+const ALL_DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+let activeDays = ['Mon','Tue','Wed','Thu','Fri'];
+
+function renderDays() {
+  const grid = document.getElementById('days-grid');
+  grid.innerHTML = '';
+  ALL_DAYS.forEach(day => {
+    const d = document.createElement('div');
+    d.className = 'day-toggle' + (activeDays.includes(day) ? ' active' : '');
+    d.textContent = day;
+    d.onclick = () => {
+      if (activeDays.includes(day)) {
+        if (activeDays.length > 1) activeDays = activeDays.filter(x => x !== day);
+      } else {
+        activeDays.push(day);
+        activeDays.sort((a,b) => ALL_DAYS.indexOf(a) - ALL_DAYS.indexOf(b));
+      }
+      renderDays();
+      renderPeriodsTable();
+    };
+    grid.appendChild(d);
+  });
+}
+
+// ══════════════════════════════════════════════════════
+//  SUBJECTS
+// ══════════════════════════════════════════════════════
+const SUBJECTS = [
+  { id:'tamil',   label:'Tamil',        color:'#DC2626' },
+  { id:'english', label:'English',      color:'#2563EB' },
+  { id:'maths',   label:'Maths',        color:'#7C3AED' },
+  { id:'science', label:'Science',      color:'#059669' },
+  { id:'social',  label:'Social',       color:'#D97706' },
+  { id:'hindi',   label:'Hindi',        color:'#DB2777' },
+  { id:'computer',label:'Computer',     color:'#0891B2' },
+  { id:'drawing', label:'Drawing/Art',  color:'#EA580C' },
+  { id:'pt',      label:'P.T. / Games', color:'#16A34A' },
+  { id:'library', label:'Library',      color:'#7C2D12' },
+  { id:'moral',   label:'Moral',        color:'#0F766E' },
+  { id:'music',   label:'Music',        color:'#7E22CE' },
+  { id:'free',    label:'Free Period',  color:'#94A3B8' },
+  { id:'break',   label:'🥪 Break',     color:'#F59E0B' },
+];
+
+function subjOptions(selected='') {
+  return '<option value="">— Select —</option>' +
+    SUBJECTS.map(s => `<option value="${s.id}" ${s.id===selected?'selected':''}>${s.label}</option>`).join('');
+}
+
+// ══════════════════════════════════════════════════════
+//  PERIODS TABLE
+// ══════════════════════════════════════════════════════
+let periods = [];  // [{time:'', day_Mon:'', day_Tue:'', ...}]
+
+function initDefaultPeriods() {
+  periods = [];
+  for (let i = 0; i < 8; i++) {
+    const row = { id: i+1 };
+    ALL_DAYS.forEach(d => row['day_'+d] = '');
+    periods.push(row);
+  }
+  // Set some defaults for demo
+  const defaults = [
+    ['Mon','Tamil','English','Maths','Maths','Science','Social','Drawing','PT'],
+    ['Tue','English','Tamil','Science','Maths','Social','Hindi','PT','Maths'],
+    ['Wed','Maths','Science','Tamil','English','Hindi','Maths','Social','Library'],
+    ['Thu','Social','Maths','English','Tamil','Maths','Science','Hindi','Moral'],
+    ['Fri','Hindi','Maths','Social','Science','Tamil','English','Maths','Music'],
+    ['Sat','Tamil','English','Computer','Maths','PT','Free Period','',''],
+  ];
+  defaults.forEach(row => {
+    const day = row[0];
+    row.slice(1).forEach((subj, i) => {
+      if (i < periods.length) {
+        const found = SUBJECTS.find(s => s.label === subj);
+        if (found) periods[i]['day_'+day] = found.id;
+      }
+    });
+  });
+}
+
+function renderPeriodsTable() {
+  const thead = document.getElementById('periods-thead');
+  const tbody = document.getElementById('periods-tbody');
+
+  // Header row
+  thead.innerHTML = `<tr>
+    <th style="width:28px">#</th>
+    <th style="width:74px">Time</th>
+    ${activeDays.map(d=>`<th>${d}</th>`).join('')}
+    <th style="width:30px"></th>
+  </tr>`;
+
+  tbody.innerHTML = '';
+  periods.forEach((row, idx) => {
+    const timeVal = computeTime(idx);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="period-col">${row.id}</td>
+      <td class="time-col" style="font-size:8px;color:#64748B;padding:4px 3px;">${timeVal}</td>
+      ${activeDays.map(d=>`<td class="subject-cell"><select onchange="periods[${idx}]['day_${d}']=this.value" style="width:100%;padding:4px 4px;border:1.5px solid #E2E8F0;border-radius:7px;font-size:11px;background:#fff;">${subjOptions(row['day_'+d])}</select></td>`).join('')}
+      <td><button class="del-period-btn" onclick="deletePeriod(${idx})">✕</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function computeTime(idx) {
+  const startH = document.getElementById('f-start').value || '09:00';
+  const dur = parseInt(document.getElementById('f-duration').value) || 45;
+  const breakAfter = parseInt(document.getElementById('f-break-after').value) || 4;
+  const breakDur = parseInt(document.getElementById('f-break-dur').value) || 30;
+  const [sh, sm] = startH.split(':').map(Number);
+  let totalMins = sh * 60 + sm;
+  for (let i = 0; i < idx; i++) {
+    totalMins += dur;
+    if (i + 1 === breakAfter) totalMins += breakDur;
+  }
+  const endMins = totalMins + dur;
+  return fmt(totalMins) + '–' + fmt(endMins);
+}
+function fmt(mins) {
+  const h = Math.floor(mins/60) % 24;
+  const m = mins % 60;
+  const suffix = h >= 12 ? 'PM' : 'AM';
+  const hh = ((h-1+12)%12)+1;
+  return `${hh}:${m.toString().padStart(2,'0')}${suffix}`;
+}
+
+function addPeriodRow() {
+  const row = { id: periods.length + 1 };
+  ALL_DAYS.forEach(d => row['day_'+d] = '');
+  periods.push(row);
+  renderPeriodsTable();
+}
+function deletePeriod(idx) {
+  if (periods.length <= 1) return;
+  periods.splice(idx, 1);
+  periods.forEach((r, i) => r.id = i + 1);
+  renderPeriodsTable();
+}
+
+// Re-render times when settings change
+['f-start','f-duration','f-break-after','f-break-dur'].forEach(id => {
+  document.getElementById(id).addEventListener('change', renderPeriodsTable);
+});
+
+// ══════════════════════════════════════════════════════
+//  PHOTO UPLOAD
+// ══════════════════════════════════════════════════════
+function handlePhoto(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    photoDataURL = e.target.result;
+    const preview = document.getElementById('photo-preview');
+    preview.src = photoDataURL;
+    preview.classList.add('show');
+    document.getElementById('upload-placeholder').style.display = 'none';
+    document.getElementById('photo-drop').classList.add('has-photo');
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// ══════════════════════════════════════════════════════
+//  BUILD TIMETABLE HTML  (used for preview AND PDF)
+// ══════════════════════════════════════════════════════
+function buildTimetableHTML(forPDF = false) {
+  const studentName = document.getElementById('f-student').value || 'Student Name';
+  const schoolName  = document.getElementById('f-school').value  || 'School Name';
+  const cls         = document.getElementById('f-class').value   || '';
+  const section     = document.getElementById('f-section').value || '';
+  const roll        = document.getElementById('f-roll').value    || '';
+  const year        = document.getElementById('f-year').value    || '';
+  const t = selectedTheme;
+  const breakAfter = parseInt(document.getElementById('f-break-after').value) || 4;
+  const breakDur   = parseInt(document.getElementById('f-break-dur').value)   || 30;
+  const dur        = parseInt(document.getElementById('f-duration').value)    || 45;
+
+  // Photo tag
+  let photoTag = '';
+  if (photoDataURL) {
+    photoTag = `<img src="${photoDataURL}" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.7);box-shadow:0 4px 16px rgba(0,0,0,.25);flex-shrink:0;" crossorigin="anonymous"/>`;
+  } else {
+    photoTag = `<div style="width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:2.8rem;border:4px solid rgba(255,255,255,.5);flex-shrink:0;">👦</div>`;
+  }
+
+  // Build table rows
+  let tableRows = '';
+  // Break row info
+  let breakInserted = false;
+  const startH = document.getElementById('f-start').value || '09:00';
+  const [sh, sm] = startH.split(':').map(Number);
+
+  periods.forEach((row, idx) => {
+    const timeVal = computeTime(idx);
+
+    const cells = activeDays.map(d => {
+      const subjId = row['day_'+d];
+      const subj = SUBJECTS.find(s => s.id === subjId);
+      const cellColor = subj ? subj.color : '#CBD5E1';
+      const cellBg = subj ? subj.color+'22' : '#F8FAFC';
+      const cellText = subj ? subj.label : '';
+      return `<td style="background:${cellBg};color:${cellColor};font-weight:${subj?'800':'400'};border:2px solid ${t.border};padding:9px 5px;text-align:center;font-size:11px;">${cellText||'–'}</td>`;
+    }).join('');
+
+    const rowBg = idx % 2 === 0 ? t.row1 : t.row2;
+    tableRows += `<tr style="background:${rowBg};">
+      <td style="background:${t.accent};color:#fff;border:2px solid ${t.border};font-weight:900;text-align:center;font-size:13px;padding:9px 5px;">${row.id}</td>
+      <td style="border:2px solid ${t.border};color:#334155;font-size:10px;padding:8px 6px;text-align:center;font-weight:700;white-space:nowrap;">${timeVal}</td>
+      ${cells}
+    </tr>`;
+
+    // Insert break row after breakAfter
+    if (idx + 1 === breakAfter) {
+      // compute break time
+      let bMins = sh * 60 + sm + (idx + 1) * dur;
+      const bEnd = bMins + breakDur;
+      const bTime = fmt(bMins) + '–' + fmt(bEnd);
+      const colspan = activeDays.length + 2;
+      tableRows += `<tr>
+        <td colspan="${colspan}" style="background:#FEF3C7;color:#92400E;font-weight:800;font-size:11px;text-align:center;padding:10px 7px;border:2px solid #FCD34D;letter-spacing:.5px;">
+          🥪 LUNCH / TEA BREAK &nbsp;•&nbsp; ${bTime} &nbsp;•&nbsp; ${breakDur} mins
+        </td>
+      </tr>`;
+    }
+  });
+
+  // Day headers
+  const dayHeaders = activeDays.map(d =>
+    `<th style="background:${t.header};color:#fff;border:2px solid ${t.border}!important;padding:10px 6px;text-align:center;font-family:'Baloo 2',cursive;font-size:12px;">${d}</th>`
+  ).join('');
+
+  return `
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap');
+    #tt-inner * { font-family:'Nunito',sans-serif; box-sizing:border-box; }
+    #tt-inner table { border-collapse:collapse; }
+    #tt-inner td, #tt-inner th { border:2px solid ${t.border} !important; }
+  </style>
+  <div id="tt-inner" style="width:794px;background:#fff;font-family:'Nunito',sans-serif;">
+    <!-- HEADER -->
+    <div style="background:${t.header};padding:18px 22px 16px;display:flex;align-items:center;gap:16px;">
+      ${photoTag}
+      <div style="flex:1;">
+        <div style="font-size:19px;font-weight:900;color:#fff;letter-spacing:.3px;font-family:'Baloo 2',cursive;">${schoolName}</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.9);margin-top:5px;font-weight:700;">${cls}${section?' – Section '+section:''} ${roll?'&nbsp;•&nbsp; Roll No: '+roll:''}</div>
+        <div style="font-size:15px;color:#fff;font-weight:900;margin-top:6px;font-family:'Baloo 2',cursive;">📅 ${studentName}'s Timetable</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.8);margin-top:3px;font-weight:600;">Academic Year: ${year}</div>
+      </div>
+      <div style="text-align:right;color:rgba(255,255,255,.85);font-size:10px;font-weight:700;line-height:2;">
+        <div style="font-size:32px;">🏫</div>
+        <div>schooltag.in</div>
+      </div>
+    </div>
+    <!-- TABLE -->
+    <table style="width:calc(100% - 28px);margin:14px 14px 10px;border-collapse:collapse;font-size:11px;border:2px solid ${t.border};">
+      <thead>
+        <tr>
+          <th style="background:${t.header};color:#fff;border:2px solid ${t.border}!important;padding:10px 5px;width:30px;font-family:'Baloo 2',cursive;text-align:center;font-size:12px;">#</th>
+          <th style="background:${t.header};color:#fff;border:2px solid ${t.border}!important;padding:10px 7px;width:78px;font-family:'Baloo 2',cursive;text-align:center;font-size:11px;">Time</th>
+          ${dayHeaders}
+        </tr>
+      </thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+    <!-- SUBJECT KEY -->
+    <div style="margin:0 14px 10px;padding:10px 14px;background:#F8FAFC;border-radius:10px;border:2px solid #E2E8F0;">
+      <div style="font-size:9px;font-weight:900;color:#64748B;margin-bottom:7px;text-transform:uppercase;letter-spacing:.8px;">📘 Subject Colour Key</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        ${SUBJECTS.filter(s=>s.id!=='break').map(s=>`<span style="background:${s.color};color:#fff;padding:4px 10px;border-radius:50px;font-size:9px;font-weight:800;">${s.label}</span>`).join('')}
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <div style="text-align:center;padding:8px 14px 12px;font-size:9px;color:#94A3B8;border-top:2px solid #E2E8F0;font-weight:700;">
+      Generated by SchoolTag &nbsp;|&nbsp; schooltag.in &nbsp;|&nbsp; Custom School Labels ₹9
+    </div>
+  </div>`;
+}
+
+// ══════════════════════════════════════════════════════
+//  PREVIEW
+// ══════════════════════════════════════════════════════
+function generatePreview() {
+  const preview = document.getElementById('tt-preview');
+  const section = document.getElementById('preview-section');
+  preview.innerHTML = buildTimetableHTML(false);
+  preview.style.transform = '';
+  preview.style.marginBottom = '';
+  preview.style.height = '';
+
+  // Wait for render then scale
+  requestAnimationFrame(() => {
+    const wrap = document.querySelector('.preview-wrap');
+    const availW = wrap.offsetWidth - 24;
+    const scale = Math.min(1, availW / 794);
+    const innerH = preview.firstElementChild ? preview.firstElementChild.offsetHeight : 600;
+    preview.style.transform = `scale(${scale})`;
+    preview.style.transformOrigin = 'top left';
+    preview.style.width = '794px';
+    preview.style.height = innerH + 'px';
+    wrap.style.height = Math.ceil(innerH * scale + 20) + 'px';
+  });
+
+  section.style.display = 'block';
+  setTimeout(() => section.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+}
+
+// ══════════════════════════════════════════════════════
+//  PDF DOWNLOAD (using html2canvas approach via jsPDF)
+// ══════════════════════════════════════════════════════
+async function downloadPDF() {
+  const spinner = document.getElementById('spinner');
+  spinner.classList.add('show');
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+
+    const studentName = document.getElementById('f-student').value || 'Student';
+    const t = selectedTheme;
+    const breakAfter = parseInt(document.getElementById('f-break-after').value) || 4;
+    const breakDur   = parseInt(document.getElementById('f-break-dur').value) || 30;
+    const dur = parseInt(document.getElementById('f-duration').value) || 45;
+    const startH = document.getElementById('f-start').value || '09:00';
+    const [sh, sm] = startH.split(':').map(Number);
+
+    // Page dimensions (A4 landscape: 297 x 210mm)
+    const PW = 297, PH = 210;
+
+    // ── Header ──
+    // Background
+    const hc = hexToRgb(t.header);
+    doc.setFillColor(hc.r, hc.g, hc.b);
+    doc.roundedRect(0, 0, PW, 38, 0, 0, 'F');
+
+    // Photo circle
+    if (photoDataURL) {
+      try { doc.addImage(photoDataURL, 'JPEG', 6, 4, 30, 30, '', 'FAST'); } catch(e){}
+    } else {
+      doc.setFillColor(255,255,255,50);
+      doc.circle(21, 19, 13, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(16);
+      doc.text('👦', 16, 22);
+    }
+
+    // School name
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(14);
+    doc.setFont('helvetica','bold');
+    const schoolName = document.getElementById('f-school').value || 'School Name';
+    doc.text(schoolName, 42, 11);
+
+    // Sub info
+    doc.setFontSize(9);
+    doc.setFont('helvetica','normal');
+    const cls = document.getElementById('f-class').value || '';
+    const sec = document.getElementById('f-section').value || '';
+    const roll = document.getElementById('f-roll').value || '';
+    const year = document.getElementById('f-year').value || '';
+    doc.text(`${cls}${sec?' - Section '+sec:''}  ${roll?'Roll No: '+roll:''}`, 42, 18);
+
+    doc.setFontSize(12);
+    doc.setFont('helvetica','bold');
+    doc.text(`${document.getElementById('f-student').value||'Student'}'s Timetable`, 42, 26);
+
+    doc.setFontSize(8);
+    doc.setFont('helvetica','normal');
+    doc.text(year, 42, 32);
+
+    // SchoolTag branding
+    doc.text('schooltag.in', PW-30, 20);
+    doc.setFontSize(6);
+    doc.text('Custom School Labels', PW-32, 25);
+
+    // ── Table ──
+    const tableTop = 42;
+    const colW_period = 8;
+    const colW_time   = 20;
+    const colW_day    = Math.floor((PW - 10 - colW_period - colW_time) / activeDays.length);
+    const rowH = (PH - tableTop - 28) / (periods.length + 2); // +2 for header+break
+
+    // Header row
+    const hrc = hexToRgb(t.header);
+    doc.setFillColor(hrc.r, hrc.g, hrc.b);
+    doc.rect(5, tableTop, colW_period, rowH, 'F');
+    doc.rect(5+colW_period, tableTop, colW_time, rowH, 'F');
+    let cx = 5 + colW_period + colW_time;
+    activeDays.forEach(day => {
+      doc.rect(cx, tableTop, colW_day, rowH, 'F');
+      cx += colW_day;
+    });
+    // Header text
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(8);
+    doc.setFont('helvetica','bold');
+    doc.text('#', 5 + colW_period/2, tableTop + rowH/2 + 1.5, {align:'center'});
+    doc.text('Time', 5 + colW_period + colW_time/2, tableTop + rowH/2 + 1.5, {align:'center'});
+    cx = 5 + colW_period + colW_time;
+    activeDays.forEach(day => {
+      doc.text(day, cx + colW_day/2, tableTop + rowH/2 + 1.5, {align:'center'});
+      cx += colW_day;
+    });
+
+    // Data rows
+    let curY = tableTop + rowH;
+    let breakDrawn = false;
+
+    periods.forEach((row, idx) => {
+      if (idx === breakAfter && !breakDrawn) {
+        breakDrawn = true;
+        // Break row
+        doc.setFillColor(254, 243, 199);
+        doc.rect(5, curY, PW-10, rowH, 'F');
+        doc.setTextColor(146, 64, 14);
+        doc.setFontSize(7.5);
+        doc.setFont('helvetica','bold');
+        let bMins = sh*60 + sm + (idx)*dur;
+        const bEnd = bMins + breakDur;
+        doc.text(`LUNCH / TEA BREAK   ${fmt(bMins)} - ${fmt(bEnd)}   (${breakDur} mins)`, PW/2, curY + rowH/2 + 1.5, {align:'center'});
+        curY += rowH;
+      }
+
+      const rowBg = idx % 2 === 0 ? hexToRgb(t.row1) : hexToRgb(t.row2);
+      doc.setFillColor(rowBg.r, rowBg.g, rowBg.b);
+      doc.rect(5, curY, PW-10, rowH, 'F');
+
+      // Period number
+      const acc = hexToRgb(t.accent);
+      doc.setFillColor(acc.r, acc.g, acc.b);
+      doc.rect(5, curY, colW_period, rowH, 'F');
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(7.5);
+      doc.setFont('helvetica','bold');
+      doc.text(String(row.id), 5+colW_period/2, curY+rowH/2+1.5, {align:'center'});
+
+      // Time
+      doc.setTextColor(71,85,105);
+      doc.setFontSize(6.5);
+      doc.setFont('helvetica','normal');
+      const timeStr = computeTime(idx);
+      doc.text(timeStr, 5+colW_period+colW_time/2, curY+rowH/2+1.5, {align:'center'});
+
+      // Subject cells
+      cx = 5 + colW_period + colW_time;
+      activeDays.forEach(d => {
+        const subjId = row['day_'+d];
+        const subj = SUBJECTS.find(s => s.id === subjId);
+        if (subj) {
+          const sc = hexToRgb(subj.color);
+          doc.setFillColor(sc.r, sc.g, sc.b, 0.1);
+          doc.setFillColor(sc.r+(255-sc.r)*.85, sc.g+(255-sc.g)*.85, sc.b+(255-sc.b)*.85);
+          doc.rect(cx, curY, colW_day, rowH, 'F');
+          doc.setTextColor(sc.r, sc.g, sc.b);
+          doc.setFontSize(7);
+          doc.setFont('helvetica','bold');
+          // Wrap long subject names
+          const label = subj.label.replace('🥪 ','');
+          doc.text(label, cx + colW_day/2, curY + rowH/2 + 1.5, {align:'center', maxWidth: colW_day-2});
+        } else {
+          doc.setTextColor(148,163,184);
+          doc.setFontSize(7);
+          doc.setFont('helvetica','normal');
+          doc.text('–', cx + colW_day/2, curY + rowH/2 + 1.5, {align:'center'});
+        }
+        cx += colW_day;
+      });
+
+      // Row border
+      doc.setDrawColor(226,232,240);
+      doc.setLineWidth(0.2);
+      doc.line(5, curY+rowH, PW-5, curY+rowH);
+
+      curY += rowH;
+    });
+
+    // Outer table border
+    doc.setDrawColor(hrc.r, hrc.g, hrc.b);
+    doc.setLineWidth(0.5);
+    doc.rect(5, tableTop, PW-10, curY - tableTop);
+
+    // ── Subject key ──
+    curY += 2;
+    doc.setFontSize(6.5);
+    doc.setFont('helvetica','bold');
+    doc.setTextColor(100,116,139);
+    doc.text('SUBJECT KEY:', 5, curY + 3);
+    let kx = 32;
+    SUBJECTS.filter(s=>s.id!=='break').forEach(s => {
+      if (kx > PW - 25) return;
+      const sc = hexToRgb(s.color);
+      doc.setFillColor(sc.r, sc.g, sc.b);
+      doc.roundedRect(kx, curY-1, 3, 3, 1, 1, 'F');
+      doc.setTextColor(50,50,50);
+      doc.setFont('helvetica','normal');
+      doc.text(s.label.replace('🥪 ',''), kx+4.5, curY+2.2);
+      kx += s.label.length * 1.4 + 8;
+    });
+
+    // ── Footer ──
+    doc.setFontSize(6);
+    doc.setTextColor(148,163,184);
+    doc.text('Generated by SchoolTag  |  schooltag.in  |  Custom School Labels ₹19', PW/2, PH-3, {align:'center'});
+
+    // Save
+    const fname = (studentName.replace(/\s+/g,'_') || 'Timetable') + '_SchoolTag.pdf';
+    doc.save(fname);
+  } catch(err) {
+    alert('PDF generation error: ' + err.message);
+    console.error(err);
+  }
+  spinner.classList.remove('show');
+}
+
+function hexToRgb(hex) {
+  const clean = hex.replace('#','');
+  const num = parseInt(clean, 16);
+  return { r: (num>>16)&255, g: (num>>8)&255, b: num&255 };
+}
+
+// ══════════════════════════════════════════════════════
+//  RESET
+// ══════════════════════════════════════════════════════
+function resetAll() {
+  if (!confirm('Reset all data?')) return;
+  ['f-student','f-school','f-section','f-roll'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('f-class').value = 'Class 5';
+  document.getElementById('f-year').value = '2025 – 2026';
+  document.getElementById('f-start').value = '09:00';
+  document.getElementById('f-duration').value = '45';
+  document.getElementById('f-break-after').value = '4';
+  document.getElementById('f-break-dur').value = '30';
+  photoDataURL = null;
+  document.getElementById('photo-preview').classList.remove('show');
+  document.getElementById('upload-placeholder').style.display = 'block';
+  document.getElementById('photo-drop').classList.remove('has-photo');
+  selectedTheme = THEMES[0];
+  activeDays = ['Mon','Tue','Wed','Thu','Fri'];
+  initDefaultPeriods();
+  renderThemes();
+  renderDays();
+  renderPeriodsTable();
+  document.getElementById('preview-section').style.display = 'none';
+}
+
+// ══════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════
+renderThemes();
+renderDays();
+initDefaultPeriods();
+renderPeriodsTable();
+</script>
+</body>
+</html>
