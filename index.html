@@ -31,6 +31,53 @@ body{
   background:linear-gradient(135deg,#fef9ff 0%,#f0f4ff 50%,#fff8f0 100%);
   min-height:100vh;color:var(--dark);
 }
+
+/* ── TOP NAV ── */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:2px solid var(--border);
+  box-shadow:0 2px 16px rgba(107,107,138,.12);
+  padding:0 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:56px;gap:8px;
+}
+.nav-brand{
+  font-family:'Baloo 2',cursive;font-size:1.25rem;font-weight:900;
+  background:linear-gradient(135deg,var(--coral),var(--lavender),var(--sky));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  white-space:nowrap;text-decoration:none;flex-shrink:0;
+}
+.nav-links{
+  display:flex;gap:6px;align-items:center;flex-wrap:nowrap;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{
+  font-family:'Baloo 2',cursive;font-size:.78rem;font-weight:800;
+  padding:6px 13px;border-radius:50px;
+  text-decoration:none;white-space:nowrap;
+  border:2px solid transparent;
+  transition:all .2s;cursor:pointer;display:flex;align-items:center;gap:4px;
+  color:var(--mid);background:#F8F5FF;border-color:var(--border);
+}
+.nav-link:hover{border-color:var(--coral);color:var(--coral);background:#fff5f5;transform:translateY(-1px);}
+.nav-link.active-nav{
+  background:linear-gradient(135deg,var(--coral),var(--lavender));
+  color:#fff;border-color:transparent;
+  box-shadow:0 3px 12px rgba(255,107,107,.35);
+}
+.nav-link.nav-games{border-color:#A855F7;color:#A855F7;background:#FAF5FF;}
+.nav-link.nav-games:hover{background:#A855F7;color:#fff;box-shadow:0 3px 12px rgba(168,85,247,.35);}
+.nav-link.nav-tt{border-color:#3B82F6;color:#3B82F6;background:#EFF6FF;}
+.nav-link.nav-tt:hover{background:#3B82F6;color:#fff;box-shadow:0 3px 12px rgba(59,130,246,.35);}
+.nav-link.nav-ab{border-color:#F59E0B;color:#D97706;background:#FFFBEB;}
+.nav-link.nav-ab:hover{background:#F59E0B;color:#fff;box-shadow:0 3px 12px rgba(245,158,11,.35);}
+/* Hamburger for very small screens */
+@media(max-width:380px){
+  .nav-link span.nl{display:none;}
+}
 .blob{position:fixed;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0;animation:bf 8s ease-in-out infinite}
 .b1{width:380px;height:380px;background:rgba(255,107,107,0.1);top:-80px;left:-80px}
 .b2{width:320px;height:320px;background:rgba(135,206,235,0.12);bottom:-60px;right:-60px;animation-delay:3s}
@@ -308,6 +355,17 @@ document.addEventListener('dragstart', function(e){
 </script>
 </head>
 <body>
+
+<!-- ══ STICKY TOP NAVIGATION ══ -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">🏷️ SchoolTag</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link active-nav">🏠 <span class="nl">Labels</span> ₹19</a>
+    <a href="games.html" class="nav-link nav-games">🎮 <span class="nl">Game Zone</span></a>
+    <a href="timetable.html" class="nav-link nav-tt">📅 <span class="nl">Timetable</span> ₹9</a>
+    <a href="abacus.html" class="nav-link nav-ab">🧮 <span class="nl">Abacus</span></a>
+  </div>
+</nav>
 
 <div class="blob b1"></div>
 <div class="blob b2"></div>
