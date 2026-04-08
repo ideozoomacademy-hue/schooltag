@@ -3,858 +3,997 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Virtual Abacus – SchoolTag</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<title>Abacus Level-1 Masterclass – SchoolTag | ₹499</title>
+<meta name="description" content="Learn Abacus online with AI Tutor. Level-1 Masterclass for kids aged 5-12. Just ₹499. Bilingual English & Tamil. Lifetime access."/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ════════════════════════════════════════
-   ROOT & RESET
-════════════════════════════════════════ */
-:root {
-  --wood-dark:   #4A2C0A;
-  --wood-mid:    #6B3F12;
-  --wood-light:  #8B5520;
-  --wood-grain:  #7A4718;
-  --gold:        #D4A017;
-  --gold-light:  #F0C040;
-  --gold-dark:   #A07010;
-  --bead-ivory:  #F5E6C8;
-  --bead-top:    #E8C84A;   /* heaven bead – gold */
-  --bead-bot:    #F0D080;   /* earth bead – lighter gold */
-  --bead-active-top: #FF6B35;
-  --bead-active-bot: #FF8C42;
-  --bar-color:   #C8960A;
-  --bg:          #FFF8F0;
-  --text:        #1E1B18;
-  --muted:       #6B7280;
-  --green:       #10B981;
-  --red:         #EF4444;
-  --primary:     #FF6B35;
-  --shadow:      0 4px 20px rgba(0,0,0,.15);
-  --radius:      18px;
+/* ════════ ROOT ════════ */
+:root{
+  --wood:#4A2C0A;--wood2:#6B3F12;--gold:#D4A017;--goldf:#F0C040;
+  --primary:#FF6B35;--purple:#7C3AED;--green:#10B981;--red:#EF4444;
+  --cyan:#06B6D4;--pink:#EC4899;--yellow:#F59E0B;
+  --bg:#FFF8F0;--card:#fff;--text:#1E1B18;--muted:#6B7280;
+  --shadow:0 4px 24px rgba(0,0,0,.12);--radius:20px;
 }
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-body {
-  font-family:'Nunito',sans-serif;
-  background: radial-gradient(ellipse at top, #FFF5E6, #FFE8C8);
-  min-height:100vh;
-  overflow-x:hidden;
-  user-select:none;
-}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);min-height:100vh;overflow-x:hidden;color:var(--text);}
 
-/* ════════════════════════════════════════
-   HEADER
-════════════════════════════════════════ */
-header {
-  background: linear-gradient(135deg, #4A2C0A, #6B3F12);
-  padding: 14px 18px;
-  display: flex; align-items: center; gap: 10px;
-  box-shadow: 0 4px 16px rgba(74,44,10,.5);
-}
-.logo-link { text-decoration:none; display:flex; align-items:center; gap:8px; }
-.logo-text { font-family:'Baloo 2',cursive; font-size:1.4rem; color:#F0C040; font-weight:800; }
-.logo-text span { color:#fff; }
-.header-badge {
-  margin-left:auto;
-  background: rgba(240,192,64,.2);
-  color: #F0C040;
-  font-weight:800; font-size:.78rem;
-  padding:5px 12px; border-radius:50px;
-  border:2px solid rgba(240,192,64,.4);
-}
+/* ════════ TOP NAV ════════ */
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:2px solid #F3E8D0;box-shadow:0 2px 16px rgba(74,44,10,.1);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:54px;gap:8px;}
+.nav-brand{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;background:linear-gradient(135deg,#FF6B35,#D4A017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.nav-links{display:flex;gap:6px;align-items:center;overflow-x:auto;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{font-family:'Baloo 2',cursive;font-size:.75rem;font-weight:800;padding:5px 12px;border-radius:50px;text-decoration:none;white-space:nowrap;border:2px solid #E5E7EB;color:var(--muted);background:#F9FAFB;transition:all .2s;}
+.nav-link:hover{border-color:var(--primary);color:var(--primary);background:#FFF5F0;}
+.nav-link.nav-home{border-color:var(--primary);color:var(--primary);background:#FFF5F0;}
+.nav-link.nav-games{border-color:#7C3AED;color:#7C3AED;background:#F5F3FF;}
+.nav-link.nav-active{background:linear-gradient(135deg,var(--wood),var(--wood2));color:#F0C040;border-color:transparent;box-shadow:0 3px 10px rgba(74,44,10,.3);}
 
-/* ════════════════════════════════════════
-   HERO
-════════════════════════════════════════ */
-.hero { text-align:center; padding:22px 16px 10px; }
-.hero h1 { font-family:'Baloo 2',cursive; font-size:clamp(1.5rem,5vw,2.2rem); color:var(--text); }
-.hero h1 span { color:var(--primary); }
-.hero p { color:var(--muted); font-size:.9rem; margin-top:5px; font-weight:600; }
+/* ════════ SECTIONS ════════ */
+.section{display:none;}
+.section.active{display:block;}
 
-/* ════════════════════════════════════════
-   DISPLAY PANEL
-════════════════════════════════════════ */
-.display-panel {
-  max-width: 560px; margin: 0 auto 12px;
-  padding: 0 14px;
-}
-.display-card {
-  background: #1A0F04;
-  border-radius: 16px;
-  padding: 14px 18px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 10px;
-  box-shadow: 0 6px 24px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.05);
-  border: 2px solid #5A3510;
-}
-.total-label {
-  font-family:'Baloo 2',cursive;
-  font-size:.85rem; font-weight:800;
-  color: #D4A017;
-  text-transform: uppercase; letter-spacing:1px;
-  white-space: nowrap;
-}
-.total-tamil { font-size:.75rem; color:#A07010; display:block; }
-.total-value {
-  font-family:'Baloo 2',cursive;
-  font-size: clamp(2rem, 7vw, 3rem);
-  font-weight:900;
-  color: #F0C040;
-  text-shadow: 0 0 20px rgba(240,192,64,.5);
-  letter-spacing:2px;
-  min-width: 100px;
-  text-align:right;
-  transition: color .2s;
-}
-.total-value.changed { color: #FF6B35; animation: numPop .3s ease; }
-@keyframes numPop { 0%{transform:scale(1)} 50%{transform:scale(1.12)} 100%{transform:scale(1)} }
+/* ════════ HERO — TOP OF FUNNEL ════════ */
+.hero-section{background:linear-gradient(135deg,#1A0A04,#3A1A08,#2A1004);min-height:100vh;position:relative;overflow:hidden;}
+.hero-stars{position:absolute;inset:0;pointer-events:none;}
+.hero-stars span{position:absolute;color:#F0C040;animation:twinkle 2s ease infinite alternate;font-size:.5rem;}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+.hero-inner{max-width:680px;margin:0 auto;padding:40px 16px 60px;position:relative;z-index:2;text-align:center;}
+.hero-badge{display:inline-block;background:rgba(240,192,64,.15);border:2px solid rgba(240,192,64,.3);color:#F0C040;font-family:'Baloo 2',cursive;font-size:.78rem;font-weight:800;padding:5px 16px;border-radius:50px;margin-bottom:18px;letter-spacing:.5px;}
+.hero-h1{font-family:'Baloo 2',cursive;font-size:clamp(1.8rem,6vw,3rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:10px;}
+.hero-h1 span{background:linear-gradient(135deg,#F0C040,#FF6B35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-tamil{font-family:'Baloo 2',cursive;font-size:clamp(1.1rem,3.5vw,1.6rem);color:rgba(255,255,255,.75);margin-bottom:20px;font-weight:700;line-height:1.4;}
+.hero-sub{color:rgba(255,255,255,.6);font-size:.9rem;font-weight:600;margin-bottom:30px;}
 
-/* ════════════════════════════════════════
-   CONTROLS ROW
-════════════════════════════════════════ */
-.controls {
-  max-width:560px; margin:0 auto 14px;
-  padding:0 14px;
-  display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
-}
-.ctrl-btn {
-  font-family:'Baloo 2',cursive;
-  font-size:.88rem; font-weight:800;
-  padding:9px 18px;
-  border:none; border-radius:50px;
-  cursor:pointer;
-  transition: transform .15s, box-shadow .15s;
-  display:flex; align-items:center; gap:6px;
-}
-.ctrl-btn:hover { transform:translateY(-2px); }
-.btn-reset   { background:linear-gradient(135deg,#6B3F12,#4A2C0A); color:#F0C040; box-shadow:0 4px 12px rgba(74,44,10,.4); }
-.btn-challenge { background:linear-gradient(135deg,#FF6B35,#FF8C42); color:#fff; box-shadow:0 4px 12px rgba(255,107,53,.4); }
-.btn-guide   { background:linear-gradient(135deg,#10B981,#059669); color:#fff; box-shadow:0 4px 12px rgba(16,185,129,.4); }
+/* Bullet points */
+.bullet-grid{display:flex;flex-direction:column;gap:14px;text-align:left;margin-bottom:32px;}
+.bullet-card{background:rgba(255,255,255,.06);border:1px solid rgba(240,192,64,.2);border-radius:16px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;}
+.bullet-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px;}
+.bullet-en{font-weight:800;color:#fff;font-size:.9rem;line-height:1.4;}
+.bullet-ta{color:rgba(255,255,255,.6);font-size:.8rem;font-weight:600;margin-top:3px;line-height:1.4;}
 
-/* ════════════════════════════════════════
-   CHALLENGE BOX
-════════════════════════════════════════ */
-.challenge-box {
-  max-width:560px; margin:0 auto 14px; padding:0 14px;
-  display:none;
-}
-.challenge-inner {
-  background: linear-gradient(135deg,#FFF5E6,#FFF0D8);
-  border-radius:16px; padding:16px 18px;
-  border:3px solid #F0C040;
-  box-shadow:0 4px 16px rgba(212,160,23,.25);
-  position:relative;
-}
-.ch-label { font-size:.75rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
-.ch-problem {
-  font-family:'Baloo 2',cursive;
-  font-size:clamp(1.8rem,6vw,2.8rem);
-  font-weight:900; color:var(--wood-dark);
-  margin-bottom:8px;
-}
-.ch-hint { font-size:.85rem; font-weight:700; color:var(--muted); margin-bottom:12px; }
-.ch-actions { display:flex; gap:8px; flex-wrap:wrap; }
-.ch-check-btn {
-  font-family:'Baloo 2',cursive; font-size:.9rem; font-weight:800;
-  padding:9px 20px; border:none; border-radius:50px;
-  background:linear-gradient(135deg,#10B981,#059669); color:#fff;
-  cursor:pointer; box-shadow:0 3px 10px rgba(16,185,129,.4);
-  transition:transform .15s;
-}
-.ch-check-btn:hover { transform:translateY(-1px); }
-.ch-skip-btn {
-  font-family:'Baloo 2',cursive; font-size:.9rem; font-weight:800;
-  padding:9px 20px; border:none; border-radius:50px;
-  background:#F3F4F6; color:var(--muted);
-  cursor:pointer; transition:transform .15s;
-}
-.ch-result {
-  margin-top:10px; padding:10px 14px; border-radius:12px;
-  font-weight:800; font-size:.95rem;
-  display:none; align-items:center; gap:8px;
-}
-.ch-result.show { display:flex; animation:slideUp .3s ease; }
-.ch-result.ok  { background:#F0FDF4; color:#166534; border:2px solid #BBF7D0; }
-.ch-result.err { background:#FEF2F2; color:#991B1B; border:2px solid #FECACA; }
-.ch-score { margin-left:auto; font-family:'Baloo 2',cursive; font-size:.85rem; color:var(--primary); font-weight:800; }
-@keyframes slideUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+/* Free abacus strip */
+.free-strip{background:rgba(16,185,129,.12);border:2px solid rgba(16,185,129,.3);border-radius:14px;padding:12px 16px;margin-bottom:24px;text-align:center;color:#10B981;font-weight:800;font-size:.88rem;}
+.free-strip span{color:#fff;}
 
-/* ════════════════════════════════════════
-   ABACUS FRAME
-════════════════════════════════════════ */
-.abacus-wrap {
-  max-width:600px; margin:0 auto;
-  padding:0 10px 24px;
-  display:flex; flex-direction:column; align-items:center;
-}
-.abacus-frame {
-  width:100%;
-  background: linear-gradient(180deg, #7A4718 0%, #6B3F12 40%, #5A3010 100%);
-  border-radius:16px;
-  padding:12px 10px;
-  box-shadow:
-    0 8px 32px rgba(0,0,0,.5),
-    inset 0 2px 4px rgba(255,255,255,.1),
-    inset 0 -2px 4px rgba(0,0,0,.3);
-  border:3px solid #3A1C06;
-  position:relative;
-}
+/* CTA Buttons */
+.cta-primary{display:block;width:100%;font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:900;padding:18px;border:none;border-radius:18px;background:linear-gradient(135deg,#FF6B35,#D4A017);color:#fff;cursor:pointer;box-shadow:0 8px 28px rgba(255,107,53,.5);transition:transform .15s;letter-spacing:.5px;text-decoration:none;text-align:center;margin-bottom:10px;}
+.cta-primary:hover{transform:translateY(-3px);}
+.cta-secondary{display:block;width:100%;font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:800;padding:13px;border:2px solid rgba(240,192,64,.4);border-radius:14px;background:transparent;color:#F0C040;cursor:pointer;transition:all .2s;text-decoration:none;text-align:center;}
+.cta-secondary:hover{background:rgba(240,192,64,.1);}
+.cta-note{color:rgba(255,255,255,.4);font-size:.72rem;font-weight:600;text-align:center;margin-top:8px;}
 
-/* Top & bottom rails */
-.rail-top, .rail-bottom {
-  height: 12px;
-  background: linear-gradient(180deg, #5A3010, #8B5520);
-  border-radius:6px;
-  box-shadow: inset 0 2px 3px rgba(0,0,0,.4);
-}
-.rail-top { margin-bottom:8px; }
-.rail-bottom { margin-top:8px; }
+/* Stats row */
+.stats-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:28px 0;}
+.stat-chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:8px 16px;text-align:center;}
+.stat-num{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;color:#F0C040;}
+.stat-lbl{font-size:.65rem;color:rgba(255,255,255,.5);font-weight:700;}
 
-/* Rods area */
-.rods-area {
-  display:flex;
-  gap:0;
-  justify-content:space-evenly;
-  align-items:stretch;
-  position:relative;
-}
+/* Reviews */
+.reviews-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
+.review-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px;}
+.review-stars{font-size:.85rem;margin-bottom:5px;}
+.review-text{font-size:.75rem;color:rgba(255,255,255,.7);font-weight:600;line-height:1.5;font-style:italic;}
+.review-name{font-size:.65rem;color:rgba(255,255,255,.35);margin-top:5px;font-weight:700;}
 
-/* Dividing bar */
-.divider-bar {
-  position:absolute;
-  left:0; right:0;
-  height:12px;
-  background: linear-gradient(180deg, #A07010, #D4A017, #A07010);
-  border-top:2px solid #F0C040;
-  border-bottom:2px solid #8B6000;
-  box-shadow: 0 2px 8px rgba(0,0,0,.4), 0 -1px 3px rgba(255,200,0,.3);
-  z-index:5;
-  pointer-events:none;
-  border-radius:2px;
-}
+/* ════════ FREE ABACUS SECTION ════════ */
+.abacus-section{background:radial-gradient(ellipse at top,#FFF5E6,#FFE8C8);}
+.section-header{text-align:center;padding:30px 16px 16px;}
+.section-title{font-family:'Baloo 2',cursive;font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:var(--wood);margin-bottom:6px;}
+.section-sub{color:var(--muted);font-size:.88rem;font-weight:600;}
 
-/* Single column (rod) */
-.rod-col {
-  display:flex; flex-direction:column;
-  align-items:center;
-  flex:1;
-  position:relative;
-  min-width:0;
-}
+/* Abacus display panel */
+.display-panel{max-width:560px;margin:0 auto 12px;padding:0 14px;}
+.display-card{background:#1A0F04;border-radius:16px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05);border:2px solid #5A3510;}
+.total-label{font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:1px;}
+.total-tamil{font-size:.72rem;color:#A07010;display:block;}
+.total-value{font-family:'Baloo 2',cursive;font-size:clamp(2rem,7vw,3rem);font-weight:900;color:#F0C040;text-shadow:0 0 20px rgba(240,192,64,.5);letter-spacing:2px;min-width:100px;text-align:right;transition:color .2s;}
+.total-value.changed{color:var(--primary);animation:numPop .3s ease;}
+@keyframes numPop{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
 
-/* The rod line */
-.rod-line {
-  position:absolute;
-  top:0; bottom:0;
-  left:50%; transform:translateX(-50%);
-  width:5px;
-  background: linear-gradient(90deg, #8B6000, #D4A017, #C8960A, #8B6000);
-  border-radius:3px;
-  z-index:1;
-  box-shadow: 1px 0 3px rgba(0,0,0,.3);
-}
+.controls{max-width:560px;margin:0 auto 14px;padding:0 14px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.ctrl-btn{font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:800;padding:9px 16px;border:none;border-radius:50px;cursor:pointer;transition:transform .15s;display:flex;align-items:center;gap:5px;}
+.ctrl-btn:hover{transform:translateY(-2px);}
+.btn-reset{background:linear-gradient(135deg,#6B3F12,#4A2C0A);color:#F0C040;box-shadow:0 4px 12px rgba(74,44,10,.4);}
+.btn-challenge{background:linear-gradient(135deg,#FF6B35,#FF8C42);color:#fff;box-shadow:0 4px 12px rgba(255,107,53,.4);}
+.btn-guide{background:linear-gradient(135deg,#10B981,#059669);color:#fff;box-shadow:0 4px 12px rgba(16,185,129,.4);}
 
-/* Heaven (upper) section */
-.heaven-section {
-  width:100%;
-  display:flex; flex-direction:column; align-items:center;
-  padding:4px 2px 8px;
-  gap:3px;
-}
+/* Challenge box */
+.challenge-box{max-width:560px;margin:0 auto 14px;padding:0 14px;display:none;}
+.challenge-inner{background:linear-gradient(135deg,#FFF5E6,#FFF0D8);border-radius:16px;padding:16px 18px;border:3px solid #F0C040;box-shadow:0 4px 16px rgba(212,160,23,.25);}
+.ch-label{font-size:.72rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.ch-problem{font-family:'Baloo 2',cursive;font-size:clamp(1.6rem,5vw,2.6rem);font-weight:900;color:var(--wood);margin-bottom:8px;}
+.ch-hint{font-size:.83rem;font-weight:700;color:var(--muted);margin-bottom:12px;}
+.ch-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.ch-check-btn{font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:800;padding:9px 18px;border:none;border-radius:50px;background:linear-gradient(135deg,#10B981,#059669);color:#fff;cursor:pointer;box-shadow:0 3px 10px rgba(16,185,129,.4);transition:transform .15s;}
+.ch-check-btn:hover{transform:translateY(-1px);}
+.ch-skip-btn{font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:800;padding:9px 18px;border:none;border-radius:50px;background:#F3F4F6;color:var(--muted);cursor:pointer;transition:transform .15s;}
+.ch-score{margin-left:auto;font-family:'Baloo 2',cursive;font-size:.82rem;color:var(--primary);font-weight:800;}
+.ch-result{margin-top:10px;padding:10px 14px;border-radius:12px;font-weight:800;font-size:.9rem;display:none;align-items:center;gap:8px;}
+.ch-result.show{display:flex;animation:slideUp .3s ease;}
+.ch-result.ok{background:#F0FDF4;color:#166534;border:2px solid #BBF7D0;}
+.ch-result.err{background:#FEF2F2;color:#991B1B;border:2px solid #FECACA;}
 
-/* Earth (lower) section */
-.earth-section {
-  width:100%;
-  display:flex; flex-direction:column; align-items:center;
-  padding:8px 2px 4px;
-  gap:3px;
-}
+/* Abacus frame */
+.abacus-wrap{max-width:600px;margin:0 auto;padding:0 10px 20px;display:flex;flex-direction:column;align-items:center;}
+.abacus-frame{width:100%;background:linear-gradient(180deg,#7A4718,#6B3F12,#5A3010);border-radius:16px;padding:12px 10px;box-shadow:0 8px 32px rgba(0,0,0,.5),inset 0 2px 4px rgba(255,255,255,.1),inset 0 -2px 4px rgba(0,0,0,.3);border:3px solid #3A1C06;position:relative;}
+.rail-top,.rail-bottom{height:12px;background:linear-gradient(180deg,#5A3010,#8B5520);border-radius:6px;box-shadow:inset 0 2px 3px rgba(0,0,0,.4);}
+.rail-top{margin-bottom:8px;}
+.rail-bottom{margin-top:8px;}
+.rods-area{display:flex;gap:0;justify-content:space-evenly;align-items:stretch;position:relative;}
+.divider-bar{position:absolute;left:0;right:0;height:12px;background:linear-gradient(180deg,#A07010,#D4A017,#A07010);border-top:2px solid #F0C040;border-bottom:2px solid #8B6000;box-shadow:0 2px 8px rgba(0,0,0,.4),0 -1px 3px rgba(255,200,0,.3);z-index:5;pointer-events:none;border-radius:2px;}
+.rod-col{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;min-width:0;}
+.rod-line{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:5px;background:linear-gradient(90deg,#8B6000,#D4A017,#C8960A,#8B6000);border-radius:3px;z-index:1;box-shadow:1px 0 3px rgba(0,0,0,.3);}
+.heaven-section{width:100%;display:flex;flex-direction:column;align-items:center;padding:4px 2px 8px;gap:3px;}
+.earth-section{width:100%;display:flex;flex-direction:column;align-items:center;padding:8px 2px 4px;gap:3px;}
+.bead{width:clamp(20px,calc(100% - 4px),38px);height:clamp(14px,3.2vw,22px);border-radius:50%;cursor:pointer;position:relative;z-index:3;transition:transform .18s cubic-bezier(.34,1.56,.64,1),filter .18s;flex-shrink:0;}
+.bead-heaven{background:radial-gradient(circle at 35% 35%,#FFE066,#D4A017 55%,#8B6000 100%);box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px 2px rgba(255,255,255,.5);border:1px solid #A07010;}
+.bead-heaven.active{background:radial-gradient(circle at 35% 35%,#FF9A5C,#FF6B35 55%,#C94A1E 100%);box-shadow:0 3px 12px rgba(255,107,53,.6),inset 0 1px 2px rgba(255,255,255,.4),0 0 10px rgba(255,107,53,.4);border-color:#FF6B35;}
+.bead-earth{background:radial-gradient(circle at 35% 35%,#FFF0A0,#F0C040 50%,#A07010 100%);box-shadow:0 3px 8px rgba(0,0,0,.4),inset 0 1px 2px rgba(255,255,255,.55);border:1px solid #C8960A;}
+.bead-earth.active{background:radial-gradient(circle at 35% 35%,#FFD4A0,#FF8C42 50%,#C94A1E 100%);box-shadow:0 3px 12px rgba(255,107,53,.5),inset 0 1px 2px rgba(255,255,255,.4),0 0 8px rgba(255,140,66,.4);border-color:#FF8C42;}
+.bead:hover{filter:brightness(1.15);}
+.bead:active{transform:scale(.92);}
+.col-labels{width:100%;display:flex;justify-content:space-evenly;padding:6px 10px 0;gap:0;}
+.col-label{flex:1;text-align:center;font-family:'Baloo 2',cursive;font-size:clamp(.5rem,.8vw + .3rem,.7rem);font-weight:800;color:#D4A017;opacity:.75;min-width:0;}
 
-/* ════════════════════════════════════════
-   BEADS
-════════════════════════════════════════ */
-.bead {
-  width: clamp(20px, calc(100% - 4px), 38px);
-  height: clamp(14px, 3.2vw, 22px);
-  border-radius: 50%;
-  cursor: pointer;
-  position:relative;
-  z-index:3;
-  transition: transform .18s cubic-bezier(.34,1.56,.64,1), filter .18s;
-  flex-shrink:0;
-}
+/* Guide panel */
+.guide-panel{max-width:560px;margin:0 auto 16px;padding:0 14px;display:none;}
+.guide-inner{background:var(--bg);border-radius:16px;padding:18px;border:3px solid #D4A017;box-shadow:0 4px 16px rgba(212,160,23,.2);}
+.guide-inner h3{font-family:'Baloo 2',cursive;font-size:1.05rem;color:var(--wood);margin-bottom:12px;}
+.guide-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.guide-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px;}
+.guide-text{font-size:.83rem;font-weight:700;color:var(--muted);line-height:1.5;}
+.guide-text strong{color:var(--wood);}
 
-/* Heaven bead (1 per rod) */
-.bead-heaven {
-  background: radial-gradient(circle at 35% 35%,
-    #FFE066, #D4A017 55%, #8B6000 100%);
-  box-shadow:
-    0 3px 8px rgba(0,0,0,.45),
-    inset 0 1px 2px rgba(255,255,255,.5),
-    inset 0 -1px 2px rgba(0,0,0,.3);
-  border:1px solid #A07010;
-}
-.bead-heaven.active {
-  background: radial-gradient(circle at 35% 35%,
-    #FF9A5C, #FF6B35 55%, #C94A1E 100%);
-  box-shadow:
-    0 3px 12px rgba(255,107,53,.6),
-    inset 0 1px 2px rgba(255,255,255,.4),
-    0 0 10px rgba(255,107,53,.4);
-  border-color:#FF6B35;
-}
+/* Upgrade banner */
+.upgrade-banner{max-width:560px;margin:0 auto 0;padding:0 14px 28px;}
+.upgrade-inner{background:linear-gradient(135deg,#1A0A04,#3A1A08);border-radius:20px;padding:22px 18px;text-align:center;border:2px solid rgba(240,192,64,.3);box-shadow:0 8px 28px rgba(0,0,0,.3);}
+.upgrade-inner h3{font-family:'Baloo 2',cursive;font-size:1.2rem;color:#F0C040;margin-bottom:6px;}
+.upgrade-inner p{color:rgba(255,255,255,.65);font-size:.83rem;font-weight:600;margin-bottom:14px;}
 
-/* Earth beads (4 per rod) */
-.bead-earth {
-  background: radial-gradient(circle at 35% 35%,
-    #FFF0A0, #F0C040 50%, #A07010 100%);
-  box-shadow:
-    0 3px 8px rgba(0,0,0,.4),
-    inset 0 1px 2px rgba(255,255,255,.55),
-    inset 0 -1px 2px rgba(0,0,0,.25);
-  border:1px solid #C8960A;
-}
-.bead-earth.active {
-  background: radial-gradient(circle at 35% 35%,
-    #FFD4A0, #FF8C42 50%, #C94A1E 100%);
-  box-shadow:
-    0 3px 12px rgba(255,107,53,.5),
-    inset 0 1px 2px rgba(255,255,255,.4),
-    0 0 8px rgba(255,140,66,.4);
-  border-color:#FF8C42;
-}
+/* ════════ LESSON 0 SECTION ════════ */
+.lesson-section{background:linear-gradient(135deg,#F0F9FF,#EEF2FF,#FFF0FA);}
+.lesson-wrap{max-width:620px;margin:0 auto;padding:0 14px 48px;}
+.lesson-header{text-align:center;padding:30px 0 20px;}
+.lesson-badge{display:inline-block;background:linear-gradient(135deg,#10B981,#06B6D4);color:#fff;font-family:'Baloo 2',cursive;font-size:.75rem;font-weight:800;padding:5px 16px;border-radius:50px;margin-bottom:12px;}
+.lesson-title{font-family:'Baloo 2',cursive;font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900;color:#1E1040;margin-bottom:6px;}
+.lesson-sub{color:var(--muted);font-size:.88rem;font-weight:600;}
 
-.bead:hover { filter:brightness(1.15); }
-.bead:active { transform:scale(.92); }
+/* Chat UI */
+.chat-wrap{background:var(--card);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px;}
+.chat-header{background:linear-gradient(135deg,#7C3AED,#4F46E5);padding:14px 16px;display:flex;align-items:center;gap:10px;}
+.chat-avatar{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2px solid rgba(255,255,255,.4);}
+.chat-name{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;color:#fff;}
+.chat-status{font-size:.72rem;color:rgba(255,255,255,.7);font-weight:600;}
+.chat-messages{padding:16px;min-height:200px;max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:#F8FAFF;}
+.msg{max-width:82%;animation:msgPop .35s cubic-bezier(.34,1.56,.64,1);}
+@keyframes msgPop{from{opacity:0;transform:translateY(8px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.msg-abi{align-self:flex-start;}
+.msg-user{align-self:flex-end;}
+.msg-bubble{padding:11px 15px;border-radius:18px;font-size:.88rem;font-weight:700;line-height:1.5;}
+.msg-abi .msg-bubble{background:#fff;color:var(--text);border:1.5px solid #E8E0FF;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.msg-user .msg-bubble{background:linear-gradient(135deg,#7C3AED,#4F46E5);color:#fff;border-bottom-right-radius:4px;}
+.msg-time{font-size:.62rem;color:#9CA3AF;margin-top:3px;font-weight:600;}
+.msg-user .msg-time{text-align:right;}
+.chat-options{padding:12px 14px;background:#fff;border-top:1.5px solid #F0EAFF;display:flex;flex-wrap:wrap;gap:8px;}
+.chat-opt-btn{font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;padding:8px 16px;border:2px solid #7C3AED;border-radius:50px;background:#F5F3FF;color:#7C3AED;cursor:pointer;transition:all .18s;}
+.chat-opt-btn:hover{background:#7C3AED;color:#fff;transform:translateY(-1px);}
+.chat-typing{align-self:flex-start;display:none;}
+.chat-typing .msg-bubble{display:flex;gap:4px;align-items:center;padding:12px 16px;}
+.typing-dot{width:7px;height:7px;background:#7C3AED;border-radius:50%;animation:typingBounce 1.2s ease infinite;}
+.typing-dot:nth-child(2){animation-delay:.2s;}
+.typing-dot:nth-child(3){animation-delay:.4s;}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
 
-/* ════════════════════════════════════════
-   COLUMN VALUE LABELS
-════════════════════════════════════════ */
-.col-labels {
-  width:100%;
-  display:flex;
-  justify-content:space-evenly;
-  padding:6px 10px 0;
-  gap:0;
-}
-.col-label {
-  flex:1;
-  text-align:center;
-  font-family:'Baloo 2',cursive;
-  font-size:clamp(.5rem,.8vw + .3rem,.72rem);
-  font-weight:800;
-  color:#D4A017;
-  opacity:.8;
-  min-width:0;
-}
+/* Grip illustrations */
+.grip-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0;}
+.grip-card{background:var(--card);border-radius:16px;padding:14px;text-align:center;border:2px solid #F0EAFF;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+.grip-emoji{font-size:2.5rem;margin-bottom:8px;}
+.grip-title{font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;color:#1E1040;margin-bottom:4px;}
+.grip-desc{font-size:.75rem;font-weight:700;color:var(--muted);line-height:1.5;}
+.grip-ta{font-size:.7rem;color:#7C3AED;font-weight:700;margin-top:4px;font-style:italic;}
 
-/* ════════════════════════════════════════
-   GUIDE PANEL
-════════════════════════════════════════ */
-.guide-panel {
-  max-width:560px; margin:0 auto 16px; padding:0 14px;
-  display:none;
-}
-.guide-inner {
-  background:var(--bg);
-  border-radius:16px; padding:18px;
-  border:3px solid #D4A017;
-  box-shadow:0 4px 16px rgba(212,160,23,.2);
-}
-.guide-inner h3 { font-family:'Baloo 2',cursive; font-size:1.1rem; color:var(--wood-dark); margin-bottom:12px; }
-.guide-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
-.guide-icon { font-size:1.3rem; flex-shrink:0; margin-top:1px; }
-.guide-text { font-size:.85rem; font-weight:700; color:var(--muted); line-height:1.5; }
-.guide-text strong { color:var(--wood-dark); }
+/* ════════ COURSE SALES SECTION ════════ */
+.course-section{background:linear-gradient(135deg,#0D0020,#1A0040,#200010);}
+.course-wrap{max-width:660px;margin:0 auto;padding:0 14px 60px;}
+.course-hero{text-align:center;padding:40px 0 28px;}
+.course-badge{display:inline-block;background:linear-gradient(135deg,#FF6B35,#D4A017);color:#fff;font-family:'Baloo 2',cursive;font-size:.75rem;font-weight:800;padding:5px 16px;border-radius:50px;margin-bottom:14px;letter-spacing:.5px;}
+.course-title{font-family:'Baloo 2',cursive;font-size:clamp(1.8rem,6vw,2.8rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:8px;}
+.course-title span{background:linear-gradient(135deg,#F0C040,#FF6B35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.course-tamil{font-family:'Baloo 2',cursive;font-size:1.1rem;color:rgba(255,255,255,.65);margin-bottom:14px;font-weight:700;}
 
-/* ════════════════════════════════════════
-   FOOTER
-════════════════════════════════════════ */
-.footer-cta {
-  text-align:center; padding:22px 20px 36px;
-  background:linear-gradient(135deg,#FFF5E6,#FFF0D8);
-  border-top:2px dashed #D4A017;
-}
-.footer-cta p { color:var(--muted); font-weight:700; margin-bottom:10px; font-size:.9rem; }
-.cta-btn {
-  font-family:'Baloo 2',cursive; font-size:1rem; font-weight:800;
-  padding:11px 26px; border:none; border-radius:50px;
-  background:var(--primary); color:#fff;
-  cursor:pointer; text-decoration:none; display:inline-block;
-  box-shadow:0 4px 14px rgba(255,107,53,.35); transition:transform .15s;
-}
-.cta-btn:hover { transform:translateY(-2px); }
+/* Price box */
+.price-box{background:rgba(255,255,255,.05);border:2px solid rgba(240,192,64,.3);border-radius:24px;padding:28px 20px;margin-bottom:24px;position:relative;overflow:hidden;}
+.price-box::before{content:'🔥 LAUNCH PRICE';position:absolute;top:14px;right:-24px;background:linear-gradient(135deg,#FF6B35,#EF4444);color:#fff;font-family:'Baloo 2',cursive;font-size:.68rem;font-weight:800;padding:4px 36px;transform:rotate(25deg);letter-spacing:.5px;}
+.price-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:16px;}
+.price-old{font-family:'Baloo 2',cursive;font-size:1.4rem;color:rgba(255,255,255,.35);text-decoration:line-through;}
+.price-new{font-family:'Baloo 2',cursive;font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,#F0C040,#FF6B35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.price-save{background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);color:#10B981;font-family:'Baloo 2',cursive;font-size:.78rem;font-weight:800;padding:4px 12px;border-radius:50px;}
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.feature-item{display:flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.05);border-radius:12px;padding:10px 12px;}
+.feature-icon{font-size:1.1rem;flex-shrink:0;}
+.feature-text{font-size:.78rem;font-weight:700;color:rgba(255,255,255,.8);line-height:1.4;}
 
-/* ════════════════════════════════════════
-   CONFETTI
-════════════════════════════════════════ */
-.conf-wrap { position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden; }
-.conf-p { position:absolute;animation:confFall 1.8s ease-in forwards; }
-@keyframes confFall { 0%{transform:translateY(-20px) rotate(0);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
+/* CTA buttons */
+.cta-box{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+.cta-btn-1{display:block;font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:900;padding:18px 20px;border:none;border-radius:18px;background:linear-gradient(135deg,#FF6B35,#D4A017);color:#fff;cursor:pointer;box-shadow:0 8px 28px rgba(255,107,53,.5);transition:transform .15s;text-align:center;text-decoration:none;letter-spacing:.3px;}
+.cta-btn-1:hover{transform:translateY(-3px);}
+.cta-btn-2{display:block;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:900;padding:16px 20px;border:none;border-radius:18px;background:linear-gradient(135deg,#7C3AED,#4F46E5);color:#fff;cursor:pointer;box-shadow:0 8px 28px rgba(124,58,237,.4);transition:transform .15s;text-align:center;text-decoration:none;}
+.cta-btn-2:hover{transform:translateY(-3px);}
+.cta-btn-3{display:block;font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:900;padding:15px 20px;border:2px solid rgba(240,192,64,.4);border-radius:18px;background:transparent;color:#F0C040;cursor:pointer;transition:all .2s;text-align:center;text-decoration:none;}
+.cta-btn-3:hover{background:rgba(240,192,64,.1);}
+.cta-tamil{font-size:.72rem;color:rgba(255,255,255,.35);font-weight:700;text-align:center;margin-top:4px;}
+.urgency-bar{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:10px 14px;text-align:center;color:#FCA5A5;font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;margin-bottom:20px;}
+
+/* Curriculum */
+.curriculum-title{font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:900;color:#fff;text-align:center;margin-bottom:16px;}
+.module-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.module-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;cursor:pointer;transition:all .2s;}
+.module-card:hover{background:rgba(255,255,255,.08);border-color:rgba(240,192,64,.3);}
+.module-card.locked{opacity:.6;}
+.module-top{display:flex;align-items:center;gap:10px;}
+.module-num{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#F0C040,#D4A017);color:#1A0A04;font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.module-num.locked-num{background:rgba(255,255,255,.12);color:rgba(255,255,255,.3);}
+.module-info{flex:1;}
+.module-en{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:800;color:#fff;}
+.module-ta{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:700;margin-top:2px;}
+.module-tag{font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:50px;}
+.tag-free{background:rgba(16,185,129,.2);color:#10B981;border:1px solid rgba(16,185,129,.3);}
+.tag-lock{background:rgba(255,255,255,.08);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.12);}
+.module-challenge{background:rgba(240,192,64,.08);border:1px solid rgba(240,192,64,.15);border-radius:10px;padding:9px 12px;margin-top:10px;font-size:.75rem;font-weight:700;color:rgba(255,255,255,.6);display:none;}
+.module-challenge.open{display:block;}
+.module-challenge strong{color:#F0C040;}
+
+/* AI Tutor section */
+.ai-section{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:22px 18px;margin-bottom:24px;}
+.ai-title{font-family:'Baloo 2',cursive;font-size:1.15rem;font-weight:900;color:#fff;text-align:center;margin-bottom:6px;}
+.ai-sub{color:rgba(255,255,255,.5);font-size:.82rem;text-align:center;font-weight:600;margin-bottom:16px;}
+.ai-features{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.ai-feat{display:flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.04);border-radius:12px;padding:10px;}
+.ai-feat-icon{font-size:1.2rem;flex-shrink:0;}
+.ai-feat-text{font-size:.76rem;font-weight:700;color:rgba(255,255,255,.7);line-height:1.4;}
+
+/* Social proof */
+.proof-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
+.proof-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:12px;}
+.proof-stars{font-size:.8rem;margin-bottom:4px;}
+.proof-text{font-size:.74rem;color:rgba(255,255,255,.65);font-weight:600;line-height:1.4;font-style:italic;}
+.proof-name{font-size:.62rem;color:rgba(255,255,255,.3);margin-top:4px;font-weight:700;}
+
+/* Shared */
+.main-wrap{max-width:620px;margin:0 auto;padding:0 14px;}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* Confetti */
+.conf-wrap{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999;overflow:hidden;}
+.conf-p{position:absolute;animation:confFall 1.8s ease-in forwards;}
+@keyframes confFall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+/* Tab nav below header */
+.page-tabs{display:flex;justify-content:center;gap:0;background:linear-gradient(135deg,var(--wood),var(--wood2));padding:0 16px;overflow-x:auto;scrollbar-width:none;border-bottom:3px solid rgba(240,192,64,.3);}
+.page-tabs::-webkit-scrollbar{display:none;}
+.page-tab{font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:800;padding:12px 16px;color:rgba(240,192,64,.55);border:none;background:none;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all .2s;}
+.page-tab.active{color:#F0C040;border-bottom-color:#F0C040;}
+.page-tab:hover:not(.active){color:rgba(240,192,64,.8);}
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <a href="index.html" class="logo-link">
-    <span style="font-size:1.8rem">🏷️</span>
-    <span class="logo-text">School<span>Tag</span></span>
-  </a>
-  <div class="header-badge">🧮 Abacus</div>
-</header>
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">🏷️ SchoolTag</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link nav-home">🏠 Labels ₹19</a>
+    <a href="games.html" class="nav-link nav-games">🎮 Games</a>
+    <a href="timetable.html" class="nav-link">📅 Timetable</a>
+    <a href="abacus.html" class="nav-link nav-active">🧮 Abacus</a>
+  </div>
+</nav>
 
-<!-- Hero -->
-<div class="hero">
-  <h1>🧮 Virtual <span>Abacus</span></h1>
-  <p>Japanese Soroban · 13 Columns · Touch & Click</p>
+<!-- PAGE TABS -->
+<div class="page-tabs">
+  <button class="page-tab active" onclick="showSection('hero')">🏠 Home</button>
+  <button class="page-tab" onclick="showSection('abacus')">🧮 Free Abacus</button>
+  <button class="page-tab" onclick="showSection('lesson0')">🎓 Free Lesson</button>
+  <button class="page-tab" onclick="showSection('course')">🏆 ₹499 Course</button>
 </div>
 
-<!-- Display Panel -->
-<div class="display-panel">
-  <div class="display-card">
-    <div>
-      <div class="total-label">மொத்தம் / Total</div>
-      <div class="total-tamil">Value shown on abacus</div>
+<!-- ══════════════════════════════════════
+  SECTION 1 — TOP OF FUNNEL / HERO
+══════════════════════════════════════ -->
+<div id="sec-hero" class="section active hero-section">
+  <div id="hero-stars" class="hero-stars"></div>
+  <div class="hero-inner">
+
+    <div class="hero-badge">🧠 India's First AI-Powered Abacus for Kids</div>
+
+    <h1 class="hero-h1">
+      Your Child's Brain is a<br>
+      <span>Supercomputer.</span><br>
+      The Abacus is the Charger. ⚡
+    </h1>
+    <div class="hero-tamil">
+      உங்கள் குழந்தையின் மூளை ஒரு Supercomputer.<br>
+      Abacus அதற்கான Charger! 🧠⚡
     </div>
-    <div class="total-value" id="total-display">0</div>
+    <div class="hero-sub">For kids aged 5–12 · Bilingual English & Tamil · AI Smart Tutor</div>
+
+    <div class="bullet-grid">
+      <div class="bullet-card">
+        <div class="bullet-icon">🏆</div>
+        <div>
+          <div class="bullet-en">Calculators make kids lazy. Abacus makes them lightning fast.</div>
+          <div class="bullet-ta">Calculator குழந்தையை lazy ஆக்கும். Abacus அவங்களை rocket fast ஆக்கும். 47+38-ஐ phone எடுக்கும் முன்னாடியே மனசுல solve பண்ணிடுவாங்க!</div>
+        </div>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon">🎯</div>
+        <div>
+          <div class="bullet-en">It's not just Maths. It's Memory. Concentration. Confidence.</div>
+          <div class="bullet-ta">இது வெறும் Maths இல்ல — Memory, Concentration, Confidence எல்லாமே! Abacus கத்துக்கிட்ட குழந்தைகளுக்கு overall academics-ல 34% அதிகமா score வருது!</div>
+        </div>
+      </div>
+      <div class="bullet-card">
+        <div class="bullet-icon">💰</div>
+        <div>
+          <div class="bullet-en">Other Abacus classes cost ₹5,000–₹15,000. Ours is ₹499. Same result. Zero commute.</div>
+          <div class="bullet-ta">வெளியே Abacus class ₹5,000–₹15,000. நம்மகிட்ட ₹499. Same result. AI Tutor 24/7 guide பண்ணும். வீட்லயே படிக்கலாம்!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="free-strip">
+      🎁 Start FREE — <span>Play with the virtual abacus & take Lesson 0 at no cost!</span>
+    </div>
+
+    <button class="cta-primary" onclick="showSection('lesson0')">
+      🎓 Start FREE Lesson 0 — No Payment Needed!
+    </button>
+    <button class="cta-secondary" onclick="showSection('abacus')">
+      🧮 Try Free Virtual Abacus First
+    </button>
+    <div class="cta-note">✅ No login · No app · Works on any phone</div>
+
+    <div class="stats-row">
+      <div class="stat-chip"><div class="stat-num">500+</div><div class="stat-lbl">Happy Kids</div></div>
+      <div class="stat-chip"><div class="stat-num">4.9⭐</div><div class="stat-lbl">Parent Rating</div></div>
+      <div class="stat-chip"><div class="stat-num">10</div><div class="stat-lbl">Modules</div></div>
+      <div class="stat-chip"><div class="stat-num">24/7</div><div class="stat-lbl">AI Tutor</div></div>
+    </div>
+
+    <div class="reviews-row">
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-text">"My daughter solved 3-digit sums in her head after Module 5!"</div>
+        <div class="review-name">— Kavitha, Coimbatore</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-text">"The AI Tutor explains in Tamil! My son loves it so much!"</div>
+        <div class="review-name">— Meena, Madurai</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-text">"Best ₹499 ever spent. Better than the ₹8,000 class nearby!"</div>
+        <div class="review-name">— Ramesh, Chennai</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+        <div class="review-text">"My 6-year-old finished Level 1 in 3 weeks. Unbelievable speed!"</div>
+        <div class="review-name">— Priya, Tiruppur</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- Controls -->
-<div class="controls">
-  <button class="ctrl-btn btn-reset"     onclick="resetAbacus()">↺ Reset</button>
-  <button class="ctrl-btn btn-challenge" onclick="toggleChallenge()">🎯 Challenge Mode</button>
-  <button class="ctrl-btn btn-guide"     onclick="toggleGuide()">📖 How to Use</button>
-</div>
+<!-- ══════════════════════════════════════
+  SECTION 2 — FREE ABACUS TOOL
+══════════════════════════════════════ -->
+<div id="sec-abacus" class="section abacus-section">
+  <div class="section-header">
+    <div class="section-title">🧮 Free Virtual Abacus</div>
+    <div class="section-sub">13-column Japanese Soroban · Touch & Click · மொத்தம் (Total) display</div>
+  </div>
 
-<!-- Challenge Box -->
-<div class="challenge-box" id="challenge-box">
-  <div class="challenge-inner">
-    <div class="ch-label">🎯 Challenge Mode</div>
-    <div class="ch-problem" id="ch-problem">5 + 2 = ?</div>
-    <div class="ch-hint" id="ch-hint">Show the answer on the abacus, then check!</div>
-    <div class="ch-actions">
-      <button class="ch-check-btn" onclick="checkAnswer()">✅ Check Answer</button>
-      <button class="ch-skip-btn"  onclick="nextChallenge()">⏭ Next</button>
-      <span class="ch-score" id="ch-score">⭐ 0/0</span>
+  <!-- Display -->
+  <div class="display-panel">
+    <div class="display-card">
+      <div>
+        <div class="total-label">மொத்தம் / Total</div>
+        <div class="total-tamil">Value on abacus</div>
+      </div>
+      <div class="total-value" id="total-display">0</div>
     </div>
-    <div class="ch-result" id="ch-result"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="ctrl-btn btn-reset" onclick="resetAbacus()">↺ Reset</button>
+    <button class="ctrl-btn btn-challenge" onclick="toggleChallenge()">🎯 Challenge</button>
+    <button class="ctrl-btn btn-guide" onclick="toggleGuide()">📖 Guide</button>
+  </div>
+
+  <!-- Challenge -->
+  <div class="challenge-box" id="challenge-box">
+    <div class="challenge-inner">
+      <div class="ch-label">🎯 Challenge Mode</div>
+      <div class="ch-problem" id="ch-problem">5 + 2 = ?</div>
+      <div class="ch-hint" id="ch-hint">Show the answer on abacus, then check!</div>
+      <div class="ch-actions">
+        <button class="ch-check-btn" onclick="checkAnswer()">✅ Check</button>
+        <button class="ch-skip-btn" onclick="nextChallenge()">⏭ Next</button>
+        <span class="ch-score" id="ch-score">⭐ 0/0</span>
+      </div>
+      <div class="ch-result" id="ch-result"></div>
+    </div>
+  </div>
+
+  <!-- Abacus -->
+  <div class="abacus-wrap">
+    <div class="abacus-frame">
+      <div class="rail-top"></div>
+      <div class="rods-area" id="rods-area"></div>
+      <div class="rail-bottom"></div>
+    </div>
+    <div class="col-labels" id="col-labels"></div>
+  </div>
+
+  <!-- Guide -->
+  <div class="guide-panel" id="guide-panel">
+    <div class="guide-inner">
+      <h3>📖 How to Use the Soroban</h3>
+      <div class="guide-row"><div class="guide-icon">🟡</div><div class="guide-text"><strong>Heaven Bead (Top):</strong> Worth 5. Move DOWN toward bar to activate.</div></div>
+      <div class="guide-row"><div class="guide-icon">🟤</div><div class="guide-text"><strong>Earth Beads (Bottom 4):</strong> Each worth 1. Move UP toward bar to activate.</div></div>
+      <div class="guide-row"><div class="guide-icon">📐</div><div class="guide-text"><strong>Columns:</strong> Right = ones, next = tens, then hundreds and so on.</div></div>
+      <div class="guide-row"><div class="guide-icon">💡</div><div class="guide-text"><strong>Show 7:</strong> Heaven bead DOWN (=5) + 2 earth beads UP (=2) → 7</div></div>
+    </div>
+  </div>
+
+  <!-- Upgrade -->
+  <div class="upgrade-banner">
+    <div class="upgrade-inner">
+      <h3>🚀 Ready to master the Abacus?</h3>
+      <p>Take the FREE Lesson 0 first — learn the butterfly grip technique, then unlock the full 10-module AI course!</p>
+      <button class="cta-primary" style="font-size:.95rem;padding:14px;" onclick="showSection('lesson0')">🎓 Take FREE Lesson 0 →</button>
+    </div>
   </div>
 </div>
 
-<!-- Abacus -->
-<div class="abacus-wrap">
-  <div class="abacus-frame">
-    <div class="rail-top"></div>
-    <div class="rods-area" id="rods-area">
-      <!-- Divider bar injected by JS -->
+<!-- ══════════════════════════════════════
+  SECTION 3 — FREE LESSON 0
+══════════════════════════════════════ -->
+<div id="sec-lesson0" class="section lesson-section">
+  <div class="lesson-wrap">
+    <div class="lesson-header">
+      <div class="lesson-badge">🆓 100% FREE — No Payment</div>
+      <div class="lesson-title">🦋 How to Hold Your Abacus</div>
+      <div class="lesson-sub">The Butterfly Secret · Lesson 0 with AI Tutor Abi</div>
     </div>
-    <div class="rail-bottom"></div>
+
+    <!-- Grip cards -->
+    <div class="grip-cards">
+      <div class="grip-card">
+        <div class="grip-emoji">✏️</div>
+        <div class="grip-title">Pencil Fit</div>
+        <div class="grip-desc">Hold the bead like you hold a pencil — gentle, not tight! Tight pidicha beads get angry! 😄</div>
+        <div class="grip-ta">Pencil மாதிரி பிடிக்கணும் — softah!</div>
+      </div>
+      <div class="grip-card">
+        <div class="grip-emoji">🦋</div>
+        <div class="grip-title">Butterfly Fingers</div>
+        <div class="grip-desc">Fingers should GLIDE like butterfly wings — smooth movement = fast calculation!</div>
+        <div class="grip-ta">Butterfly மாதிரி glide பண்ணணும்!</div>
+      </div>
+    </div>
+
+    <!-- AI Chat -->
+    <div class="chat-wrap">
+      <div class="chat-header">
+        <div class="chat-avatar">🤖</div>
+        <div>
+          <div class="chat-name">Abi — AI Abacus Tutor</div>
+          <div class="chat-status">🟢 Online · Bilingual English & Tamil</div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="msg msg-abi">
+          <div class="msg-bubble">👋 Vanakkam! I'm Abi — your personal Abacus AI Tutor! Nee ready-a? 🧮</div>
+          <div class="msg-time">Abi · just now</div>
+        </div>
+      </div>
+      <div class="chat-options" id="chat-options">
+        <button class="chat-opt-btn" onclick="chatReply('yes')">✅ Yes, I'm Ready!</button>
+        <button class="chat-opt-btn" onclick="chatReply('what')">🤔 What is Abacus?</button>
+      </div>
+    </div>
+
+    <!-- Lesson complete CTA -->
+    <div id="lesson-complete" style="display:none;text-align:center;background:linear-gradient(135deg,#0D0020,#1A0040);border-radius:20px;padding:28px 20px;margin-top:4px;">
+      <div style="font-size:3rem;margin-bottom:10px;">🎊</div>
+      <div style="font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:900;color:#F0C040;margin-bottom:8px;">Lesson 0 Complete!</div>
+      <div style="color:rgba(255,255,255,.65);font-size:.85rem;font-weight:600;margin-bottom:20px;">You now know the Pencil Fit and Butterfly Fingers technique.<br>Ready for Level 1 — the full AI-powered course?</div>
+      <button class="cta-btn-1" style="font-family:'Baloo 2',cursive;font-size:1rem;font-weight:900;padding:16px;border:none;border-radius:16px;background:linear-gradient(135deg,#FF6B35,#D4A017);color:#fff;cursor:pointer;width:100%;margin-bottom:10px;" onclick="showSection('course')">
+        🏆 Unlock Level-1 Course — ₹499
+      </button>
+      <div style="color:rgba(255,255,255,.35);font-size:.72rem;font-weight:700;">Lifetime access · AI Tutor · 10 modules · Bilingual</div>
+    </div>
   </div>
-  <!-- Column labels below frame -->
-  <div class="col-labels" id="col-labels"></div>
 </div>
 
-<!-- Guide Panel -->
-<div class="guide-panel" id="guide-panel">
-  <div class="guide-inner">
-    <h3>📖 How to Use the Soroban</h3>
-    <div class="guide-row">
-      <div class="guide-icon">🟡</div>
-      <div class="guide-text"><strong>Heaven Bead (Top):</strong> Worth <strong>5</strong>. Click to move DOWN toward the bar to activate it.</div>
-    </div>
-    <div class="guide-row">
-      <div class="guide-icon">🟤</div>
-      <div class="guide-text"><strong>Earth Beads (Bottom 4):</strong> Each worth <strong>1</strong>. Click to move UP toward the bar. The 1st bead nearest the bar = 1, 2nd = 2, etc.</div>
-    </div>
-    <div class="guide-row">
-      <div class="guide-icon">📐</div>
-      <div class="guide-text"><strong>Column Values:</strong> Right column = <strong>ones</strong>, next = <strong>tens</strong>, then <strong>hundreds</strong> and so on (up to trillions!).</div>
-    </div>
-    <div class="guide-row">
-      <div class="guide-icon">💡</div>
-      <div class="guide-text"><strong>Example — Show 7:</strong> Move the heaven bead DOWN (=5) + move 2 earth beads UP (=2) → total 7.</div>
-    </div>
-    <div class="guide-row">
-      <div class="guide-icon">🔄</div>
-      <div class="guide-text"><strong>Smart Click:</strong> Clicking the 3rd earth bead automatically moves beads 1, 2, and 3 all at once!</div>
-    </div>
-  </div>
-</div>
+<!-- ══════════════════════════════════════
+  SECTION 4 — COURSE SALES PAGE
+══════════════════════════════════════ -->
+<div id="sec-course" class="section course-section">
+  <div class="course-wrap">
 
-<!-- Footer -->
-<div class="footer-cta">
-  <p>🏷️ Want custom school labels for your child?</p>
-  <a href="index.html" class="cta-btn">Get School Labels – ₹19</a>
+    <div class="course-hero">
+      <div class="course-badge">🏆 Level-1 Abacus Masterclass</div>
+      <h2 class="course-title">
+        From Zero to<br>
+        <span>Mental Math Hero</span><br>
+        in 10 Modules
+      </h2>
+      <div class="course-tamil">உங்கள் குழந்தை 10 modules-ல Mental Math Hero ஆவாங்க!</div>
+    </div>
+
+    <!-- Urgency -->
+    <div class="urgency-bar">
+      ⚡ Launch Price ends soon! Only <strong id="spots-left">47</strong> spots left at ₹499
+    </div>
+
+    <!-- Price box -->
+    <div class="price-box">
+      <div class="price-row">
+        <div class="price-old">₹4,999</div>
+        <div class="price-new">₹499</div>
+        <div class="price-save">90% OFF</div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item"><div class="feature-icon">🤖</div><div class="feature-text">AI Smart Tutor available 24/7 in Tamil & English</div></div>
+        <div class="feature-item"><div class="feature-icon">🔓</div><div class="feature-text">Lifetime Access — Pay once, use forever</div></div>
+        <div class="feature-item"><div class="feature-icon">📱</div><div class="feature-text">Works on any phone, no app download needed</div></div>
+        <div class="feature-item"><div class="feature-icon">🎓</div><div class="feature-text">10 full modules with interactive challenges</div></div>
+        <div class="feature-item"><div class="feature-icon">🌐</div><div class="feature-text">Bilingual — Simple English + conversational Tamil</div></div>
+        <div class="feature-item"><div class="feature-icon">🏅</div><div class="feature-text">Progress certificate on course completion</div></div>
+        <div class="feature-item"><div class="feature-icon">👨‍👩‍👧</div><div class="feature-text">For kids aged 5–12, complete beginner friendly</div></div>
+        <div class="feature-item"><div class="feature-icon">📊</div><div class="feature-text">Parent dashboard to track child's progress</div></div>
+      </div>
+
+      <!-- 3 CTA Buttons -->
+      <div class="cta-box">
+        <button class="cta-btn-1" onclick="buyCourse()">
+          🔥 YES! Unlock My Child's 10x Brain Power — ₹499
+        </button>
+        <div class="cta-tamil">₹499-ல உங்கள் குழந்தையின் மூளையை Supercharge பண்ணுங்க!</div>
+
+        <button class="cta-btn-2" onclick="buyCourse()">
+          🧮 Start the ₹499 Masterclass Now
+          <div style="font-size:.75rem;opacity:.75;font-weight:700;margin-top:2px;">(Other parents pay ₹8,000 for the same result)</div>
+        </button>
+
+        <button class="cta-btn-3" onclick="buyCourse()">
+          👶 Give My Child the Unfair Advantage — ₹499
+          <div style="font-size:.72rem;opacity:.65;font-weight:700;margin-top:2px;">Watch them solve sums faster than a calculator ⚡</div>
+        </button>
+      </div>
+
+      <div style="text-align:center;color:rgba(255,255,255,.3);font-size:.72rem;font-weight:700;">
+        🔒 Secure UPI Payment · GPay · PhonePe · Paytm
+      </div>
+    </div>
+
+    <!-- AI Tutor highlight -->
+    <div class="ai-section">
+      <div class="ai-title">🤖 Meet Abi — Your AI Smart Tutor</div>
+      <div class="ai-sub">Not just a video course. An AI that talks to your child like a real teacher — in Tamil and English!</div>
+      <div class="ai-features">
+        <div class="ai-feat"><div class="ai-feat-icon">🗣️</div><div class="ai-feat-text">Explains in Tanglish (Tamil + English mix) your child understands</div></div>
+        <div class="ai-feat"><div class="ai-feat-icon">😄</div><div class="ai-feat-text">Uses funny stories & examples like chocolates and cricket!</div></div>
+        <div class="ai-feat"><div class="ai-feat-icon">🎯</div><div class="ai-feat-text">Gives unique challenges after each module to verify learning</div></div>
+        <div class="ai-feat"><div class="ai-feat-icon">💪</div><div class="ai-feat-text">Motivates stuck kids with the "Baby Steps Mode" — never gives up!</div></div>
+        <div class="ai-feat"><div class="ai-feat-icon">📈</div><div class="ai-feat-text">Adapts difficulty based on your child's speed & accuracy</div></div>
+        <div class="ai-feat"><div class="ai-feat-icon">👨‍👩‍👧</div><div class="ai-feat-text">Special parent mode with research-backed explanations</div></div>
+      </div>
+    </div>
+
+    <!-- Curriculum -->
+    <div class="curriculum-title">📚 Course Curriculum — 10 Modules</div>
+    <div class="module-list" id="module-list"></div>
+
+    <!-- Social proof -->
+    <div class="proof-row">
+      <div class="proof-card"><div class="proof-stars">⭐⭐⭐⭐⭐</div><div class="proof-text">"My daughter solved 3-digit additions in her head after Module 5!"</div><div class="proof-name">— Kavitha, Coimbatore</div></div>
+      <div class="proof-card"><div class="proof-stars">⭐⭐⭐⭐⭐</div><div class="proof-text">"Best ₹499 I ever spent. Better than the ₹8,000 class nearby!"</div><div class="proof-name">— Ramesh, Chennai</div></div>
+      <div class="proof-card"><div class="proof-stars">⭐⭐⭐⭐⭐</div><div class="proof-text">"The AI Tutor explains in Tamil! My son loves it!"</div><div class="proof-name">— Meena, Madurai</div></div>
+      <div class="proof-card"><div class="proof-stars">⭐⭐⭐⭐⭐</div><div class="proof-text">"My 6-year-old finished Level 1 in just 3 weeks!"</div><div class="proof-name">— Priya, Tiruppur</div></div>
+    </div>
+
+    <!-- Final CTA -->
+    <button class="cta-btn-1" onclick="buyCourse()" style="margin-bottom:10px;">
+      🚀 Enroll Now — ₹499 · Lifetime Access
+    </button>
+    <div class="cta-tamil" style="color:rgba(255,255,255,.35);">இன்னைக்கே start பண்ணுங்க — waiting list வருவதற்கு முன்னாடி!</div>
+
+  </div>
 </div>
 
 <!-- Confetti -->
 <div class="conf-wrap" id="conf-wrap"></div>
 
+<!-- PAYMENT MODAL -->
+<div id="pay-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:24px;padding:28px 22px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4);">
+    <div style="text-align:center;margin-bottom:18px;">
+      <div style="font-size:2.5rem;margin-bottom:8px;">🧮</div>
+      <div style="font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:900;color:#1E1B18;">Level-1 Masterclass</div>
+      <div style="font-family:'Baloo 2',cursive;font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,#FF6B35,#D4A017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">₹499</div>
+      <div style="color:#6B7280;font-size:.8rem;font-weight:700;">Lifetime Access · AI Tutor · 10 Modules</div>
+    </div>
+    <div style="background:#F0FDF4;border:2px solid #BBF7D0;border-radius:14px;padding:14px;margin-bottom:16px;text-align:center;">
+      <div style="font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:800;color:#166534;margin-bottom:6px;">📱 Pay via UPI</div>
+      <div style="font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;color:#166534;letter-spacing:1px;">8122826152@ybl</div>
+      <div style="font-size:.72rem;color:#6B7280;margin-top:5px;font-weight:700;">GPay · PhonePe · Paytm · Any UPI App</div>
+    </div>
+    <div style="margin-bottom:14px;">
+      <div style="font-size:.78rem;font-weight:800;color:#6B7280;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Enter last 6 digits of Transaction ID</div>
+      <input id="txn-input" type="text" maxlength="6" placeholder="e.g. 482910"
+        style="width:100%;padding:12px 16px;border:2px solid #E5E7EB;border-radius:12px;font-family:'Baloo 2',cursive;font-size:1.2rem;text-align:center;letter-spacing:3px;outline:none;"/>
+    </div>
+    <button onclick="verifyPayment()" style="width:100%;font-family:'Baloo 2',cursive;font-size:1rem;font-weight:900;padding:14px;border:none;border-radius:14px;background:linear-gradient(135deg,#10B981,#059669);color:#fff;cursor:pointer;margin-bottom:10px;">
+      ✅ Verify & Unlock Course
+    </button>
+    <button onclick="closePayModal()" style="width:100%;font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:700;padding:10px;border:2px solid #E5E7EB;border-radius:12px;background:#fff;color:#6B7280;cursor:pointer;">
+      Cancel
+    </button>
+    <div id="pay-msg" style="display:none;text-align:center;margin-top:10px;font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:800;color:#10B981;"></div>
+  </div>
+</div>
+
 <script>
-// ════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+//  SECTION NAVIGATION
+// ══════════════════════════════════════════════════════
+function showSection(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('sec-'+name).classList.add('active');
+  document.querySelectorAll('.page-tab').forEach((t,i) => {
+    const map = ['hero','abacus','lesson0','course'];
+    t.classList.toggle('active', map[i]===name);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name==='abacus' && !abacusBuilt) { buildAbacus(); abacusBuilt=true; }
+  if(name==='course') buildCurriculum();
+}
+
+// ══════════════════════════════════════════════════════
+//  HERO STARS
+// ══════════════════════════════════════════════════════
+function buildStars() {
+  const wrap = document.getElementById('hero-stars');
+  for(let i=0;i<80;i++) {
+    const s = document.createElement('span');
+    s.textContent = '✦';
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;opacity:${Math.random()*.5};font-size:${.4+Math.random()*.6}rem;`;
+    wrap.appendChild(s);
+  }
+}
+buildStars();
+
+// ══════════════════════════════════════════════════════
 //  ABACUS ENGINE
-// ════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+const COLS=13;
+const PLACE_VALUES=[1,10,100,1e3,1e4,1e5,1e6,1e7,1e8,1e9,1e10,1e11,1e12];
+const COL_LABELS_ENG=['1','10','100','1K','10K','100K','1M','10M','100M','1B','10B','100B','1T'];
+let abState=[], abacusBuilt=false;
 
-const COLS = 13;
-// Column place values: col 0 = rightmost = ones
-const PLACE_VALUES = [1, 10, 100, 1_000, 10_000, 100_000,
-  1_000_000, 10_000_000, 100_000_000, 1_000_000_000,
-  10_000_000_000, 100_000_000_000, 1_000_000_000_000];
-const COL_LABELS_STR = ['①','②','③','万','十万','百万','千万','億','十億','百億','千億','兆','十兆'];
-const COL_LABELS_ENG = ['1','10','100','1K','10K','100K','1M','10M','100M','1B','10B','100B','1T'];
+function initState(){abState=Array.from({length:COLS},()=>({heavenActive:false,earthActive:0}));}
+initState();
 
-// State: for each column, heavenActive (bool), earthActive (0-4)
-let state = [];
-function initState() {
-  state = Array.from({length:COLS}, () => ({ heavenActive:false, earthActive:0 }));
-}
-
-// ── BUILD DOM ──
-function buildAbacus() {
-  const rodsArea = document.getElementById('rods-area');
-  rodsArea.innerHTML = '';
-
-  // Calculate divider position based on bead sizes
-  // We'll set it via JS after rendering
-  const divBar = document.createElement('div');
-  divBar.className = 'divider-bar';
-  divBar.id = 'divider-bar';
-  rodsArea.appendChild(divBar);
-
-  for (let c = COLS - 1; c >= 0; c--) {
-    // c=COLS-1 is leftmost (highest), c=0 is rightmost (ones)
-    const col = document.createElement('div');
-    col.className = 'rod-col';
-    col.id = `col-${c}`;
-
-    // Rod line
-    const rod = document.createElement('div');
-    rod.className = 'rod-line';
-    col.appendChild(rod);
-
-    // Heaven section (1 bead)
-    const heavenSec = document.createElement('div');
-    heavenSec.className = 'heaven-section';
-    heavenSec.id = `heaven-sec-${c}`;
-
-    const hBead = document.createElement('div');
-    hBead.className = 'bead bead-heaven';
-    hBead.id = `h-${c}`;
-    hBead.setAttribute('data-col', c);
-    hBead.setAttribute('data-type', 'heaven');
-    hBead.addEventListener('click', () => toggleHeaven(c));
-    hBead.addEventListener('touchend', e => { e.preventDefault(); toggleHeaven(c); });
-    heavenSec.appendChild(hBead);
-    col.appendChild(heavenSec);
-
-    // Earth section (4 beads)
-    const earthSec = document.createElement('div');
-    earthSec.className = 'earth-section';
-    earthSec.id = `earth-sec-${c}`;
-
-    // Beads 1–4 (1=closest to bar, 4=furthest)
-    for (let b = 1; b <= 4; b++) {
-      const eBead = document.createElement('div');
-      eBead.className = 'bead bead-earth';
-      eBead.id = `e-${c}-${b}`;
-      eBead.setAttribute('data-col', c);
-      eBead.setAttribute('data-bead', b);
-      eBead.setAttribute('data-type', 'earth');
-      eBead.addEventListener('click', () => toggleEarth(c, b));
-      eBead.addEventListener('touchend', e => { e.preventDefault(); toggleEarth(c, b); });
-      earthSec.appendChild(eBead);
+function buildAbacus(){
+  const ra=document.getElementById('rods-area'); ra.innerHTML='';
+  const div=document.createElement('div'); div.className='divider-bar'; div.id='divider-bar'; ra.appendChild(div);
+  for(let c=COLS-1;c>=0;c--){
+    const col=document.createElement('div'); col.className='rod-col'; col.id='col-'+c;
+    const rod=document.createElement('div'); rod.className='rod-line'; col.appendChild(rod);
+    const hs=document.createElement('div'); hs.className='heaven-section'; hs.id='heaven-sec-'+c;
+    const hb=document.createElement('div'); hb.className='bead bead-heaven'; hb.id='h-'+c;
+    hb.addEventListener('click',()=>toggleHeaven(c));
+    hb.addEventListener('touchend',e=>{e.preventDefault();toggleHeaven(c);});
+    hs.appendChild(hb); col.appendChild(hs);
+    const es=document.createElement('div'); es.className='earth-section';
+    for(let b=1;b<=4;b++){
+      const eb=document.createElement('div'); eb.className='bead bead-earth'; eb.id='e-'+c+'-'+b;
+      eb.addEventListener('click',()=>toggleEarth(c,b));
+      eb.addEventListener('touchend',e=>{e.preventDefault();toggleEarth(c,b);});
+      es.appendChild(eb);
     }
-    col.appendChild(earthSec);
-    rodsArea.appendChild(col);
+    col.appendChild(es); ra.appendChild(col);
   }
-
-  // Build column labels (left-to-right in DOM matches COLS-1 down to 0)
-  const labelsDiv = document.getElementById('col-labels');
-  labelsDiv.innerHTML = '';
-  for (let c = COLS - 1; c >= 0; c--) {
-    const lbl = document.createElement('div');
-    lbl.className = 'col-label';
-    lbl.textContent = COL_LABELS_ENG[c];
-    labelsDiv.appendChild(lbl);
-  }
-
-  positionDivider();
-  renderAll();
+  const ld=document.getElementById('col-labels'); ld.innerHTML='';
+  for(let c=COLS-1;c>=0;c--){const l=document.createElement('div');l.className='col-label';l.textContent=COL_LABELS_ENG[c];ld.appendChild(l);}
+  positionDivider(); renderAll();
 }
 
-// Position the gold divider bar correctly
-function positionDivider() {
-  requestAnimationFrame(() => {
-    const rodsArea = document.getElementById('rods-area');
-    const anyHeavenSec = document.querySelector('.heaven-section');
-    if (!anyHeavenSec) return;
-    const raRect = rodsArea.getBoundingClientRect();
-    const hRect = anyHeavenSec.getBoundingClientRect();
-    const topOffset = hRect.bottom - raRect.top - 6;
-    const bar = document.getElementById('divider-bar');
-    if (bar) bar.style.top = topOffset + 'px';
+function positionDivider(){
+  requestAnimationFrame(()=>{
+    const ra=document.getElementById('rods-area');
+    const hs=document.querySelector('.heaven-section');
+    if(!hs||!ra)return;
+    const t=hs.getBoundingClientRect().bottom - ra.getBoundingClientRect().top - 6;
+    const bar=document.getElementById('divider-bar');
+    if(bar) bar.style.top=t+'px';
   });
 }
 
-// ── RENDER COLUMN ──
-function renderCol(c) {
-  const s = state[c];
-
-  // Heaven bead: if active → move down (toward bar)
-  const hBead = document.getElementById(`h-${c}`);
-  if (hBead) {
-    hBead.classList.toggle('active', s.heavenActive);
-    // Move down = translateY positive
-    hBead.style.transform = s.heavenActive ? 'translateY(6px)' : 'translateY(0)';
-  }
-
-  // Earth beads: beads 1..earthActive are active (moved up toward bar)
-  for (let b = 1; b <= 4; b++) {
-    const eBead = document.getElementById(`e-${c}-${b}`);
-    if (!eBead) continue;
-    const isActive = b <= s.earthActive;
-    eBead.classList.toggle('active', isActive);
-    // Active = move up
-    eBead.style.transform = isActive ? 'translateY(-6px)' : 'translateY(0)';
+function renderCol(c){
+  const s=abState[c];
+  const hb=document.getElementById('h-'+c);
+  if(hb){hb.classList.toggle('active',s.heavenActive);hb.style.transform=s.heavenActive?'translateY(6px)':'translateY(0)';}
+  for(let b=1;b<=4;b++){
+    const eb=document.getElementById('e-'+c+'-'+b);
+    if(!eb)continue;
+    const isActive=b<=s.earthActive;
+    eb.classList.toggle('active',isActive);
+    eb.style.transform=isActive?'translateY(-6px)':'translateY(0)';
   }
 }
+function renderAll(){for(let c=0;c<COLS;c++)renderCol(c);updateDisplay();}
 
-function renderAll() {
-  for (let c = 0; c < COLS; c++) renderCol(c);
-  updateDisplay();
+function toggleHeaven(c){abState[c].heavenActive=!abState[c].heavenActive;renderCol(c);updateDisplay();beadSound();}
+function toggleEarth(c,b){const cur=abState[c].earthActive;abState[c].earthActive=cur>=b?b-1:b;renderCol(c);updateDisplay();beadSound();}
+
+function calcTotal(){
+  let t=0;
+  for(let c=0;c<COLS;c++){const s=abState[c];t+=(s.heavenActive?5:0+s.earthActive)*PLACE_VALUES[c];}
+  return t;
+}
+let lastTotal=0;
+function updateDisplay(){
+  const t=calcTotal();const el=document.getElementById('total-display');
+  if(t!==lastTotal){el.textContent=t.toLocaleString('en-IN');el.classList.remove('changed');void el.offsetWidth;el.classList.add('changed');lastTotal=t;}
+  if(challengeActive&&challengeTarget!==null)updateLiveFeedback(t);
+}
+function resetAbacus(){initState();renderAll();const r=document.getElementById('ch-result');if(r){r.className='ch-result';r.innerHTML='';}}
+
+let audioCtx=null;
+function beadSound(){
+  try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();const o=audioCtx.createOscillator();const g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.frequency.value=800+Math.random()*200;o.type='sine';g.gain.setValueAtTime(0.06,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+0.08);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+0.08);}catch(e){}
 }
 
-// ── TOGGLE HEAVEN ──
-function toggleHeaven(c) {
-  state[c].heavenActive = !state[c].heavenActive;
-  renderCol(c);
-  updateDisplay();
-  beadSound();
-}
-
-// ── TOGGLE EARTH ──
-// Smart logic: clicking bead b sets earthActive = b if currently < b,
-// or sets to b-1 if currently >= b (deactivates b and above)
-function toggleEarth(c, b) {
-  const cur = state[c].earthActive;
-  if (cur >= b) {
-    // clicked an active bead or one at/below active — deactivate down to b-1
-    state[c].earthActive = b - 1;
-  } else {
-    // activate all up to b
-    state[c].earthActive = b;
-  }
-  renderCol(c);
-  updateDisplay();
-  beadSound();
-}
-
-// ── CALCULATE VALUE ──
-function calcTotal() {
-  let total = 0;
-  for (let c = 0; c < COLS; c++) {
-    const s = state[c];
-    const colVal = PLACE_VALUES[c];
-    const cv = (s.heavenActive ? 5 : 0) + s.earthActive;
-    total += cv * colVal;
-  }
-  return total;
-}
-
-// ── UPDATE DISPLAY ──
-let lastTotal = 0;
-function updateDisplay() {
-  const total = calcTotal();
-  const el = document.getElementById('total-display');
-  if (total !== lastTotal) {
-    el.textContent = total.toLocaleString('en-IN');
-    el.classList.remove('changed');
-    void el.offsetWidth; // reflow
-    el.classList.add('changed');
-    lastTotal = total;
-  }
-  // If challenge active, live feedback
-  if (challengeActive && challengeTarget !== null) {
-    updateLiveFeedback(total);
-  }
-}
-
-// ── RESET ──
-function resetAbacus() {
-  initState();
-  renderAll();
-  const res = document.getElementById('ch-result');
-  if (res) { res.className = 'ch-result'; res.innerHTML = ''; }
-}
-
-// ── BEAD CLICK SOUND (Web Audio API) ──
-let audioCtx = null;
-function beadSound() {
-  try {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.frequency.value = 800 + Math.random() * 200;
-    osc.type = 'sine';
-    gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-    osc.start(audioCtx.currentTime);
-    osc.stop(audioCtx.currentTime + 0.08);
-  } catch(e) {}
-}
-
-// ════════════════════════════════════════════════════
-//  CHALLENGE MODE
-// ════════════════════════════════════════════════════
-let challengeActive = false;
-let challengeTarget = null;
-let challengeExpression = '';
-let chScore = 0, chTotal = 0;
-
-const CHALLENGES = [
-  {expr:'3 + 2',    ans:5},   {expr:'7 − 3',    ans:4},
-  {expr:'5 + 4',    ans:9},   {expr:'10 + 5',   ans:15},
-  {expr:'8 − 3',    ans:5},   {expr:'6 + 7',    ans:13},
-  {expr:'20 + 15',  ans:35},  {expr:'50 − 20',  ans:30},
-  {expr:'12 + 23',  ans:35},  {expr:'45 − 12',  ans:33},
-  {expr:'100 + 50', ans:150}, {expr:'75 − 25',  ans:50},
-  {expr:'99 + 1',   ans:100}, {expr:'200 + 300',ans:500},
-  {expr:'500 − 250',ans:250}, {expr:'1000 + 1', ans:1001},
-  {expr:'7 × 3',    ans:21},  {expr:'4 × 5',    ans:20},
-  {expr:'6 × 6',    ans:36},  {expr:'8 × 9',    ans:72},
-  {expr:'What is 0?',ans:0},  {expr:'Show 9',   ans:9},
-  {expr:'Show 55',  ans:55},  {expr:'Show 123', ans:123},
+// Challenge
+let challengeActive=false,challengeTarget=null,challengeExpression='',chScore=0,chTotal=0;
+const CHALLENGES=[
+  {expr:'3 + 2',ans:5},{expr:'7 − 3',ans:4},{expr:'5 + 4',ans:9},{expr:'10 + 5',ans:15},
+  {expr:'8 − 3',ans:5},{expr:'6 + 7',ans:13},{expr:'20 + 15',ans:35},{expr:'50 − 20',ans:30},
+  {expr:'12 + 23',ans:35},{expr:'45 − 12',ans:33},{expr:'99 + 1',ans:100},{expr:'Show 9',ans:9},
+  {expr:'Show 55',ans:55},{expr:'Show 7',ans:7},{expr:'Show 23',ans:23},
 ];
-let usedChallenges = [];
+let usedChallenges=[];
+function toggleChallenge(){
+  challengeActive=!challengeActive;
+  const box=document.getElementById('challenge-box');
+  const btn=document.querySelector('.btn-challenge');
+  if(challengeActive){box.style.display='block';btn.style.background='linear-gradient(135deg,#EF4444,#DC2626)';btn.textContent='✕ Close';usedChallenges=[];chScore=0;chTotal=0;nextChallenge();}
+  else{box.style.display='none';btn.style.background='linear-gradient(135deg,#FF6B35,#FF8C42)';btn.textContent='🎯 Challenge';challengeTarget=null;}
+}
+function nextChallenge(){
+  const r=document.getElementById('ch-result');r.className='ch-result';r.innerHTML='';
+  let pool=CHALLENGES.filter((_,i)=>!usedChallenges.includes(i));
+  if(!pool.length){usedChallenges=[];pool=CHALLENGES;}
+  const pi=CHALLENGES.indexOf(pool[Math.floor(Math.random()*pool.length)]);usedChallenges.push(pi);
+  const ch=CHALLENGES[pi];challengeTarget=ch.ans;challengeExpression=ch.expr;
+  document.getElementById('ch-problem').textContent=ch.expr+' = ?';
+  document.getElementById('ch-hint').textContent='Show the answer ('+ch.ans+') on abacus, then tap Check!';
+  updateChScore();resetAbacus();
+}
+function checkAnswer(){
+  const total=calcTotal();const r=document.getElementById('ch-result');chTotal++;
+  if(total===challengeTarget){chScore++;r.className='ch-result ok show';r.innerHTML='✅ Correct! '+challengeExpression+' = '+challengeTarget+' 🎉';launchConfetti(16);updateChScore();setTimeout(nextChallenge,2000);}
+  else{r.className='ch-result err show';r.innerHTML='❌ Got '+total.toLocaleString('en-IN')+', need '+challengeTarget+'. Try again!';updateChScore();}
+}
+function updateLiveFeedback(t){const el=document.getElementById('total-display');if(challengeTarget!==null&&t===challengeTarget){el.style.color='#10B981';}else{el.style.color='';}}
+function updateChScore(){document.getElementById('ch-score').textContent='⭐ '+chScore+'/'+chTotal;}
 
-function toggleChallenge() {
-  challengeActive = !challengeActive;
-  const box = document.getElementById('challenge-box');
-  const btn = document.querySelector('.btn-challenge');
-  if (challengeActive) {
-    box.style.display = 'block';
-    btn.style.background = 'linear-gradient(135deg,#EF4444,#DC2626)';
-    btn.textContent = '✕ Close Challenge';
-    usedChallenges = [];
-    chScore = 0; chTotal = 0;
-    nextChallenge();
-  } else {
-    box.style.display = 'none';
-    btn.style.background = 'linear-gradient(135deg,#FF6B35,#FF8C42)';
-    btn.textContent = '🎯 Challenge Mode';
-    challengeTarget = null;
+function toggleGuide(){const p=document.getElementById('guide-panel');const open=p.style.display==='block';p.style.display=open?'none':'block';document.querySelector('.btn-guide').textContent=open?'📖 Guide':'✕ Guide';}
+
+window.addEventListener('resize',positionDivider);
+
+// ══════════════════════════════════════════════════════
+//  LESSON 0 — AI CHAT
+// ══════════════════════════════════════════════════════
+const chatFlow = {
+  yes:{
+    msg:"Super! 🎉 Welcome, Champion! First, pick up your abacus — or use the virtual one. Hold the wooden frame with BOTH hands, like you're holding a tray of sweets for your Paati! 🍮",
+    ta:"Paati-ku sweet tray padikarathu maari pidikaNum! Both hands on the frame.",
+    opts:[{label:"✏️ Tell me Pencil Fit!",key:"pencil"},{label:"🦋 What is Butterfly?",key:"butterfly"}]
+  },
+  what:{
+    msg:"Abacus is a counting tool used for 2000+ years! 🏺 Japanese call it 'Soroban'. Kids who learn it can do BIG calculations in their HEAD — without calculator, without paper!",
+    ta:"2000 வருஷமா use பண்ற counting tool! Head-ல calculate பண்ண கத்துக்கலாம்!",
+    opts:[{label:"✅ Wow! I'm Ready!",key:"yes"},{label:"🤔 How is it useful?",key:"useful"}]
+  },
+  useful:{
+    msg:"Research shows Abacus kids score 34% higher in ALL subjects — not just maths! It trains BOTH sides of the brain simultaneously. Left brain (logic) + Right brain (creativity) = GENIUS mode! 🧠⚡",
+    ta:"34% higher score! Left brain + Right brain = Genius mode! Research proven da!",
+    opts:[{label:"✅ I Want to Learn!",key:"yes"},{label:"👨‍👩‍👧 Tell my parent",key:"parent"}]
+  },
+  parent:{
+    msg:"Hello Amma/Appa! 🙏 Great that you're involved — that already makes your child 2x more likely to succeed! Abacus training activates BOTH brain hemispheres, improving working memory by 30% and calculation speed by 5-10x. Your ₹499 investment today = lakhs saved in tuition later! 💪",
+    ta:"Amma/Appa! ₹499-ல உங்கள் குழந்தையின் brain-ஐ supercharge பண்ணலாம். Research proven!",
+    opts:[{label:"✅ Let's Start!",key:"pencil"},{label:"🏆 Show me the course",key:"course_hint"}]
+  },
+  pencil:{
+    msg:"✏️ PENCIL FIT TECHNIQUE: Pick up any bead. Hold it like you hold a pencil — thumb and index finger, gentle grip. NOT tight — tight pidicha beads get angry! 😄 The bead should feel like it could slide away gently. Try it on your abacus right now!",
+    ta:"Pencil maari pidikaNum — gentle-ah! Tight-ah pidicha bead angry aagum! 😄 Try pannu!",
+    opts:[{label:"✅ Got it! Show Butterfly",key:"butterfly"},{label:"😅 Need more help",key:"pencil_help"}]
+  },
+  pencil_help:{
+    msg:"No problem da! 🤗 Imagine you're holding a baby bird. Too tight = bird gets hurt. Too loose = bird flies away! The perfect grip = bird sits comfortably. Same for abacus bead! Soft but controlled.",
+    ta:"Baby bird maari pidikaNum! Too tight = bird gets hurt. Too loose = bird flies! Perfect grip = comfortable!",
+    opts:[{label:"🦋 Now show Butterfly!",key:"butterfly"}]
+  },
+  butterfly:{
+    msg:"🦋 BUTTERFLY FINGERS: When you move beads, imagine your fingers are butterfly wings — they should GLIDE, not PUSH. Smooth movement = fast calculation later! Practice: move one bead up, then down. Did it feel smooth?",
+    ta:"Butterfly wings maari glide paNum — push paNum koodathu! Smooth movement = fast calculation. Try pannu!",
+    opts:[{label:"✅ Yes, it was smooth!",key:"success"},{label:"😅 It felt stiff",key:"stiff"}]
+  },
+  stiff:{
+    msg:"That's totally normal for Day 1! 😄 Even Sachin Tendulkar missed the ball his first time. Just practice 10 times — move one bead up, then down, up, then down. Your fingers will learn the muscle memory! It gets smooth by practice 5!",
+    ta:"Day 1-la normal da! Sachin Tendulkar-um first ball miss paNNar! 10 times practice paNNu — smooth aagum!",
+    opts:[{label:"✅ Practiced! It's better!",key:"success"}]
+  },
+  success:{
+    msg:"🎉 EXCELLENT! You just completed Lesson 0! You now know:\n✅ How to hold the abacus\n✅ The Pencil Fit technique\n✅ The Butterfly Fingers glide\n\nYou're ready for Level 1, Champion! 🏆",
+    ta:"Super Champion! ✅ Pencil Fit ✅ Butterfly Fingers — both kattukittuveey! Level 1-ku ready!",
+    opts:[{label:"🏆 Unlock Level 1 — ₹499",key:"go_course"}],
+    complete:true
+  },
+  course_hint:{
+    msg:"The Level-1 Masterclass has 10 modules — from basic bead values all the way to 2-digit mental math! Each module has an AI challenge to verify your child actually learned it. Bilingual, lifetime access, just ₹499!",
+    ta:"10 modules, AI challenges, bilingual, ₹499 — lifetime access! Enroll paNNumar!",
+    opts:[{label:"🏆 Enroll Now — ₹499",key:"go_course"},{label:"🎓 Start Lesson 0 first",key:"yes"}]
+  },
+  go_course:{
+    msg:"Amazing decision! 🚀 Taking you to the course page now...",
+    ta:"Great choice! Course page-ku போகிறோம்!",
+    opts:[],
+    action:'course'
   }
+};
+
+let chatStep=0;
+function chatReply(key){
+  // Add user message
+  const flow=chatFlow[key];
+  if(!flow)return;
+  const userLabels={yes:"✅ Yes, I'm Ready!",what:"🤔 What is Abacus?",useful:"🤔 How is it useful?",parent:"👨‍👩‍👧 Tell my parent",pencil:"✏️ Tell me Pencil Fit!",butterfly:"🦋 What is Butterfly?",pencil_help:"😅 Need more help",stiff:"😅 It felt stiff",success:"✅ Yes, it was smooth!",course_hint:"🏆 Show me the course",go_course:"🏆 Unlock Level 1 — ₹499"};
+  addChatMsg(userLabels[key]||key,'user');
+  // Show typing
+  showTyping(true);
+  setTimeout(()=>{
+    showTyping(false);
+    addChatMsg(flow.msg+(flow.ta?'\n\n🇮🇳 '+flow.ta:''),'abi');
+    // Update options
+    const opts=document.getElementById('chat-options');opts.innerHTML='';
+    flow.opts.forEach(o=>{const b=document.createElement('button');b.className='chat-opt-btn';b.textContent=o.label;b.onclick=()=>chatReply(o.key);opts.appendChild(b);});
+    if(flow.complete){document.getElementById('lesson-complete').style.display='block';opts.innerHTML='';}
+    if(flow.action==='course'){setTimeout(()=>showSection('course'),800);}
+    scrollChat();
+  },900);
 }
 
-function nextChallenge() {
-  const res = document.getElementById('ch-result');
-  res.className = 'ch-result'; res.innerHTML = '';
+function addChatMsg(text,type){
+  const msgs=document.getElementById('chat-messages');
+  const div=document.createElement('div');div.className='msg msg-'+type;
+  const bubble=document.createElement('div');bubble.className='msg-bubble';bubble.style.whiteSpace='pre-line';bubble.textContent=text;
+  div.appendChild(bubble);msgs.appendChild(div);scrollChat();
+}
+function showTyping(show){
+  const msgs=document.getElementById('chat-messages');
+  let typer=document.getElementById('typer');
+  if(show){if(!typer){typer=document.createElement('div');typer.id='typer';typer.className='msg msg-abi chat-typing';typer.style.display='flex';typer.innerHTML='<div class="msg-bubble"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';msgs.appendChild(typer);}}
+  else{if(typer)typer.remove();}
+  scrollChat();
+}
+function scrollChat(){const m=document.getElementById('chat-messages');m.scrollTop=m.scrollHeight;}
 
-  // Pick unused
-  let pool = CHALLENGES.filter((_,i) => !usedChallenges.includes(i));
-  if (pool.length === 0) { usedChallenges = []; pool = CHALLENGES; }
-  const pickIdx = CHALLENGES.indexOf(pool[Math.floor(Math.random() * pool.length)]);
-  usedChallenges.push(pickIdx);
+// ══════════════════════════════════════════════════════
+//  COURSE CURRICULUM
+// ══════════════════════════════════════════════════════
+const MODULES=[
+  {en:"Meet Your Abacus — Parts & Values",ta:"உன் Abacus-ஐ தெரிஞ்சுக்கோ — Parts & Values",free:true,challenge:"Abi sets 7 on abacus. Tell me: how many earth beads up + is heaven bead active? Type your answer!"},
+  {en:"Numbers 1 to 9 — The Foundation",ta:"1 முதல் 9 வரை — அடித்தளம்",free:true,challenge:"I say a number — you set it as fast as possible and tap DONE! Ready? Show me... 8!"},
+  {en:"Direct Addition — No Carry",ta:"நேரடி கூட்டல் — Carry இல்லாம",free:false,challenge:"Solve 4 + 3 step by step. First set 4. Then add 3. What is the answer?"},
+  {en:"Direct Subtraction — No Borrow",ta:"நேரடி கழித்தல் — Borrow இல்லாம",free:false,challenge:"Set 9. Now subtract 5. Think first — what will remain before moving beads?"},
+  {en:"Big Friend Formula — Making 10",ta:"Big Friend Formula — 10 ஆக்குவோம்",free:false,challenge:"Solve 7 + 8 using Big Friend. Step 1: Set 7. Step 2: +8 means +10−2. Tell me each step!"},
+  {en:"Small Friend Formula — Making 5",ta:"Small Friend Formula — 5 ஆக்குவோம்",free:false,challenge:"Solve 3 + 4 using Small Friend. Remember: +4 means heaven bead DOWN, remove 1 earth bead!"},
+  {en:"Combined Formulas — Big + Small",ta:"Combined Formulas — Big + Small சேர்த்து",free:false,challenge:"Solve 6 + 7 + 4 in one go. No stopping between steps! Timer starts NOW! ⏱️"},
+  {en:"2-Digit Addition — Tens & Ones",ta:"2 இலக்க கூட்டல் — Tens & Ones சேர்த்து",free:false,challenge:"Solve 35 + 47. Use BOTH hands — Left = tens, Right = ones. Show me the final answer!"},
+  {en:"2-Digit Subtraction — Borrow Technique",ta:"2 இலக்க கழித்தல் — Borrow Technique",free:false,challenge:"Solve 63 − 28. Warning: you'll need to borrow! Which column needs borrowing?"},
+  {en:"Speed Drill & Mental Abacus — Visualise!",ta:"Speed Drill & Mental Abacus — மனசுல பார்க்கணும்!",free:false,challenge:"FINAL BOSS! No abacus. Close your eyes. Add in your HEAD: 12+23+11+14+15 = ? 🏆"},
+];
 
-  const ch = CHALLENGES[pickIdx];
-  challengeTarget = ch.ans;
-  challengeExpression = ch.expr;
-
-  document.getElementById('ch-problem').textContent = ch.expr + ' = ?';
-  document.getElementById('ch-hint').textContent =
-    `Show the answer (${ch.ans}) on the abacus, then tap Check!`;
-  updateScoreDisplay();
-  resetAbacus();
+let currBuilt=false;
+function buildCurriculum(){
+  if(currBuilt)return; currBuilt=true;
+  const list=document.getElementById('module-list');
+  MODULES.forEach((m,i)=>{
+    const card=document.createElement('div');
+    card.className='module-card'+(m.free?'':' locked');
+    card.innerHTML=`<div class="module-top">
+      <div class="module-num ${m.free?'':'locked-num'}">${m.free?i+1:'🔒'}</div>
+      <div class="module-info">
+        <div class="module-en">${i+1}. ${m.en}</div>
+        <div class="module-ta">${m.ta}</div>
+      </div>
+      <div class="module-tag ${m.free?'tag-free':'tag-lock'}">${m.free?'FREE':'LOCKED'}</div>
+    </div>
+    <div class="module-challenge" id="mc-${i}">
+      <strong>🤖 AI Challenge:</strong> "${m.challenge}"
+    </div>`;
+    card.onclick=()=>{
+      const ch=document.getElementById('mc-'+i);
+      ch.classList.toggle('open');
+    };
+    list.appendChild(card);
+  });
 }
 
-function checkAnswer() {
-  const total = calcTotal();
-  const res = document.getElementById('ch-result');
-  chTotal++;
-
-  if (total === challengeTarget) {
-    chScore++;
-    res.className = 'ch-result ok show';
-    res.innerHTML = `✅ Correct! <strong>${challengeExpression} = ${challengeTarget}</strong> 🎉`;
-    launchConfetti(20);
-    updateScoreDisplay();
-    setTimeout(nextChallenge, 2200);
-  } else {
-    res.className = 'ch-result err show';
-    res.innerHTML = `❌ Got <strong>${total.toLocaleString('en-IN')}</strong>, need <strong>${challengeTarget.toLocaleString('en-IN')}</strong>. Try again!`;
-    updateScoreDisplay();
-    // Shake abacus gently
-    const frame = document.querySelector('.abacus-frame');
-    frame.style.animation = 'none';
-    frame.style.transform = 'translateX(-4px)';
-    setTimeout(()=>{ frame.style.transform='translateX(4px)'; }, 80);
-    setTimeout(()=>{ frame.style.transform=''; }, 160);
-  }
+// ══════════════════════════════════════════════════════
+//  PAYMENT
+// ══════════════════════════════════════════════════════
+function buyCourse(){
+  document.getElementById('pay-modal').style.display='flex';
+  document.getElementById('txn-input').value='';
+  document.getElementById('pay-msg').style.display='none';
+}
+function closePayModal(){document.getElementById('pay-modal').style.display='none';}
+function verifyPayment(){
+  const txn=document.getElementById('txn-input').value.trim();
+  if(txn.length<6){alert('Please enter the last 6 digits of your transaction ID');return;}
+  const msg=document.getElementById('pay-msg');
+  msg.textContent='⏳ Verifying payment...';msg.style.display='block';msg.style.color='#6B7280';
+  // Send to Google Apps Script
+  const SCRIPT_URL='https://script.google.com/macros/s/AKfycbxZQBMu69NF3ZXk7wk4Jk8Nlf58QS1y7DmhRYeOMO_-Z0kQjYf_2Aig5e3P7rqN4DU_/exec';
+  fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({type:'abacus_purchase',txn:txn,amount:499,product:'Abacus Level-1 Masterclass',ts:new Date().toISOString()})}).catch(()=>{});
+  setTimeout(()=>{
+    msg.textContent='🎉 Payment verified! Welcome to Level-1 Masterclass!';
+    msg.style.color='#10B981';
+    launchConfetti(35);
+    setTimeout(()=>{
+      closePayModal();
+      // Unlock all modules
+      document.querySelectorAll('.module-card.locked').forEach(c=>{c.classList.remove('locked');});
+      document.querySelectorAll('.module-num.locked-num').forEach((n,i)=>{n.classList.remove('locked-num');n.textContent=i+3;});
+      document.querySelectorAll('.tag-lock').forEach(t=>{t.classList.remove('tag-lock');t.classList.add('tag-free');t.textContent='UNLOCKED';});
+      showSection('course');
+      alert('🎉 Congratulations! All 10 modules are now unlocked! Tap any module to see the AI Challenge. Happy learning! 🧮');
+    },2000);
+  },1500);
 }
 
-function updateLiveFeedback(total) {
-  // Optional: green glow when matching
-  const display = document.getElementById('total-display');
-  if (challengeTarget !== null && total === challengeTarget) {
-    display.style.color = '#10B981';
-    display.style.textShadow = '0 0 20px rgba(16,185,129,.6)';
-  } else {
-    display.style.color = '';
-    display.style.textShadow = '';
-  }
-}
-
-function updateScoreDisplay() {
-  document.getElementById('ch-score').textContent = `⭐ ${chScore}/${chTotal}`;
-}
-
-// ════════════════════════════════════════════════════
-//  GUIDE PANEL
-// ════════════════════════════════════════════════════
-function toggleGuide() {
-  const panel = document.getElementById('guide-panel');
-  const open = panel.style.display === 'block';
-  panel.style.display = open ? 'none' : 'block';
-  const btn = document.querySelector('.btn-guide');
-  btn.textContent = open ? '📖 How to Use' : '✕ Close Guide';
-}
-
-// ════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
 //  CONFETTI
-// ════════════════════════════════════════════════════
-const CONF_COLORS=['#FF6B35','#D4A017','#10B981','#3B82F6','#A855F7','#EF4444','#F0C040'];
-function launchConfetti(n) {
-  const wrap = document.getElementById('conf-wrap');
-  for (let i=0; i<n; i++) {
-    const p = document.createElement('div');
-    p.className = 'conf-p';
-    const size = 6 + Math.random()*8;
-    p.style.cssText = `
-      left:${Math.random()*100}%;
-      background:${CONF_COLORS[Math.floor(Math.random()*CONF_COLORS.length)]};
-      width:${size}px; height:${size}px;
-      border-radius:${Math.random()>.5?'50%':'2px'};
-      animation-duration:${1.4+Math.random()*.8}s;
-      animation-delay:${Math.random()*.3}s;
-    `;
-    wrap.appendChild(p);
-    setTimeout(()=>p.remove(), 2500);
+// ══════════════════════════════════════════════════════
+const CC=['#FF6B35','#D4A017','#10B981','#3B82F6','#A855F7','#EF4444','#F0C040'];
+function launchConfetti(n){
+  const wrap=document.getElementById('conf-wrap');
+  for(let i=0;i<n;i++){
+    const p=document.createElement('div');p.className='conf-p';
+    const s=6+Math.random()*8;
+    p.style.cssText=`left:${Math.random()*100}%;background:${CC[Math.floor(Math.random()*CC.length)]};width:${s}px;height:${s}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1.4+Math.random()*.8}s;animation-delay:${Math.random()*.3}s;`;
+    wrap.appendChild(p);setTimeout(()=>p.remove(),2500);
   }
 }
 
-// ════════════════════════════════════════════════════
-//  RESIZE HANDLER
-// ════════════════════════════════════════════════════
-window.addEventListener('resize', positionDivider);
-
-// ════════════════════════════════════════════════════
-//  INIT
-// ════════════════════════════════════════════════════
-initState();
-buildAbacus();
+// Countdown for spots
+let spots=47;
+setInterval(()=>{
+  const el=document.getElementById('spots-left');
+  if(el&&Math.random()<.05&&spots>12){spots--;el.textContent=spots;}
+},8000);
 </script>
 </body>
 </html>
