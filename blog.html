@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SchoolTag Blog – Tips for Indian Parents | schooltag.in</title>
+<meta name="description" content="SchoolTag Blog – Helpful tips for Indian parents on school labels, kids organisation, back-to-school checklist, and saving money on school supplies.">
+<meta name="keywords" content="school labels india, school name stickers, kids name labels, back to school india, personalised school stickers, school tag blog">
+<meta property="og:title" content="SchoolTag Blog – Tips for Indian Parents">
+<meta property="og:description" content="Helpful parenting tips, school label guides, and back-to-school advice from SchoolTag India.">
+<meta property="og:url" content="https://schooltag.in/blog.html">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://schooltag.in/blog.html">
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800;900&family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FFF9F0;
+  --card:#fff;
+  --primary:#FF6B35;
+  --primary-dark:#E05520;
+  --secondary:#4ECDC4;
+  --accent:#FFE66D;
+  --purple:#A855F7;
+  --green:#22C55E;
+  --text:#1E1B18;
+  --muted:#6B7280;
+  --shadow:0 4px 24px rgba(0,0,0,.09);
+  --radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+/* ── TOP NAV ── */
+.top-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:2px solid rgba(255,107,53,.12);box-shadow:0 2px 18px rgba(255,107,53,.1);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px;gap:8px;}
+.nav-brand{font-family:'Baloo 2',cursive;font-size:1.25rem;font-weight:900;background:linear-gradient(135deg,#FF6B35,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;text-decoration:none;}
+.nav-links{display:flex;gap:6px;align-items:center;overflow-x:auto;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{font-family:'Baloo 2',cursive;font-size:.76rem;font-weight:800;padding:6px 13px;border-radius:50px;text-decoration:none;white-space:nowrap;border:2px solid #E5E7EB;color:#6B7280;background:#F9FAFB;transition:all .2s;}
+.nav-link:hover{border-color:#FF6B35;color:#FF6B35;background:#FFF5F0;}
+.nav-link.active-nav{background:linear-gradient(135deg,#FF6B35,#FF8C42);color:#fff;border-color:transparent;box-shadow:0 3px 12px rgba(255,107,53,.4);}
+
+/* ── HERO ── */
+.blog-hero{background:linear-gradient(135deg,#FF6B35 0%,#FF8C42 40%,#FFB347 70%,#FFE66D 100%);padding:52px 20px 36px;text-align:center;position:relative;overflow:hidden;}
+.blog-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.blog-hero-emoji{font-size:3rem;display:block;margin-bottom:10px;animation:bobble 2.5s ease-in-out infinite alternate;}
+@keyframes bobble{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+.blog-hero h1{font-family:'Baloo 2',cursive;font-size:clamp(1.6rem,5vw,2.6rem);color:#fff;font-weight:900;margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,.15);}
+.blog-hero p{color:rgba(255,255,255,.9);font-size:.95rem;font-weight:700;max-width:500px;margin:0 auto;}
+
+/* ── TABLE OF CONTENTS ── */
+.toc-bar{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin:24px 16px 0;padding:18px 20px;border:2px solid #FFE0D0;}
+.toc-bar h3{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.toc-list{display:flex;flex-direction:column;gap:6px;}
+.toc-item{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border-radius:12px;background:#FFF5F0;border:1.5px solid #FFE0D0;text-decoration:none;transition:all .18s;}
+.toc-item:hover{background:#FF6B35;border-color:#FF6B35;}
+.toc-item:hover .toc-num,.toc-item:hover .toc-title{color:#fff;}
+.toc-num{font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:900;color:var(--primary);min-width:22px;}
+.toc-title{font-size:.85rem;font-weight:700;color:var(--text);line-height:1.35;}
+
+/* ── MAIN LAYOUT ── */
+.blog-container{max-width:780px;margin:0 auto;padding:0 16px 60px;}
+
+/* ── ARTICLE CARD ── */
+.article{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-top:32px;overflow:hidden;border:1.5px solid #F0E8FF;transition:box-shadow .25s;}
+.article:hover{box-shadow:0 8px 40px rgba(255,107,53,.16);}
+.art-header{padding:26px 24px 0;}
+.art-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1.2px;padding:4px 12px;border-radius:50px;margin-bottom:12px;}
+.tag-labels{background:#FFF5F0;color:#FF6B35;border:1.5px solid #FFD0B8;}
+.tag-parenting{background:#F0FDF4;color:#16A34A;border:1.5px solid #BBF7D0;}
+.tag-tips{background:#EFF6FF;color:#2563EB;border:1.5px solid #BFDBFE;}
+.tag-school{background:#FDF4FF;color:#9333EA;border:1.5px solid #E9D5FF;}
+.tag-guide{background:#FFFBEB;color:#D97706;border:1.5px solid #FDE68A;}
+.art-num{font-family:'Baloo 2',cursive;font-size:.78rem;font-weight:800;color:var(--muted);margin-bottom:4px;}
+.art-title{font-family:'Baloo 2',cursive;font-size:clamp(1.15rem,3.5vw,1.55rem);font-weight:900;color:var(--text);line-height:1.3;margin-bottom:10px;}
+.art-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:2px dashed #F0E8E0;}
+.art-date{font-size:.77rem;font-weight:700;color:var(--muted);}
+.art-read{font-size:.77rem;font-weight:700;color:var(--secondary);background:#F0FDFB;padding:3px 10px;border-radius:50px;border:1.5px solid #A7F3D0;}
+.art-body{padding:20px 24px 24px;}
+.art-intro{font-size:.98rem;font-weight:700;color:var(--text);line-height:1.7;margin-bottom:18px;padding:14px 16px;background:linear-gradient(135deg,#FFF9F0,#FFF5F0);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;}
+.art-body h3{font-family:'Baloo 2',cursive;font-size:1.08rem;font-weight:800;color:var(--text);margin:22px 0 8px;display:flex;align-items:center;gap:7px;}
+.art-body h3::before{content:'';display:inline-block;width:4px;height:18px;background:var(--primary);border-radius:4px;flex-shrink:0;}
+.art-body p{font-size:.93rem;line-height:1.75;color:#374151;margin-bottom:14px;font-weight:600;}
+.art-body ul,.art-body ol{padding-left:0;margin-bottom:16px;display:flex;flex-direction:column;gap:7px;list-style:none;}
+.art-body li{font-size:.92rem;font-weight:700;color:#374151;display:flex;align-items:flex-start;gap:8px;padding:8px 12px;background:#F9FAFB;border-radius:10px;border:1.5px solid #E5E7EB;line-height:1.5;}
+.art-body li::before{content:'✅';font-size:.85rem;margin-top:1px;flex-shrink:0;}
+.art-body ol li::before{content:none;}
+.art-body ol{counter-reset:ol-counter;}
+.art-body ol li{counter-increment:ol-counter;}
+.art-body ol li::before{content:counter(ol-counter);background:var(--primary);color:#fff;font-family:'Baloo 2',cursive;font-size:.72rem;font-weight:900;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.highlight-box{background:linear-gradient(135deg,#FFF9F0,#FFF5F0);border:2px solid #FFD0B8;border-radius:14px;padding:14px 16px;margin:16px 0;font-size:.9rem;font-weight:700;color:#78350F;line-height:1.65;}
+.highlight-box strong{color:var(--primary);}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:16px 0;}
+.stat-card{background:linear-gradient(135deg,#FFF5F0,#FFF9F0);border:2px solid #FFD0B8;border-radius:14px;padding:14px 10px;text-align:center;}
+.stat-num{font-family:'Baloo 2',cursive;font-size:1.6rem;font-weight:900;color:var(--primary);}
+.stat-lbl{font-size:.72rem;font-weight:800;color:var(--muted);margin-top:2px;}
+.cta-strip{background:linear-gradient(135deg,#FF6B35,#FF8C42);border-radius:16px;padding:18px 20px;margin-top:20px;text-align:center;box-shadow:0 4px 20px rgba(255,107,53,.35);}
+.cta-strip p{color:rgba(255,255,255,.92);font-size:.88rem;font-weight:700;margin-bottom:10px;}
+.cta-btn{display:inline-block;font-family:'Baloo 2',cursive;font-size:.98rem;font-weight:800;padding:11px 28px;border-radius:50px;background:#fff;color:#FF6B35;text-decoration:none;box-shadow:0 3px 12px rgba(0,0,0,.15);transition:transform .15s;}
+.cta-btn:hover{transform:translateY(-2px);}
+
+/* ── QUOTE ── */
+.pull-quote{border-left:4px solid var(--purple);padding:12px 18px;margin:16px 0;background:#F9F0FF;border-radius:0 12px 12px 0;font-size:.93rem;font-style:italic;font-weight:700;color:#6B21A8;line-height:1.6;}
+
+/* ── IMAGE BANNER (decorative SVG) ── */
+.art-banner{width:100%;height:140px;display:block;background:linear-gradient(135deg,#FF6B35,#FFB347);position:relative;overflow:hidden;}
+
+/* ── CHECKLIST SPECIAL ── */
+.checklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin:14px 0;}
+.check-item{display:flex;align-items:center;gap:8px;background:#F0FDF4;border:1.5px solid #BBF7D0;border-radius:10px;padding:8px 12px;font-size:.85rem;font-weight:700;color:#166534;}
+.check-item::before{content:'☐';font-size:1rem;color:#22C55E;flex-shrink:0;}
+
+/* ── COMPARISON TABLE ── */
+.compare-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.85rem;}
+.compare-table th{background:linear-gradient(135deg,#FF6B35,#FF8C42);color:#fff;font-family:'Baloo 2',cursive;font-weight:800;padding:10px 14px;text-align:left;}
+.compare-table th:first-child{border-radius:12px 0 0 0;}
+.compare-table th:last-child{border-radius:0 12px 0 0;}
+.compare-table td{padding:9px 14px;border-bottom:1.5px solid #F3F4F6;font-weight:700;color:#374151;}
+.compare-table tr:nth-child(even) td{background:#FFF9F0;}
+.compare-table .good{color:#16A34A;}
+.compare-table .bad{color:#DC2626;}
+
+/* ── SIDEBAR TAGS ── */
+.blog-footer-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;padding-top:16px;border-top:2px dashed #F0E8E0;}
+.b-tag{font-size:.75rem;font-weight:800;padding:4px 12px;border-radius:50px;background:#F9FAFB;border:1.5px solid #E5E7EB;color:var(--muted);text-decoration:none;}
+
+/* ── BACK TO TOP ── */
+.back-top{display:block;text-align:center;margin:32px 0 8px;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;color:var(--primary);text-decoration:none;padding:10px;transition:opacity .2s;}
+.back-top:hover{opacity:.75;}
+
+/* ── FOOTER ── */
+footer{background:linear-gradient(135deg,#FF6B35,#FF8C42);padding:28px 20px;text-align:center;}
+footer p{color:rgba(255,255,255,.9);font-size:.85rem;font-weight:700;}
+footer a{color:#FFE66D;text-decoration:none;font-weight:800;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.article{animation:fadeUp .5s ease both;}
+.article:nth-child(2){animation-delay:.08s}
+.article:nth-child(3){animation-delay:.14s}
+.article:nth-child(4){animation-delay:.2s}
+.article:nth-child(5){animation-delay:.26s}
+.article:nth-child(6){animation-delay:.32s}
+
+@media(max-width:480px){
+  .art-header,.art-body{padding:18px 16px;}
+  .stat-row{grid-template-columns:repeat(2,1fr);}
+  .checklist{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">🏷️ SchoolTag</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">🏠 Labels ₹19</a>
+    <a href="games.html" class="nav-link">🎮 Games</a>
+    <a href="timetable.html" class="nav-link">📅 Timetable</a>
+    <a href="abacus.html" class="nav-link">🧮 Abacus</a>
+    <a href="blog.html" class="nav-link active-nav">📝 Blog</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="blog-hero">
+  <span class="blog-hero-emoji">📝</span>
+  <h1>SchoolTag Parent Blog</h1>
+  <p>Helpful tips, guides & ideas for Indian school parents 🇮🇳</p>
+</div>
+
+<!-- ── TABLE OF CONTENTS ── -->
+<div class="blog-container">
+<div class="toc-bar">
+  <h3>📚 5 Articles in this Blog</h3>
+  <div class="toc-list">
+    <a href="#post1" class="toc-item">
+      <span class="toc-num">01</span>
+      <span class="toc-title">Why Every School Child in India Needs Name Labels in 2026</span>
+    </a>
+    <a href="#post2" class="toc-item">
+      <span class="toc-num">02</span>
+      <span class="toc-title">The Ultimate Back-to-School Checklist for Indian Parents (Class 1–8)</span>
+    </a>
+    <a href="#post3" class="toc-item">
+      <span class="toc-num">03</span>
+      <span class="toc-title">Waterproof Labels vs Marker Pen vs Stitched Tags — Which is Best?</span>
+    </a>
+    <a href="#post4" class="toc-item">
+      <span class="toc-num">04</span>
+      <span class="toc-title">How to Save ₹2000 Every School Year (Smart Parent Tips)</span>
+    </a>
+    <a href="#post5" class="toc-item">
+      <span class="toc-num">05</span>
+      <span class="toc-title">5 Fun Ways to Get Your Child Excited About Going Back to School</span>
+    </a>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     POST 1 — Name Labels
+════════════════════════════════════════ -->
+<article class="article" id="post1">
+  <div class="art-header">
+    <span class="art-tag tag-labels">🏷️ School Labels</span>
+    <div class="art-num">Article 01 of 05</div>
+    <h2 class="art-title">Why Every School Child in India Needs Name Labels in 2026</h2>
+    <div class="art-meta">
+      <span class="art-date">📅 April 2026</span>
+      <span class="art-read">⏱️ 4 min read</span>
+    </div>
+  </div>
+  <div class="art-body">
+    <div class="art-intro">
+      Every year, thousands of school children across India lose their water bottles, lunch boxes, shoes, and bags — simply because there is no name on them. As a parent, you end up spending hundreds of rupees replacing these items every term. There is one simple, affordable solution: personalised name labels.
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num">₹800+</div><div class="stat-lbl">avg lost items per year</div></div>
+      <div class="stat-card"><div class="stat-num">3/5</div><div class="stat-lbl">kids lose a bottle per term</div></div>
+      <div class="stat-card"><div class="stat-num">₹19</div><div class="stat-lbl">cost of SchoolTag labels</div></div>
+    </div>
+
+    <h3>The Problem Every Indian Parent Knows</h3>
+    <p>Ask any class teacher in Tamil Nadu, Maharashtra, or Karnataka — every school has a "lost and found" box overflowing with unnamed items. A pencil box worth ₹150, a water bottle worth ₹200, a geometry set worth ₹120, a sweater worth ₹400 — all unclaimed simply because no child's name was written on them.</p>
+    <p>Writing with a permanent marker seems like the easy solution. But marker ink fades after 5–6 washes. Stitched name tags fall off. Handwriting on cloth labels gets unreadable. There is a far better, more permanent solution that parents worldwide have switched to — <strong>waterproof printed name labels.</strong></p>
+
+    <h3>What Exactly Are School Name Labels?</h3>
+    <p>School name labels are small, durable, waterproof stickers printed with your child's name, class number, and school name. You stick them onto any surface — bags, water bottles, lunch boxes, shoes, books, pencil cases, and even clothes. They survive washing, sunlight, and rough school use throughout the full year.</p>
+
+    <div class="pull-quote">"I ordered SchoolTag labels before June reopening. My daughter's bottle came back from school 3 times this year — the teacher saw the label and sent it back. Worth every rupee!" — A parent from Coimbatore</div>
+
+    <h3>Why SchoolTag Labels Are Perfect for Indian Schools</h3>
+    <p>At SchoolTag, you can customise labels with your child's favourite cartoon characters — Chotta Bheem, Dora, Tom & Jerry, Sponge Kid, Motu Patlu, and Shinchan. Children are excited to use items with their favourite character on them, which means they are also more careful with their belongings.</p>
+
+    <ul>
+      <li>Choose from 6 popular Indian cartoon themes your child will love</li>
+      <li>Type the name, class, and school — done in 2 minutes</li>
+      <li>Print at home on sticker paper or at any local print shop</li>
+      <li>Waterproof — survives washing, rain, and rough handling</li>
+      <li>Price starts at just ₹19 — less than a bottle of water</li>
+    </ul>
+
+    <h3>When Should You Order?</h3>
+    <p>The best time to order is <strong>2 weeks before school reopening in June.</strong> This gives you time to print, cut, and stick labels on all your child's items before the first day. You can also order at the start of any new term or when your child gets new supplies.</p>
+
+    <div class="highlight-box">
+      💡 <strong>Pro tip:</strong> Label everything — not just the bag. Shoes, water bottles, lunch boxes, geometry boxes, erasers, and even the inside collar of the school uniform. The more items labelled, the more comes back home!
+    </div>
+
+    <div class="cta-strip">
+      <p>🎯 Protect your child's belongings this school year. Takes 2 minutes to customise!</p>
+      <a href="index.html" class="cta-btn">🏷️ Get Labels Now — Only ₹19!</a>
+    </div>
+
+    <div class="blog-footer-tags">
+      <span class="b-tag">#SchoolLabels</span><span class="b-tag">#IndianParents</span><span class="b-tag">#BackToSchool</span><span class="b-tag">#SchoolTag</span><span class="b-tag">#TamilNadu</span>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════
+     POST 2 — Back to School Checklist
+════════════════════════════════════════ -->
+<article class="article" id="post2">
+  <div class="art-header">
+    <span class="art-tag tag-guide">📋 Parent Guide</span>
+    <div class="art-num">Article 02 of 05</div>
+    <h2 class="art-title">The Ultimate Back-to-School Checklist for Indian Parents (Class 1–8)</h2>
+    <div class="art-meta">
+      <span class="art-date">📅 April 2026</span>
+      <span class="art-read">⏱️ 5 min read</span>
+    </div>
+  </div>
+  <div class="art-body">
+    <div class="art-intro">
+      June is coming, and with it comes the annual rush — buying new uniforms, books, bags, and supplies. This checklist covers everything an Indian school parent needs to prepare, so nothing is missed and no last-minute panic shopping is needed.
+    </div>
+
+    <h3>📚 Books & Stationery</h3>
+    <div class="checklist">
+      <div class="check-item">Textbooks (school list)</div>
+      <div class="check-item">Notebooks — ruled & unruled</div>
+      <div class="check-item">Drawing book</div>
+      <div class="check-item">Pencils, pens, eraser</div>
+      <div class="check-item">Sharpener & scale</div>
+      <div class="check-item">Geometry box</div>
+      <div class="check-item">Colour pencils / crayons</div>
+      <div class="check-item">Glue stick & scissors</div>
+      <div class="check-item">Pencil case / pouch</div>
+      <div class="check-item">Activity book (optional)</div>
+    </div>
+
+    <h3>👕 Uniform & Clothing</h3>
+    <div class="checklist">
+      <div class="check-item">School uniform (2 sets)</div>
+      <div class="check-item">School shoes & socks (2 pairs)</div>
+      <div class="check-item">Belt & tie / scarf</div>
+      <div class="check-item">PE kit / sports shoes</div>
+      <div class="check-item">School bag / backpack</div>
+      <div class="check-item">Rain coat or umbrella</div>
+    </div>
+
+    <h3>🍱 Everyday Essentials</h3>
+    <div class="checklist">
+      <div class="check-item">Water bottle (1 litre)</div>
+      <div class="check-item">Lunch box / tiffin</div>
+      <div class="check-item">Handkerchief (3–4)</div>
+      <div class="check-item">ID card holder</div>
+      <div class="check-item">Bus pass / diary</div>
+      <div class="check-item">Hand sanitiser</div>
+    </div>
+
+    <h3>🏷️ The One Thing Most Parents Forget</h3>
+    <p>Every year, parents buy all the items above — but forget to put their child's name on them. By the second week of school, 30% of water bottles and 20% of lunch boxes are already in the lost-and-found box.</p>
+    <p>Before school starts, <strong>label every single item</strong> on this list. Use a printed waterproof label — not a marker pen that will fade, and not a stitched tag that will fall off. SchoolTag gives you customised cartoon stickers from ₹19 that last the full school year.</p>
+
+    <div class="highlight-box">
+      💡 <strong>Parent tip:</strong> Buy all supplies in the first week of May, before the June rush. Prices go up by 15–20% closer to reopening day, and stock runs out fast in popular items.
+    </div>
+
+    <h3>🗓️ 2-Week Preparation Timeline</h3>
+    <ol>
+      <li><strong>6 weeks before:</strong> Get the school's booklist from the office</li>
+      <li><strong>4 weeks before:</strong> Buy textbooks (they sell out fast)</li>
+      <li><strong>3 weeks before:</strong> Buy uniform, shoes, bag</li>
+      <li><strong>2 weeks before:</strong> Buy stationery and daily essentials</li>
+      <li><strong>1 week before:</strong> Order and print SchoolTag name labels</li>
+      <li><strong>2 days before:</strong> Stick labels on every item, pack the bag</li>
+    </ol>
+
+    <div class="cta-strip">
+      <p>✅ Everything checked? Don't forget the name labels — the most important item on the list!</p>
+      <a href="index.html" class="cta-btn">🏷️ Order Labels – ₹19 Only!</a>
+    </div>
+
+    <div class="blog-footer-tags">
+      <span class="b-tag">#BackToSchool</span><span class="b-tag">#SchoolChecklist</span><span class="b-tag">#IndianSchool</span><span class="b-tag">#ParentingTips</span>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════
+     POST 3 — Comparison
+════════════════════════════════════════ -->
+<article class="article" id="post3">
+  <div class="art-header">
+    <span class="art-tag tag-tips">🔍 Comparison</span>
+    <div class="art-num">Article 03 of 05</div>
+    <h2 class="art-title">Waterproof Labels vs Marker Pen vs Stitched Tags — Which is Best for Indian School Kids?</h2>
+    <div class="art-meta">
+      <span class="art-date">📅 April 2026</span>
+      <span class="art-read">⏱️ 4 min read</span>
+    </div>
+  </div>
+  <div class="art-body">
+    <div class="art-intro">
+      Indian parents use three main methods to name their child's school belongings — a marker pen, stitched cloth tags, or printed waterproof stickers. We compared all three on the factors that matter most: cost, durability, looks, and convenience.
+    </div>
+
+    <h3>The Honest Comparison</h3>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Cost</th>
+          <th>Durability</th>
+          <th>Looks</th>
+          <th>Easy?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Marker Pen</strong></td>
+          <td class="good">₹10</td>
+          <td class="bad">Fades in 1–2 months</td>
+          <td class="bad">Messy</td>
+          <td class="good">Yes</td>
+        </tr>
+        <tr>
+          <td><strong>Stitched Tag</strong></td>
+          <td>₹50–100</td>
+          <td>Moderate, falls off</td>
+          <td>Plain</td>
+          <td class="bad">No — needs stitching</td>
+        </tr>
+        <tr>
+          <td><strong>Iron-on Label</strong></td>
+          <td>₹80–150</td>
+          <td class="good">Good on fabric only</td>
+          <td>Plain</td>
+          <td class="bad">Needs iron, limited</td>
+        </tr>
+        <tr>
+          <td><strong>SchoolTag Sticker</strong> ⭐</td>
+          <td class="good">₹19</td>
+          <td class="good">Full year, waterproof</td>
+          <td class="good">Cartoon, colourful</td>
+          <td class="good">2 minutes online</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Why Marker Pen Fails Every Time</h3>
+    <p>The permanent marker is every Indian parent's first instinct — it is cheap and immediately available. But the problem is that "permanent" only means it won't wash off paper. On plastic water bottles, metal lunch boxes, and fabric bags, the ink starts fading after just a few washes. By December, the name is already unreadable.</p>
+    <p>Another issue is legibility. Children write in different handwriting styles, and when a teacher finds a nameless-looking bottle, she cannot always tell whose it is. A printed label is always clear, readable, and professional-looking.</p>
+
+    <h3>The Problem with Stitched Tags</h3>
+    <p>Stitched cloth name tags were the traditional method used for uniforms and bags. While they work well on fabric, they have major limitations — they cannot be attached to plastic, metal, or glass items. They require time and skill to stitch. And when the thread loosens, the tag simply falls off, often without the parent ever knowing.</p>
+
+    <div class="pull-quote">"My son's jacket had a stitched tag — but it came loose and fell off during PE. The jacket was lost for 2 weeks before a classmate recognised it by the colour." — Parent, Chennai</div>
+
+    <h3>Waterproof Sticker Labels — The Modern Solution</h3>
+    <p>Printed waterproof labels combine the best of all worlds. They stick to any surface — plastic, metal, fabric, glass, rubber. They are fully waterproof, scratch-resistant, and UV-resistant. A good quality sticker label, like those from SchoolTag, lasts the full school year without fading, peeling, or falling off.</p>
+    <p>The added bonus is that you can make them <strong>fun and personalised</strong>. A sticker with your child's name AND their favourite cartoon character creates a sense of ownership — children are more careful with items they feel proud of.</p>
+
+    <div class="highlight-box">
+      💡 <strong>Verdict:</strong> For Indian school conditions — monsoon rain, school bags that get dragged, bottles that get washed daily — <strong>waterproof printed sticker labels are the clear winner.</strong> At ₹19, SchoolTag is also the most affordable option.
+    </div>
+
+    <div class="cta-strip">
+      <p>🏆 The smarter choice is clear. Try SchoolTag labels — waterproof, cartoon-themed, ₹19!</p>
+      <a href="index.html" class="cta-btn">🏷️ Try SchoolTag Now!</a>
+    </div>
+
+    <div class="blog-footer-tags">
+      <span class="b-tag">#SchoolLabels</span><span class="b-tag">#WaterproofStickers</span><span class="b-tag">#NameTags</span><span class="b-tag">#IndianParents</span>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════
+     POST 4 — Save Money
+════════════════════════════════════════ -->
+<article class="article" id="post4">
+  <div class="art-header">
+    <span class="art-tag tag-parenting">💰 Smart Parenting</span>
+    <div class="art-num">Article 04 of 05</div>
+    <h2 class="art-title">How to Save ₹2000 Every School Year — Smart Tips for Indian Parents</h2>
+    <div class="art-meta">
+      <span class="art-date">📅 April 2026</span>
+      <span class="art-read">⏱️ 5 min read</span>
+    </div>
+  </div>
+  <div class="art-body">
+    <div class="art-intro">
+      Raising a school-going child in India costs more every year. From textbooks and uniforms to stationery and school trips, expenses add up fast. But with a few smart habits, most Indian parents can save ₹1500–₹2500 per child per year without compromising on quality.
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num">₹12K</div><div class="stat-lbl">avg annual school spend</div></div>
+      <div class="stat-card"><div class="stat-num">₹2K</div><div class="stat-lbl">easily saved with planning</div></div>
+      <div class="stat-card"><div class="stat-num">30%</div><div class="stat-lbl">items lost per year</div></div>
+    </div>
+
+    <h3>Tip 1 — Buy Textbooks Early (Save ₹200–400)</h3>
+    <p>In Tamil Nadu and across India, textbook prices jump significantly in May and June when demand peaks. Publishers and local stationery shops increase prices as school reopening nears. Buying in March–April saves you 15–25% on the same books. Also check whether your child's school accepts last year's books for older siblings — many private schools allow this for unchanged syllabi.</p>
+
+    <h3>Tip 2 — Stop Replacing Lost Items (Save ₹400–800)</h3>
+    <p>The biggest hidden cost in school parenting is replacing lost items — a water bottle here, a lunch box there, an eraser pouch somewhere. Studies show that a typical Indian school child loses items worth ₹400–₹800 per year. The single most effective way to stop this is to <strong>label every item before school starts.</strong></p>
+    <p>A SchoolTag waterproof label costs ₹19 for a full set. That ₹19 investment can save you 40x in lost item replacements. Teachers and school staff return labelled items — they simply don't know where to send unlabelled ones.</p>
+
+    <h3>Tip 3 — Buy 2 Uniforms, Not 3 (Save ₹300–500)</h3>
+    <p>Many parents buy 3 sets of uniform "just in case." For most children, 2 sets are enough — one to wear, one to wash. The third set sits unused for months. Buy 2 good-quality sets and spend the saved money on better-quality shoes that last longer.</p>
+
+    <h3>Tip 4 — Refill, Don't Replace Stationery (Save ₹200–400)</h3>
+    <p>Stationery is the category where money disappears fastest because the amounts seem small. Instead of buying new pens every month, buy quality refillable pens. Buy large pencil sets at the start of the year rather than individual pencils throughout. Wholesale stationery shops like Nataraj dealers give 30–40% savings over retail purchases.</p>
+
+    <h3>Tip 5 — Use Free Digital Tools (Save ₹500–1000)</h3>
+    <p>SchoolTag offers a <strong>free Timetable Maker</strong> and <strong>free educational games</strong> on the website. Instead of paying for expensive activity books or subscriptions, children can use the Abacus and Game Zone on SchoolTag for free. These interactive tools are designed specifically for Indian school children and support their learning.</p>
+
+    <ul>
+      <li>Free Timetable Maker — print your child's weekly schedule</li>
+      <li>Free Game Zone — GK quiz, memory games, and more</li>
+      <li>Free Abacus trainer — mental maths practice</li>
+      <li>All free at schooltag.in — no subscription needed</li>
+    </ul>
+
+    <div class="highlight-box">
+      💡 <strong>Quick math:</strong> Label cost = ₹19. Saved on replaced items = ₹400–800. That is a <strong>20–40× return</strong> on a single purchase. No other school expense has this kind of payoff.
+    </div>
+
+    <h3>Bonus: Use the Free Timetable Maker</h3>
+    <p>Printing a clear weekly timetable and sticking it inside your child's room saves the daily "Amma, what subject is tomorrow?" panic. SchoolTag's free timetable maker lets you create a colourful, printable timetable in minutes — no design skills needed.</p>
+
+    <div class="cta-strip">
+      <p>💰 Start saving today — label your child's belongings and stop replacing lost items!</p>
+      <a href="index.html" class="cta-btn">🏷️ Get Labels – ₹19 Only!</a>
+    </div>
+
+    <div class="blog-footer-tags">
+      <span class="b-tag">#SaveMoney</span><span class="b-tag">#SmartParenting</span><span class="b-tag">#IndianSchool</span><span class="b-tag">#BackToSchool2026</span>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════════════════════════════
+     POST 5 — Excited About School
+════════════════════════════════════════ -->
+<article class="article" id="post5">
+  <div class="art-header">
+    <span class="art-tag tag-school">🎒 School Life</span>
+    <div class="art-num">Article 05 of 05</div>
+    <h2 class="art-title">5 Fun Ways to Get Your Child Excited About Going Back to School</h2>
+    <div class="art-meta">
+      <span class="art-date">📅 April 2026</span>
+      <span class="art-read">⏱️ 4 min read</span>
+    </div>
+  </div>
+  <div class="art-body">
+    <div class="art-intro">
+      "I don't want to go to school!" — every Indian parent has heard this at least once. The transition back to school after summer holidays can feel overwhelming for children. But with a few simple, fun activities, you can turn nervous energy into genuine excitement before June arrives.
+    </div>
+
+    <h3>1. Let Them Choose Their Own Stationery</h3>
+    <p>Children who feel involved in their school preparation are significantly more excited about starting. Take your child to the stationery shop and let them choose their own pencil case, notebook cover design, and colour pencils within your budget. The sense of ownership creates enthusiasm.</p>
+    <p>Similarly, when ordering name labels on SchoolTag, let your child choose their favourite cartoon character. Seeing "Chotta Bheem" on their water bottle or "Dora" on their lunch box makes ordinary items feel special and personal.</p>
+
+    <h3>2. Create Their Timetable Together</h3>
+    <p>Sit with your child and use SchoolTag's free <a href="timetable.html" style="color:var(--primary);font-weight:800;">Timetable Maker</a> to build their weekly school schedule together. Let them choose the colours, add fun emoji to each subject, and print it out. Stick it on the wall near their study area.</p>
+    <p>Children who know what to expect each day feel more confident and less anxious about school. A colourful, personalised timetable also becomes something they are proud to show friends.</p>
+
+    <h3>3. Play Educational Games Together</h3>
+    <p>In the 2 weeks before school starts, play the free GK quiz and memory games on <a href="games.html" style="color:var(--primary);font-weight:800;">SchoolTag Game Zone</a>. This refreshes their general knowledge and sharpens memory skills in a fun, low-pressure way — far better than revision worksheets.</p>
+    <p>The Abacus trainer helps with mental maths confidence, which many children feel nervous about. 10 minutes a day for 2 weeks makes a noticeable difference by the time school starts.</p>
+
+    <h3>4. Organise Their School Bag Together</h3>
+    <p>Make packing the school bag a fun ritual, not a chore. Let your child arrange their books in order, stick their new name labels on each item, and choose which cartoon sticker goes on which object. This sense of ownership and organisation carries into school — children who help organise their own things are less likely to lose them.</p>
+
+    <div class="pull-quote">"We made it a tradition — every May, my son and I sit together and label all his things for the new year. He looks forward to it now. It is our back-to-school ritual!" — Parent, Tiruppur</div>
+
+    <h3>5. Talk About What They Are Looking Forward To</h3>
+    <p>Instead of asking "Are you ready for school?" (which invites a nervous "no"), ask specific positive questions: "Which friend are you most excited to see?" or "What is the first game you want to play during PT period?" or "What do you want to learn in Science this year?"</p>
+    <p>This shifts the focus from anxiety to anticipation. Children who can name something they are looking forward to start school with a more positive mindset — and that first-week attitude shapes the entire year.</p>
+
+    <ul>
+      <li>Let children choose their own stationery and label designs</li>
+      <li>Build the timetable together using SchoolTag's free maker</li>
+      <li>Play GK games and Abacus in the weeks before school starts</li>
+      <li>Make labelling items a fun shared activity, not a task</li>
+      <li>Ask positive, specific questions about what they look forward to</li>
+    </ul>
+
+    <div class="highlight-box">
+      💡 <strong>Remember:</strong> A child who feels prepared and involved is a child who goes to school confidently. The simple act of having their name on their belongings gives children a sense of identity and pride in their school life.
+    </div>
+
+    <div class="cta-strip">
+      <p>🎉 Make this school year your child's best one yet. Start with a personalised label!</p>
+      <a href="index.html" class="cta-btn">🏷️ Create Labels – ₹19 Only!</a>
+    </div>
+
+    <div class="blog-footer-tags">
+      <span class="b-tag">#BackToSchool</span><span class="b-tag">#KidsMotivation</span><span class="b-tag">#IndianParents</span><span class="b-tag">#SchoolReady</span><span class="b-tag">#SchoolTag</span>
+    </div>
+  </div>
+</article>
+
+<a href="#" class="back-top">↑ Back to Top</a>
+
+</div><!-- end blog-container -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>✍️ SchoolTag Blog — Tips for Indian School Parents</p>
+  <p style="margin-top:8px;">🏷️ Get custom school labels at <a href="index.html">schooltag.in</a> — from ₹19 only!</p>
+  <p style="margin-top:8px;opacity:.75;font-size:.78rem;">© 2026 SchoolTag by DJ Groups · Mulanur, Tiruppur, Tamil Nadu</p>
+</footer>
+
+</body>
+</html>
