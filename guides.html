@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DJ Groups – Digital Guides Store | SchoolTag</title>
+<meta name="description" content="Buy premium Tamil & English guides on Pearl Farming, Apiculture, Amazon Affiliate & TNPSC. Delivered instantly via WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 80 L20 35 Q20 15 38 12 L65 12 Q82 12 82 28 L82 72 Q82 88 65 88 L38 88 Q20 88 20 72Z' fill='none' stroke='%2300BCD4' stroke-width='7'/><circle cx='72' cy='18' r='9' fill='none' stroke='%2300BCD4' stroke-width='6'/><line x1='72' y1='27' x2='72' y2='18' stroke='%2300BCD4' stroke-width='5'/><line x1='72' y1='12' x2='83' y2='4' stroke='%2300BCD4' stroke-width='5' stroke-linecap='round'/><path d='M35 52 Q51 40 51 28' fill='none' stroke='%23FFD600' stroke-width='5' stroke-linecap='round'/><path d='M67 52 Q51 40 51 28' fill='none' stroke='%23FFD600' stroke-width='5' stroke-linecap='round'/><line x1='35' y1='52' x2='67' y2='52' stroke='%23FFD600' stroke-width='4'/><path d='M51 28 Q47 22 51 16 Q55 22 51 28' fill='%23FFD600'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800;900&family=Nunito:wght@400;600;700;800&family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & VARIABLES ── */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --teal:#00BCD4;--teal-dark:#0097A7;--yellow:#FFD600;--yellow-dark:#F9A825;
+  --green-wa:#25D366;--green-wa-dark:#128C7E;
+  --bg:#F0FAF9;--surface:#FFFFFF;
+  --text:#1A2332;--muted:#546E7A;
+  --border:#E0F2F1;
+  --shadow-sm:0 2px 8px rgba(0,188,212,.12);
+  --shadow-md:0 6px 24px rgba(0,188,212,.18);
+  --shadow-lg:0 16px 48px rgba(0,0,0,.12);
+  --radius:18px;
+}
+
+/* ── BODY ── */
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── ANIMATED BG ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%,rgba(0,188,212,.07),transparent),
+    radial-gradient(ellipse 60% 60% at 80% 80%,rgba(255,214,0,.06),transparent),
+    linear-gradient(160deg,#F0FAF9 0%,#E8F8F5 50%,#F0F9FF 100%);
+}
+
+/* ── HEADER ── */
+.topbar{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:2px solid var(--border);
+  padding:0 20px;height:60px;
+  display:flex;align-items:center;gap:14px;
+  box-shadow:0 2px 16px rgba(0,188,212,.1);
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-img{height:38px;width:auto;object-fit:contain;}
+.logo-fallback{display:flex;align-items:center;gap:8px;}
+.logo-text{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;line-height:1;}
+.logo-text .school{color:var(--teal);}
+.logo-text .tag{color:var(--yellow-dark);}
+.logo-text .dot-in{color:var(--muted);font-size:.85em;}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.wa-topbar-btn{
+  display:flex;align-items:center;gap:6px;
+  background:var(--green-wa);color:#fff;
+  font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;
+  padding:7px 14px;border-radius:50px;
+  text-decoration:none;
+  box-shadow:0 3px 10px rgba(37,211,102,.3);
+  transition:all .2s;white-space:nowrap;
+}
+.wa-topbar-btn:hover{background:var(--green-wa-dark);transform:translateY(-1px);}
+.wa-topbar-btn svg{flex-shrink:0;}
+
+/* ── HERO ── */
+.hero{
+  padding:52px 20px 40px;
+  text-align:center;
+  position:relative;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(0,188,212,.12);
+  border:1.5px solid rgba(0,188,212,.3);
+  color:var(--teal-dark);
+  font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:800;
+  padding:4px 14px;border-radius:50px;
+  margin-bottom:16px;
+  letter-spacing:.5px;
+}
+.hero h1{
+  font-family:'Baloo 2',cursive;
+  font-size:clamp(1.8rem,6vw,3rem);
+  font-weight:900;
+  line-height:1.15;
+  color:var(--text);
+  margin-bottom:12px;
+}
+.hero h1 em{font-style:normal;color:var(--teal);}
+.hero h1 strong{color:var(--yellow-dark);}
+.hero-sub{
+  font-size:1rem;color:var(--muted);font-weight:600;
+  max-width:520px;margin:0 auto 28px;line-height:1.6;
+}
+.hero-sub span{font-family:'Noto Sans Tamil',sans-serif;display:block;font-size:.88rem;margin-top:4px;color:var(--teal-dark);}
+.hero-stats{
+  display:flex;gap:24px;justify-content:center;flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.hero-stat{
+  display:flex;flex-direction:column;align-items:center;
+  background:#fff;border-radius:14px;padding:12px 20px;
+  border:1.5px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  min-width:90px;
+}
+.hero-stat-num{font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:900;color:var(--teal);}
+.hero-stat-lbl{font-size:.72rem;font-weight:700;color:var(--muted);margin-top:2px;}
+
+/* ── SECTION TITLE ── */
+.section-header{padding:32px 20px 16px;text-align:center;}
+.section-header h2{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:900;color:var(--text);margin-bottom:6px;}
+.section-header p{font-size:.9rem;color:var(--muted);font-weight:600;}
+
+/* ── PRODUCT GRID ── */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+  padding:0 20px 40px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* ── PRODUCT CARD ── */
+/* ▸▸ TO ADD A NEW PRODUCT: duplicate one .product-card <div> block ◂◂ */
+.product-card{
+  background:var(--surface);
+  border-radius:var(--radius);
+  border:2px solid var(--border);
+  overflow:hidden;
+  transition:transform .22s,box-shadow .22s,border-color .22s;
+  position:relative;
+  animation:cardIn .5s ease both;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--teal);
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.product-card:nth-child(1){animation-delay:.05s;}
+.product-card:nth-child(2){animation-delay:.1s;}
+.product-card:nth-child(3){animation-delay:.15s;}
+.product-card:nth-child(4){animation-delay:.2s;}
+.product-card:nth-child(5){animation-delay:.25s;}
+.product-card:nth-child(6){animation-delay:.3s;}
+
+.card-thumb{
+  width:100%;height:160px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  font-size:4.5rem;
+}
+.card-thumb-icon{
+  position:relative;z-index:1;
+  filter:drop-shadow(0 6px 16px rgba(0,0,0,.2));
+  animation:float 3s ease-in-out infinite;
+}
+.product-card:hover .card-thumb-icon{animation-play-state:paused;transform:scale(1.12);}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+.badge-row{
+  position:absolute;top:12px;left:12px;
+  display:flex;gap:6px;flex-wrap:wrap;z-index:2;
+}
+.badge{
+  font-size:.62rem;font-weight:900;
+  padding:3px 10px;border-radius:50px;
+  letter-spacing:.4px;
+  backdrop-filter:blur(6px);
+}
+.badge-price{background:rgba(255,214,0,.95);color:#7B4500;}
+.badge-lang-ta{background:rgba(0,188,212,.92);color:#fff;}
+.badge-lang-en{background:rgba(41,121,255,.92);color:#fff;}
+.badge-lang-both{background:rgba(156,39,176,.92);color:#fff;}
+.badge-bestseller{background:rgba(255,87,34,.92);color:#fff;}
+.badge-new{background:rgba(76,175,80,.92);color:#fff;}
+
+.card-body{padding:16px 18px 18px;}
+.card-title{
+  font-family:'Baloo 2',cursive;
+  font-size:1.05rem;font-weight:900;
+  color:var(--text);
+  margin-bottom:4px;line-height:1.3;
+}
+.card-title-ta{
+  font-family:'Noto Sans Tamil',sans-serif;
+  font-size:.82rem;font-weight:700;
+  color:var(--teal-dark);margin-bottom:8px;
+}
+.card-desc{font-size:.82rem;color:var(--muted);font-weight:600;line-height:1.55;margin-bottom:12px;}
+.card-features{
+  display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;
+}
+.card-feat{
+  background:var(--bg);
+  border:1.5px solid var(--border);
+  border-radius:50px;
+  font-size:.68rem;font-weight:700;
+  padding:3px 10px;color:var(--teal-dark);
+}
+
+/* ── BUY BUTTON ── */
+.buy-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;
+  background:var(--green-wa);
+  color:#fff;
+  font-family:'Baloo 2',cursive;
+  font-size:.95rem;font-weight:900;
+  padding:13px 18px;
+  border-radius:14px;
+  text-decoration:none;
+  border:none;cursor:pointer;
+  transition:all .2s;
+  box-shadow:0 4px 14px rgba(37,211,102,.35);
+  letter-spacing:.3px;
+}
+.buy-btn:hover{
+  background:var(--green-wa-dark);
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(37,211,102,.45);
+}
+.buy-btn:active{transform:scale(.97);}
+.buy-btn svg{flex-shrink:0;}
+.buy-btn-price{
+  margin-left:auto;
+  background:rgba(255,255,255,.22);
+  border-radius:50px;
+  padding:2px 10px;
+  font-size:.82rem;
+}
+
+/* ── SCHOOL LABEL TOOL SECTION ── */
+.tool-section{
+  max-width:700px;margin:0 auto 40px;padding:0 20px;
+}
+.tool-card{
+  background:linear-gradient(135deg,#E0F7FA,#F3E5F5);
+  border:2px solid var(--teal);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  position:relative;
+  overflow:hidden;
+}
+.tool-card::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:140px;height:140px;border-radius:50%;
+  background:rgba(0,188,212,.1);
+}
+.tool-card-inner{position:relative;z-index:1;}
+.tool-card h2{font-family:'Baloo 2',cursive;font-size:1.35rem;font-weight:900;color:var(--text);margin-bottom:6px;}
+.tool-card p{font-size:.88rem;color:var(--muted);font-weight:600;line-height:1.55;margin-bottom:16px;}
+.tool-price-row{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.tool-price{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:900;color:var(--teal-dark);}
+.tool-price-old{font-size:1rem;color:#B0BEC5;text-decoration:line-through;}
+.tool-price-tag{background:rgba(255,214,0,.9);color:#7B4500;font-size:.75rem;font-weight:900;padding:3px 10px;border-radius:50px;}
+.tool-features{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+.tool-feat{background:#fff;border:1.5px solid var(--border);border-radius:50px;font-size:.72rem;font-weight:700;padding:4px 12px;color:var(--text);}
+
+/* ── IDLE POPUP ── */
+.idle-bubble{
+  position:fixed;bottom:24px;right:20px;z-index:500;
+  background:#fff;
+  border:2px solid var(--green-wa);
+  border-radius:20px;padding:14px 16px;
+  max-width:280px;
+  box-shadow:0 8px 32px rgba(0,0,0,.15);
+  display:none;
+  animation:slideInUp .4s ease;
+}
+.idle-bubble.show{display:block;}
+@keyframes slideInUp{from{transform:translateY(40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.idle-bubble-close{
+  position:absolute;top:8px;right:10px;
+  background:none;border:none;font-size:1rem;cursor:pointer;color:var(--muted);
+  line-height:1;
+}
+.idle-bubble h4{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:900;color:var(--text);margin-bottom:4px;padding-right:18px;}
+.idle-bubble p{font-size:.78rem;color:var(--muted);font-weight:600;margin-bottom:10px;line-height:1.4;}
+.idle-wa-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  background:var(--green-wa);color:#fff;
+  font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;
+  padding:9px 16px;border-radius:10px;text-decoration:none;width:100%;
+}
+
+/* ── HOW IT WORKS ── */
+.how-section{max-width:700px;margin:0 auto 40px;padding:0 20px;}
+.how-card{background:#fff;border-radius:var(--radius);padding:24px;border:2px solid var(--border);}
+.how-card h2{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;margin-bottom:16px;text-align:center;}
+.how-steps{display:flex;flex-direction:column;gap:0;}
+.how-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;}
+.how-step:not(:last-child){border-bottom:1px dashed var(--border);}
+.how-num{
+  width:32px;height:32px;flex-shrink:0;
+  background:var(--teal);color:#fff;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:900;
+  margin-top:2px;
+}
+.how-step-text h4{font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;color:var(--text);}
+.how-step-text p{font-size:.8rem;color:var(--muted);font-weight:600;margin-top:2px;line-height:1.4;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--text);
+  color:#fff;
+  padding:32px 20px 24px;
+  text-align:center;
+}
+.footer-logo{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:900;margin-bottom:8px;}
+.footer-logo span{color:var(--yellow);}
+.footer-tagline{font-size:.82rem;color:rgba(255,255,255,.65);margin-bottom:6px;font-weight:600;}
+.footer-tagline-ta{
+  font-family:'Noto Sans Tamil',sans-serif;
+  font-size:.82rem;color:rgba(0,188,212,.85);
+  margin-bottom:12px;font-weight:600;
+}
+.footer-phone{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--green-wa);color:#fff;
+  font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:800;
+  padding:8px 18px;border-radius:50px;
+  text-decoration:none;margin-bottom:16px;
+}
+.footer-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;}
+.footer-link{font-size:.78rem;color:rgba(255,255,255,.5);text-decoration:none;font-weight:600;}
+.footer-link:hover{color:var(--teal);}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.3);}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:400;
+  width:56px;height:56px;
+  background:var(--green-wa);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(37,211,102,.5);
+  text-decoration:none;
+  transition:transform .2s;
+  animation:pulse 2.5s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.1);}
+@keyframes pulse{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.5);}50%{box-shadow:0 4px 28px rgba(37,211,102,.8);}}
+/* hide float when idle bubble visible */
+.idle-bubble.show ~ .wa-float{display:none;}
+
+@media(max-width:480px){
+  .hero h1{font-size:1.7rem;}
+  .product-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<nav class="topbar">
+  <a href="/" class="logo">
+    <img src="SCHOOLLOGO.jpg" alt="SchoolTag" class="logo-img"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <span class="logo-fallback" style="display:none">
+      <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 80 L20 35 Q20 15 38 12 L65 12 Q82 12 82 28 L82 72 Q82 88 65 88 L38 88 Q20 88 20 72Z" fill="none" stroke="#00BCD4" stroke-width="7"/>
+        <circle cx="72" cy="18" r="9" fill="none" stroke="#00BCD4" stroke-width="6"/>
+        <line x1="72" y1="27" x2="72" y2="18" stroke="#00BCD4" stroke-width="5"/>
+        <line x1="72" y1="12" x2="83" y2="4" stroke="#00BCD4" stroke-width="5" stroke-linecap="round"/>
+        <path d="M35 52 Q51 40 51 28" fill="none" stroke="#FFD600" stroke-width="5" stroke-linecap="round"/>
+        <path d="M67 52 Q51 40 51 28" fill="none" stroke="#FFD600" stroke-width="5" stroke-linecap="round"/>
+        <line x1="35" y1="52" x2="67" y2="52" stroke="#FFD600" stroke-width="4"/>
+        <path d="M51 28 Q47 22 51 16 Q55 22 51 28" fill="#FFD600"/>
+      </svg>
+      <span class="logo-text"><span class="school">SCHOOL</span><span class="tag">TAG</span><span class="dot-in">.IN</span></span>
+    </span>
+  </a>
+  <div class="topbar-right">
+    <a href="https://wa.me/918122826152" target="_blank" class="wa-topbar-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge">
+    📚 DJ Groups Digital Store
+  </div>
+  <h1>Premium Guides for<br><em>Smart Entrepreneurs</em> &<br><strong>Tamil Farmers</strong></h1>
+  <p class="hero-sub">
+    Instantly receive your guide on WhatsApp · No app download needed
+    <span>வாட்ஸ்அப்பில் உடனே guide பெறுங்கள்</span>
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">5+</span>
+      <span class="hero-stat-lbl">Guides</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">Tamil</span>
+      <span class="hero-stat-lbl">Language</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">₹99+</span>
+      <span class="hero-stat-lbl">Starting from</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">💬</span>
+      <span class="hero-stat-lbl">WhatsApp Delivery</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCT GRID ── -->
+<div class="section-header">
+  <h2>🛍️ Our Digital Guides</h2>
+  <p>Click "Order on WhatsApp" — we'll send your PDF within minutes!</p>
+</div>
+
+<div class="product-grid" id="product-grid">
+
+  <!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  PRODUCT CARD TEMPLATE — Duplicate this block to    ║
+  ║  add a new product. Change emoji, title, desc,      ║
+  ║  badges, features, price and WhatsApp URL.          ║
+  ╚══════════════════════════════════════════════════════╝
+  -->
+
+  <!-- CARD 1: Pearl Farming Tamil -->
+  <div class="product-card">
+    <div class="card-thumb" style="background:linear-gradient(135deg,#E0F2F1,#B2DFDB);">
+      <span class="badge-row">
+        <span class="badge badge-price">₹149</span>
+        <span class="badge badge-lang-ta">தமிழ்</span>
+        <span class="badge badge-bestseller">🔥 Bestseller</span>
+      </span>
+      <span class="card-thumb-icon">🦪</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Pearl Farming Blueprint</div>
+      <div class="card-title-ta">முத்து வளர்ப்பு முழு வழிகாட்டி</div>
+      <p class="card-desc">Complete guide to start freshwater pearl farming — nucleation, water quality, government subsidies, marketing contacts & ROI calculator.</p>
+      <div class="card-features">
+        <span class="card-feat">📄 50+ Pages</span>
+        <span class="card-feat">🏛️ Govt Subsidy Guide</span>
+        <span class="card-feat">📊 ROI Calculator</span>
+        <span class="card-feat">🛒 Buyer Contacts</span>
+      </div>
+      <a href="https://wa.me/918122826152?text=I_want_the_Pearl_Farming_Guide_TAMIL_for_Rs149" target="_blank" class="buy-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Order on WhatsApp
+        <span class="buy-btn-price">₹149</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 2: Pearl Farming English -->
+  <div class="product-card">
+    <div class="card-thumb" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB);">
+      <span class="badge-row">
+        <span class="badge badge-price">₹149</span>
+        <span class="badge badge-lang-en">English</span>
+      </span>
+      <span class="card-thumb-icon">🐚</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Pearl Farming Blueprint</div>
+      <div class="card-title-ta">English Version</div>
+      <p class="card-desc">Full English guide for freshwater pearl farming. Nucleation technique, cage setup, water quality, marketing channels and profit calculation.</p>
+      <div class="card-features">
+        <span class="card-feat">📄 50+ Pages</span>
+        <span class="card-feat">🔬 Nucleation Photos</span>
+        <span class="card-feat">💰 Profit Formula</span>
+        <span class="card-feat">📦 Packaging Tips</span>
+      </div>
+      <a href="https://wa.me/918122826152?text=I_want_the_Pearl_Farming_Guide_ENGLISH_for_Rs149" target="_blank" class="buy-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Order on WhatsApp
+        <span class="buy-btn-price">₹149</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 3: Apiculture Tamil -->
+  <div class="product-card">
+    <div class="card-thumb" style="background:linear-gradient(135deg,#FFF8E1,#FFE082);">
+      <span class="badge-row">
+        <span class="badge badge-price">₹149</span>
+        <span class="badge badge-lang-ta">தமிழ்</span>
+        <span class="badge badge-bestseller">🔥 Popular</span>
+      </span>
+      <span class="card-thumb-icon">🍯</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Apiculture Master Guide</div>
+      <div class="card-title-ta">தேனீ வளர்ப்பு முழு வழிகாட்டி</div>
+      <p class="card-desc">17 sections covering bee biology, hive setup, honey harvest, 12 authenticity tests, medicinal uses, business plan & govt subsidies.</p>
+      <div class="card-features">
+        <span class="card-feat">📄 50+ Pages</span>
+        <span class="card-feat">🐝 17 Sections</span>
+        <span class="card-feat">🧪 12 Honey Tests</span>
+        <span class="card-feat">📈 Business Plan</span>
+      </div>
+      <a href="https://wa.me/918122826152?text=I_want_the_Apiculture_Guide_for_Rs149" target="_blank" class="buy-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Order on WhatsApp
+        <span class="buy-btn-price">₹149</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 4: Amazon Affiliate -->
+  <div class="product-card">
+    <div class="card-thumb" style="background:linear-gradient(135deg,#FFF3E0,#FFCC80);">
+      <span class="badge-row">
+        <span class="badge badge-price">₹99</span>
+        <span class="badge badge-lang-both">Tamil + English</span>
+        <span class="badge badge-new">✨ New</span>
+      </span>
+      <span class="card-thumb-icon">📦</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">Amazon Affiliate Guide</div>
+      <div class="card-title-ta">அமேசான் அஃபிலியேட் வழிகாட்டி</div>
+      <p class="card-desc">Step-by-step guide to earning passive income through Amazon Associates. Account setup, link creation, content strategy & tracking income.</p>
+      <div class="card-features">
+        <span class="card-feat">🔗 Link Strategy</span>
+        <span class="card-feat">💰 Income Tracker</span>
+        <span class="card-feat">📱 Social Media Tips</span>
+        <span class="card-feat">🛡️ TOS Compliance</span>
+      </div>
+      <a href="https://wa.me/918122826152?text=I_want_the_Amazon_Affiliate_Guide_for_Rs99" target="_blank" class="buy-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Order on WhatsApp
+        <span class="buy-btn-price">₹99</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 5: TNPSC Group 1 -->
+  <div class="product-card">
+    <div class="card-thumb" style="background:linear-gradient(135deg,#EDE7F6,#CE93D8);">
+      <span class="badge-row">
+        <span class="badge badge-price">₹199</span>
+        <span class="badge badge-lang-ta">தமிழ்</span>
+        <span class="badge badge-new">✨ New</span>
+      </span>
+      <span class="card-thumb-icon">📝</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">TNPSC Group 1 Mains</div>
+      <div class="card-title-ta">100 கேள்வி-பதில் தொகுப்பு</div>
+      <p class="card-desc">100 high-quality Q&A for TNPSC Group 1 Mains. Covers Tamil Nadu history, economy, governance & current affairs with model answers.</p>
+      <div class="card-features">
+        <span class="card-feat">❓ 100 Q&A</span>
+        <span class="card-feat">📖 Model Answers</span>
+        <span class="card-feat">🗺️ TN Focus</span>
+        <span class="card-feat">📅 Current Affairs</span>
+      </div>
+      <a href="https://wa.me/918122826152?text=I_want_the_TNPSC_Mains_100_QandA_for_Rs199" target="_blank" class="buy-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Order on WhatsApp
+        <span class="buy-btn-price">₹199</span>
+      </a>
+    </div>
+  </div>
+
+  <!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  ADD YOUR NEXT PRODUCT HERE — copy any card above   ║
+  ╚══════════════════════════════════════════════════════╝
+  -->
+
+</div><!-- /#product-grid -->
+
+<!-- ── HOW IT WORKS ── -->
+<div class="how-section">
+  <div class="how-card">
+    <h2>📲 How to Order</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-step-text">
+          <h4>Click "Order on WhatsApp"</h4>
+          <p>Tap the green button on any guide — it opens WhatsApp with a pre-filled message.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-step-text">
+          <h4>Send the message & Pay via UPI</h4>
+          <p>Send the auto-message. We'll reply with UPI payment details. Pay via GPay / PhonePe / Paytm.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-step-text">
+          <h4>Receive your PDF instantly</h4>
+          <p>Once payment is confirmed, your PDF guide is sent on WhatsApp within 2 minutes!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SCHOOL LABEL TOOL ── -->
+<div class="section-header">
+  <h2>🏷️ School Name Labels</h2>
+  <p>Custom printable school labels for your child — ₹29 only!</p>
+</div>
+<div class="tool-section">
+  <div class="tool-card">
+    <div class="tool-card-inner">
+      <h2>✨ SchoolTag Custom Labels</h2>
+      <p>Upload your child's photo, pick a cartoon character, get a print-ready A4 PDF with 6 labels. Waterproof design, instant delivery!</p>
+      <div class="tool-price-row">
+        <span class="tool-price">₹29</span>
+        <span class="tool-price-old">₹99</span>
+        <span class="tool-price-tag">71% OFF</span>
+      </div>
+      <div class="tool-features">
+        <span class="tool-feat">📸 Upload Child's Photo</span>
+        <span class="tool-feat">🎨 20+ Cartoon Themes</span>
+        <span class="tool-feat">📄 6 Labels · A4 PDF</span>
+        <span class="tool-feat">✂️ Easy Cut Design</span>
+      </div>
+      <a href="https://wa.me/918122826152?text=I_want_custom_school_labels_for_Rs29_-_Please_send_payment_details" target="_blank" class="buy-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Click to Send Details & Pay ₹29 via WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDLE POP-UP ── -->
+<div class="idle-bubble" id="idle-bubble">
+  <button class="idle-bubble-close" onclick="dismissIdle()" aria-label="Close">✕</button>
+  <h4>💬 Got questions about our guides?</h4>
+  <p>Chat with our expert directly on WhatsApp — get an answer in minutes!</p>
+  <a href="https://wa.me/918122826152?text=Hi!_I_have_a_question_about_your_guides" target="_blank" class="idle-wa-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    Chat with Expert on WhatsApp
+  </a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">DJ <span>Groups</span> · SchoolTag.in</div>
+  <div class="footer-tagline">Premium Digital Guides · Delivered via WhatsApp</div>
+  <div class="footer-tagline-ta">அனைத்து வழிகாட்டிகளும் வாட்ஸ்அப் மூலம் கிடைக்கும்</div>
+  <a href="https://wa.me/918122826152" target="_blank" class="footer-phone">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    📞 8122826152
+  </a>
+  <div class="footer-links">
+    <a href="/" class="footer-link">SchoolTag Labels</a>
+    <a href="/games.html" class="footer-link">Game Zone</a>
+    <a href="https://wa.me/918122826152" class="footer-link" target="_blank">WhatsApp Us</a>
+  </div>
+  <div class="footer-copy">© 2025 DJ Groups · ideazoomacademy@gmail.com · All rights reserved</div>
+</footer>
+
+<!-- ── FLOATING WA BUTTON ── -->
+<a href="https://wa.me/918122826152?text=Hi!_I_want_to_know_more_about_your_guides" target="_blank" class="wa-float" id="wa-float" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.849L.057 23.5l5.797-1.465A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.67-.502-5.2-1.378l-.373-.22-3.44.87.908-3.315-.242-.383A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+// ── IDLE POPUP (30 seconds) ──────────────────────────
+let idleTimer = null;
+let idleDismissed = false;
+
+function startIdleTimer() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    if (!idleDismissed) showIdle();
+  }, 30000); // 30 seconds
+}
+
+function showIdle() {
+  const bubble = document.getElementById('idle-bubble');
+  const waFloat = document.getElementById('wa-float');
+  if (bubble) bubble.classList.add('show');
+  if (waFloat) waFloat.style.display = 'none';
+}
+
+function dismissIdle() {
+  idleDismissed = true;
+  const bubble = document.getElementById('idle-bubble');
+  const waFloat = document.getElementById('wa-float');
+  if (bubble) bubble.classList.remove('show');
+  if (waFloat) waFloat.style.display = 'flex';
+}
+
+// Reset idle on any activity
+['mousemove','keydown','scroll','touchstart','click'].forEach(ev => {
+  document.addEventListener(ev, startIdleTimer, { passive: true });
+});
+startIdleTimer();
+
+// ── STAGGERED CARD ANIMATION ON SCROLL ───────────────
+if ('IntersectionObserver' in window) {
+  const cards = document.querySelectorAll('.product-card');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(24px)';
+    c.style.transition = 'opacity .5s ease, transform .5s ease';
+    obs.observe(c);
+  });
+}
+
+// ── TRACK WA CLICKS (console log for debugging) ──────
+document.querySelectorAll('.buy-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const title = this.closest('.product-card, .tool-card')
+      ?.querySelector('.card-title, .tool-card h2')
+      ?.textContent || 'unknown';
+    console.log('[DJ Groups] WhatsApp order clicked:', title);
+  });
+});
+</script>
+</body>
+</html>
