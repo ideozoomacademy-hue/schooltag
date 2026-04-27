@@ -1,44 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Main page — highest priority -->
+  <!-- HOME / LABEL MAKER -->
   <url>
     <loc>https://schooltag.in/</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://schooltag.in/og-image.png</image:loc>
+      <image:title>SchoolTag – Custom School Name Labels for Kids India</image:title>
+    </image:image>
   </url>
 
-  <!-- Blog page — updated regularly, very good for SEO -->
+  <!-- GUIDES HOME -->
   <url>
-    <loc>https://schooltag.in/blog.html</loc>
-    <lastmod>2026-04-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://schooltag.in/guides/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Game Zone — free content brings parents -->
+  <!-- VIJAY LABEL -->
+  <url>
+    <loc>https://schooltag.in/guides/vijay.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://schooltag.in/og-image.png</image:loc>
+      <image:title>Thalapathy Vijay School Label – Premium 6 Labels A4</image:title>
+    </image:image>
+  </url>
+
+  <!-- DHONI LABEL -->
+  <url>
+    <loc>https://schooltag.in/guides/dhoni.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://schooltag.in/og-image.png</image:loc>
+      <image:title>MS Dhoni School Label – Captain Cool Edition 6 Labels A4</image:title>
+    </image:image>
+  </url>
+
+  <!-- GAMES -->
   <url>
     <loc>https://schooltag.in/games.html</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 
-  <!-- Timetable Maker -->
+  <!-- TIMETABLE -->
   <url>
     <loc>https://schooltag.in/timetable.html</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Abacus Course -->
+  <!-- ABACUS -->
   <url>
     <loc>https://schooltag.in/abacus.html</loc>
-    <lastmod>2026-04-08</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- BLOG -->
+  <url>
+    <loc>https://schooltag.in/blog.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
