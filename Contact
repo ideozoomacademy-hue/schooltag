@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – SchoolTag | DJ Groups</title>
+<meta name="description" content="Contact DJ Groups for school labels, worksheets, planners and digital products. WhatsApp us at 8122826152 or email ideozoomacademy@gmail.com. Based in Tiruppur, Tamil Nadu.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://schooltag.in/contact.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:     #2563EB;
+  --blue-lt:  #EFF6FF;
+  --purple:   #7C3AED;
+  --dark:     #0F172A;
+  --mid:      #334155;
+  --soft:     #64748B;
+  --border:   #E2E8F0;
+  --bg:       #F8FAFF;
+  --white:    #FFFFFF;
+  --green:    #059669;
+  --wa:       #25D366;
+  --coral:    #ff6b6b;
+  --lavender: #b8a9e0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--border);
+  padding: 0 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 54px;
+}
+.nav-brand {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.2rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--coral), var(--lavender), #87ceeb);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.nav-back {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--blue); text-decoration: none;
+  background: var(--blue-lt); padding: 6px 14px;
+  border-radius: 50px; transition: all 0.2s;
+}
+.nav-back:hover { background: var(--blue); color: white; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(155deg, #EFF6FF 0%, #F5F3FF 50%, #ECFEFF 100%);
+  padding: 44px 20px 36px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '💬';
+  position: absolute; top: -20px; right: 10px;
+  font-size: 130px; opacity: 0.05;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: white; border: 1px solid var(--border);
+  color: var(--blue); font-size: 0.72rem; font-weight: 700;
+  padding: 5px 14px; border-radius: 50px;
+  margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(1.7rem, 7vw, 2.4rem);
+  font-weight: 900; color: var(--dark);
+  margin-bottom: 10px; line-height: 1.2;
+}
+.hero h1 span { color: var(--blue); }
+.hero-sub {
+  font-size: 0.92rem; color: var(--soft);
+  max-width: 330px; margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* MAIN */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px 18px 48px;
+}
+
+/* RESPONSE TIME BADGE */
+.response-bar {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.rb-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--green);
+  animation: blink 1.5s infinite;
+  flex-shrink: 0;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.rb-text { font-size: 0.85rem; color: var(--mid); }
+.rb-text strong { color: var(--green); }
+
+/* CONTACT CARDS */
+.contact-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+
+.contact-card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 20px 18px;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 16px;
+  transition: all 0.25s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative; overflow: hidden;
+}
+.contact-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.10);
+}
+
+.contact-card.wa::before { background: var(--wa); }
+.contact-card.wa:hover { border-color: var(--wa); }
+
+.contact-card.email::before { background: var(--blue); }
+.contact-card.email:hover { border-color: var(--blue); }
+
+.contact-card.web::before { background: var(--purple); }
+.contact-card.web:hover { border-color: var(--purple); }
+
+.cc-icon {
+  width: 52px; height: 52px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; flex-shrink: 0;
+}
+
+.cc-label {
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--soft); margin-bottom: 3px;
+}
+.cc-value {
+  font-size: 1rem; font-weight: 700; color: var(--dark);
+  margin-bottom: 2px;
+}
+.cc-note { font-size: 0.75rem; color: var(--soft); }
+
+.cc-arrow {
+  margin-left: auto;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+  transition: all 0.2s;
+}
+.contact-card.wa .cc-arrow { background: #DCFCE7; color: var(--green); }
+.contact-card.wa:hover .cc-arrow { background: var(--wa); color: white; }
+.contact-card.email .cc-arrow { background: var(--blue-lt); color: var(--blue); }
+.contact-card.email:hover .cc-arrow { background: var(--blue); color: white; }
+.contact-card.web .cc-arrow { background: #F5F3FF; color: var(--purple); }
+.contact-card.web:hover .cc-arrow { background: var(--purple); color: white; }
+
+/* QUICK ORDER SECTION */
+.order-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.order-header {
+  background: linear-gradient(135deg, var(--dark), #1E3A5F);
+  padding: 16px 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.oh-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.oh-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem; font-weight: 800; color: white;
+}
+.oh-sub { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+
+.order-body { padding: 18px 20px; }
+
+.quick-orders { display: flex; flex-direction: column; gap: 10px; }
+
+.quick-order-btn {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 12px 14px;
+  text-decoration: none; transition: all 0.2s;
+  cursor: pointer;
+}
+.quick-order-btn:hover {
+  border-color: var(--wa);
+  background: #F0FDF4;
+  transform: translateX(4px);
+}
+.qob-icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.qob-title { font-size: 0.88rem; font-weight: 700; color: var(--dark); }
+.qob-desc { font-size: 0.72rem; color: var(--soft); }
+.qob-price {
+  margin-left: auto;
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.95rem; font-weight: 900;
+  color: var(--green);
+  background: #DCFCE7;
+  padding: 3px 10px; border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* WORKING HOURS */
+.hours-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.hours-header {
+  background: linear-gradient(135deg, #064E3B, #065F46);
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hours-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem; font-weight: 800; color: white;
+}
+.hours-body { padding: 16px 20px; }
+
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table tr { border-bottom: 0.5px solid var(--border); }
+.hours-table tr:last-child { border-bottom: none; }
+.hours-table td {
+  padding: 9px 4px; font-size: 0.88rem;
+  vertical-align: middle;
+}
+.hours-table td:first-child { color: var(--mid); font-weight: 600; width: 50%; }
+.hours-table td:last-child { text-align: right; }
+
+.open-badge {
+  display: inline-block;
+  background: #DCFCE7; color: #065F46;
+  font-size: 0.7rem; font-weight: 700;
+  padding: 2px 10px; border-radius: 20px;
+}
+.closed-badge {
+  display: inline-block;
+  background: #FEE2E2; color: #991B1B;
+  font-size: 0.7rem; font-weight: 700;
+  padding: 2px 10px; border-radius: 20px;
+}
+
+/* FAQ MINI */
+.faq-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.faq-header {
+  background: linear-gradient(135deg, #4C1D95, #6D28D9);
+  padding: 14px 20px;
+}
+.faq-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem; font-weight: 800; color: white;
+}
+.faq-body { padding: 8px 0; }
+
+.faq-item {
+  border-bottom: 0.5px solid var(--border);
+  overflow: hidden;
+}
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 14px 20px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem; font-weight: 600; color: var(--dark);
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 10px; transition: background 0.15s;
+}
+.faq-q:hover { background: var(--bg); }
+.faq-arrow {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--blue-lt); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; flex-shrink: 0;
+  transition: transform 0.25s, background 0.2s;
+}
+.faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--blue); color: white; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-item.open .faq-a { max-height: 160px; }
+.faq-a-inner {
+  padding: 0 20px 14px;
+  font-size: 0.84rem; color: var(--mid); line-height: 1.65;
+}
+
+/* BIG CTA */
+.cta-box {
+  background: linear-gradient(135deg, var(--wa), #128C7E);
+  border-radius: 20px; padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+}
+.cta-box h3 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.4rem; color: white; margin-bottom: 8px;
+}
+.cta-box p { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: white; color: var(--green);
+  text-decoration: none; padding: 13px 28px;
+  border-radius: 50px; font-weight: 800; font-size: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: all 0.2s;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* FOOTER */
+footer {
+  background: var(--dark); color: rgba(255,255,255,0.6);
+  text-align: center; padding: 24px 16px;
+}
+.footer-brand {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem; font-weight: 900; color: white; margin-bottom: 6px;
+}
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0; }
+.footer-link {
+  color: rgba(255,255,255,0.5); font-size: 0.76rem;
+  text-decoration: none; background: rgba(255,255,255,0.08);
+  border-radius: 50px; padding: 4px 12px; transition: background 0.2s;
+}
+.footer-link:hover { background: rgba(255,255,255,0.15); color: white; }
+.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-top: 8px; }
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s, transform 0.5s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">🏷️ SchoolTag</a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📞 Get in Touch</div>
+  <h1>We're Here to <span>Help You!</span></h1>
+  <p class="hero-sub">Have a question? Want to place an order? We reply fast — usually within minutes on WhatsApp.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- Online indicator -->
+  <div class="response-bar reveal">
+    <div class="rb-dot"></div>
+    <div class="rb-text">
+      <strong>Typically replies within 10 minutes</strong> on WhatsApp · Mon–Sat 9AM–8PM IST
+    </div>
+  </div>
+
+  <!-- Contact Methods -->
+  <div class="contact-cards reveal">
+
+    <a href="https://wa.me/918122826152?text=Hi%20SchoolTag!%20I%20need%20help%20with%20my%20order." class="contact-card wa" target="_blank">
+      <div class="cc-icon" style="background:#DCFCE7;">💬</div>
+      <div>
+        <div class="cc-label">WhatsApp — Fastest Response</div>
+        <div class="cc-value">+91 8122826152</div>
+        <div class="cc-note">Send message, photo, or voice note · Replies in minutes</div>
+      </div>
+      <div class="cc-arrow">→</div>
+    </a>
+
+    <a href="mailto:ideozoomacademy@gmail.com?subject=SchoolTag%20Enquiry" class="contact-card email">
+      <div class="cc-icon" style="background:#EFF6FF;">📧</div>
+      <div>
+        <div class="cc-label">Email — For Detailed Queries</div>
+        <div class="cc-value">ideozoomacademy@gmail.com</div>
+        <div class="cc-note">For bulk orders, partnerships, feedback · Reply within 24hrs</div>
+      </div>
+      <div class="cc-arrow">→</div>
+    </a>
+
+    <a href="https://www.schooltag.in" class="contact-card web">
+      <div class="cc-icon" style="background:#F5F3FF;">🌐</div>
+      <div>
+        <div class="cc-label">Website</div>
+        <div class="cc-value">www.schooltag.in</div>
+        <div class="cc-note">School labels, worksheets, planners, games & more</div>
+      </div>
+      <div class="cc-arrow">→</div>
+    </a>
+
+  </div>
+
+  <!-- Quick Order -->
+  <div class="order-section reveal">
+    <div class="order-header">
+      <div class="oh-icon">🛒</div>
+      <div>
+        <div class="oh-title">Quick Order on WhatsApp</div>
+        <div class="oh-sub">Tap any product below — WhatsApp message pre-filled for you!</div>
+      </div>
+    </div>
+    <div class="order-body">
+      <div class="quick-orders">
+        <a href="https://wa.me/918122826152?text=Hi!%20I%20want%20a%20Cartoon%20School%20Label%20-%20Rs.29" class="quick-order-btn" target="_blank">
+          <div class="qob-icon" style="background:#FEF2F2;">🎨</div>
+          <div>
+            <div class="qob-title">Cartoon School Label</div>
+            <div class="qob-desc">Spiderman, Doraemon, Minions & 15+ themes · 6 labels A4</div>
+          </div>
+          <div class="qob-price">₹29</div>
+        </a>
+        <a href="https://wa.me/918122826152?text=Hi!%20I%20want%20a%20Vijay%20School%20Label%20-%20Rs.49" class="quick-order-btn" target="_blank">
+          <div class="qob-icon" style="background:#FFFBEB;">👑</div>
+          <div>
+            <div class="qob-title">Vijay Special Label</div>
+            <div class="qob-desc">Thalapathy golden badge · 6 labels A4 · Premium edition</div>
+          </div>
+          <div class="qob-price">₹49</div>
+        </a>
+        <a href="https://wa.me/918122826152?text=Hi!%20I%20want%20a%20Dhoni%20School%20Label%20-%20Rs.49" class="quick-order-btn" target="_blank">
+          <div class="qob-icon" style="background:#EFF6FF;">🏏</div>
+          <div>
+            <div class="qob-title">Dhoni Captain Cool Label</div>
+            <div class="qob-desc">MS Dhoni cricket badge · 6 labels A4 · Premium edition</div>
+          </div>
+          <div class="qob-price">₹49</div>
+        </a>
+        <a href="https://wa.me/918122826152?text=Hi!%20I%20want%20Math%20Worksheets%20-%20Rs.49" class="quick-order-btn" target="_blank">
+          <div class="qob-icon" style="background:#F0FDF4;">📐</div>
+          <div>
+            <div class="qob-title">Math Practice Worksheets</div>
+            <div class="qob-desc">Class 1–10 · 30 questions + answer key · Printable PDF</div>
+          </div>
+          <div class="qob-price">₹49</div>
+        </a>
+        <a href="https://wa.me/918122826152?text=Hi!%20I%20want%20the%20Teacher%20Planner%20Kit%20-%20Rs.299" class="quick-order-btn" target="_blank">
+          <div class="qob-icon" style="background:#F5F3FF;">📋</div>
+          <div>
+            <div class="qob-title">Teacher Planner Kit</div>
+            <div class="qob-desc">2026–27 · Attendance, Marks, Weekly planner · 18 pages</div>
+          </div>
+          <div class="qob-price">₹299</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Working Hours -->
+  <div class="hours-section reveal">
+    <div class="hours-header">
+      <div class="oh-icon" style="width:32px;height:32px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:1rem;">🕐</div>
+      <div class="hours-title" style="margin-left:10px;">Working Hours</div>
+    </div>
+    <div class="hours-body">
+      <table class="hours-table">
+        <tr>
+          <td>Monday – Friday</td>
+          <td><span class="open-badge">✓ Open 9AM – 8PM</span></td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td><span class="open-badge">✓ Open 9AM – 6PM</span></td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td><span class="closed-badge">Limited · WhatsApp only</span></td>
+        </tr>
+        <tr>
+          <td>Public Holidays</td>
+          <td><span class="closed-badge">WhatsApp only</span></td>
+        </tr>
+        <tr>
+          <td>After Hours</td>
+          <td style="font-size:0.8rem;color:var(--soft);">Leave a message — we reply next morning</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section reveal">
+    <div class="faq-header">
+      <div class="faq-title">❓ Frequently Asked Questions</div>
+    </div>
+    <div class="faq-body">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I receive my product after ordering?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">After payment, send your UPI screenshot to WhatsApp 8122826152. We will send your PDF file directly to WhatsApp within 10–30 minutes. No email, no waiting!</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I get a custom design for my school label?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes! WhatsApp us at 8122826152 with your requirements. We offer custom themes for bulk orders (10+ labels). Contact us for pricing.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you offer bulk orders for schools?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes! We offer special pricing for schools and tuition centers ordering 50+ labels. Email us at ideozoomacademy@gmail.com or WhatsApp for a custom quote.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What payment methods do you accept?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">We accept UPI payments (GPay, PhonePe, Paytm, any UPI app). Pay to 8122826152@ybl. Send screenshot on WhatsApp after payment and your PDF will be sent instantly.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          I have a problem with my order. What should I do?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">WhatsApp us at 8122826152 with your order details and the problem. We respond within 30 minutes during working hours and will fix any issues with your order at no extra charge.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Big CTA -->
+  <div class="cta-box reveal">
+    <h3>💬 Still Have Questions?</h3>
+    <p>Just send us a WhatsApp message — we're friendly, fast and always happy to help!</p>
+    <a href="https://wa.me/918122826152?text=Hi%20DJ%20Groups!%20I%20visited%20your%20Contact%20page%20and%20need%20help." class="cta-btn" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.126 1.527 5.857L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.367l-.36-.213-3.728.884.928-3.595-.235-.37A9.818 9.818 0 1112 21.818z"/>
+      </svg>
+      Chat on WhatsApp Now
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">🏷️ SchoolTag by DJ Groups</div>
+  <p style="font-size:0.78rem;margin-bottom:8px;color:rgba(255,255,255,0.45);">Making every child feel special — one label at a time.</p>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">🏠 Home</a>
+    <a href="about.html" class="footer-link">🏢 About Us</a>
+    <a href="blog.html" class="footer-link">📝 Blog</a>
+    <a href="privacy.html" class="footer-link">🔒 Privacy Policy</a>
+    <a href="contact.html" class="footer-link" style="color:white;background:rgba(37,99,235,0.4);">📞 Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DJ Groups, Tiruppur, Tamil Nadu, India. All rights reserved.</div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
