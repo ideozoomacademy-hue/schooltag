@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – DJ Groups | schooltag.in</title>
+<meta name="description" content="DJ Groups was born from a father's promise to his daughter — to make premium school name labels affordable for every parent in India. Based in Tiruppur, Tamil Nadu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #0D1117;
+  --ink2:     #1E293B;
+  --mid:      #475569;
+  --soft:     #94A3B8;
+  --border:   #E2E8F0;
+  --bg:       #FAFBFF;
+  --white:    #FFFFFF;
+  --blue:     #2563EB;
+  --blue-lt:  #EFF6FF;
+  --gold:     #D97706;
+  --gold-lt:  #FFFBEB;
+  --green:    #059669;
+  --accent:   #2563EB;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--blue); }
+.nav-link {
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--mid); text-decoration: none;
+  padding: 7px 14px; border-radius: 50px;
+  background: var(--blue-lt); color: var(--blue);
+  transition: all 0.2s;
+}
+.nav-link:hover { background: var(--blue); color: white; }
+
+/* ── HERO ── */
+.hero {
+  padding: 60px 20px 48px;
+  text-align: center;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-lt);
+  padding: 5px 14px; border-radius: 50px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 9vw, 3.4rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  max-width: 380px;
+  margin-left: auto; margin-right: auto;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--blue);
+}
+
+.hero-sub {
+  font-size: 1rem; color: var(--mid);
+  max-width: 320px; margin: 0 auto 32px;
+  line-height: 1.7;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+
+/* ── ORIGIN STORY ── */
+.story-section {
+  padding: 56px 20px;
+  background: var(--bg);
+}
+
+.story-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
+}
+
+.story-top {
+  background: linear-gradient(135deg, #0F172A, #1E3A5F);
+  padding: 32px 24px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-top::before {
+  content: '"';
+  position: absolute;
+  top: -10px; right: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 140px; font-weight: 700;
+  color: rgba(255,255,255,0.05);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.story-label {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+
+.story-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600; font-style: italic;
+  color: white;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.story-attr {
+  font-size: 0.8rem; color: rgba(255,255,255,0.55);
+  display: flex; align-items: center; gap: 8px;
+}
+
+.attr-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(37,99,235,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+}
+
+.story-body {
+  padding: 24px;
+}
+
+.story-para {
+  font-size: 0.95rem; color: var(--mid);
+  line-height: 1.8; margin-bottom: 14px;
+}
+.story-para:last-child { margin-bottom: 0; }
+
+.story-para strong { color: var(--ink); font-weight: 600; }
+
+/* ── MISSION ── */
+.mission-section {
+  padding: 56px 20px;
+  background: white;
+}
+
+.section-eyebrow {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  font-weight: 700; color: var(--ink);
+  line-height: 1.2; margin-bottom: 12px;
+}
+
+.section-sub {
+  font-size: 0.93rem; color: var(--mid);
+  line-height: 1.7; margin-bottom: 28px;
+  max-width: 360px;
+}
+
+.mission-cards {
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.mission-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mission-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+
+.mc-icon {
+  width: 44px; height: 44px; border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+}
+
+.mc-title {
+  font-size: 0.96rem; font-weight: 600; color: var(--ink);
+  margin-bottom: 4px;
+}
+.mc-desc {
+  font-size: 0.83rem; color: var(--mid); line-height: 1.6;
+}
+
+/* ── PRODUCTS ── */
+.products-section {
+  padding: 56px 20px;
+  background: var(--bg);
+}
+
+.products-grid {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-top: 24px;
+}
+
+.product-card {
+  background: white; border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 18px 16px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.12); border-color: var(--blue); }
+
+.pc-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; flex-shrink: 0;
+}
+
+.pc-name {
+  font-size: 0.96rem; font-weight: 600; color: var(--ink); margin-bottom: 3px;
+}
+.pc-desc { font-size: 0.8rem; color: var(--mid); line-height: 1.5; }
+
+.pc-arrow {
+  margin-left: auto;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--blue-lt); color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.product-card:hover .pc-arrow { background: var(--blue); color: white; }
+
+/* ── VALUES ── */
+.values-section {
+  padding: 56px 20px;
+  background: linear-gradient(155deg, #EFF6FF 0%, #F5F3FF 100%);
+}
+
+.values-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-top: 24px;
+}
+
+.value-card {
+  background: white; border-radius: 16px;
+  padding: 20px 16px; text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.val-icon { font-size: 2rem; margin-bottom: 8px; }
+.val-title {
+  font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 4px;
+}
+.val-desc { font-size: 0.76rem; color: var(--mid); line-height: 1.55; }
+
+/* ── FOUNDER ── */
+.founder-section {
+  padding: 56px 20px;
+  background: white;
+}
+
+.founder-card {
+  background: var(--ink);
+  border-radius: 24px; padding: 32px 24px;
+  text-align: center; position: relative; overflow: hidden;
+}
+
+.founder-card::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: rgba(37,99,235,0.15);
+  border-radius: 50%;
+}
+
+.founder-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), #7C3AED);
+  margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  border: 3px solid rgba(255,255,255,0.15);
+}
+
+.founder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: white; margin-bottom: 4px;
+}
+
+.founder-title {
+  font-size: 0.8rem; color: rgba(255,255,255,0.55);
+  margin-bottom: 16px; letter-spacing: 0.05em;
+}
+
+.founder-bio {
+  font-size: 0.9rem; color: rgba(255,255,255,0.72);
+  line-height: 1.75; margin-bottom: 20px;
+}
+
+.founder-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+}
+
+.founder-tag {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75);
+  font-size: 0.72rem; font-weight: 500;
+  padding: 4px 12px; border-radius: 50px;
+}
+
+/* ── CONTACT CTA ── */
+.contact-section {
+  padding: 56px 20px;
+  background: var(--bg);
+}
+
+.contact-card {
+  background: white; border-radius: 24px;
+  border: 1px solid var(--border);
+  padding: 28px 20px; text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+
+.contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 700;
+  color: var(--ink); margin-bottom: 8px;
+}
+
+.contact-sub {
+  font-size: 0.9rem; color: var(--mid);
+  margin-bottom: 24px; line-height: 1.65;
+}
+
+.contact-methods {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;
+}
+
+.contact-method {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 16px;
+  text-decoration: none; transition: all 0.2s;
+}
+.contact-method:hover { border-color: var(--blue); background: var(--blue-lt); }
+
+.cm-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+
+.cm-label { font-size: 0.72rem; font-weight: 600; color: var(--soft); text-transform: uppercase; letter-spacing: 0.08em; }
+.cm-value { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+
+.btn-wa {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: #25D366; color: white; text-decoration: none;
+  padding: 14px 24px; border-radius: 50px;
+  font-weight: 700; font-size: 0.95rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  transition: all 0.2s;
+}
+.btn-wa:hover { background: #1DB954; transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); color: rgba(255,255,255,0.6);
+  text-align: center; padding: 28px 20px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 6px;
+}
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 10px 0; }
+.footer-link {
+  color: rgba(255,255,255,0.5); font-size: 0.78rem; text-decoration: none;
+  background: rgba(255,255,255,0.08); border-radius: 50px; padding: 4px 12px;
+  transition: background 0.2s;
+}
+.footer-link:hover { background: rgba(255,255,255,0.15); color: white; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); margin-top: 10px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s, transform 0.55s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (min-width: 480px) {
+  .products-grid { display: grid; grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">school<span>tag</span>.in</a>
+  <a href="/" class="nav-link">← Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">📍 Tiruppur, Tamil Nadu · Est. 2026</div>
+  <h1>We Make <em>Every Child</em> Feel Special</h1>
+  <p class="hero-sub">DJ Groups started with one simple belief — every child deserves a premium, personalised school label without breaking the family budget.</p>
+</section>
+
+<!-- ORIGIN STORY -->
+<section class="story-section reveal">
+  <div class="story-card">
+    <div class="story-top">
+      <div class="story-label">The Story Behind DJ Groups</div>
+      <div class="story-quote">"Amma, I want my photo on my school label — like the ones in the big shops."</div>
+      <div class="story-attr">
+        <div class="attr-dot">👧</div>
+        <span>Dhiya — the little girl who started it all</span>
+      </div>
+    </div>
+    <div class="story-body">
+      <p class="story-para">
+        It started with a simple request from my daughter. She came home one day and showed me 
+        the fancy photo-printed name labels her classmates had — the kind sold in premium stationery 
+        shops for prices most parents hesitate to pay.
+      </p>
+      <p class="story-para">
+        As a mother, I didn't want to say no. But as someone who understood technology, 
+        I thought — <strong>why should premium have to mean expensive?</strong>
+      </p>
+      <p class="story-para">
+        So I built <strong>SchoolTag</strong> — a tool where parents upload their child's photo, 
+        pick a fun cartoon character, and get 6 beautiful, print-ready A4 name labels for 
+        a fraction of the shop price. That one idea grew into <strong>DJ Groups</strong> — 
+        a small digital studio from Tiruppur, Tamil Nadu, building affordable educational 
+        and creative tools for Indian families.
+      </p>
+      <p class="story-para">
+        Today we create school labels, educational worksheets, digital planners, birthday 
+        invitations, and more — all with the same promise: <strong>premium quality, 
+        honest prices, made with love for Indian families.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission-section reveal">
+  <div class="section-eyebrow">Our Purpose</div>
+  <h2 class="section-title">What We Stand For</h2>
+  <p class="section-sub">Three principles guide everything we build at DJ Groups.</p>
+
+  <div class="mission-cards">
+    <div class="mission-card">
+      <div class="mc-icon" style="background:#EFF6FF;">💎</div>
+      <div>
+        <div class="mc-title">Premium Should Be Affordable</div>
+        <div class="mc-desc">Beautiful, high-quality products shouldn't cost a fortune. We use technology to bring studio-quality results to every parent and teacher at honest prices.</div>
+      </div>
+    </div>
+    <div class="mission-card">
+      <div class="mc-icon" style="background:#F0FDF4;">🇮🇳</div>
+      <div>
+        <div class="mc-title">Built for Indian Families</div>
+        <div class="mc-desc">We understand the Indian classroom, the Tamil Nadu school system, and what parents and teachers actually need. Every product is designed with that context in mind.</div>
+      </div>
+    </div>
+    <div class="mission-card">
+      <div class="mc-icon" style="background:#FFF7ED;">⚡</div>
+      <div>
+        <div class="mc-title">Simple, Fast & Useful</div>
+        <div class="mc-desc">No complicated apps, no monthly subscriptions. Pay once, download instantly, use forever. We respect your time and money.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section reveal">
+  <div class="section-eyebrow">What We Make</div>
+  <h2 class="section-title">Our Products & Tools</h2>
+  <p class="section-sub">From school labels to learning worksheets — everything built for Indian students and teachers.</p>
+
+  <div class="products-grid">
+    <a href="/" class="product-card">
+      <div class="pc-icon" style="background:#EFF6FF;">🏷️</div>
+      <div>
+        <div class="pc-name">School Name Labels</div>
+        <div class="pc-desc">Photo + cartoon character, 6 labels, A4 printable PDF</div>
+      </div>
+      <div class="pc-arrow">→</div>
+    </a>
+    <a href="/worksheets" class="product-card">
+      <div class="pc-icon" style="background:#F0FDF4;">📐</div>
+      <div>
+        <div class="pc-name">Math Worksheets</div>
+        <div class="pc-desc">Class 1–10, 30 questions, answer key included</div>
+      </div>
+      <div class="pc-arrow">→</div>
+    </a>
+    <a href="/planner" class="product-card">
+      <div class="pc-icon" style="background:#F5F3FF;">📋</div>
+      <div>
+        <div class="pc-name">Teacher Planner Kit</div>
+        <div class="pc-desc">Yearly, monthly, attendance, marks register — all in one</div>
+      </div>
+      <div class="pc-arrow">→</div>
+    </a>
+    <a href="/invitezoom" class="product-card">
+      <div class="pc-icon" style="background:#FFF7ED;">🎂</div>
+      <div>
+        <div class="pc-name">Birthday Invitations</div>
+        <div class="pc-desc">Custom digital invites with animation & music</div>
+      </div>
+      <div class="pc-arrow">→</div>
+    </a>
+    <a href="/games" class="product-card">
+      <div class="pc-icon" style="background:#F0FDFA;">🎮</div>
+      <div>
+        <div class="pc-name">Learning Games</div>
+        <div class="pc-desc">Sudoku, Ocean Fishing, Chick Check — free to play</div>
+      </div>
+      <div class="pc-arrow">→</div>
+    </a>
+    <a href="/blog" class="product-card">
+      <div class="pc-icon" style="background:#FEF2F2;">📝</div>
+      <div>
+        <div class="pc-name">School Tips Blog</div>
+        <div class="pc-desc">Parenting advice, study tips, school guides</div>
+      </div>
+      <div class="pc-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section reveal">
+  <div class="section-eyebrow">Our Values</div>
+  <h2 class="section-title">Why Parents & Teachers Trust Us</h2>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="val-icon">🔒</div>
+      <div class="val-title">Safe & Secure</div>
+      <div class="val-desc">No account needed. Your child's photo stays private. No data stored after delivery.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-icon">⚡</div>
+      <div class="val-title">Instant Delivery</div>
+      <div class="val-desc">Pay and receive your PDF on WhatsApp within minutes. No waiting, no shipping.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-icon">💰</div>
+      <div class="val-title">Honest Pricing</div>
+      <div class="val-desc">One-time payment. No subscriptions. No hidden charges. Pay once, keep forever.</div>
+    </div>
+    <div class="value-card">
+      <div class="val-icon">🤝</div>
+      <div class="val-title">Real Support</div>
+      <div class="val-desc">A real person answers your WhatsApp. Not a bot. Not a ticket system. Just us.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder-section reveal">
+  <div class="section-eyebrow">The Person Behind DJ Groups</div>
+  <h2 class="section-title" style="margin-bottom:20px;">Meet the Founder</h2>
+
+  <div class="founder-card">
+    <div class="founder-avatar">👨‍💻</div>
+    <div class="founder-name">DJ Groups Founder</div>
+    <div class="founder-title">Creator · Tiruppur, Tamil Nadu</div>
+    <p class="founder-bio">
+      A mother first, a builder second. When my daughter asked for a photo label for her 
+      school books, I didn't just buy one — I built a tool so every parent in India 
+      could get the same thing for less. That's the spirit behind everything we create at 
+      DJ Groups: practical, affordable digital tools made with care for Indian families.
+    </p>
+    <div class="founder-tags">
+      <span class="founder-tag">👧 Mother of Dhiya</span>
+      <span class="founder-tag">📍 Tiruppur, Tamil Nadu</span>
+      <span class="founder-tag">💻 Digital Creator</span>
+      <span class="founder-tag">🏫 Education Enthusiast</span>
+      <span class="founder-tag">🇮🇳 Made in India</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section reveal">
+  <div class="contact-card">
+    <div class="contact-title">Let's Talk</div>
+    <p class="contact-sub">Have a question? Want a custom product? We're always happy to help — just send us a message.</p>
+
+    <div class="contact-methods">
+      <a href="https://wa.me/918122826152" class="contact-method" target="_blank">
+        <div class="cm-icon" style="background:#DCFCE7;">💬</div>
+        <div>
+          <div class="cm-label">WhatsApp</div>
+          <div class="cm-value">+91 8122826152</div>
+        </div>
+      </a>
+      <a href="mailto:ideozoomacademy@gmail.com" class="contact-method">
+        <div class="cm-icon" style="background:#EFF6FF;">📧</div>
+        <div>
+          <div class="cm-label">Email</div>
+          <div class="cm-value">ideozoomacademy@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.schooltag.in" class="contact-method">
+        <div class="cm-icon" style="background:#F5F3FF;">🌐</div>
+        <div>
+          <div class="cm-label">Website</div>
+          <div class="cm-value">www.schooltag.in</div>
+        </div>
+      </a>
+    </div>
+
+    <a href="https://wa.me/918122826152?text=Hi%20DJ%20Groups!%20I%20visited%20your%20About%20page%20and%20want%20to%20know%20more." class="btn-wa" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.126 1.527 5.857L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.367l-.36-.213-3.728.884.928-3.595-.235-.37A9.818 9.818 0 1112 21.818z"/>
+      </svg>
+      Chat with Us on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">DJ Groups</div>
+  <p style="font-size:0.8rem;margin-bottom:8px;">Making every child feel special — one label at a time.</p>
+  <div class="footer-links">
+    <a href="/" class="footer-link">🏠 Home</a>
+    <a href="/blog" class="footer-link">📝 Blog</a>
+    <a href="/privacy-policy" class="footer-link">🔒 Privacy Policy</a>
+    <a href="/contact" class="footer-link">📞 Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DJ Groups, Tiruppur, Tamil Nadu. All rights reserved.</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
