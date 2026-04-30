@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy – SchoolTag | DJ Groups</title>
+<meta name="description" content="Privacy Policy for SchoolTag (schooltag.in) by DJ Groups. Learn how we collect, use and protect your personal information when you use our school label maker and digital products.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://schooltag.in/privacy.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:      #2563EB;
+  --blue-lt:   #EFF6FF;
+  --dark:      #0F172A;
+  --mid:       #334155;
+  --soft:      #64748B;
+  --border:    #E2E8F0;
+  --bg:        #F8FAFF;
+  --white:     #FFFFFF;
+  --green:     #059669;
+  --green-lt:  #ECFDF5;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--mid);
+  line-height: 1.7;
+  font-size: 0.93rem;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--border);
+  padding: 0 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 54px;
+}
+.nav-brand {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.2rem; font-weight: 900;
+  background: linear-gradient(135deg, #ff6b6b, #b8a9e0, #87ceeb);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.nav-back {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--blue); text-decoration: none;
+  background: var(--blue-lt); padding: 6px 14px;
+  border-radius: 50px; transition: all 0.2s;
+}
+.nav-back:hover { background: var(--blue); color: white; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0F172A, #1E3A5F);
+  padding: 40px 20px 36px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '🔒';
+  position: absolute; top: -10px; right: 20px;
+  font-size: 120px; opacity: 0.04;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(37,99,235,0.3);
+  border: 1px solid rgba(37,99,235,0.5);
+  color: #93C5FD;
+  font-size: 0.72rem; font-weight: 600;
+  padding: 4px 14px; border-radius: 50px;
+  margin-bottom: 14px; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-weight: 900; color: white;
+  margin-bottom: 10px;
+}
+.hero-sub {
+  font-size: 0.88rem; color: rgba(255,255,255,0.6);
+  max-width: 340px; margin: 0 auto 16px;
+}
+.hero-meta {
+  display: flex; gap: 16px; justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  font-size: 0.75rem; color: rgba(255,255,255,0.5);
+  display: flex; align-items: center; gap: 5px;
+}
+
+/* MAIN CONTENT */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 18px 48px;
+}
+
+/* QUICK SUMMARY */
+.summary-box {
+  background: var(--green-lt);
+  border: 1.5px solid #86EFAC;
+  border-left: 4px solid var(--green);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 28px;
+}
+.summary-title {
+  font-size: 0.85rem; font-weight: 700;
+  color: #065F46; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.summary-list {
+  list-style: none; padding: 0;
+}
+.summary-list li {
+  font-size: 0.85rem; color: #047857;
+  padding: 3px 0;
+  display: flex; align-items: flex-start; gap: 7px;
+}
+.summary-list li::before { content: "✓"; font-weight: 700; flex-shrink: 0; }
+
+/* SECTION */
+.policy-section {
+  margin-bottom: 28px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.section-header {
+  background: linear-gradient(135deg, #0F172A, #1E293B);
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1rem; font-weight: 800; color: white;
+}
+.section-body {
+  padding: 18px 20px;
+}
+.section-body p {
+  margin-bottom: 12px; line-height: 1.75;
+}
+.section-body p:last-child { margin-bottom: 0; }
+.section-body ul {
+  padding-left: 0; list-style: none; margin: 8px 0;
+}
+.section-body ul li {
+  padding: 5px 0 5px 16px;
+  border-bottom: 0.5px solid var(--border);
+  position: relative; font-size: 0.9rem;
+}
+.section-body ul li:last-child { border-bottom: none; }
+.section-body ul li::before {
+  content: "▸";
+  color: var(--blue);
+  position: absolute; left: 0;
+  font-size: 0.75rem; top: 7px;
+}
+.section-body strong { color: var(--dark); font-weight: 600; }
+
+/* TABLE */
+.policy-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.85rem; margin: 8px 0;
+}
+.policy-table th {
+  background: #1E293B; color: white;
+  padding: 8px 12px; text-align: left;
+  font-size: 0.8rem; font-weight: 600;
+}
+.policy-table td {
+  padding: 8px 12px;
+  border-bottom: 0.5px solid var(--border);
+  vertical-align: top; line-height: 1.6;
+}
+.policy-table tr:nth-child(even) td { background: var(--bg); }
+
+/* HIGHLIGHT */
+.highlight {
+  background: var(--blue-lt);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 0.88rem; color: #1E40AF;
+}
+
+/* CONTACT */
+.contact-box {
+  background: linear-gradient(135deg, #0F172A, #1E3A5F);
+  border-radius: 16px; padding: 24px 20px;
+  text-align: center; margin-top: 28px;
+}
+.contact-box h3 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.2rem; color: white; margin-bottom: 8px;
+}
+.contact-box p { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+.contact-methods { display: flex; flex-direction: column; gap: 8px; }
+.contact-item {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px; padding: 10px 14px;
+  text-decoration: none; transition: background 0.2s;
+}
+.contact-item:hover { background: rgba(255,255,255,0.15); }
+.ci-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.ci-label { font-size: 0.68rem; color: rgba(255,255,255,0.5); font-weight: 600; text-transform: uppercase; }
+.ci-val { font-size: 0.88rem; color: white; font-weight: 600; }
+
+/* LAST UPDATED */
+.last-updated {
+  text-align: center;
+  font-size: 0.75rem; color: var(--soft);
+  margin-top: 24px; padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark); color: rgba(255,255,255,0.6);
+  text-align: center; padding: 24px 16px;
+}
+.footer-brand {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem; font-weight: 900; color: white; margin-bottom: 6px;
+}
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0; }
+.footer-link {
+  color: rgba(255,255,255,0.5); font-size: 0.76rem;
+  text-decoration: none; background: rgba(255,255,255,0.08);
+  border-radius: 50px; padding: 4px 12px; transition: background 0.2s;
+}
+.footer-link:hover { background: rgba(255,255,255,0.15); color: white; }
+.footer-copy { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">🏷️ SchoolTag</a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Legal Document</div>
+  <h1>🔒 Privacy Policy</h1>
+  <p class="hero-sub">How DJ Groups collects, uses and protects your information on SchoolTag</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">📅 Last Updated: April 2026</div>
+    <div class="hero-meta-item">📍 Tiruppur, Tamil Nadu, India</div>
+    <div class="hero-meta-item">🌐 schooltag.in</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- Quick Summary -->
+  <div class="summary-box">
+    <div class="summary-title">✅ Quick Summary — What You Need to Know</div>
+    <ul class="summary-list">
+      <li>We do NOT sell your personal data to anyone</li>
+      <li>Your child's photo is used ONLY to create the label PDF — not stored permanently</li>
+      <li>We do NOT require account creation or passwords</li>
+      <li>Payment is handled via UPI / WhatsApp — we do not store card details</li>
+      <li>You can request deletion of your data anytime by contacting us on WhatsApp</li>
+    </ul>
+  </div>
+
+  <!-- 1. Who We Are -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">🏢</div>
+      <div class="section-title">1. Who We Are</div>
+    </div>
+    <div class="section-body">
+      <p>
+        <strong>SchoolTag</strong> is a digital product created and operated by <strong>DJ Groups</strong>,
+        based in Tiruppur, Tamil Nadu, India. We create personalised school name labels, educational
+        worksheets, digital planners, and other learning tools for students and teachers across India.
+      </p>
+      <p>
+        <strong>Website:</strong> https://schooltag.in<br>
+        <strong>Business:</strong> DJ Groups<br>
+        <strong>Location:</strong> Tiruppur, Tamil Nadu, India<br>
+        <strong>Contact:</strong> ideozoomacademy@gmail.com | WhatsApp: +91 8122826152
+      </p>
+      <p>
+        This Privacy Policy explains how we handle personal information when you visit our website,
+        use our label maker tool, or purchase any of our digital products.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. What Information We Collect -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div class="section-title">2. Information We Collect</div>
+    </div>
+    <div class="section-body">
+      <p>We collect only the minimum information necessary to deliver our service:</p>
+
+      <table class="policy-table">
+        <tr>
+          <th>Type of Data</th>
+          <th>What We Collect</th>
+          <th>Why We Collect It</th>
+        </tr>
+        <tr>
+          <td><strong>Label Details</strong></td>
+          <td>Child's name, class, school name, section, blood group</td>
+          <td>To create the personalised school name label PDF</td>
+        </tr>
+        <tr>
+          <td><strong>Child's Photo</strong></td>
+          <td>Photo uploaded by parent for label creation</td>
+          <td>To print the photo on the label — processed in your browser, not stored on our servers</td>
+        </tr>
+        <tr>
+          <td><strong>Contact Info</strong></td>
+          <td>WhatsApp number or email (when ordering)</td>
+          <td>To deliver your PDF and provide customer support</td>
+        </tr>
+        <tr>
+          <td><strong>Payment Info</strong></td>
+          <td>UPI transaction ID (provided by you)</td>
+          <td>To verify payment and release your PDF</td>
+        </tr>
+        <tr>
+          <td><strong>Usage Data</strong></td>
+          <td>Pages visited, browser type, device type (via Google Analytics)</td>
+          <td>To understand how users use our site and improve it</td>
+        </tr>
+      </table>
+
+      <div class="highlight">
+        📌 <strong>Important:</strong> Your child's photo is processed locally in your browser using JavaScript.
+        The photo is NOT uploaded to or stored on our servers. It is only used to generate the PDF on your device.
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. How We Use Your Information -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <div class="section-title">3. How We Use Your Information</div>
+    </div>
+    <div class="section-body">
+      <p>We use the information you provide for the following purposes only:</p>
+      <ul>
+        <li><strong>To create and deliver your label PDF</strong> — Your label details are used to generate a personalised PDF which is sent to you via WhatsApp or email</li>
+        <li><strong>To process and verify your payment</strong> — Your UPI transaction ID is used to confirm that payment has been received before releasing your product</li>
+        <li><strong>To provide customer support</strong> — If you contact us on WhatsApp or email, we use your contact details to respond to your query</li>
+        <li><strong>To improve our services</strong> — Anonymous usage data from Google Analytics helps us understand which features are most useful</li>
+        <li><strong>To send order confirmations</strong> — After a successful order, we may send a confirmation message via WhatsApp</li>
+      </ul>
+      <p>
+        <strong>We do NOT use your information for:</strong> targeted advertising, selling to third parties,
+        sending unsolicited promotional messages, or any purpose beyond delivering your order and providing support.
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. Cookies & Tracking -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">🍪</div>
+      <div class="section-title">4. Cookies and Tracking Technologies</div>
+    </div>
+    <div class="section-body">
+      <p>
+        SchoolTag uses the following tracking tools to understand website usage and improve our services:
+      </p>
+      <ul>
+        <li>
+          <strong>Google Analytics (GA4):</strong> We use Google Analytics to collect anonymous data about
+          how visitors use our website — pages visited, time spent, device type, country. This data
+          does not identify you personally. You can opt out using the
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" style="color:var(--blue);">Google Analytics Opt-Out Browser Add-on</a>.
+        </li>
+        <li>
+          <strong>Google AdSense:</strong> We display Google AdSense advertisements on our website.
+          Google may use cookies to show you relevant ads based on your browsing history.
+          See <a href="https://policies.google.com/technologies/ads" target="_blank" style="color:var(--blue);">Google's advertising privacy policy</a> for details.
+        </li>
+        <li>
+          <strong>Local Storage:</strong> Our label maker tool uses your browser's local storage
+          to temporarily save your label preferences (name, class, theme). This data stays on
+          your device and is not sent to our servers.
+        </li>
+      </ul>
+      <p>
+        You can disable cookies in your browser settings at any time. However, some features of
+        the website may not work correctly if cookies are disabled.
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. Children's Privacy -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">👧</div>
+      <div class="section-title">5. Children's Privacy</div>
+    </div>
+    <div class="section-body">
+      <p>
+        SchoolTag is a service designed for school children, used by their <strong>parents and guardians</strong>.
+        We take children's privacy extremely seriously.
+      </p>
+      <ul>
+        <li>Children do not create accounts or directly provide their personal information to us</li>
+        <li>All transactions and data entry are done by parents or guardians on behalf of their children</li>
+        <li>Children's photos uploaded for label creation are processed entirely within the user's browser and are NOT transmitted to or stored on our servers</li>
+        <li>We do not knowingly collect any personal data directly from children under 13</li>
+        <li>If you believe we have inadvertently collected data from a child, please contact us immediately and we will delete it</li>
+      </ul>
+      <div class="highlight">
+        👪 <strong>For Parents:</strong> You have full control over your child's data. You can contact us at any time to request that we delete any information associated with your order.
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Data Sharing -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">🤝</div>
+      <div class="section-title">6. Data Sharing and Third Parties</div>
+    </div>
+    <div class="section-body">
+      <p>
+        <strong>We do not sell your personal data.</strong> We do not share your personal information
+        with third parties except in the following limited circumstances:
+      </p>
+      <ul>
+        <li>
+          <strong>Google Services:</strong> We use Google Analytics for website analytics and Google AdSense
+          for advertising. These services may collect anonymised usage data as described in their respective
+          privacy policies
+        </li>
+        <li>
+          <strong>Google Apps Script:</strong> Order details (name, school, class, transaction ID) are
+          submitted to a Google Apps Script backend to log orders and trigger PDF delivery via email.
+          This data is stored in a private Google Sheet accessible only to DJ Groups
+        </li>
+        <li>
+          <strong>WhatsApp:</strong> When you contact us or we deliver your product via WhatsApp,
+          that communication is subject to WhatsApp's own privacy policy
+        </li>
+        <li>
+          <strong>Legal Requirements:</strong> We may disclose your information if required to do so
+          by law or in response to valid legal processes
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7. Data Security -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">🔐</div>
+      <div class="section-title">7. Data Security</div>
+    </div>
+    <div class="section-body">
+      <p>
+        We take reasonable steps to protect your personal information from unauthorised access,
+        alteration, disclosure, or destruction:
+      </p>
+      <ul>
+        <li>Our website is served over <strong>HTTPS</strong> — all data transmitted between your browser and our website is encrypted</li>
+        <li>Order data stored in Google Sheets is protected by Google's security infrastructure and accessible only to authorised DJ Groups personnel</li>
+        <li>We do not store payment card numbers, bank account details, or full UPI IDs</li>
+        <li>Child photos are processed in your browser and are NOT uploaded to or stored on any server</li>
+      </ul>
+      <p>
+        However, no method of transmission over the internet is 100% secure. While we strive to
+        protect your information, we cannot guarantee absolute security.
+      </p>
+    </div>
+  </div>
+
+  <!-- 8. Your Rights -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">⚖️</div>
+      <div class="section-title">8. Your Rights</div>
+    </div>
+    <div class="section-body">
+      <p>You have the following rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Right to Access:</strong> You can request a copy of the personal data we hold about you</li>
+        <li><strong>Right to Correction:</strong> You can ask us to correct inaccurate information</li>
+        <li><strong>Right to Deletion:</strong> You can request that we delete your personal data. We will comply within 30 days</li>
+        <li><strong>Right to Opt-Out:</strong> You can opt out of Google Analytics tracking using browser settings or the Google opt-out tool</li>
+        <li><strong>Right to Complain:</strong> If you have concerns about how we handle your data, you can contact us directly or approach the relevant data protection authority in India</li>
+      </ul>
+      <p>
+        To exercise any of these rights, please contact us via WhatsApp at <strong>+91 8122826152</strong>
+        or email us at <strong>ideozoomacademy@gmail.com</strong>.
+        We will respond within <strong>7 business days</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- 9. Third Party Links -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">🔗</div>
+      <div class="section-title">9. Third-Party Links</div>
+    </div>
+    <div class="section-body">
+      <p>
+        Our website may contain links to third-party websites such as WhatsApp, Google, Razorpay,
+        and other external services. This Privacy Policy applies only to <strong>schooltag.in</strong>.
+      </p>
+      <p>
+        We are not responsible for the privacy practices of third-party websites. We encourage you
+        to read the privacy policies of any external websites you visit through links on our site.
+      </p>
+    </div>
+  </div>
+
+  <!-- 10. Changes -->
+  <div class="policy-section">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div class="section-title">10. Changes to This Privacy Policy</div>
+    </div>
+    <div class="section-body">
+      <p>
+        We may update this Privacy Policy from time to time to reflect changes in our practices
+        or for legal, operational, or regulatory reasons.
+      </p>
+      <p>
+        When we make significant changes, we will update the <strong>"Last Updated"</strong> date
+        at the top of this page. We encourage you to review this page periodically.
+      </p>
+      <p>
+        Continued use of our website after any changes constitutes your acceptance of the
+        updated Privacy Policy.
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-box">
+    <h3>📬 Questions About This Policy?</h3>
+    <p>If you have any questions, concerns or requests regarding this Privacy Policy or your personal data, please get in touch with us.</p>
+    <div class="contact-methods">
+      <a href="https://wa.me/918122826152?text=Hi%2C%20I%20have%20a%20question%20about%20your%20Privacy%20Policy." class="contact-item" target="_blank">
+        <div class="ci-icon" style="background:rgba(37,211,102,0.2);">💬</div>
+        <div>
+          <div class="ci-label">WhatsApp (Fastest Response)</div>
+          <div class="ci-val">+91 8122826152</div>
+        </div>
+      </a>
+      <a href="mailto:ideozoomacademy@gmail.com" class="contact-item">
+        <div class="ci-icon" style="background:rgba(37,99,235,0.2);">📧</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-val">ideozoomacademy@gmail.com</div>
+        </div>
+      </a>
+      <div class="contact-item" style="cursor:default;">
+        <div class="ci-icon" style="background:rgba(255,255,255,0.1);">📍</div>
+        <div>
+          <div class="ci-label">Business Address</div>
+          <div class="ci-val">DJ Groups, Tiruppur, Tamil Nadu, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="last-updated">
+    This Privacy Policy was last updated on <strong>April 2026</strong>.<br>
+    © 2026 DJ Groups · schooltag.in · All rights reserved.
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">🏷️ SchoolTag by DJ Groups</div>
+  <p style="font-size:0.78rem;margin-bottom:8px;color:rgba(255,255,255,0.45);">Making every child feel special — one label at a time.</p>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">🏠 Home</a>
+    <a href="about.html" class="footer-link">🏢 About Us</a>
+    <a href="blog.html" class="footer-link">📝 Blog</a>
+    <a href="privacy.html" class="footer-link" style="color:white;background:rgba(37,99,235,0.4);">🔒 Privacy Policy</a>
+    <a href="contact.html" class="footer-link">📞 Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 DJ Groups, Tiruppur, Tamil Nadu, India. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
