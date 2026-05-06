@@ -308,11 +308,26 @@ nav {
 }
 
 .bp-card-foot {
-  padding: 16px 24px;
+  padding: 14px 20px;
   border-top: 1px solid var(--mist);
-  display: flex; align-items: center; justify-content: space-between;
   background: var(--mist);
 }
+.foot-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.dl-btns { display: flex; gap: 8px; }
+.dl-btn-sm {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  font-family: 'Noto Sans Tamil', sans-serif;
+  font-size: 12px; font-weight: 700;
+  padding: 8px 12px; border-radius: var(--r-sm);
+  text-decoration: none; border: none; cursor: pointer;
+  transition: opacity 0.18s, transform 0.15s; flex: 1;
+}
+.dl-btn-sm:hover { opacity: 0.88; transform: translateY(-1px); }
+.dl-btn-en { background: var(--teal); color: white; }
+.dl-btn-ta { background: var(--gold); color: var(--ink); }
 .bp-price {
   font-family: 'Space Mono', monospace;
 }
@@ -600,8 +615,11 @@ footer a { color: var(--teal-mid); text-decoration: none; }
         </div>
       </div>
       <div class="bp-card-foot">
-        <div class="bp-price"><span class="was">₹299</span><span class="now">FREE</span></div>
-        <button class="dl-btn" onclick="openModal('organic-marketing', 'SchoolTag Organic Marketing Blueprint', 'schooltag-marketing-blueprint.pdf')">⬇ Download</button>
+        <div class="foot-top"><div class="bp-price"><span class="was">₹299</span><span class="now">FREE</span></div></div>
+        <div class="dl-btns">
+          <button class="dl-btn-sm dl-btn-en" onclick="openModal('organic-en','Organic Marketing Blueprint (English)','schooltag-marketing-blueprint.pdf')">🇬🇧 English</button>
+          <button class="dl-btn-sm dl-btn-ta" onclick="openModal('organic-ta','Organic Marketing Blueprint (Tamil)','schooltag-marketing-blueprint-tamil.pdf')">🇮🇳 தமிழ்</button>
+        </div>
       </div>
     </div>
 
@@ -624,8 +642,11 @@ footer a { color: var(--teal-mid); text-decoration: none; }
         </div>
       </div>
       <div class="bp-card-foot">
-        <div class="bp-price"><span class="was">₹199</span><span class="now">FREE</span></div>
-        <button class="dl-btn" onclick="openModal('whatsapp', 'WhatsApp Business Setup Guide', 'whatsapp-business-guide.pdf')">⬇ Download</button>
+        <div class="foot-top"><div class="bp-price"><span class="was">₹199</span><span class="now">FREE</span></div></div>
+        <div class="dl-btns">
+          <button class="dl-btn-sm dl-btn-en" onclick="openModal('wa-en','WhatsApp Business Guide (English)','whatsapp-business-guide.pdf')">🇬🇧 English</button>
+          <button class="dl-btn-sm dl-btn-ta" onclick="openModal('wa-ta','WhatsApp Business Guide (Tamil)','whatsapp-business-guide-tamil.pdf')">🇮🇳 தமிழ்</button>
+        </div>
       </div>
     </div>
 
@@ -648,8 +669,11 @@ footer a { color: var(--teal-mid); text-decoration: none; }
         </div>
       </div>
       <div class="bp-card-foot">
-        <div class="bp-price"><span class="was">₹249</span><span class="now">FREE</span></div>
-        <button class="dl-btn" onclick="openModal('youtube', 'YouTube Shorts for Parents Business', 'youtube-shorts-guide.pdf')">⬇ Download</button>
+        <div class="foot-top"><div class="bp-price"><span class="was">₹249</span><span class="now">FREE</span></div></div>
+        <div class="dl-btns">
+          <button class="dl-btn-sm dl-btn-en" onclick="openModal('yt-en','YouTube Shorts Guide (English)','youtube-shorts-guide.pdf')">🇬🇧 English</button>
+          <button class="dl-btn-sm dl-btn-ta" onclick="openModal('yt-ta','YouTube Shorts Guide (Tamil)','youtube-shorts-guide-tamil.pdf')">🇮🇳 தமிழ்</button>
+        </div>
       </div>
     </div>
 
@@ -672,8 +696,11 @@ footer a { color: var(--teal-mid); text-decoration: none; }
         </div>
       </div>
       <div class="bp-card-foot">
-        <div class="bp-price"><span class="was">₹199</span><span class="now">FREE</span></div>
-        <button class="dl-btn" onclick="openModal('gmb', 'Google My Business Setup Tamil', 'gmb-setup-guide.pdf')">⬇ Download</button>
+        <div class="foot-top"><div class="bp-price"><span class="was">₹199</span><span class="now">FREE</span></div></div>
+        <div class="dl-btns">
+          <button class="dl-btn-sm dl-btn-en" onclick="openModal('gmb-en','Google My Business Guide (English)','gmb-setup-guide.pdf')">🇬🇧 English</button>
+          <button class="dl-btn-sm dl-btn-ta" onclick="openModal('gmb-ta','Google My Business Guide (Tamil)','gmb-setup-guide-tamil.pdf')">🇮🇳 தமிழ்</button>
+        </div>
       </div>
     </div>
 
@@ -697,8 +724,11 @@ footer a { color: var(--teal-mid); text-decoration: none; }
         </div>
       </div>
       <div class="bp-card-foot">
-        <div class="bp-price"><span class="was">₹349</span><span class="now">FREE</span></div>
-        <button class="dl-btn" onclick="openModal('ai-tools', 'AI Tools for Small Business Tamil', 'ai-tools-guide.pdf')">⬇ Download</button>
+        <div class="foot-top"><div class="bp-price"><span class="was">₹349</span><span class="now">FREE</span></div></div>
+        <div class="dl-btns">
+          <button class="dl-btn-sm dl-btn-en" onclick="openModal('ai-en','AI Tools Guide (English)','ai-tools-guide.pdf')">🇬🇧 English</button>
+          <button class="dl-btn-sm dl-btn-ta" onclick="openModal('ai-ta','AI Tools Guide (Tamil)','ai-tools-guide-tamil.pdf')">🇮🇳 தமிழ்</button>
+        </div>
       </div>
     </div>
 
