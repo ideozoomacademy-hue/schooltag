@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Tamil Business Blueprints — DJ Groups</title>
+<meta name="description" content="Tamil Nadu small business owners-க்கு free business blueprints. WhatsApp, YouTube, GMB, AI Tools, Pearl Farming — எல்லாம் Tamil-ல்.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;500;600;700;800;900&family=Noto+Serif+Tamil:wght@600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────── */
+:root {
+  --ink:      #0F1923;
+  --teal:     #00877A;
+  --teal-mid: #00A896;
+  --teal-lt:  #E0F5F3;
+  --gold:     #E8A020;
+  --gold-lt:  #FDF3DC;
+  --cream:    #FAFAF7;
+  --mist:     #F2F4F0;
+  --border:   #DDE3DC;
+  --text-2:   #4A5568;
+  --text-3:   #8896A0;
+  --white:    #FFFFFF;
+
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.07);
+  --shadow-hover: 0 12px 40px rgba(0,0,0,0.13);
+}
+
+/* ── RESET ───────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans Tamil', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ───────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.4;
+}
+
+/* ── NAV ─────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,247,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5vw;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--ink);
+}
+.nav-dot {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px; font-weight: 700; color: white;
+}
+.nav-name { font-size: 15px; font-weight: 700; }
+.nav-sub  { font-size: 11px; color: var(--text-3); }
+.nav-pill {
+  background: var(--teal-lt);
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  font-size: 12px; font-weight: 700;
+  padding: 5px 14px; border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: 80px 5vw 70px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(0,168,150,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(232,160,32,0.07) 0%, transparent 60%),
+    var(--cream);
+}
+/* Grid lines */
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+}
+
+.hero-inner { max-width: 780px; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold-lt);
+  border: 1px solid var(--gold);
+  color: #92600A;
+  font-size: 12px; font-weight: 700;
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+.hero-eyebrow::before { content: '★'; color: var(--gold); }
+
+.hero h1 {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--teal);
+  position: relative;
+}
+.hero h1 em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.hero-desc {
+  font-size: 17px; color: var(--text-2);
+  max-width: 560px; margin-bottom: 36px;
+  line-height: 1.8;
+}
+
+.hero-stats {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  margin-bottom: 40px;
+}
+.stat { text-align: left; }
+.stat-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 28px; font-weight: 700;
+  color: var(--teal); line-height: 1;
+}
+.stat-lbl { font-size: 12px; color: var(--text-3); margin-top: 3px; }
+
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--teal);
+  color: white;
+  font-family: 'Noto Sans Tamil', sans-serif;
+  font-size: 15px; font-weight: 700;
+  padding: 14px 28px; border-radius: var(--r-md);
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 4px 16px rgba(0,135,122,0.3);
+}
+.hero-cta:hover { background: #006B60; transform: translateY(-2px); }
+.hero-cta .arrow { font-size: 18px; }
+
+/* Floating decorative card */
+.hero-deco {
+  position: absolute; right: 5vw; top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px 22px;
+  width: 220px;
+  box-shadow: var(--shadow-hover);
+  display: none;
+}
+@media (min-width: 900px) { .hero-deco { display: block; } }
+.hero-deco-title { font-size: 11px; font-weight: 700; color: var(--text-3); letter-spacing: 1px; margin-bottom: 14px; }
+.deco-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid var(--mist);
+  font-size: 12px; color: var(--text-2);
+}
+.deco-item:last-child { border: none; }
+.deco-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+.deco-dot.gold { background: var(--gold); }
+
+/* ── SECTION ─────────────────────────────────────── */
+.section { padding: 60px 5vw; }
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; color: var(--teal);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 700; color: var(--ink);
+  margin-bottom: 8px; line-height: 1.3;
+}
+.section-sub { font-size: 15px; color: var(--text-2); max-width: 540px; }
+
+/* ── FILTER BAR ──────────────────────────────────── */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 32px 0;
+}
+.filter-btn {
+  background: white; border: 1.5px solid var(--border);
+  color: var(--text-2);
+  font-family: 'Noto Sans Tamil', sans-serif;
+  font-size: 13px; font-weight: 600;
+  padding: 7px 16px; border-radius: 20px;
+  cursor: pointer; transition: all 0.18s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--teal); border-color: var(--teal);
+  color: white;
+}
+
+/* ── BLUEPRINT GRID ──────────────────────────────── */
+.blueprint-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ── BLUEPRINT CARD ──────────────────────────────── */
+.bp-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.22s, box-shadow 0.22s;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.bp-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+
+/* "NEW" ribbon */
+.bp-card.is-new::before {
+  content: 'NEW';
+  position: absolute; top: 16px; right: -28px;
+  background: var(--gold); color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  padding: 3px 36px;
+  transform: rotate(45deg);
+  letter-spacing: 1px;
+}
+
+.bp-card-top {
+  height: 8px;
+}
+
+.bp-card-body { padding: 24px; flex: 1; }
+
+.bp-meta {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 14px;
+}
+.bp-category {
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+.bp-pages {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: var(--text-3);
+  margin-left: auto;
+}
+
+.bp-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+
+.bp-title {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--ink); line-height: 1.4;
+  margin-bottom: 8px;
+}
+.bp-sub {
+  font-size: 13px; color: var(--text-2);
+  line-height: 1.7; margin-bottom: 16px;
+}
+
+.bp-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 20px;
+}
+.bp-chip {
+  background: var(--mist);
+  font-size: 11px; color: var(--text-2);
+  padding: 3px 10px; border-radius: 10px;
+  font-weight: 600;
+}
+
+.bp-card-foot {
+  padding: 16px 24px;
+  border-top: 1px solid var(--mist);
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--mist);
+}
+.bp-price {
+  font-family: 'Space Mono', monospace;
+}
+.bp-price .was { font-size: 11px; color: var(--text-3); text-decoration: line-through; margin-right: 4px; }
+.bp-price .now { font-size: 14px; font-weight: 700; color: var(--teal); }
+
+.dl-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--teal);
+  color: white;
+  font-family: 'Noto Sans Tamil', sans-serif;
+  font-size: 13px; font-weight: 700;
+  padding: 9px 18px; border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: background 0.18s, transform 0.15s;
+  border: none; cursor: pointer;
+}
+.dl-btn:hover { background: #006B60; transform: translateY(-1px); }
+.dl-btn.soon {
+  background: var(--mist); color: var(--text-3);
+  border: 1.5px dashed var(--border);
+  cursor: default;
+}
+.dl-btn.soon:hover { background: var(--mist); transform: none; }
+
+/* ── HOW IT WORKS ─────────────────────────────────── */
+.how-section {
+  background: var(--ink);
+  color: white;
+  padding: 70px 5vw;
+}
+.how-section .section-label { color: var(--teal-mid); }
+.how-section .section-title { color: white; }
+.how-section .section-sub { color: rgba(255,255,255,0.6); }
+
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2px;
+  margin-top: 40px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.step-item {
+  padding: 28px 24px;
+  background: var(--ink);
+  transition: background 0.2s;
+}
+.step-item:hover { background: rgba(255,255,255,0.04); }
+.step-n {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: var(--teal-mid);
+  font-weight: 700; letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.step-icon { font-size: 28px; margin-bottom: 10px; }
+.step-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 6px; }
+.step-body { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+/* ── ABOUT STRIP ──────────────────────────────────── */
+.about-strip {
+  background: var(--teal-lt);
+  border-top: 1px solid rgba(0,135,122,0.15);
+  border-bottom: 1px solid rgba(0,135,122,0.15);
+  padding: 40px 5vw;
+  display: flex; align-items: center; gap: 32px;
+  flex-wrap: wrap;
+}
+.about-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.about-text h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.about-text p  { font-size: 14px; color: var(--text-2); max-width: 520px; line-height: 1.7; }
+.about-wa {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #25D366; color: white;
+  font-size: 14px; font-weight: 700;
+  padding: 11px 22px; border-radius: var(--r-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.about-wa:hover { opacity: 0.88; }
+
+/* ── FOOTER ───────────────────────────────────────── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  padding: 32px 5vw;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  font-size: 13px;
+}
+footer strong { color: rgba(255,255,255,0.85); }
+footer a { color: var(--teal-mid); text-decoration: none; }
+
+/* ── MODAL ────────────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(15,25,35,0.7);
+  backdrop-filter: blur(6px);
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: white; border-radius: var(--r-lg);
+  max-width: 460px; width: 100%;
+  overflow: hidden;
+  animation: slideUp 0.25s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.modal-top {
+  padding: 28px 28px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-top h3 {
+  font-family: 'Noto Serif Tamil', serif;
+  font-size: 20px; font-weight: 700; margin-bottom: 6px;
+}
+.modal-top p { font-size: 13px; color: var(--text-2); }
+.modal-body { padding: 24px 28px; }
+
+.modal-dl-btn {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--teal); color: white;
+  padding: 16px 20px; border-radius: var(--r-md);
+  text-decoration: none;
+  font-size: 15px; font-weight: 700;
+  margin-bottom: 12px;
+  transition: background 0.18s;
+}
+.modal-dl-btn:hover { background: #006B60; }
+.modal-dl-btn .icon { font-size: 24px; }
+.modal-dl-btn .info { }
+.modal-dl-btn .info .main { display: block; }
+.modal-dl-btn .info .sub { font-size: 12px; opacity: 0.8; font-weight: 400; }
+
+.modal-share-label {
+  font-size: 12px; font-weight: 700; color: var(--text-3);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+.modal-wa-btn {
+  display: flex; align-items: center; gap: 10px;
+  background: #E8F9EF; color: #1A7A42;
+  border: 1px solid #A8E6BF;
+  padding: 12px 16px; border-radius: var(--r-sm);
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: background 0.18s;
+}
+.modal-wa-btn:hover { background: #D0F5E0; }
+
+.modal-close {
+  display: block; width: 100%; text-align: center;
+  font-size: 13px; color: var(--text-3);
+  background: none; border: none;
+  font-family: 'Noto Sans Tamil', sans-serif;
+  cursor: pointer; padding: 4px;
+}
+.modal-close:hover { color: var(--ink); }
+
+/* ── COMING SOON BADGE ───────────────────────────── */
+.soon-badge {
+  position: absolute; inset: 0;
+  background: rgba(250,250,247,0.7);
+  backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--r-lg);
+  z-index: 2;
+}
+.soon-inner {
+  background: var(--ink); color: white;
+  padding: 10px 22px; border-radius: 30px;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ── ANIMATIONS ──────────────────────────────────── */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.fade-in.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero-stats { gap: 18px; }
+  .steps-row { grid-template-columns: 1fr 1fr; }
+  .about-strip { flex-direction: column; }
+  .about-wa { margin-left: 0; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-dot">DJ</div>
+    <div>
+      <div class="nav-name">DJ Groups Blueprints</div>
+      <div class="nav-sub">Free Tamil Business Guides</div>
+    </div>
+  </a>
+  <span class="nav-pill">100% இலவசம்</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Tamil Nadu Small Business Owners-க்கு</div>
+    <h1>Business Blueprints<br><em>Tamil-ல்</em> — இலவசம்</h1>
+    <p class="hero-desc">
+      WhatsApp Marketing, YouTube Shorts, Google My Business, AI Tools —
+      எல்லாவற்றையும் step-by-step Tamil-ல் கற்றுக்கொள்ளுங்கள்.
+      Download பண்ணி உங்கள் business-ல் apply பண்ணுங்கள்.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Blueprints</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Tamil</div></div>
+      <div class="stat"><div class="stat-num">₹0</div><div class="stat-lbl">விலை</div></div>
+      <div class="stat"><div class="stat-num">2025</div><div class="stat-lbl">Latest Info</div></div>
+    </div>
+    <a href="#blueprints" class="hero-cta">
+      Blueprints பார்க்கவும் <span class="arrow">↓</span>
+    </a>
+  </div>
+
+  <!-- Floating deco card -->
+  <div class="hero-deco">
+    <div class="hero-deco-title">AVAILABLE NOW</div>
+    <div class="deco-item"><span class="deco-dot"></span>Organic Marketing</div>
+    <div class="deco-item"><span class="deco-dot"></span>WhatsApp Business</div>
+    <div class="deco-item"><span class="deco-dot gold"></span>YouTube Shorts</div>
+    <div class="deco-item"><span class="deco-dot gold"></span>Google My Business</div>
+    <div class="deco-item"><span class="deco-dot"></span>AI Tools Guide</div>
+    <div class="deco-item"><span class="deco-dot gold"></span>Pearl Farming</div>
+  </div>
+</section>
+
+<!-- BLUEPRINTS SECTION -->
+<section class="section" id="blueprints">
+  <div class="section-label">FREE DOWNLOADS</div>
+  <h2 class="section-title">எல்லா Blueprints இங்கே</h2>
+  <p class="section-sub">Download பண்ணி print பண்ணுங்கள் அல்லது phone-ல் வாசியுங்கள். எந்த registration-உம் தேவையில்லை.</p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCards('all', this)">எல்லாம்</button>
+    <button class="filter-btn" onclick="filterCards('marketing', this)">Marketing</button>
+    <button class="filter-btn" onclick="filterCards('digital', this)">Digital Tools</button>
+    <button class="filter-btn" onclick="filterCards('business', this)">Business</button>
+  </div>
+
+  <div class="blueprint-grid" id="blueprintGrid">
+
+    <!-- Card 1: Organic Marketing -->
+    <div class="bp-card fade-in" data-cat="marketing">
+      <div class="bp-card-top" style="background: linear-gradient(90deg, #00877A, #00A896);"></div>
+      <div class="bp-card-body">
+        <div class="bp-meta">
+          <span class="bp-category" style="background:#E0F5F3; color:#00877A;">Marketing</span>
+          <span class="bp-pages">15 Pages</span>
+        </div>
+        <span class="bp-icon">📢</span>
+        <h3 class="bp-title">SchoolTag Organic Marketing Blueprint</h3>
+        <p class="bp-sub">தமிழ்நாடு parents-க்கு reach பண்ண Zero Budget strategy. WhatsApp, Reels, GMB, School Partnerships எல்லாம் Tamil-ல்.</p>
+        <div class="bp-chips">
+          <span class="bp-chip">WhatsApp</span>
+          <span class="bp-chip">YouTube Reels</span>
+          <span class="bp-chip">GMB</span>
+          <span class="bp-chip">AI Tools</span>
+          <span class="bp-chip">Templates</span>
+        </div>
+      </div>
+      <div class="bp-card-foot">
+        <div class="bp-price"><span class="was">₹299</span><span class="now">FREE</span></div>
+        <button class="dl-btn" onclick="openModal('organic-marketing', 'SchoolTag Organic Marketing Blueprint', 'schooltag-marketing-blueprint.pdf')">⬇ Download</button>
+      </div>
+    </div>
+
+    <!-- Card 2: WhatsApp Business -->
+    <div class="bp-card fade-in is-new" data-cat="digital">
+      <div class="bp-card-top" style="background: linear-gradient(90deg, #25D366, #128C7E);"></div>
+      <div class="bp-card-body">
+        <div class="bp-meta">
+          <span class="bp-category" style="background:#E8FFF1; color:#1A7A42;">Digital Tools</span>
+          <span class="bp-pages">12 Pages</span>
+        </div>
+        <span class="bp-icon">💬</span>
+        <h3 class="bp-title">WhatsApp Business Setup Guide</h3>
+        <p class="bp-sub">WhatsApp Business-ஐ professionally setup பண்ண complete guide. Catalog, Auto-reply, Broadcast, Business hours எல்லாம் step-by-step Tamil-ல்.</p>
+        <div class="bp-chips">
+          <span class="bp-chip">Catalog Setup</span>
+          <span class="bp-chip">Auto Reply</span>
+          <span class="bp-chip">Broadcast</span>
+          <span class="bp-chip">Business Profile</span>
+        </div>
+      </div>
+      <div class="bp-card-foot">
+        <div class="bp-price"><span class="was">₹199</span><span class="now">FREE</span></div>
+        <button class="dl-btn" onclick="openModal('whatsapp', 'WhatsApp Business Setup Guide', 'whatsapp-business-guide.pdf')">⬇ Download</button>
+      </div>
+    </div>
+
+    <!-- Card 3: YouTube Shorts -->
+    <div class="bp-card fade-in" data-cat="digital">
+      <div class="bp-card-top" style="background: linear-gradient(90deg, #FF0000, #FF6B6B);"></div>
+      <div class="bp-card-body">
+        <div class="bp-meta">
+          <span class="bp-category" style="background:#FFF0F0; color:#CC0000;">Digital Tools</span>
+          <span class="bp-pages">18 Pages</span>
+        </div>
+        <span class="bp-icon">🎬</span>
+        <h3 class="bp-title">YouTube Shorts for Parents Business</h3>
+        <p class="bp-sub">Phone-ல் மட்டுமே professional Shorts எடுப்பது எப்படி? 30 video ideas, CapCut AI tutorial, viral formula எல்லாம் Tamil-ல்.</p>
+        <div class="bp-chips">
+          <span class="bp-chip">30 Video Ideas</span>
+          <span class="bp-chip">CapCut AI</span>
+          <span class="bp-chip">Viral Formula</span>
+          <span class="bp-chip">Tamil Hashtags</span>
+        </div>
+      </div>
+      <div class="bp-card-foot">
+        <div class="bp-price"><span class="was">₹249</span><span class="now">FREE</span></div>
+        <button class="dl-btn" onclick="openModal('youtube', 'YouTube Shorts for Parents Business', 'youtube-shorts-guide.pdf')">⬇ Download</button>
+      </div>
+    </div>
+
+    <!-- Card 4: GMB -->
+    <div class="bp-card fade-in" data-cat="marketing">
+      <div class="bp-card-top" style="background: linear-gradient(90deg, #4285F4, #34A853);"></div>
+      <div class="bp-card-body">
+        <div class="bp-meta">
+          <span class="bp-category" style="background:#EEF4FF; color:#4285F4;">Marketing</span>
+          <span class="bp-pages">14 Pages</span>
+        </div>
+        <span class="bp-icon">🗺️</span>
+        <h3 class="bp-title">Google My Business Setup Tamil</h3>
+        <p class="bp-sub">Local search-ல் top-ல் rank ஆக complete GMB guide. Profile, Photos, Posts, Reviews, Local SEO keywords — full setup Tamil-ல்.</p>
+        <div class="bp-chips">
+          <span class="bp-chip">Local SEO</span>
+          <span class="bp-chip">GMB Posts</span>
+          <span class="bp-chip">Review Strategy</span>
+          <span class="bp-chip">Keywords</span>
+        </div>
+      </div>
+      <div class="bp-card-foot">
+        <div class="bp-price"><span class="was">₹199</span><span class="now">FREE</span></div>
+        <button class="dl-btn" onclick="openModal('gmb', 'Google My Business Setup Tamil', 'gmb-setup-guide.pdf')">⬇ Download</button>
+      </div>
+    </div>
+
+    <!-- Card 5: AI Tools -->
+    <div class="bp-card fade-in" data-cat="digital">
+      <div class="bp-card-top" style="background: linear-gradient(90deg, #7C3AED, #A855F7);"></div>
+      <div class="bp-card-body">
+        <div class="bp-meta">
+          <span class="bp-category" style="background:#F3EEFF; color:#7C3AED;">Digital Tools</span>
+          <span class="bp-pages">20 Pages</span>
+        </div>
+        <span class="bp-icon">🤖</span>
+        <h3 class="bp-title">AI Tools for Small Business Tamil</h3>
+        <p class="bp-sub">2025 latest AI tools — Claude, ChatGPT, CapCut AI, Canva AI, ManyChat. Free-யாக use பண்றது எப்படி? Daily workflow Tamil-ல் explained.</p>
+        <div class="bp-chips">
+          <span class="bp-chip">Claude AI</span>
+          <span class="bp-chip">Canva AI</span>
+          <span class="bp-chip">CapCut AI</span>
+          <span class="bp-chip">ManyChat</span>
+          <span class="bp-chip">Free Tools</span>
+        </div>
+      </div>
+      <div class="bp-card-foot">
+        <div class="bp-price"><span class="was">₹349</span><span class="now">FREE</span></div>
+        <button class="dl-btn" onclick="openModal('ai-tools', 'AI Tools for Small Business Tamil', 'ai-tools-guide.pdf')">⬇ Download</button>
+      </div>
+    </div>
+
+    <!-- Card 6: Pearl Farming -->
+    <div class="bp-card fade-in" data-cat="business">
+      <div class="bp-card-top" style="background: linear-gradient(90deg, #0369A1, #38BDF8);"></div>
+      <div class="bp-card-body">
+        <div class="bp-meta">
+          <span class="bp-category" style="background:#E0F2FE; color:#0369A1;">Business</span>
+          <span class="bp-pages">93 Pages</span>
+        </div>
+        <span class="bp-icon">🦪</span>
+        <h3 class="bp-title">Pearl Farming Blueprint — Tamil</h3>
+        <p class="bp-sub">முத்து வளர்ப்பு முழு வழிகாட்டி. PMMSY/NABARD subsidy, Hyderabad market guide, model contract, 14 charts உடன் 93 pages.</p>
+        <div class="bp-chips">
+          <span class="bp-chip">PMMSY Subsidy</span>
+          <span class="bp-chip">NABARD Loan</span>
+          <span class="bp-chip">Market Guide</span>
+          <span class="bp-chip">93 Pages</span>
+        </div>
+      </div>
+      <div class="bp-card-foot">
+        <div class="bp-price"><span class="now" style="color:#E8A020;">₹149</span></div>
+        <a class="dl-btn" style="background:#25D366;" href="https://wa.me/918122826152?text=Pearl+Farming+Blueprint+Tamil+%E2%82%B9149+order+pannanum" target="_blank">💬 WhatsApp Buy</a>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-label">எப்படி பயன்படுத்துவது?</div>
+  <h2 class="section-title" style="color:white;">3 Steps — Simple</h2>
+  <p class="section-sub">Registration தேவையில்லை. Email தேவையில்லை. Download பண்ணி use பண்ணுங்கள்.</p>
+
+  <div class="steps-row">
+    <div class="step-item">
+      <div class="step-n">STEP 01</div>
+      <div class="step-icon">📋</div>
+      <div class="step-title">Blueprint தேர்ந்தெடுங்கள்</div>
+      <div class="step-body">உங்கள் business-க்கு relevant blueprint-ஐ select பண்ணுங்கள்.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">STEP 02</div>
+      <div class="step-icon">⬇</div>
+      <div class="step-title">Download பண்ணுங்கள்</div>
+      <div class="step-body">Download button click பண்ணுங்கள். Instant PDF — no registration.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">STEP 03</div>
+      <div class="step-icon">🚀</div>
+      <div class="step-title">Apply பண்ணுங்கள்</div>
+      <div class="step-body">ஒவ்வொரு step-ஐயும் follow பண்ணி உங்கள் business grow பண்ணுங்கள்.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-n">BONUS</div>
+      <div class="step-icon">💬</div>
+      <div class="step-title">Doubt இருந்தால்?</div>
+      <div class="step-body">WhatsApp-ல் message பண்ணுங்கள். Personal guidance கிடைக்கும்.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-avatar">👨‍💼</div>
+  <div class="about-text">
+    <h3>DJ Groups / Ideazoom Academy</h3>
+    <p>தமிழ்நாட்டு small business owners-க்கு practical, ground-level business knowledge Tamil-ல் கொடுப்பதே இந்த blueprints-ன் நோக்கம். எல்லாம் real experience-ல் இருந்து எழுதப்பட்டவை.</p>
+  </div>
+  <a class="about-wa" href="https://wa.me/?text=Blueprint%20பற்றி%20கேட்க%20விரும்புகிறேன்" target="_blank">
+    💬 WhatsApp பண்ணுங்கள்
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <strong>DJ Groups Blueprints</strong> — Free Tamil Business Guides<br>
+    <a href="https://schooltag.in">schooltag.in</a> &nbsp;|&nbsp;
+    <a href="https://schooltag.in">schooltag.in</a>
+  </div>
+  <div>© 2025 DJ Groups. All rights reserved.</div>
+</footer>
+
+<!-- DOWNLOAD MODAL -->
+<div class="modal-overlay" id="dlModal" onclick="closeModalOnBg(event)">
+  <div class="modal">
+    <div class="modal-top">
+      <h3 id="modalTitle">Blueprint</h3>
+      <p id="modalSub">PDF • Tamil • Instant Download</p>
+    </div>
+    <div class="modal-body">
+      <a class="modal-dl-btn" id="modalDlLink" href="#" download>
+        <span class="icon">📥</span>
+        <span class="info">
+          <span class="main">PDF Download பண்ணுங்கள்</span>
+          <span class="sub">Click பண்ணினால் உடனே download ஆகும்</span>
+        </span>
+      </a>
+
+      <div class="modal-share-label">Friends-க்கு Share பண்ணுங்கள்</div>
+      <a class="modal-wa-btn" id="modalWaShare" href="#" target="_blank">
+        <span>📤</span> WhatsApp-ல் Share பண்ணுங்கள்
+      </a>
+
+      <button class="modal-close" onclick="closeModal()">✕ Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── FILTER ──────────────────────────────────────────
+function filterCards(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.bp-card').forEach(card => {
+    const show = cat === 'all' || card.dataset.cat === cat;
+    card.style.display = show ? '' : 'none';
+  });
+}
+
+// ── MODAL ────────────────────────────────────────────
+function openModal(id, title, pdfFile) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalSub').textContent = 'PDF • Tamil • Instant Download';
+  document.getElementById('modalDlLink').href = pdfFile;
+  document.getElementById('modalDlLink').download = pdfFile;
+
+  const waMsg = encodeURIComponent(
+    `🎁 Free Blueprint: "${title}"\nDownload பண்ண: https://blueprints.djgroups.in`
+  );
+  document.getElementById('modalWaShare').href = `https://wa.me/?text=${waMsg}`;
+
+  document.getElementById('dlModal').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('dlModal').classList.remove('open');
+}
+function closeModalOnBg(e) {
+  if (e.target.id === 'dlModal') closeModal();
+}
+
+// ── FADE IN ON SCROLL ─────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
