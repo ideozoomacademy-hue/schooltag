@@ -15,33 +15,24 @@
         "Content-Type": "application/xml; charset=utf-8"
       }
     },
-    {
-      "src": "/about",
-      "dest": "/about.html"
-    },
-    {
-      "src": "/about.html",
-      "dest": "/about.html"
-    },
-    {
-      "src": "/privacy",
-      "dest": "/privacy.html"
-    },
-    {
-      "src": "/privacy.html",
-      "dest": "/privacy.html"
-    },
-    {
-      "src": "/contact",
-      "dest": "/contact.html"
-    },
-    {
-      "src": "/contact.html",
-      "dest": "/contact.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+    { "src": "/about",          "dest": "/about.html"       },
+    { "src": "/about.html",     "dest": "/about.html"       },
+    { "src": "/contact",        "dest": "/contact.html"     },
+    { "src": "/contact.html",   "dest": "/contact.html"     },
+    { "src": "/privacy",        "dest": "/privacy.html"     },
+    { "src": "/privacy.html",   "dest": "/privacy.html"     },
+    { "src": "/guides",         "dest": "/guides.html"      },
+    { "src": "/guides.html",    "dest": "/guides.html"      },
+    { "src": "/blueprints",     "dest": "/blueprints.html"  },
+    { "src": "/blueprints.html","dest": "/blueprints.html"  },
+    { "src": "/blog",           "dest": "/blog.html"        },
+    { "src": "/blog.html",      "dest": "/blog.html"        },
+    { "src": "/games",          "dest": "/games.html"       },
+    { "src": "/games.html",     "dest": "/games.html"       },
+    { "src": "/abacus",         "dest": "/abacus.html"      },
+    { "src": "/abacus.html",    "dest": "/abacus.html"      },
+    { "src": "/timetable",      "dest": "/timetable.html"   },
+    { "src": "/timetable.html", "dest": "/timetable.html"   },
+    { "src": "/(.*)",           "dest": "/$1"               }
   ]
 }
