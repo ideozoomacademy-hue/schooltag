@@ -224,6 +224,10 @@ body{
 .nav-link.nav-contact:hover{background:#7C3AED;color:#fff;box-shadow:0 3px 12px rgba(124,58,237,.35);}
 .nav-link.nav-privacy{border-color:#0891B2;color:#0891B2;background:#ECFEFF;}
 .nav-link.nav-privacy:hover{background:#0891B2;color:#fff;box-shadow:0 3px 12px rgba(8,145,178,.35);}
+.nav-link.nav-invite{border-color:#EC4899;color:#BE185D;background:linear-gradient(135deg,#FDF4FF,#FCE7F3);}
+.nav-link.nav-invite:hover{background:linear-gradient(135deg,#9333EA,#EC4899);color:#fff;box-shadow:0 3px 12px rgba(236,72,153,.45);}
+.nav-link.nav-vote{border-color:#EF4444;color:#B91C1C;background:linear-gradient(135deg,#FFF5F5,#FEE2E2);}
+.nav-link.nav-vote:hover{background:linear-gradient(135deg,#DC2626,#EF4444);color:#fff;box-shadow:0 3px 12px rgba(239,68,68,.45);}
 /* Hamburger for very small screens */
 @media(max-width:380px){
   .nav-link span.nl{display:none;}
@@ -523,6 +527,8 @@ document.addEventListener('dragstart', function(e){
     <a href="about.html" class="nav-link nav-about">🏢 <span class="nl">About Us</span></a>
     <a href="contact.html" class="nav-link nav-contact">📞 <span class="nl">Contact</span></a>
     <a href="privacy.html" class="nav-link nav-privacy">🔒 <span class="nl">Privacy</span></a>
+    <a href="https://invitezoom.vercel.app" target="_blank" class="nav-link nav-invite">🎉 <span class="nl">Invitations</span></a>
+    <a href="https://voteme-lovat.vercel.app/" target="_blank" class="nav-link nav-vote">🗳️ <span class="nl">Election Tool</span></a>
   </div>
 </nav>
 
@@ -882,17 +888,36 @@ document.addEventListener('dragstart', function(e){
       </div>
       <button class="restart" onclick="resetAll()">🔄 Make labels for another child</button>
 
-      <!-- INVITEZOOM UPSELL -->
-      <div style="margin-top:20px;background:linear-gradient(135deg,#FFF0FA,#F5E8FF);border:2px solid #E0C8FF;border-radius:18px;padding:18px 16px;text-align:center;">
-        <div style="font-size:1.6rem;margin-bottom:6px;">🎉</div>
-        <div style="font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:900;color:#6B21A8;margin-bottom:5px;">Planning a Birthday Party or School Event?</div>
-        <div style="font-size:.8rem;font-weight:700;color:#7C3AED;margin-bottom:4px;">Birthday party organize பண்றீங்களா? School function வருதா?</div>
-        <div style="font-size:.75rem;color:#555;font-weight:600;margin-bottom:14px;line-height:1.5;">Create beautiful digital invitation cards in 2 minutes!<br>Wedding · Birthday · School Events · Festivals 🎊</div>
-        <a href="https://invitezoom.vercel.app" target="_blank"
-          style="display:inline-block;font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:900;padding:12px 26px;border-radius:50px;background:linear-gradient(135deg,#9333EA,#EC4899);color:#fff;text-decoration:none;box-shadow:0 4px 16px rgba(147,51,234,.4);">
-          🎉 Create FREE Invitation → InviteZoom
-        </a>
-        <div style="font-size:.65rem;color:#999;margin-top:8px;font-weight:600;">100% Free · No login needed · Works on phone</div>
+      <!-- SUGGESTED FOR PARENTS -->
+      <div style="margin-top:22px;">
+        <div style="font-family:'Baloo 2',cursive;font-size:.78rem;font-weight:900;color:var(--mid);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;text-align:center;">✨ Suggested for Parents</div>
+
+        <!-- InviteZoom -->
+        <div style="background:linear-gradient(135deg,#FFF0FA,#F5E8FF);border:2px solid #E0C8FF;border-radius:18px;padding:18px 16px;text-align:center;margin-bottom:10px;">
+          <div style="font-size:1.8rem;margin-bottom:6px;">🎉</div>
+          <div style="font-family:'Baloo 2',cursive;font-size:1rem;font-weight:900;color:#6B21A8;margin-bottom:4px;">Planning a Birthday Party?</div>
+          <div style="font-size:.78rem;color:#7C3AED;font-weight:700;margin-bottom:4px;">Birthday invite create பண்றீங்களா?</div>
+          <div style="font-size:.73rem;color:#555;font-weight:600;margin-bottom:14px;line-height:1.5;">Create beautiful digital invitation cards in 2 minutes!<br>Wedding · Birthday · School Events · Festivals 🎊</div>
+          <a href="https://invitezoom.vercel.app" target="_blank"
+            style="display:inline-block;font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:900;padding:11px 24px;border-radius:50px;background:linear-gradient(135deg,#9333EA,#EC4899);color:#fff;text-decoration:none;box-shadow:0 4px 16px rgba(147,51,234,.4);">
+            🎉 Create FREE Invitation → InviteZoom
+          </a>
+          <div style="font-size:.62rem;color:#999;margin-top:8px;font-weight:600;">100% Free · No login needed · Works on phone</div>
+        </div>
+
+        <!-- SingamStartup + KaarKalvi row -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <a href="https://singamstartup.com" target="_blank" style="text-decoration:none;background:linear-gradient(135deg,#FFF8E6,#FFF0C0);border:2px solid #FDE68A;border-radius:14px;padding:12px 10px;text-align:center;display:block;">
+            <div style="font-size:1.4rem;margin-bottom:4px;">🦁</div>
+            <div style="font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:900;color:#B45309;">SingamStartup</div>
+            <div style="font-size:.65rem;color:#D97706;font-weight:700;margin-top:2px;">Startup Ideas & Blueprints</div>
+          </a>
+          <a href="https://kaarkalvi.vercel.app/" target="_blank" style="text-decoration:none;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:2px solid #A7F3D0;border-radius:14px;padding:12px 10px;text-align:center;display:block;">
+            <div style="font-size:1.4rem;margin-bottom:4px;">🚗</div>
+            <div style="font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:900;color:#065F46;">கார் கல்வி</div>
+            <div style="font-size:.65rem;color:#059669;font-weight:700;margin-top:2px;">Car Education in Tamil</div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -2429,9 +2454,46 @@ window.addEventListener('load', buildSampleGrid);
       </div>
     </div>
 
+    <!-- OUR NETWORK -->
+    <div style="background:#fff;border-radius:20px;padding:20px;box-shadow:0 4px 16px rgba(0,0,0,0.07);margin-bottom:16px;">
+      <div style="font-family:'Baloo 2',cursive;font-size:1rem;font-weight:900;color:var(--coral);margin-bottom:14px;text-align:center;">🌐 Our Network — DJ Groups</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <a href="https://invitezoom.vercel.app" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#FDF4FF,#F5E8FF);border:2px solid #E0C8FF;border-radius:14px;padding:12px 12px;grid-column:1/-1;">
+          <div style="font-size:1.8rem;flex-shrink:0;">🎉</div>
+          <div style="flex:1;">
+            <div style="font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:900;color:#9333EA;">InviteZoom</div>
+            <div style="font-size:.7rem;color:#7C3AED;font-weight:700;">Digital Invitations · Birthday · Wedding · School Events · Free!</div>
+          </div>
+          <div style="font-size:.65rem;font-weight:800;background:linear-gradient(135deg,#9333EA,#EC4899);color:#fff;padding:4px 12px;border-radius:50px;white-space:nowrap;flex-shrink:0;">Visit →</div>
+        </a>
+        <a href="https://voteme-lovat.vercel.app/" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#FFF5F5,#FEE2E2);border:2px solid #FECACA;border-radius:14px;padding:12px 12px;">
+          <div style="font-size:1.8rem;flex-shrink:0;">🗳️</div>
+          <div style="flex:1;">
+            <div style="font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:900;color:#DC2626;">VoteMe</div>
+            <div style="font-size:.7rem;color:#EF4444;font-weight:700;">Election Poster & Video Maker · Tamil Nadu</div>
+          </div>
+        </a>
+        <a href="https://singamstartup.com" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#FFF8E6,#FFF0C0);border:2px solid #FDE68A;border-radius:14px;padding:12px 12px;">
+          <div style="font-size:1.8rem;flex-shrink:0;">🦁</div>
+          <div style="flex:1;">
+            <div style="font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:900;color:#B45309;">SingamStartup</div>
+            <div style="font-size:.7rem;color:#D97706;font-weight:700;">Startup Ideas & Blueprints · Entrepreneur</div>
+          </div>
+        </a>
+        <a href="https://kaarkalvi.vercel.app/" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:2px solid #A7F3D0;border-radius:14px;padding:12px 12px;">
+          <div style="font-size:1.8rem;flex-shrink:0;">🚗</div>
+          <div style="flex:1;">
+            <div style="font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:900;color:#065F46;">கார் கல்வி</div>
+            <div style="font-size:.7rem;color:#059669;font-weight:700;">Car Education in Tamil · Tips & Guides</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
     <div style="font-size:.65rem;color:#bbb">
       © 2026 SchoolTag · schooltag.in · Made with ❤️ in India · By DJ Groups<br>
-      <a href="tn-career-guide/" style="color:#C4B5FD;text-decoration:none;font-weight:700;">🎓 TN Career Guide →</a> &nbsp;·&nbsp; <a href="guides/vijay.html" style="color:#D4A843;text-decoration:none;font-weight:700;">👑 Vijay Label →</a> &nbsp;·&nbsp; <a href="guides/dhoni.html" style="color:#60A5FA;text-decoration:none;font-weight:700;">🏏 Dhoni Label →</a> &nbsp;·&nbsp; <a href="guides/" style="color:#aaa;text-decoration:none;font-weight:700;">All Labels →</a> &nbsp;·&nbsp; <a href="guides.html" style="color:#C084FC;text-decoration:none;font-weight:700;">🛒 Digital Guides →</a> &nbsp;·&nbsp; <a href="about.html" style="color:#6EE7B7;text-decoration:none;font-weight:700;">🏢 About Us →</a> &nbsp;·&nbsp; <a href="contact.html" style="color:#C4B5FD;text-decoration:none;font-weight:700;">📞 Contact →</a> &nbsp;·&nbsp; <a href="privacy.html" style="color:#67E8F9;text-decoration:none;font-weight:700;">🔒 Privacy →</a>
+      <a href="tn-career-guide/" style="color:#C4B5FD;text-decoration:none;font-weight:700;">🎓 TN Career Guide →</a> &nbsp;·&nbsp; <a href="guides/vijay.html" style="color:#D4A843;text-decoration:none;font-weight:700;">👑 Vijay Label →</a> &nbsp;·&nbsp; <a href="guides/dhoni.html" style="color:#60A5FA;text-decoration:none;font-weight:700;">🏏 Dhoni Label →</a> &nbsp;·&nbsp; <a href="guides/" style="color:#aaa;text-decoration:none;font-weight:700;">All Labels →</a> &nbsp;·&nbsp; <a href="guides.html" style="color:#C084FC;text-decoration:none;font-weight:700;">🛒 Digital Guides →</a> &nbsp;·&nbsp; <a href="about.html" style="color:#6EE7B7;text-decoration:none;font-weight:700;">🏢 About Us →</a> &nbsp;·&nbsp; <a href="contact.html" style="color:#C4B5FD;text-decoration:none;font-weight:700;">📞 Contact →</a> &nbsp;·&nbsp; <a href="privacy.html" style="color:#67E8F9;text-decoration:none;font-weight:700;">🔒 Privacy →</a><br>
+      <a href="https://invitezoom.vercel.app" target="_blank" style="color:#EC4899;text-decoration:none;font-weight:700;">🎉 InviteZoom →</a> &nbsp;·&nbsp; <a href="https://voteme-lovat.vercel.app/" target="_blank" style="color:#EF4444;text-decoration:none;font-weight:700;">🗳️ VoteMe →</a> &nbsp;·&nbsp; <a href="https://singamstartup.com" target="_blank" style="color:#F59E0B;text-decoration:none;font-weight:700;">🦁 SingamStartup →</a> &nbsp;·&nbsp; <a href="https://kaarkalvi.vercel.app/" target="_blank" style="color:#10B981;text-decoration:none;font-weight:700;">🚗 KaarKalvi →</a>
     </div>
   </div>
 </footer>
