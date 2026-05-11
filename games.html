@@ -7,19 +7,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#FFF9F0; --card:#fff; --primary:#FF6B35; --secondary:#4ECDC4;
-  --accent:#FFE66D; --purple:#A855F7; --green:#22C55E; --red:#EF4444;
+  --bg:#F0F9FF; --card:#fff; --primary:#3B82F6; --secondary:#8B5CF6;
+  --accent:#FFE66D; --purple:#8B5CF6; --green:#22C55E; --red:#EF4444;
   --text:#1E1B18; --muted:#6B7280; --shadow:0 4px 20px rgba(0,0,0,.10); --radius:20px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Nunito',sans-serif;background:var(--bg);min-height:100vh;overflow-x:hidden;}
 
 /* ── HEADER ── */
-header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(255,107,53,.35);}
+header{background:linear-gradient(135deg,#3B82F6,#8B5CF6);padding:16px 20px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(59,130,246,.35);}
 .logo-link{text-decoration:none;display:flex;align-items:center;gap:8px;}
 .logo-text{font-family:'Baloo 2',cursive;font-size:1.45rem;color:#fff;font-weight:800;}
 .logo-text span{color:var(--accent);}
 .header-badge{margin-left:auto;background:rgba(255,255,255,.25);color:#fff;font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:50px;border:2px solid rgba(255,255,255,.5);}
+
+/* ── GAME HUB ── */
+#game-hub{padding:20px 16px 0;}
+.hub-title{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:900;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.hub-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px;}
+@media(min-width:600px){.hub-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:900px){.hub-grid{grid-template-columns:repeat(4,1fr);}}
+.hub-card{background:#fff;border-radius:24px;padding:18px 14px;box-shadow:0 10px 25px rgba(0,0,0,.08);cursor:pointer;border:2px solid transparent;transition:all .22s cubic-bezier(.4,0,.2,1);text-align:center;position:relative;touch-action:manipulation;}
+.hub-card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(59,130,246,.18);border-color:var(--primary);}
+.hub-card:active{transform:translateY(-2px) scale(.97);}
+.hub-card-icon{font-size:2.4rem;margin-bottom:8px;display:block;}
+.hub-card-title{font-family:'Baloo 2',cursive;font-size:.92rem;font-weight:800;color:var(--text);margin-bottom:4px;}
+.hub-card-sub{font-size:.7rem;color:var(--muted);font-weight:600;line-height:1.4;}
+.hub-badge{position:absolute;top:10px;right:10px;font-size:.6rem;font-weight:800;padding:3px 8px;border-radius:50px;letter-spacing:.5px;text-transform:uppercase;}
+.hub-badge.new{background:#DCFCE7;color:#16A34A;}
+.hub-badge.hot{background:#FEE2E2;color:#DC2626;}
+.hub-badge.fun{background:#EDE9FE;color:#7C3AED;}
 
 /* ── HERO ── */
 .hero{text-align:center;padding:32px 20px 16px;}
@@ -89,9 +106,10 @@ header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 2
 #sticker-modal h2{color:var(--green);}
 
 /* ── TABS ── */
-.tabs{display:flex;justify-content:center;gap:8px;padding:16px 12px;flex-wrap:wrap;}
-.tab-btn{font-family:'Baloo 2',cursive;font-size:.85rem;font-weight:700;padding:9px 18px;border:3px solid transparent;border-radius:50px;cursor:pointer;transition:all .2s;background:var(--card);color:var(--muted);box-shadow:var(--shadow);}
-.tab-btn.active{background:var(--primary);color:#fff;border-color:#c94a1e;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,107,53,.4);}
+.tabs{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-bottom:2px solid #E0F2FE;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab-btn{font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:700;padding:8px 16px;border:2px solid transparent;border-radius:50px;cursor:pointer;transition:all .2s cubic-bezier(.4,0,.2,1);background:var(--card);color:var(--muted);box-shadow:var(--shadow);white-space:nowrap;flex-shrink:0;touch-action:manipulation;}
+.tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:0 6px 20px rgba(59,130,246,.4);}
 .tab-btn:hover:not(.active){border-color:var(--primary);color:var(--primary);}
 
 /* ── GAME SECTIONS ── */
@@ -412,9 +430,9 @@ header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 2
 <nav class="top-nav">
   <a href="index.html" class="nav-brand">🏷️ SchoolTag</a>
   <div class="nav-links">
-    <a href="index.html" class="nav-link nav-home">🏠 <span class="nl">Labels</span> ₹19</a>
+    <a href="index.html" class="nav-link nav-home">🏠 <span class="nl">Labels</span></a>
     <a href="games.html" class="nav-link active-nav">🎮 <span class="nl">Game Zone</span></a>
-    <a href="timetable.html" class="nav-link nav-tt">📅 <span class="nl">Timetable</span> ₹9</a>
+    <a href="timetable.html" class="nav-link nav-tt">📅 <span class="nl">Timetable</span></a>
     <a href="abacus.html" class="nav-link nav-ab">🧮 <span class="nl">Abacus</span></a>
   </div>
 </nav>
@@ -431,7 +449,7 @@ header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 2
 <!-- Hero -->
 <div class="hero">
   <h1>🎮 <span>Game Zone</span></h1>
-  <p>Play games · Earn points · Get <strong style="color:var(--primary)">5% OFF</strong> your school labels! 🏷️</p>
+  <p>20 Free Games · Earn XP · 100% Free!</p>
 </div>
 
 <!-- Game Completion Tracker -->
@@ -517,6 +535,21 @@ header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 2
       <div class="gt-name">Mandala</div>
       <div class="gt-check"></div>
     </div>
+    <div class="gt-item" id="gt-chess">
+      <div class="gt-icon">♟️</div>
+      <div class="gt-name">Chess</div>
+      <div class="gt-check"></div>
+    </div>
+    <div class="gt-item" id="gt-cloudrain">
+      <div class="gt-icon">🌧️</div>
+      <div class="gt-name">Cloud Rain</div>
+      <div class="gt-check"></div>
+    </div>
+    <div class="gt-item" id="gt-riddles">
+      <div class="gt-icon">🤔</div>
+      <div class="gt-name">Riddles</div>
+      <div class="gt-check"></div>
+    </div>
   </div>
   <div class="gt-reward-strip" id="gt-reward-strip">
     <div>
@@ -543,65 +576,159 @@ header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 2
     <p style="font-size:.75rem;color:#94A3B8;margin-top:12px;font-weight:700;">Show this code while ordering at schooltag.in</p>
   </div>
 </div>
-<div id="signup-banner">
-  <h3>🎁 Get a FREE School Label!</h3>
-  <p>Sign up & score 200 points to unlock your free sticker label!</p>
-  <button class="signup-btn" onclick="openSignup()">✨ Sign Up Free</button>
+<!-- Game Completion Tracker -->
+<div id="game-tracker" style="margin:0 16px 0;">
+  <div class="gt-title">🏅 Games Completed</div>
+  <div class="gt-grid" id="gt-grid"></div>
+  <div class="gt-reward-strip" id="gt-reward">
+    <div class="gt-reward-txt">🎉 All games played! You're a Game Champion!</div>
+    <button class="gt-code-btn" onclick="showDiscount()">🎁 Claim Reward</button>
+  </div>
 </div>
 
 <!-- Points Progress Bar -->
-<div id="points-bar">
-  <span class="pb-label">🌟 Total Points:</span>
+<div id="points-bar" style="margin:8px 16px;">
+  <span class="pb-label">🌟 XP Points:</span>
   <div class="pb-track"><div class="pb-fill" id="pb-fill" style="width:0%"></div></div>
   <span class="pb-pts"><span id="pb-pts-val">0</span>/200</span>
   <span id="unlock-badge">🎉 FREE STICKER UNLOCKED!</span>
 </div>
 
-<!-- Sign Up Modal -->
-<div class="modal-overlay" id="signup-modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeSignup()">✕</button>
-    <h2>🎮 Join the Fun!</h2>
-    <p>Sign up to save your score & win a free school label sticker!</p>
-    <input class="form-field" id="f-name" type="text" placeholder="Child's Name 👦" maxlength="40"/>
-    <input class="form-field" id="f-class" type="text" placeholder="Class (e.g. Class 3) 🏫" maxlength="20"/>
-    <input class="form-field" id="f-phone" type="tel" placeholder="Parent's Phone Number 📱" maxlength="15"/>
-    <input class="form-field" id="f-email" type="email" placeholder="Parent's Email (optional) 📧" maxlength="60"/>
-    <button class="form-submit-btn" onclick="submitSignup()">🚀 Start Playing!</button>
-    <p id="form-msg" style="text-align:center;margin-top:10px;font-weight:700;font-size:.88rem;color:var(--green);display:none;"></p>
+<!-- APP STORE GAME HUB -->
+<div id="game-hub">
+  <div class="hub-title">🎮 Choose Your Game</div>
+  <div class="hub-grid">
+    <div class="hub-card" onclick="switchTab('quiz')">
+      <span class="hub-badge hot">HOT</span>
+      <span class="hub-card-icon">🧠</span>
+      <div class="hub-card-title">Quiz</div>
+      <div class="hub-card-sub">10 questions · Science & GK</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('memory')">
+      <span class="hub-badge fun">FUN</span>
+      <span class="hub-card-icon">🃏</span>
+      <div class="hub-card-title">Memory Match</div>
+      <div class="hub-card-sub">Flip & pair school icons</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('hangman')">
+      <span class="hub-card-icon">🪓</span>
+      <div class="hub-card-title">Hangman</div>
+      <div class="hub-card-sub">Guess the word letter by letter</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('ttt')">
+      <span class="hub-card-icon">🐶</span>
+      <div class="hub-card-title">Tic Tac Toe</div>
+      <div class="hub-card-sub">Dog vs Cat · 2P or vs AI</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('colorsorter')">
+      <span class="hub-badge fun">FUN</span>
+      <span class="hub-card-icon">🎨</span>
+      <div class="hub-card-title">Colour Sort</div>
+      <div class="hub-card-sub">Drag shapes into colour buckets</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('shapesorter')">
+      <span class="hub-card-icon">🔷</span>
+      <div class="hub-card-title">Shape Sort</div>
+      <div class="hub-card-sub">Match shapes to the right bin</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('adventure')">
+      <span class="hub-card-icon">🐄</span>
+      <div class="hub-card-title">Adventure</div>
+      <div class="hub-card-sub">Farm quest story game</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('chickcheck')">
+      <span class="hub-badge new">NEW</span>
+      <span class="hub-card-icon">🐣</span>
+      <div class="hub-card-title">Chick Check</div>
+      <div class="hub-card-sub">Sort colourful chicks into baskets</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('sudoku')">
+      <span class="hub-card-icon">🔢</span>
+      <div class="hub-card-title">Sudoku</div>
+      <div class="hub-card-sub">Classic number puzzle game</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('fishing')">
+      <span class="hub-card-icon">🎣</span>
+      <div class="hub-card-title">Ocean Fishing</div>
+      <div class="hub-card-sub">Cast your line & catch fish</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('nameart')">
+      <span class="hub-card-icon">🎨</span>
+      <div class="hub-card-title">Name Art</div>
+      <div class="hub-card-sub">Create colourful name artwork</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('nailart')">
+      <span class="hub-card-icon">💅</span>
+      <div class="hub-card-title">Nail Art</div>
+      <div class="hub-card-sub">Design beautiful nail patterns</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('warliart')">
+      <span class="hub-badge new">NEW</span>
+      <span class="hub-card-icon">🖌️</span>
+      <div class="hub-card-title">Warli Art</div>
+      <div class="hub-card-sub">Traditional tribal art maker</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('snakeladders')">
+      <span class="hub-card-icon">🎲</span>
+      <div class="hub-card-title">Snake & Ladders</div>
+      <div class="hub-card-sub">Classic board game · 2 players</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('ludo')">
+      <span class="hub-card-icon">🎯</span>
+      <div class="hub-card-title">Ludo</div>
+      <div class="hub-card-sub">Race your tokens home</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('mandala')">
+      <span class="hub-card-icon">🌸</span>
+      <div class="hub-card-title">Mandala</div>
+      <div class="hub-card-sub">Draw beautiful mandala art</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('chess')">
+      <span class="hub-card-icon">♟️</span>
+      <div class="hub-card-title">Chess</div>
+      <div class="hub-card-sub">Classic strategy · 2 players</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('cloudrain')">
+      <span class="hub-card-icon">🌧️</span>
+      <div class="hub-card-title">Cloud Rain</div>
+      <div class="hub-card-sub">Grow flowers with rain drops</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('riddles')">
+      <span class="hub-card-icon">🤔</span>
+      <div class="hub-card-title">Riddles</div>
+      <div class="hub-card-sub">Solve tricky brain teasers</div>
+    </div>
+    <div class="hub-card" onclick="switchTab('leaderboard')">
+      <span class="hub-card-icon">🏆</span>
+      <div class="hub-card-title">Leaderboard</div>
+      <div class="hub-card-sub">Top scorers hall of fame</div>
+    </div>
   </div>
 </div>
 
-<!-- Free Sticker Modal -->
-<div class="modal-overlay" id="sticker-modal">
-  <div class="modal-box">
-    <div class="sticker-big">🎉🏷️🎊</div>
-    <h2>FREE Sticker Unlocked!</h2>
-    <p style="font-size:1rem;margin:10px 0 16px;color:var(--text);font-weight:700;">Wow <span id="sticker-name">Champion</span>! You scored 200+ points!<br>You've earned a <strong>FREE School Label</strong>!</p>
-    <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px;">Show this to your parent and visit <strong>schooltag.in</strong> to claim your free label!</p>
-    <button class="form-submit-btn" onclick="document.getElementById('sticker-modal').classList.remove('show')">🎈 Awesome!</button>
-  </div>
-</div>
-
-<!-- Tabs -->
-<div class="tabs">
-  <button class="tab-btn active"  onclick="switchTab('quiz')">🧠 Quiz</button>
-  <button class="tab-btn" onclick="switchTab('memory')">🃏 Memory</button>
-  <button class="tab-btn" onclick="switchTab('hangman')">🪓 Hangman</button>
-  <button class="tab-btn" onclick="switchTab('ttt')">🐶 Tic Tac</button>
-  <button class="tab-btn" onclick="switchTab('colorsorter')">🎨 Colour Sort</button>
-  <button class="tab-btn" onclick="switchTab('shapesorter')">🔷 Shape Sort</button>
-  <button class="tab-btn" onclick="switchTab('adventure')">🐄 Adventure</button>
-  <button class="tab-btn" onclick="switchTab('leaderboard')">🏆 Leaders</button>
-  <button class="tab-btn" onclick="switchTab('chickcheck')">🐣 Chick Check</button>
-  <button class="tab-btn" onclick="switchTab('sudoku')">🔢 Sudoku</button>
-  <button class="tab-btn" onclick="switchTab('fishing')">🎣 Fishing</button>
-  <button class="tab-btn" onclick="switchTab('nameart')">🎨 Name Art</button>
-  <button class="tab-btn" onclick="switchTab('nailart')">💅 Nail Art</button>
-  <button class="tab-btn" onclick="switchTab('warliart')">🖌️ Warli Art</button>
-  <button class="tab-btn" onclick="switchTab('snakeladders')">🎲 Snake & Ladders</button>
-  <button class="tab-btn" onclick="switchTab('ludo')">🎯 Ludo</button>
-  <button class="tab-btn" onclick="switchTab('mandala')">🌸 Mandala</button>
+<!-- Tabs (horizontal scroll) -->
+<div class="tabs" id="game-tabs" style="display:none;">
+  <button class="tab-btn" onclick="showHub()">🏠 Hub</button>
+  <button class="tab-btn" id="tab-quiz" onclick="switchTab('quiz')">🧠 Quiz</button>
+  <button class="tab-btn" id="tab-memory" onclick="switchTab('memory')">🃏 Memory</button>
+  <button class="tab-btn" id="tab-hangman" onclick="switchTab('hangman')">🪓 Hangman</button>
+  <button class="tab-btn" id="tab-ttt" onclick="switchTab('ttt')">🐶 Tic Tac</button>
+  <button class="tab-btn" id="tab-colorsorter" onclick="switchTab('colorsorter')">🎨 Colour Sort</button>
+  <button class="tab-btn" id="tab-shapesorter" onclick="switchTab('shapesorter')">🔷 Shape Sort</button>
+  <button class="tab-btn" id="tab-adventure" onclick="switchTab('adventure')">🐄 Adventure</button>
+  <button class="tab-btn" id="tab-leaderboard" onclick="switchTab('leaderboard')">🏆 Leaders</button>
+  <button class="tab-btn" id="tab-chickcheck" onclick="switchTab('chickcheck')">🐣 Chick Check</button>
+  <button class="tab-btn" id="tab-sudoku" onclick="switchTab('sudoku')">🔢 Sudoku</button>
+  <button class="tab-btn" id="tab-fishing" onclick="switchTab('fishing')">🎣 Fishing</button>
+  <button class="tab-btn" id="tab-nameart" onclick="switchTab('nameart')">🎨 Name Art</button>
+  <button class="tab-btn" id="tab-nailart" onclick="switchTab('nailart')">💅 Nail Art</button>
+  <button class="tab-btn" id="tab-warliart" onclick="switchTab('warliart')">🖌️ Warli Art</button>
+  <button class="tab-btn" id="tab-snakeladders" onclick="switchTab('snakeladders')">🎲 Snake & Ladders</button>
+  <button class="tab-btn" id="tab-ludo" onclick="switchTab('ludo')">🎯 Ludo</button>
+  <button class="tab-btn" id="tab-mandala" onclick="switchTab('mandala')">🌸 Mandala</button>
+  <button class="tab-btn" id="tab-chess" onclick="switchTab('chess')">♟️ Chess</button>
+  <button class="tab-btn" id="tab-cloudrain" onclick="switchTab('cloudrain')">🌧️ Cloud Rain</button>
+  <button class="tab-btn" id="tab-riddles" onclick="switchTab('riddles')">🤔 Riddles</button>
 </div>
 
 <!-- ══ QUIZ ══ -->
@@ -874,8 +1001,8 @@ header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 2
 
 <!-- Footer CTA -->
 <div class="footer-cta">
-  <p>🏷️ Want custom school labels for your child?</p>
-  <a href="index.html" class="cta-btn">Get School Labels – ₹19 only!</a>
+  <p>© 2026 SchoolTag | 100% Free Professional Learning Tools</p>
+  <a href="index.html" class="cta-btn">🏷️ Get School Labels Free →</a>
 </div>
 
 <!-- ══ CHICK CHECK SECTION ══ -->
@@ -1335,6 +1462,92 @@ header{background:linear-gradient(135deg,#FF6B35,#FF8C42,#FFB347);padding:16px 2
     <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;" id="mandala-stamps"></div>
   </div>
 </div>
+
+<!-- ══ CHESS ══ -->
+<div class="game-section" id="chess-section">
+  <div style="background:linear-gradient(135deg,#8B4513,#3D1A00);border-radius:18px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+    <span style="font-size:2rem;">♟️</span>
+    <div>
+      <div style="font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:900;color:#FFD700;">Chess Master</div>
+      <div style="font-size:.75rem;color:#FDE68A;">Tap piece → tap square to move</div>
+    </div>
+    <div style="margin-left:auto;background:rgba(255,215,0,.2);border-radius:50px;padding:5px 12px;font-family:'Baloo 2',cursive;font-weight:900;color:#FFD700;font-size:.85rem;">🪙 <span id="ch-coins">0</span></div>
+  </div>
+  <div style="background:#FFF9F0;border-radius:12px;padding:10px 14px;margin-bottom:10px;border:2px solid #FDE68A;font-size:.78rem;line-height:1.65;color:#78350F;">
+    ♟️ <b>Tap a white piece</b> → green dots appear → <b>tap a dot to move</b><br>
+    🪙 Capture enemy pieces to earn coins! | 👑 Checkmate = 50 bonus coins!
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+    <button id="ch-lvl-b" class="ch-lvl-btn" onclick="chSetLevel('beginner',this)" style="padding:8px 16px;border-radius:50px;border:2px solid #22C55E;background:#22C55E;color:#fff;font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;cursor:pointer;transition:all .2s;">🟢 Beginner</button>
+    <button id="ch-lvl-i" class="ch-lvl-btn" onclick="chSetLevel('intermediate',this)" style="padding:8px 16px;border-radius:50px;border:2px solid #F59E0B;background:#FFFBEB;color:#B45309;font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;cursor:pointer;transition:all .2s;opacity:.65;">🟡 Intermediate</button>
+    <button id="ch-lvl-a" class="ch-lvl-btn" onclick="chSetLevel('advanced',this)" style="padding:8px 16px;border-radius:50px;border:2px solid #EF4444;background:#FEF2F2;color:#B91C1C;font-family:'Baloo 2',cursive;font-size:.82rem;font-weight:800;cursor:pointer;transition:all .2s;opacity:.65;">🔴 Advanced</button>
+  </div>
+  <div id="ch-status" style="font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:800;text-align:center;padding:9px 12px;background:#FFF9F0;border-radius:10px;margin-bottom:8px;border:1.5px solid #FDE68A;color:#374151;">♟️ Your turn (White) — tap a piece!</div>
+  <div id="ch-cap" style="min-height:26px;background:#FFF9F0;border-radius:8px;padding:5px 10px;margin-bottom:8px;font-size:1.1rem;border:1px solid #FDE68A;letter-spacing:2px;"></div>
+  <div style="display:grid;grid-template-columns:repeat(8,1fr);max-width:360px;margin:0 auto 10px;border:3px solid #8B4513;border-radius:4px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.2);" id="ch-board"></div>
+  <div style="display:flex;gap:8px;">
+    <button onclick="chessInit()" style="flex:1;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;padding:12px;border:none;border-radius:14px;background:linear-gradient(135deg,#8B4513,#5C2E00);color:#fff;cursor:pointer;">🔄 New Game</button>
+    <button onclick="chessHint()" style="flex:1;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;padding:12px;border:none;border-radius:14px;background:linear-gradient(135deg,#3B82F6,#1D4ED8);color:#fff;cursor:pointer;">💡 Hint</button>
+  </div>
+  <div id="ch-promo-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:600;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:20px;padding:24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+      <div style="font-family:'Baloo 2',cursive;font-size:1rem;font-weight:900;margin-bottom:12px;">👑 Pawn Promotion! Choose:</div>
+      <div id="ch-promo" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOUD RAIN FLOWER ══ -->
+<div class="game-section" id="cloudrain-section">
+  <div style="background:linear-gradient(135deg,#0EA5E9,#0284C7);border-radius:18px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+    <span style="font-size:2rem;">🌧️</span>
+    <div>
+      <div style="font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:900;color:#fff;">Cloud Rain Flower</div>
+      <div style="font-size:.75rem;color:#BAE6FD;">Water the patches — reach the sunflower!</div>
+    </div>
+    <div style="margin-left:auto;background:rgba(255,255,255,.2);border-radius:50px;padding:4px 12px;font-family:'Baloo 2',cursive;font-weight:900;color:#fff;font-size:.82rem;">Lvl <span id="cr-level">1</span></div>
+  </div>
+  <div style="background:#EFF6FF;border-radius:12px;padding:10px 14px;margin-bottom:10px;border:2px solid #BAE6FD;font-size:.78rem;line-height:1.65;color:#1E3A8A;">
+    ☁️ <b>Tap/click</b> where you want your cloud to move<br>
+    🌧️ Rain falls as it moves — <b>water brown patches</b> to make them green<br>
+    🌻 Reach the sunflower after watering ALL patches | 🔥 Fire drains your cloud!
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+    <div style="background:#EFF6FF;border-radius:50px;padding:6px 12px;font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:800;color:#1D4ED8;">💧 <span id="cr-rain">100</span>%</div>
+    <div style="background:#EFF6FF;border-radius:50px;padding:6px 12px;font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:800;color:#1D4ED8;">🌿 <span id="cr-wetted">0</span>/<span id="cr-total">0</span> wetted</div>
+    <div style="background:#EFF6FF;border-radius:50px;padding:6px 12px;font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:800;color:#1D4ED8;">⭐ <span id="cr-score">0</span> pts</div>
+  </div>
+  <canvas id="cr-canvas" width="340" height="340" style="border-radius:14px;border:2px solid #BAE6FD;display:block;margin:0 auto 8px;max-width:100%;touch-action:none;cursor:pointer;"></canvas>
+  <div id="cr-msg" style="text-align:center;font-family:'Baloo 2',cursive;font-size:.88rem;font-weight:800;color:#0284C7;min-height:22px;margin-bottom:8px;">☁️ Tap anywhere to move your cloud!</div>
+  <div style="display:flex;gap:8px;">
+    <button onclick="crInit()" style="flex:1;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;padding:12px;border:none;border-radius:14px;background:linear-gradient(135deg,#0EA5E9,#0284C7);color:#fff;cursor:pointer;">🔄 Restart</button>
+    <button id="cr-next-btn" onclick="crNextLevel()" style="flex:1;display:none;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;padding:12px;border:none;border-radius:14px;background:linear-gradient(135deg,#22C55E,#16A34A);color:#fff;cursor:pointer;">➡️ Next Level</button>
+  </div>
+</div>
+
+<!-- ══ RIDDLES ══ -->
+<div class="game-section" id="riddles-section">
+  <div style="background:linear-gradient(135deg,#8B5CF6,#D946EF);border-radius:18px;padding:14px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+    <span style="font-size:2rem;">🤔</span>
+    <div>
+      <div style="font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:900;color:#fff;">Riddle Box</div>
+      <div style="font-size:.75rem;color:#E9D5FF;">Crack the riddles — test your wit!</div>
+    </div>
+    <div style="margin-left:auto;background:rgba(255,255,255,.2);border-radius:50px;padding:4px 12px;font-family:'Baloo 2',cursive;font-weight:900;color:#fff;font-size:.85rem;"><span id="rd-num">1</span>/10</div>
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+    <div style="background:#FAF5FF;border-radius:50px;padding:6px 12px;font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:800;color:#7E22CE;">✅ <span id="rd-correct">0</span>/10</div>
+    <div style="background:#FAF5FF;border-radius:50px;padding:6px 12px;font-family:'Baloo 2',cursive;font-size:.8rem;font-weight:800;color:#7E22CE;">⭐ <span id="rd-score">0</span> pts</div>
+  </div>
+  <div style="background:#FFFBEB;border:2px solid #FDE68A;border-radius:16px;padding:16px;margin-bottom:10px;">
+    <div id="rd-question" style="font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;color:#374151;line-height:1.5;margin-bottom:14px;text-align:center;min-height:48px;">Loading riddle...</div>
+    <div id="rd-options" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"></div>
+  </div>
+  <div id="rd-fun" style="display:none;background:#EEF2FF;border-radius:12px;padding:10px 14px;font-size:.85rem;font-weight:700;color:#4338CA;margin-bottom:8px;line-height:1.5;"></div>
+  <button id="rd-next-btn" onclick="rdNext()" style="display:none;width:100%;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;padding:12px;border:none;border-radius:14px;background:linear-gradient(135deg,#8B5CF6,#D946EF);color:#fff;cursor:pointer;margin-bottom:8px;">Next Riddle ➡️</button>
+  <button onclick="riddlesInit()" style="width:100%;font-family:'Baloo 2',cursive;font-size:.9rem;font-weight:800;padding:12px;border:none;border-radius:14px;background:linear-gradient(135deg,#8B5CF6,#D946EF);color:#fff;cursor:pointer;">🔄 New Game</button>
+</div>
+
 <script>
 // ══════════════════════════════════════════════════════
 //  GLOBAL POINTS + PLAYER SYSTEM
@@ -1436,9 +1649,22 @@ function showStickerModal() {
 }
 
 // ── Tabs ──
-const TAB_NAMES = ['quiz','memory','hangman','ttt','colorsorter','shapesorter','adventure','leaderboard','chickcheck','sudoku','fishing','nameart','nailart','warliart','snakeladders','ludo','mandala'];
+const TAB_NAMES = ['quiz','memory','hangman','ttt','colorsorter','shapesorter','adventure','leaderboard','chickcheck','sudoku','fishing','nameart','nailart','warliart','snakeladders','ludo','mandala','chess','cloudrain','riddles'];
+function showHub() {
+  document.getElementById('game-hub').style.display='block';
+  document.getElementById('game-tabs').style.display='none';
+  document.querySelectorAll('.game-section').forEach(s => s.classList.remove('active'));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
 function switchTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', TAB_NAMES[i]===tab));
+  // Hide hub, show tabs bar
+  document.getElementById('game-hub').style.display='none';
+  document.getElementById('game-tabs').style.display='flex';
+  // Update active tab button
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const activeBtn = document.getElementById('tab-'+tab);
+  if(activeBtn) { activeBtn.classList.add('active'); activeBtn.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}); }
   document.querySelectorAll('.game-section').forEach(s => s.classList.remove('active'));
   document.getElementById(tab+'-section').classList.add('active');
   if (tab==='leaderboard') renderLeaderboard();
@@ -1446,6 +1672,10 @@ function switchTab(tab) {
   if (tab==='chickcheck' && !ccReady) { ccInit(); ccReady=true; }
   if (tab==='sudoku' && !sdReady) { sdInit(); sdReady=true; }
   if (tab==='fishing' && !fishReady) { fishInit(); fishReady=true; }
+  if (tab==='chess') setTimeout(chessInit, 80);
+  if (tab==='cloudrain') setTimeout(crInit, 80);
+  if (tab==='riddles') setTimeout(riddlesInit, 80);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 // ── Shuffle ──
@@ -4114,6 +4344,306 @@ function mandalaSave(){
   const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='mandala-art.png';a.click();
   addPoints(5);launchConfetti(18);document.getElementById('mandala-msg').textContent='💾 Mandala saved to your Desktop!';
 }
+
+// ══════════════════════════════════════════════════
+//  CHESS — 3 Levels + Premium Coins
+// ══════════════════════════════════════════════════
+const WP='♙',WR='♖',WN='♘',WB='♗',WQ='♕',WK='♔';
+const BP='♟',BR='♜',BN='♞',BB='♝',BQ='♛',BK='♚';
+const WS=new Set([WP,WR,WN,WB,WQ,WK]),BS=new Set([BP,BR,BN,BB,BQ,BK]);
+let chB=[],chSel=null,chTurn='w',chLevel='beginner',chCoins=0,chOver=false,chCap=[],chLF=null,chLT=null;
+
+function chessInit(){
+  chB=[[BR,BN,BB,BQ,BK,BB,BN,BR],[BP,BP,BP,BP,BP,BP,BP,BP],
+    ['','','','','','','',''],['','','','','','','',''],
+    ['','','','','','','',''],['','','','','','','',''],
+    [WP,WP,WP,WP,WP,WP,WP,WP],[WR,WN,WB,WQ,WK,WB,WN,WR]];
+  chSel=null;chTurn='w';chOver=false;chCap=[];chLF=null;chLT=null;chCoins=0;
+  const cd=document.getElementById('ch-coins');if(cd)cd.textContent='0';
+  const cc=document.getElementById('ch-cap');if(cc)cc.innerHTML='';
+  chRender();chStatus('♟️ Your turn (White) — tap a piece!','#374151');
+}
+function chSetLevel(lv,btn){
+  chLevel=lv;
+  document.querySelectorAll('.ch-lvl-btn').forEach(b=>{
+    b.style.opacity='.55';b.style.transform='scale(.97)';
+  });
+  btn.style.opacity='1';btn.style.transform='scale(1.05)';
+  chessInit();
+}
+function chRender(){
+  const bd=document.getElementById('ch-board');if(!bd)return;bd.innerHTML='';
+  const vm=chSel?chMoves(chSel[0],chSel[1]):[];
+  const vs=new Set(vm.map(m=>m[0]+','+m[1]));
+  for(let r=0;r<8;r++)for(let c=0;c<8;c++){
+    const sq=document.createElement('div');
+    sq.style.cssText='aspect-ratio:1;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent;user-select:none;';
+    sq.style.background=(r+c)%2===0?'#F0D9B5':'#B58863';
+    if(chSel&&chSel[0]===r&&chSel[1]===c)sq.style.background='#F6F669';
+    if(chLF&&chLF[0]===r&&chLF[1]===c)sq.style.background='#CDD16F';
+    if(chLT&&chLT[0]===r&&chLT[1]===c)sq.style.background='#AAB23A';
+    const p=chB[r][c];
+    if(p){
+      if(vs.has(r+','+c)){sq.style.boxShadow='inset 0 0 0 4px rgba(0,0,0,.3)';}
+      const sp=document.createElement('span');
+      sp.style.cssText='font-size:clamp(1.1rem,4.5vw,1.75rem);filter:drop-shadow(1px 1px 0 rgba(0,0,0,.25));line-height:1;';
+      sp.textContent=p;sq.appendChild(sp);
+    } else if(vs.has(r+','+c)){
+      const dot=document.createElement('div');
+      dot.style.cssText='width:28%;height:28%;background:rgba(0,0,0,.18);border-radius:50%;';
+      sq.appendChild(dot);
+    }
+    sq.onclick=()=>chClick(r,c);
+    bd.appendChild(sq);
+  }
+}
+function chClick(r,c){
+  if(chOver)return;
+  const p=chB[r][c],mine=chTurn==='w'?WS.has(p):BS.has(p);
+  if(chSel){
+    const vm=chMoves(chSel[0],chSel[1]);
+    if(vm.some(m=>m[0]===r&&m[1]===c)){chDoMove(chSel[0],chSel[1],r,c);chSel=null;return;}
+    if(mine){chSel=[r,c];chRender();return;}
+    chSel=null;chRender();return;
+  }
+  if(mine){chSel=[r,c];chRender();}
+}
+function chDoMove(fr,fc,tr,tc){
+  const p=chB[fr][fc],cap=chB[tr][tc];chLF=[fr,fc];chLT=[tr,tc];
+  if(cap){
+    const pv={[WQ]:9,[BQ]:9,[WR]:5,[BR]:5,[WB]:3,[BB]:3,[WN]:3,[BN]:3,[WP]:1,[BP]:1};
+    const earned=pv[cap]||1;chCoins+=earned;
+    const cd=document.getElementById('ch-coins');if(cd)cd.textContent=chCoins;
+    chCap.push(cap);const cc=document.getElementById('ch-cap');if(cc)cc.innerHTML=chCap.join(' ');
+    addPoints(earned);
+  }
+  chB[tr][tc]=p;chB[fr][fc]='';
+  if((p===WP&&tr===0)||(p===BP&&tr===7)){chRender();chShowPromo(tr,tc);chTurn=chTurn==='w'?'b':'w';return;}
+  chTurn=chTurn==='w'?'b':'w';chRender();
+  const st=chCheckSt();
+  if(st==='checkmate'){
+    chOver=true;const w=chTurn==='w'?'Black':'White';
+    if(w==='White'){chCoins+=50;const cd=document.getElementById('ch-coins');if(cd)cd.textContent=chCoins;addPoints(50);}
+    chStatus('🏆 Checkmate! '+w+' wins!','#22C55E');markGameComplete('chess');return;
+  }
+  if(st==='stalemate'){chOver=true;chStatus('🤝 Stalemate — Draw!','#6B7280');markGameComplete('chess');return;}
+  if(chTurn==='b'&&!chOver)setTimeout(chAI,450);
+  else chStatus('♟️ Your turn (White)','#374151');
+}
+function chMoves(r,c){
+  const p=chB[r][c];if(!p)return[];
+  const isW=WS.has(p),ally=isW?WS:BS,moves=[];
+  const add=(nr,nc)=>{if(nr>=0&&nr<8&&nc>=0&&nc<8&&!ally.has(chB[nr][nc]))moves.push([nr,nc]);};
+  const slide=(dr,dc)=>{let nr=r+dr,nc=c+dc;while(nr>=0&&nr<8&&nc>=0&&nc<8){if(ally.has(chB[nr][nc]))break;moves.push([nr,nc]);if(chB[nr][nc])break;nr+=dr;nc+=dc;}};
+  if(p===WP){if(r>0&&!chB[r-1][c])moves.push([r-1,c]);if(r===6&&!chB[r-1][c]&&!chB[r-2][c])moves.push([r-2,c]);if(r>0&&c>0&&BS.has(chB[r-1][c-1]))moves.push([r-1,c-1]);if(r>0&&c<7&&BS.has(chB[r-1][c+1]))moves.push([r-1,c+1]);}
+  else if(p===BP){if(r<7&&!chB[r+1][c])moves.push([r+1,c]);if(r===1&&!chB[r+1][c]&&!chB[r+2][c])moves.push([r+2,c]);if(r<7&&c>0&&WS.has(chB[r+1][c-1]))moves.push([r+1,c-1]);if(r<7&&c<7&&WS.has(chB[r+1][c+1]))moves.push([r+1,c+1]);}
+  else if(p===WN||p===BN){[[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]].forEach(([a,b])=>add(r+a,c+b));}
+  else if(p===WB||p===BB){[[-1,-1],[-1,1],[1,-1],[1,1]].forEach(d=>slide(d[0],d[1]));}
+  else if(p===WR||p===BR){[[-1,0],[1,0],[0,-1],[0,1]].forEach(d=>slide(d[0],d[1]));}
+  else if(p===WQ||p===BQ){[[-1,-1],[-1,1],[1,-1],[1,1],[-1,0],[1,0],[0,-1],[0,1]].forEach(d=>slide(d[0],d[1]));}
+  else if(p===WK||p===BK){[[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]].forEach(([a,b])=>add(r+a,c+b));}
+  return moves;
+}
+function chAllMoves(col){const ps=col==='w'?WS:BS,all=[];for(let r=0;r<8;r++)for(let c=0;c<8;c++)if(ps.has(chB[r][c]))chMoves(r,c).forEach(m=>all.push({from:[r,c],to:m}));return all;}
+function chCheckSt(){const moves=chAllMoves(chTurn);if(!moves.length){const king=chTurn==='w'?WK:BK;for(let r=0;r<8;r++)for(let c=0;c<8;c++)if(chB[r][c]===king){const em=chAllMoves(chTurn==='w'?'b':'w');if(em.some(m=>m.to[0]===r&&m.to[1]===c))return'checkmate';return'stalemate';}}return'playing';}
+function chAI(){
+  if(chOver)return;const moves=chAllMoves('b');if(!moves.length)return;
+  let ch;
+  if(chLevel==='beginner'){ch=moves[Math.floor(Math.random()*moves.length)];}
+  else if(chLevel==='intermediate'){const caps=moves.filter(m=>WS.has(chB[m.to[0]][m.to[1]]));ch=caps.length?caps[Math.floor(Math.random()*caps.length)]:moves[Math.floor(Math.random()*moves.length)];}
+  else{const pv={[WP]:1,[WN]:3,[WB]:3,[WR]:5,[WQ]:9,[WK]:100};let best=-Infinity;moves.forEach(m=>{const v=(pv[chB[m.to[0]][m.to[1]]]||0)+([3,4].includes(m.to[0])&&[3,4].includes(m.to[1])?.3:0)+Math.random()*.1;if(v>best){best=v;ch=m;}});}
+  chB[ch.to[0]][ch.to[1]]=chB[ch.from[0]][ch.from[1]];chB[ch.from[0]][ch.from[1]]='';
+  chLF=ch.from;chLT=ch.to;chTurn='w';chRender();
+  const st=chCheckSt();
+  if(st==='checkmate'){chOver=true;chStatus('💀 Checkmate! Black wins.','#EF4444');markGameComplete('chess');}
+  else if(st==='stalemate'){chOver=true;chStatus('🤝 Stalemate!','#6B7280');markGameComplete('chess');}
+  else chStatus('♟️ Your turn (White)','#374151');
+}
+function chessHint(){
+  if(chTurn!=='w'||chOver)return;
+  const m=chAllMoves('w');if(!m.length)return;
+  const caps=m.filter(mv=>BS.has(chB[mv.to[0]][mv.to[1]]));
+  const h=caps.length?caps[0]:m[Math.floor(Math.random()*m.length)];
+  chSel=h.from;chRender();
+  const f='abcdefgh',rk='87654321';
+  chStatus('💡 Hint: '+f[h.from[1]]+rk[h.from[0]]+' → '+f[h.to[1]]+rk[h.to[0]],'#3B82F6');
+}
+function chShowPromo(r,c){
+  const opts=chTurn==='w'?[WQ,WR,WB,WN]:[BQ,BR,BB,BN];
+  const box=document.getElementById('ch-promo');box.innerHTML='';
+  opts.forEach(p=>{
+    const d=document.createElement('div');
+    d.style.cssText='font-size:2.4rem;cursor:pointer;padding:10px 14px;border-radius:12px;border:2px solid #E5E7EB;transition:all .2s;background:#fff;';
+    d.textContent=p;
+    d.onmouseenter=()=>d.style.borderColor='#6C63FF';
+    d.onmouseleave=()=>d.style.borderColor='#E5E7EB';
+    d.onclick=()=>{chB[r][c]=p;document.getElementById('ch-promo-modal').style.display='none';chRender();if(chTurn==='b')setTimeout(chAI,450);else chStatus('♟️ Your turn','#374151');};
+    box.appendChild(d);
+  });
+  document.getElementById('ch-promo-modal').style.display='flex';
+}
+function chStatus(msg,col){const el=document.getElementById('ch-status');if(el){el.textContent=msg;el.style.color=col||'#374151';}}
+
+// ══════════════════════════════════════════════════
+//  CLOUD RAIN FLOWER GAME
+// ══════════════════════════════════════════════════
+let crCloud={x:50,y:50},crTarget={x:50,y:50},crGrid=[],crGoal={r:0,c:0};
+let crLv=1,crScore=0,crRain=100,crAF=null;
+const CR_CELL=34,CR_ROWS=10,CR_COLS=10;
+const CR_CLR={0:'#87CEEB',1:'#C4A265',2:'#4CAF50',3:'#FF5722',4:'#FFB347',5:'#228B22',6:'#9E9E9E'};
+const CR_EM={1:'🟫',2:'🌿',3:'🔥',4:'🌻',5:'🌲',6:'🪨'};
+
+function crInit(){
+  crCloud={x:CR_CELL*1.5,y:CR_CELL*1.5};crTarget={x:CR_CELL*1.5,y:CR_CELL*1.5};crRain=100;
+  crGrid=[];
+  for(let r=0;r<CR_ROWS;r++){crGrid.push([]);for(let c=0;c<CR_COLS;c++)crGrid[r].push(0);}
+  const dryCount=3+crLv*2;let placed=0;
+  while(placed<dryCount){const r=1+Math.floor(Math.random()*(CR_ROWS-2)),c=1+Math.floor(Math.random()*(CR_COLS-2));if(!crGrid[r][c]){crGrid[r][c]=1;placed++;}}
+  for(let i=0;i<Math.floor(crLv/2);i++){const r=Math.floor(Math.random()*CR_ROWS),c=Math.floor(Math.random()*CR_COLS);if(!crGrid[r][c])crGrid[r][c]=3;}
+  for(let i=0;i<3;i++){const r=Math.floor(Math.random()*CR_ROWS),c=Math.floor(Math.random()*CR_COLS);if(!crGrid[r][c])crGrid[r][c]=5;}
+  for(let i=0;i<2;i++){const r=Math.floor(Math.random()*CR_ROWS),c=Math.floor(Math.random()*CR_COLS);if(!crGrid[r][c])crGrid[r][c]=6;}
+  let gr,gc;do{gr=6+Math.floor(Math.random()*3);gc=6+Math.floor(Math.random()*3);}while(crGrid[gr][gc]);
+  crGrid[gr][gc]=4;crGoal={r:gr,c:gc};
+  const nb=document.getElementById('cr-next-btn');if(nb)nb.style.display='none';
+  const msg=document.getElementById('cr-msg');if(msg)msg.textContent='☁️ Tap anywhere to move your cloud!';
+  crUpdateStats();
+  if(crAF)cancelAnimationFrame(crAF);
+  const cv=document.getElementById('cr-canvas');
+  if(cv){
+    cv.onclick=null;cv.ontouchstart=null;
+    const handler=(e)=>{
+      e.preventDefault();
+      const rect=cv.getBoundingClientRect();
+      const ex=(e.touches?e.touches[0].clientX:e.clientX)-rect.left;
+      const ey=(e.touches?e.touches[0].clientY:e.clientY)-rect.top;
+      crTarget.x=ex*(cv.width/rect.width);crTarget.y=ey*(cv.height/rect.height);
+    };
+    cv.onclick=handler;cv.ontouchstart=handler;
+  }
+  crLoop();
+}
+function crLoop(){
+  const cv=document.getElementById('cr-canvas');if(!cv){crAF=null;return;}
+  const ctx=cv.getContext('2d');
+  const dx=crTarget.x-crCloud.x,dy=crTarget.y-crCloud.y,dist=Math.sqrt(dx*dx+dy*dy);
+  const moving=dist>4;
+  if(moving){crCloud.x+=dx/dist*4;crCloud.y+=dy/dist*4;}
+  if(moving&&crRain>0){
+    const gr=Math.floor(crCloud.y/CR_CELL),gc=Math.floor(crCloud.x/CR_CELL);
+    if(gr>=0&&gr<CR_ROWS&&gc>=0&&gc<CR_COLS){
+      if(crGrid[gr][gc]===1){crGrid[gr][gc]=2;crRain=Math.max(0,crRain-8);crScore+=10;crUpdateStats();}
+      else if(crGrid[gr][gc]===3){crGrid[gr][gc]=0;crRain=Math.max(0,crRain-20);crUpdateStats();}
+      else if(crGrid[gr][gc]===4){
+        const dryLeft=crGrid.flat().filter(v=>v===1).length;
+        if(dryLeft===0){crScore+=50;crUpdateStats();crWin();}
+        else{const msg=document.getElementById('cr-msg');if(msg)msg.textContent='🌻 Water '+dryLeft+' more patch'+(dryLeft>1?'es':'')+'first!';}
+      } else crRain=Math.max(0,crRain-0.4);
+    }
+  }
+  ctx.fillStyle='#E0F4FF';ctx.fillRect(0,0,cv.width,cv.height);
+  for(let r=0;r<CR_ROWS;r++)for(let c=0;c<CR_COLS;c++){
+    const x=c*CR_CELL,y=r*CR_CELL,v=crGrid[r][c];
+    ctx.fillStyle=CR_CLR[v]||CR_CLR[0];ctx.fillRect(x,y,CR_CELL-1,CR_CELL-1);
+    if(v>0){ctx.font=(CR_CELL*.62)+'px serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(CR_EM[v],x+CR_CELL/2,y+CR_CELL/2);}
+  }
+  ctx.font='2rem serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('☁️',crCloud.x,crCloud.y-8);
+  if(moving&&crRain>0){
+    for(let i=0;i<5;i++){ctx.font='.75rem serif';ctx.fillText('💧',crCloud.x+(i-2)*8,crCloud.y+8+Math.sin(Date.now()/80+i)*4);}
+  }
+  if(crRain<=0){const msg=document.getElementById('cr-msg');if(msg&&!msg.textContent.includes('Tap'))msg.textContent='☁️ Cloud empty! Tap Restart.';}
+  crAF=requestAnimationFrame(crLoop);
+}
+function crWin(){
+  if(crAF)cancelAnimationFrame(crAF);crAF=null;
+  const msg=document.getElementById('cr-msg');if(msg)msg.textContent='🎉 Level '+crLv+' complete! +50 pts!';
+  const nb=document.getElementById('cr-next-btn');if(nb)nb.style.display='block';
+  addPoints(20);markGameComplete('cloudrain');launchConfetti(30);
+}
+function crNextLevel(){crLv++;crInit();}
+function crUpdateStats(){
+  const el=document.getElementById('cr-level');if(el)el.textContent=crLv;
+  const er=document.getElementById('cr-rain');if(er)er.textContent=Math.round(crRain);
+  const es=document.getElementById('cr-score');if(es)es.textContent=crScore;
+  const dryLeft=crGrid.flat().filter(v=>v===1).length,total=3+crLv*2;
+  const ew=document.getElementById('cr-wetted');if(ew)ew.textContent=total-dryLeft;
+  const et=document.getElementById('cr-total');if(et)et.textContent=total;
+}
+
+// ══════════════════════════════════════════════════
+//  RIDDLES
+// ══════════════════════════════════════════════════
+const RIDDLE_POOL=[
+  {q:"I have hands but can't clap. What am I?",opts:["A clock","A mirror","A puppet","A statue"],a:0,fun:"⏰ Clock hands show the time but can't clap!"},
+  {q:"The more you take, the more you leave behind. What am I?",opts:["Money","Footsteps","Time","Memories"],a:1,fun:"👣 Every step leaves a footprint behind!"},
+  {q:"What goes up but never comes down?",opts:["A balloon","A kite","Your age","A rocket"],a:2,fun:"🎂 Age only goes up — you never grow younger!"},
+  {q:"I have a tail and a head, but no body. What am I?",opts:["A snake","A coin","A comet","A scorpion"],a:1,fun:"🪙 Heads or tails — a coin has both!"},
+  {q:"What can you catch but not throw?",opts:["A ball","A cold","A wave","A frisbee"],a:1,fun:"🤧 You can catch a cold but you can't throw one!"},
+  {q:"What is so fragile that saying its name breaks it?",opts:["Glass","Trust","Silence","A promise"],a:2,fun:"🤫 Say 'silence' and you've broken it!"},
+  {q:"I run but have no legs. What am I?",opts:["A river","The wind","A clock","A car"],a:0,fun:"🌊 Rivers run to the sea without any legs!"},
+  {q:"What has one eye but can't see?",opts:["A needle","A potato","A button","A cyclops"],a:0,fun:"🪡 A needle has an eye — for thread!"},
+  {q:"I'm light as a feather but nobody can hold me for 5 minutes. What am I?",opts:["A cloud","Breath","A thought","Steam"],a:1,fun:"😮‍💨 Try holding your breath for 5 minutes!"},
+  {q:"What gets bigger the more you take away from it?",opts:["A hole","A shadow","Time","Silence"],a:0,fun:"🕳️ Dig more from a hole — it only gets bigger!"},
+  {q:"What has cities but no houses, forests but no trees, rivers but no water?",opts:["A dream","A map","A book","A painting"],a:1,fun:"🗺️ A map shows all these — but none are real!"},
+  {q:"I speak without a mouth and hear without ears. What am I?",opts:["A ghost","An echo","The wind","A shadow"],a:1,fun:"📣 An echo reflects your voice!"},
+  {q:"What can travel around the world while staying in a corner?",opts:["A cloud","A stamp","The sun","Wi-Fi"],a:1,fun:"📮 A stamp sits in the corner of an envelope!"},
+  {q:"The more of this there is, the less you see. What is it?",opts:["Light","Darkness","Fog","Colour"],a:1,fun:"🌑 More darkness = less you can see!"},
+  {q:"What has teeth but cannot bite?",opts:["A snake","A comb","A zipper","A saw"],a:1,fun:"💈 A comb has teeth but only untangles hair!"},
+];
+let rdList=[],rdIdx=0,rdScore=0,rdCorrect=0,rdDone=false;
+
+function riddlesInit(){
+  rdList=[...RIDDLE_POOL].sort(()=>Math.random()-.5).slice(0,10);
+  rdIdx=0;rdScore=0;rdCorrect=0;rdDone=false;
+  const rs=document.getElementById('rd-score');if(rs)rs.textContent='0';
+  const rc=document.getElementById('rd-correct');if(rc)rc.textContent='0';
+  const fn=document.getElementById('rd-fun');if(fn)fn.style.display='none';
+  const nb=document.getElementById('rd-next-btn');if(nb)nb.style.display='none';
+  rdShow();
+}
+function rdShow(){
+  if(rdIdx>=rdList.length){
+    const q=document.getElementById('rd-question');if(q)q.textContent='🏆 Done! '+rdCorrect+'/10 correct, '+rdScore+' pts!';
+    const o=document.getElementById('rd-options');if(o)o.innerHTML='';
+    const fn=document.getElementById('rd-fun');if(fn)fn.style.display='none';
+    const nb=document.getElementById('rd-next-btn');if(nb)nb.style.display='none';
+    if(!rdDone){rdDone=true;markGameComplete('riddles');addPoints(rdScore);launchConfetti(25);}
+    return;
+  }
+  const r=rdList[rdIdx];
+  const q=document.getElementById('rd-question');if(q)q.textContent=r.q;
+  const fn=document.getElementById('rd-fun');if(fn)fn.style.display='none';
+  const nb=document.getElementById('rd-next-btn');if(nb)nb.style.display='none';
+  const rn=document.getElementById('rd-num');if(rn)rn.textContent=(rdIdx+1);
+  const oc=document.getElementById('rd-options');if(!oc)return;oc.innerHTML='';
+  const shuffled=r.opts.map((t,i)=>({t,isCorrect:i===r.a})).sort(()=>Math.random()-.5);
+  shuffled.forEach(o=>{
+    const btn=document.createElement('button');
+    btn.textContent=o.t;
+    btn.style.cssText='padding:11px 14px;border-radius:12px;border:2px solid #FDE68A;background:#FFFBEB;font-size:.9rem;font-weight:700;cursor:pointer;text-align:left;width:100%;transition:all .2s;font-family:"Nunito",sans-serif;-webkit-tap-highlight-color:transparent;';
+    btn.onmouseover=()=>{if(!btn.disabled)btn.style.borderColor='#F59E0B';};
+    btn.onmouseout=()=>{if(!btn.disabled&&!btn._picked)btn.style.borderColor='#FDE68A';};
+    btn._isCorrect=o.isCorrect;
+    btn.onclick=()=>rdAnswer(btn);
+    oc.appendChild(btn);
+  });
+}
+function rdAnswer(btn){
+  if(btn.disabled)return;
+  document.getElementById('rd-options').querySelectorAll('button').forEach(b=>b.disabled=true);
+  btn._picked=true;
+  if(btn._isCorrect){
+    btn.style.background='#ECFDF5';btn.style.borderColor='#22C55E';btn.style.color='#065F46';
+    rdCorrect++;rdScore+=20;addPoints(20);
+  } else {
+    btn.style.background='#FEF2F2';btn.style.borderColor='#EF4444';btn.style.color='#991B1B';
+    document.getElementById('rd-options').querySelectorAll('button').forEach(b=>{if(b._isCorrect){b.style.background='#ECFDF5';b.style.borderColor='#22C55E';}});
+  }
+  const rs=document.getElementById('rd-score');if(rs)rs.textContent=rdScore;
+  const rc=document.getElementById('rd-correct');if(rc)rc.textContent=rdCorrect;
+  const fn=document.getElementById('rd-fun');if(fn){fn.textContent='💡 '+rdList[rdIdx].fun;fn.style.display='block';}
+  const nb=document.getElementById('rd-next-btn');if(nb)nb.style.display='block';
+}
+function rdNext(){rdIdx++;rdShow();}
 </script>
 </body>
 </html>
